@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piece — DoReDog</title>
+<meta name="description" content="Play this piece in letter notes with DoReDog’s live keyboard player. Adjust the speed, loop it, and learn by ear.">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=70">
+<link rel="stylesheet" href="css/player.css?v=70">
+</head>
+<body data-page="song">
+<header id="site-header"></header>
+
+<main>
+  <section style="padding-top:98px">
+    <div class="container">
+      <a href="library.html" class="text-mute" style="font-size:.85rem;display:inline-flex;align-items:center;gap:.5rem;margin-bottom:18px" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        Back to library
+      </a>
+
+      <!-- song header -->
+      <div style="display:grid;grid-template-columns:132px 1fr;gap:24px;align-items:center;margin-bottom:22px" class="song-head" data-reveal data-delay="1">
+        <div id="song-cover" class="tilt" data-tilt style="aspect-ratio:1;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;box-shadow:var(--elev-2)"></div>
+        <div>
+          <div style="display:flex;gap:.6rem;margin-bottom:.7rem">
+            <span class="chip" id="song-diff">easy</span>
+            <span class="chip" id="song-genre">Genre</span>
+          </div>
+          <h1 class="display" id="song-title" style="font-size:clamp(1.9rem,3.6vw,2.9rem)">Title</h1>
+          <p class="lead" id="song-composer" style="color:var(--gold);margin-top:.35rem;font-family:var(--font-mono);font-size:.88rem;letter-spacing:.04em">Composer</p>
+          <p class="lead" id="song-blurb" style="margin-top:.7rem;font-size:1rem"></p>
+        </div>
+      </div>
+
+      <!-- player -->
+      <div id="song-player"></div>
+
+      <!-- how to use hint -->
+      <div class="card" style="margin-top:24px;padding:22px 26px;display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap" data-reveal>
+        <div style="flex:1;min-width:240px">
+          <h3 style="font-family:var(--font-body);font-weight:600;font-size:1.05rem;margin-bottom:.4rem">How to play along</h3>
+          <p class="text-dim" style="font-size:.92rem;margin:0">Press play to hear it, then drag <strong style="color:var(--text)">Speed</strong> down to slow the melody while you find the keys. Tap any letter in the notation to hear just that note, or click the keyboard to play freely. New to the format? <a href="guide.html" style="color:var(--gold)">Read the guide →</a></p>
+        </div>
+        <div class="oct-legend" style="margin:0">
+          <span class="li"><span class="dot" style="background:var(--o2);color:var(--o2)"></span>O2</span>
+          <span class="li"><span class="dot" style="background:var(--o3);color:var(--o3)"></span>O3</span>
+          <span class="li"><span class="dot" style="background:var(--o4);color:var(--o4)"></span>O4</span>
+          <span class="li"><span class="dot" style="background:var(--o5);color:var(--o5)"></span>O5</span>
+          <span class="li"><span class="dot" style="background:var(--o6);color:var(--o6)"></span>O6</span>
+        </div>
+      </div>
+
+      <!-- export / take it with you -->
+      <div class="export-bar" data-reveal>
+        <div class="export-copy">
+          <h3>Take it with you</h3>
+          <p class="text-dim">Download this piece as a MIDI file to open in any music app, or print a clean letter-note sheet.</p>
+        </div>
+        <div class="export-btns">
+          <button class="btn btn-ghost" id="exp-midi" type="button">↓ MIDI</button>
+          <button class="btn btn-ghost" id="exp-print" type="button">⎙ Print sheet</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD -->
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="in-article">Ad space — responsive in-article · paste your AdSense unit here</div>
+  </div>
+
+  <!-- related -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow" data-reveal>Melodically similar</span><h2 class="title" data-reveal data-delay="1">More like this</h2></div>
+        <a class="btn btn-ghost" href="library.html" data-reveal data-delay="1">All pieces</a>
+      </div>
+      <div class="song-grid" id="related-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=70"></script>
+<script src="js/player.js?v=70"></script>
+<script src="js/export.js?v=70"></script>
+<script src="js/site.js?v=70"></script>
+<script src="js/pages.js?v=70"></script>
+<style>
+@media (max-width:640px){ .song-head{ grid-template-columns:120px 1fr !important; gap:20px !important } }
+</style>
+</body>
+</html>

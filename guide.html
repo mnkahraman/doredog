@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Read Letter Notes — DoReDog</title>
+<meta name="description" content="Learn to read piano letter notes in two minutes: lowercase white keys, uppercase sharps, colour-coded octaves and dash timing. Then try the live sandbox.">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=70">
+<link rel="stylesheet" href="css/player.css?v=70">
+</head>
+<body data-page="guide">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">2-minute read</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">How to read <span class="text-grad">letter notes</span></h1>
+      <p class="lead" data-reveal data-delay="2">No music theory required. If you can read the alphabet, you can read these. Here’s the whole system.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:900px">
+
+      <!-- Rule 1 -->
+      <div class="card tilt" data-tilt style="padding:34px;margin-bottom:22px" data-reveal>
+        <span class="eyebrow">Rule 1 · Direction</span>
+        <h2 class="title" style="font-size:1.7rem;margin:.8rem 0 .6rem">Read left to right, stacks together</h2>
+        <p class="text-dim">Each line of letters is played from left to right, like reading a sentence. When two or more letters sit in the <strong style="color:var(--text)">same column</strong> (stacked vertically), you play them <strong style="color:var(--text)">at the same time</strong> — that’s a chord.</p>
+      </div>
+
+      <!-- Rule 2 -->
+      <div class="card tilt" data-tilt style="padding:34px;margin-bottom:22px" data-reveal>
+        <span class="eyebrow">Rule 2 · Case</span>
+        <h2 class="title" style="font-size:1.7rem;margin:.8rem 0 .6rem">Lowercase = white keys · UPPERCASE = sharps</h2>
+        <p class="text-dim" style="margin-bottom:1rem"><strong style="color:var(--text)">Lowercase</strong> letters (a b c d e f g) are the natural notes — the white keys. <strong style="color:var(--text)">Uppercase</strong> letters (A C D F G) are the sharps — the black keys, i.e. A♯ C♯ D♯ F♯ G♯.</p>
+        <div style="font-family:var(--font-mono);font-size:1.15rem;line-height:2">
+          <div><span class="o4">c d e f g a b</span> <span class="text-mute" style="font-size:.85rem">→ white keys (C D E F G A B)</span></div>
+          <div><span class="o5">C&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;F&nbsp;&nbsp;G&nbsp;&nbsp;A</span> <span class="text-mute" style="font-size:.85rem">→ black keys (C♯ D♯ F♯ G♯ A♯)</span></div>
+        </div>
+      </div>
+
+      <!-- Rule 3 -->
+      <div class="card tilt" data-tilt style="padding:34px;margin-bottom:22px" data-reveal>
+        <span class="eyebrow">Rule 3 · Octaves & colour</span>
+        <h2 class="title" style="font-size:1.7rem;margin:.8rem 0 .6rem">The number is the octave — each has a colour</h2>
+        <p class="text-dim" style="margin-bottom:1.4rem">The number in front of each line tells you which octave to play in. Higher number = higher pitch. To make melodies easy to follow, every octave gets its own colour, on the page and on the keyboard below.</p>
+        <div class="piano-wrap" style="border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)">
+          <div class="piano-scroll" id="ref-piano"></div>
+          <div class="oct-legend" id="ref-legend"></div>
+        </div>
+      </div>
+
+      <!-- Rule 4 -->
+      <div class="card tilt" data-tilt style="padding:34px;margin-bottom:22px;position:relative" data-reveal>
+        <div class="dsticker s3 bob" role="img" aria-label="Doré listening" style="position:absolute;top:-26px;right:14px;width:86px;z-index:3"></div>
+        <span class="eyebrow">Rule 4 · Timing</span>
+        <h2 class="title" style="font-size:1.7rem;margin:.8rem 0 .6rem">Dashes are time; hands are optional</h2>
+        <p class="text-dim" style="margin-bottom:.8rem">The dashes <span class="text-mute" style="font-family:var(--font-mono)">- - -</span> between letters are spacing in time — roughly <strong style="color:var(--text)">5–6 dashes ≈ one second</strong> at normal speed. Press play and slow the tempo down if you need to; your ear will do the rest.</p>
+        <p class="text-dim" style="margin:0">Some sheets label lines <strong style="color:var(--text)">RH</strong> / <strong style="color:var(--text)">LH</strong> (right hand / left hand). If you only want the tune, play the right-hand melody lines — the left hand is usually just the bass.</p>
+      </div>
+
+      <!-- Sandbox -->
+      <div style="margin:50px 0 20px" data-reveal>
+        <span class="eyebrow">Try it yourself</span>
+        <h2 class="title" style="font-size:2rem;margin:.8rem 0">The live sandbox</h2>
+        <p class="lead" style="margin-bottom:24px">Edit the notation below — change letters, add dashes, stack a chord — then hit <em>Rebuild</em> and press play. This is exactly how every piece in the library works.</p>
+        <textarea id="nota-editor" class="nota-editor" spellcheck="false">5|-------------c|
+4|c-d-e-f-g-a-b-|
+1
+5|c-------------|
+4|-b-a-g-f-e-d-c|
+2</textarea>
+        <div style="margin:14px 0 26px">
+          <button class="btn btn-primary" id="nota-reload">Rebuild player
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:1.05em"><path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+        </div>
+        <div id="sandbox-player"></div>
+      </div>
+
+      <div style="text-align:center;margin-top:50px" data-reveal>
+        <a class="btn btn-primary btn-lg" href="library.html">Browse ready-made pieces</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=70"></script>
+<script src="js/player.js?v=70"></script>
+<script src="js/site.js?v=70"></script>
+<script src="js/pages.js?v=70"></script>
+<script>
+  // reference keyboard on the guide (octaves 2–6, no audio hookup needed but playable)
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!window.DRD || !document.getElementById('ref-piano')) return;
+    // reuse the player's piano by mounting a tiny silent player then hiding transport
+    var host = document.createElement('div');
+    var p = DRD.createPlayer(host, { title:'', composer:'', notation:'2|c|\n6|c|' }, { pianoRange:[2,6] });
+    var piano = host.querySelector('.piano-scroll');
+    var legend = host.querySelector('.oct-legend');
+    if (piano) document.getElementById('ref-piano').appendChild(piano);
+    if (legend) document.getElementById('ref-legend').appendChild(legend);
+  });
+</script>
+</body>
+</html>

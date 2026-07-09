@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DoReDog — Play Any Song With Letter Notes</title>
+<meta name="description" content="DoReDog is a cinematic, free library of piano letter notes with a built-in live player. Read the letters, press play, and hear the melody instantly.">
+<meta name="theme-color" content="#06060b">
+<meta property="og:title" content="DoReDog — Play Any Song With Letter Notes">
+<meta property="og:description" content="A cinematic library of piano letter notes you can actually hear. Press play and watch the keys light up.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/og.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=70">
+<link rel="stylesheet" href="css/player.css?v=70">
+</head>
+<body data-page="home">
+<header id="site-header"></header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow" data-reveal>The letter-notes library, reimagined</span>
+          <h1 class="display" data-reveal data-delay="1">Play any song<br>with just <span class="text-grad">letters.</span></h1>
+          <p class="lead" data-reveal data-delay="2">No sheet music. No theory. Read the letters, press play, and hear the melody come alive — with every octave glowing in its own colour on a live keyboard.</p>
+          <div class="hero-actions" data-reveal data-delay="3">
+            <a class="btn btn-primary btn-lg" href="library.html">Browse the Library
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="guide.html">How to read notes</a>
+          </div>
+          <div class="hero-stats" data-reveal data-delay="4">
+            <div class="stat"><b class="text-grad" id="stat-pieces">38</b><span>Ready-to-play pieces</span></div>
+            <div class="stat"><b class="text-grad">5</b><span>Colour-coded octaves</span></div>
+            <div class="stat"><b class="text-grad">100%</b><span>Free · no sign-up</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual hero-scene" data-reveal data-delay="2">
+          <div class="scene-orb" aria-hidden="true"></div>
+          <div class="scene-notes" aria-hidden="true">
+            <span class="pn" style="--px:36;--tz:34px;left:-2%;top:6%"><i>♪</i></span>
+            <span class="pn" style="--px:24;--tz:16px;left:84%;top:2%"><i style="color:var(--o3);animation-delay:1.2s">♫</i></span>
+            <span class="pn" style="--px:46;--tz:50px;left:92%;top:60%"><i style="color:var(--o5);animation-delay:2.1s">♩</i></span>
+            <span class="pn" style="--px:18;--tz:8px;left:-4%;top:72%"><i style="color:var(--o2);animation-delay:.6s">♬</i></span>
+          </div>
+          <div class="scene-mascot" data-mascot="hero" aria-hidden="true" style="--px:34"></div>
+          <div class="card scene-card" style="--px:14;--tz:26px;padding:26px 26px 30px;overflow:visible;box-shadow:var(--elev-3)">
+            <div class="ad-label" style="text-align:left;margin-bottom:14px">Now reading · Rondo Alla Turca</div>
+            <div class="notation" style="font-family:var(--font-mono);font-size:15px;padding:0;overflow-x:auto">
+              <div class="nota-line"><span class="nota-oct o5">5|</span><span class="o5" style="font-weight:600">--------edCded</span></div>
+              <div class="nota-line"><span class="nota-oct o4">4|</span><span class="o4" style="font-weight:600">edCdf---gfefa</span></div>
+              <div class="nota-line" style="margin-top:10px"><span class="nota-oct o5">5|</span><span class="o5" style="font-weight:600">Cdf---d-f-c-d-c</span></div>
+              <div class="nota-line"><span class="nota-oct o4">4|</span><span class="o4" style="font-weight:600">------b-a-b---b</span></div>
+            </div>
+            <div style="display:flex;gap:6px;margin-top:22px;height:46px;align-items:flex-end">
+              <i style="flex:none;width:26px;height:100%;border-radius:5px 5px 3px 3px;background:linear-gradient(#f3f1f7,#d9d6e2)"></i>
+              <i style="flex:none;width:16px;height:64%;border-radius:0 0 4px 4px;background:linear-gradient(#2a2833,#0b0a10);margin:0 -13px;z-index:2;box-shadow:0 0 16px 2px var(--o5)"></i>
+              <i style="flex:none;width:26px;height:100%;border-radius:5px 5px 3px 3px;background:linear-gradient(#f3f1f7,#d9d6e2);box-shadow:0 0 22px 3px var(--o4)"></i>
+              <i style="flex:none;width:16px;height:64%;border-radius:0 0 4px 4px;background:linear-gradient(#2a2833,#0b0a10);margin:0 -13px;z-index:2"></i>
+              <i style="flex:none;width:26px;height:100%;border-radius:5px 5px 3px 3px;background:linear-gradient(#f3f1f7,#d9d6e2)"></i>
+              <i style="flex:none;width:26px;height:100%;border-radius:5px 5px 3px 3px;background:linear-gradient(#f3f1f7,#d9d6e2);box-shadow:0 0 22px 3px var(--o3)"></i>
+              <i style="flex:none;width:16px;height:64%;border-radius:0 0 4px 4px;background:linear-gradient(#2a2833,#0b0a10);margin:0 -13px;z-index:2"></i>
+              <i style="flex:none;width:26px;height:100%;border-radius:5px 5px 3px 3px;background:linear-gradient(#f3f1f7,#d9d6e2)"></i>
+              <i style="flex:none;width:16px;height:64%;border-radius:0 0 4px 4px;background:linear-gradient(#2a2833,#0b0a10);margin:0 -13px;z-index:2;box-shadow:0 0 16px 2px var(--o6)"></i>
+              <i style="flex:none;width:26px;height:100%;border-radius:5px 5px 3px 3px;background:linear-gradient(#f3f1f7,#d9d6e2)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRY IT LIVE -->
+  <section class="section" id="try">
+    <div class="container">
+      <div class="try-head">
+        <img class="try-mascot" src="assets/mascot/dore-play.webp" alt="Doré playing the piano" loading="lazy" data-reveal>
+        <div class="try-copy">
+          <span class="eyebrow" data-reveal>Try it live</span>
+          <h2 class="title" data-reveal data-delay="1">Hear the notes, don't just read them.</h2>
+          <p class="lead" data-reveal data-delay="2">This is a real, playable piece. Hit play — the keyboard lights up in octave colours and a warm reverb-piano carries the melody. Drag the speed slider to slow it down while you learn.</p>
+        </div>
+      </div>
+      <div id="demo-player"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section class="section-sm" id="recent" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Jump back in</span>
+          <h2 class="title" data-reveal data-delay="1">Recently played</h2>
+        </div>
+        <a class="btn btn-ghost" href="library.html?filter=favorites" data-reveal data-delay="2">Your favourites ♥</a>
+      </div>
+      <div class="song-grid" id="recent-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Piece of the day</span>
+          <h2 class="title" data-reveal data-delay="1">Today's pick, then some favourites</h2>
+        </div>
+        <a class="btn btn-ghost" href="library.html" data-reveal data-delay="2">See all pieces</a>
+      </div>
+      <div class="song-grid" id="daily-grid" style="margin-bottom:26px"></div>
+      <div class="song-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- THE ARCHIVE (depth showcase — browse by composer) -->
+  <section class="section" id="archive">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+        <span class="eyebrow" data-reveal>The deep archive</span>
+        <h2 class="title" data-reveal data-delay="1">A library with real depth</h2>
+        <p class="lead" data-reveal data-delay="2" style="max-width:62ch;margin:1rem auto 0">Not a handful of hits — hundreds of complete works, every prelude, sonata movement and character piece rendered in playable letter notes. Browse by the composers you love.</p>
+      </div>
+      <div class="archive-stats" data-reveal data-delay="2">
+        <div class="stat"><b class="text-grad" id="arch-pieces">—</b><span>Playable pieces</span></div>
+        <div class="stat"><b class="text-grad" id="arch-composers">—</b><span>Composers</span></div>
+        <div class="stat"><b class="text-grad" id="arch-eras">—</b><span>Genres &amp; eras</span></div>
+      </div>
+      <div class="composer-cloud" id="composer-cloud" data-reveal data-delay="3"></div>
+      <div style="text-align:center;margin-top:34px" data-reveal>
+        <a class="btn btn-ghost" href="library.html">Explore all pieces
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CINEMATIC ART MARQUEE (each scene links to a piece) -->
+  <section class="section-sm">
+    <div class="container" style="text-align:center;margin-bottom:28px">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">A cinematic way to learn</span>
+      <h2 class="title" data-reveal data-delay="1">Every piece, its own little world</h2>
+      <p class="lead" data-reveal data-delay="2" style="margin:1rem auto 0">Tap any scene to open the piece and press play.</p>
+    </div>
+    <div class="art-marquee">
+      <div class="art-track" id="art-track"></div>
+    </div>
+  </section>
+
+  <!-- MEET DORÉ -->
+  <section class="section-sm">
+    <div class="container" style="text-align:center;max-width:780px">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Meet your practice buddy</span>
+      <h2 class="title" data-reveal data-delay="1">Say hello to Doré</h2>
+      <p class="lead" data-reveal data-delay="2" style="margin:1rem auto 0">Doré is the headphone-wearing pup behind DoReDog — perfect pitch, endless patience. He hears a melody once and plays it right back, by letters. Learning music, but make it feel like play.</p>
+      <div class="dsticker s6 bob" data-reveal data-delay="2" role="img" aria-label="Doré cheering" style="width:clamp(160px,22vw,230px);margin:26px auto 4px"></div>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:24px" data-reveal>
+        <a class="btn btn-primary" href="library.html">Start playing with Doré</a>
+        <a class="btn btn-ghost" href="about.html">Doré’s story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD -->
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+        <span class="eyebrow" data-reveal>Why DoReDog</span>
+        <h2 class="title" data-reveal data-delay="1">Built for people who play by ear</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="card feature tilt" data-tilt data-reveal data-delay="1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 5v14l11-7z"/></svg></div>
+          <h3>A real, live player</h3>
+          <p>Every piece plays right in your browser with a synthesized reverb-piano — no downloads, no plugins. Watch the playhead sweep and the keys glow as it goes.</p>
+        </div>
+        <div class="card feature tilt" data-tilt data-reveal data-delay="2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+          <h3>Colour-coded octaves</h3>
+          <p>Each octave has its own colour — pink, green, red, gold and blue — so your eye follows the melody effortlessly, on the page and on the keyboard.</p>
+        </div>
+        <div class="card feature tilt" data-tilt data-reveal data-delay="3">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Free & instant</h3>
+          <p>No account, no paywall. Open a piece, press play, adjust the speed and start learning. It’s that simple — supported by unobtrusive ads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO READ TEASER -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="card" style="padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative" data-reveal>
+        <div class="dsticker s4 bob" role="img" aria-label="Doré singing" style="position:absolute;top:-30px;right:-12px;width:92px;z-index:3"></div>
+        <div>
+          <span class="eyebrow">The letter system</span>
+          <h2 class="title" style="margin:1rem 0">Lower case, UPPER case, dashes.</h2>
+          <p class="lead" style="margin-bottom:1.4rem"><strong style="color:var(--text)">Lowercase</strong> letters are the white keys. <strong style="color:var(--text)">UPPERCASE</strong> letters are the sharps (black keys). Dashes are silence or held time. Stacked letters play together as a chord.</p>
+          <a class="btn btn-primary" href="guide.html">Read the full guide
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:1.2rem;line-height:2;letter-spacing:.04em">
+            <div><span class="o2">c d e f g a b</span> <span class="text-mute" style="font-size:.8rem">→ white keys</span></div>
+            <div><span class="o4">C D F G A</span> <span class="text-mute" style="font-size:.8rem">→ sharps (black)</span></div>
+            <div class="text-mute">- - - - <span style="font-size:.8rem">→ timing / rests</span></div>
+          </div>
+          <div class="oct-legend" style="margin-top:22px">
+            <span class="li"><span class="dot" style="background:var(--o2);color:var(--o2)"></span>Octave 2</span>
+            <span class="li"><span class="dot" style="background:var(--o3);color:var(--o3)"></span>Octave 3</span>
+            <span class="li"><span class="dot" style="background:var(--o4);color:var(--o4)"></span>Octave 4</span>
+            <span class="li"><span class="dot" style="background:var(--o5);color:var(--o5)"></span>Octave 5</span>
+            <span class="li"><span class="dot" style="background:var(--o6);color:var(--o6)"></span>Octave 6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="card" style="text-align:center;padding:clamp(40px,7vw,90px);background:radial-gradient(120% 130% at 50% 0%, rgba(139,107,255,.18), transparent 60%), var(--surface)" data-reveal>
+        <h2 class="title" style="max-width:16ch;margin-inline:auto">Your next favourite melody is one press away.</h2>
+        <p class="lead" style="margin:1.2rem auto 2rem">Dive into the full library and start playing today.</p>
+        <a class="btn btn-primary btn-lg" href="library.html">Open the Library</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=70"></script>
+<script src="js/player.js?v=70"></script>
+<script src="js/site.js?v=70"></script>
+<script src="js/pages.js?v=70"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — DoReDog</title>
+<meta name="description" content="Get in touch with DoReDog — requests, corrections, copyright matters, or just to say hello.">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=70">
+<link rel="stylesheet" href="css/player.css?v=70">
+</head>
+<body data-page="contact">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">We read every message</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Get in <span class="text-grad">touch</span></h1>
+      <p class="lead" data-reveal data-delay="2">Requests for a piece, a correction to an arrangement, a copyright matter, or just a hello — send it over.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:900px">
+      <div style="display:grid;grid-template-columns:1.3fr .9fr;gap:32px" class="contact-grid">
+        <div class="card" style="padding:34px" data-reveal>
+          <h2 class="title" style="font-size:1.6rem;margin-bottom:1.2rem">Send a message</h2>
+          <form id="contact-form">
+            <div class="field"><label for="cf-name">Your name</label><input id="cf-name" required placeholder="Jane Doe"></div>
+            <div class="field"><label for="cf-email">Your email</label><input id="cf-email" type="email" required placeholder="you@example.com"></div>
+            <div class="field"><label for="cf-subject">Subject</label><input id="cf-subject" placeholder="A song request…"></div>
+            <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" required placeholder="Tell us what you’re playing or what you need."></textarea></div>
+            <button class="btn btn-primary btn-lg" type="submit">Open in email app
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:1.05em"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+            </button>
+            <p class="text-mute" style="font-size:.8rem;margin-top:1rem">This opens your email app with everything filled in. Prefer to write directly? Use the address on the right.</p>
+          </form>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px" data-reveal data-delay="1">
+          <div class="card tilt" data-tilt style="padding:28px;position:relative;overflow:visible">
+            <div class="dsticker s2 bob" role="img" aria-label="Doré winking" style="position:absolute;top:-46px;right:18px;width:82px;z-index:3"></div>
+            <div class="feature" style="padding:0">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m2 7 10 6 10-6"/></svg></div>
+              <h3 style="font-size:1.1rem">Email us</h3>
+              <p style="font-size:.92rem"><a href="mailto:mnkahraman@gmail.com" style="color:var(--gold)">mnkahraman@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="card tilt" data-tilt style="padding:28px">
+            <h3 style="font-family:var(--font-body);font-weight:600;font-size:1.05rem;margin-bottom:.5rem">Copyright &amp; takedowns</h3>
+            <p class="text-dim" style="font-size:.9rem;margin:0">Think something here shouldn’t be? Email us with the page link and details — see our <a href="terms.html" style="color:var(--gold)">Terms</a> for what to include. We act on every good-faith request.</p>
+          </div>
+          <div class="card tilt" data-tilt style="padding:28px">
+            <h3 style="font-family:var(--font-body);font-weight:600;font-size:1.05rem;margin-bottom:.5rem">Response time</h3>
+            <p class="text-dim" style="font-size:.9rem;margin:0">We’re a small, independent project, so replies can take a few days — but they always come.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=70"></script>
+<script src="js/player.js?v=70"></script>
+<script src="js/site.js?v=70"></script>
+<script src="js/pages.js?v=70"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var f = document.getElementById('contact-form');
+    if (!f) return;
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('cf-name').value || '';
+      var email = document.getElementById('cf-email').value || '';
+      var subject = document.getElementById('cf-subject').value || 'DoReDog message';
+      var msg = document.getElementById('cf-msg').value || '';
+      var body = 'From: ' + name + ' <' + email + '>\n\n' + msg;
+      window.location.href = 'mailto:mnkahraman@gmail.com?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  });
+</script>
+<style>@media (max-width:720px){ .contact-grid{ grid-template-columns:1fr !important } }</style>
+</body>
+</html>

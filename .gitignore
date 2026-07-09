@@ -1,0 +1,16 @@
+# OS / editor junk
+.DS_Store
+._*
+Thumbs.db
+*.swp
+*~
+
+# Node
+node_modules/
+
+# Local machine-specific dev config (absolute paths)
+.claude/
+
+# Scratch / logs
+scratchpad/
+*.log

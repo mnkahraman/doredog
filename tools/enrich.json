@@ -1,0 +1,4115 @@
+{
+  "m-bach-air-tromb": {
+    "title": "Air",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-air": {
+    "title": "Air (BWV Anh. 131)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-anna-magdalena-03": {
+    "title": "Menuet (BWV Anh. 113)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-anna-magdalena-04": {
+    "title": "Menuet in G",
+    "year": 1725
+  },
+  "m-bach-anna-magdalena-05": {
+    "title": "Menuet (BWV Anh. 115)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-anna-magdalena-07": {
+    "title": "Menuet (BWV Anh. 116)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-anna-magdalena-20a": {
+    "title": "Aria (BWV 515)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-anna-magdalena-22": {
+    "title": "Musette (BWV Anh. 126)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-arioso": {
+    "title": "Arioso (BWV 1056)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-applicatio": {
+    "title": "Applicatio (BWV 994)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-brichan": {
+    "title": "Brich an, o schönes Morgenlicht (BWV 248)",
+    "year": 1734
+  },
+  "m-bach-bach-bwv-230-lobet-den-herrn-alle-heiden": {
+    "title": "Lobet den Herrn, alle Heiden (Psalm 117) (BWV 230)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-christlag": {
+    "title": "Christ Lag In Todesbanden (BWV 277)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-duet3": {
+    "title": "Duetto III (BWV 804)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-duet4": {
+    "title": "Duetto IV (BWV 805)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-fugue17": {
+    "title": "Fugue 17, A-flat Major (BWV 862)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-prelude-bwv924a": {
+    "title": "Prelude (BWV 924a)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-preludio-bwv997": {
+    "title": "Preludio (BWV 997)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bach-siciliano-bmv-1031": {
+    "title": "Siciliano (BWV 1031)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bistdubeimir": {
+    "title": "Aria",
+    "year": 1722
+  },
+  "m-bach-bwv-1001-1": {
+    "title": "Sonata I BWV 1001 — I",
+    "year": 1720
+  },
+  "m-bach-bwv-1001-2": {
+    "title": "Sonata I BWV 1001 — II",
+    "year": 1720
+  },
+  "m-bach-bwv-1001-3": {
+    "title": "Sonata I BWV 1001 — III",
+    "year": 1720
+  },
+  "m-bach-bwv-1001-4": {
+    "title": "Sonata I BWV 1001 — IV",
+    "year": 1720
+  },
+  "m-bach-bwv-1003-1": {
+    "title": "Sonata II BWV 1003 — I",
+    "year": 1720
+  },
+  "m-bach-bwv-1003-2": {
+    "title": "Sonata II BWV 1003 — II",
+    "year": 1720
+  },
+  "m-bach-bwv-1003-3": {
+    "title": "Sonata II BWV 1003 — III",
+    "year": 1720
+  },
+  "m-bach-bwv-1003-4": {
+    "title": "Sonata II BWV 1003 — IV",
+    "year": 1720
+  },
+  "m-bach-bwv-1004-1": {
+    "title": "Partita II BWV 1004 — I",
+    "year": 1720
+  },
+  "m-bach-bwv-1004-3-sarabanda": {
+    "title": "Partita II BWV 1004 — Sarabanda",
+    "year": 1720
+  },
+  "m-bach-bwv-1004-4-giga": {
+    "title": "Partita II BWV 1004 — Giga",
+    "year": 1720
+  },
+  "m-bach-bwv-1004-5": {
+    "title": "Partita II BWV 1004 — V",
+    "year": 1720
+  },
+  "m-bach-bwv-1005-1": {
+    "title": "Sonata III BWV 1005 — I",
+    "year": 1720
+  },
+  "m-bach-bwv-1005-2": {
+    "title": "Sonata III BWV 1005 — II",
+    "year": 1720,
+    "cpsMul": 2.5
+  },
+  "m-bach-bwv-1005-3": {
+    "title": "Sonata III BWV 1005 — III",
+    "year": 1720
+  },
+  "m-bach-bwv-1005-4": {
+    "title": "Sonata III BWV 1005 — IV",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-1": {
+    "title": "Partita III BWV 1006 — I",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-2": {
+    "title": "Partita III BWV 1006 — II",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-3": {
+    "title": "Partita III BWV 1006 — III",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-4": {
+    "title": "Partita III BWV 1006 — IV",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-5": {
+    "title": "Partita III BWV 1006 — V",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-6": {
+    "title": "Partita III BWV 1006 — VI",
+    "year": 1720
+  },
+  "m-bach-bwv-1006-7": {
+    "title": "Partita III BWV 1006 — VII",
+    "year": 1720
+  },
+  "m-bach-bwv-1006a-1": {
+    "title": "Suite BWV 1006a — I",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-2": {
+    "title": "Suite BWV 1006a — II",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-3": {
+    "title": "Suite BWV 1006a — III",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-4": {
+    "title": "Suite BWV 1006a — IV",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-5": {
+    "title": "Suite BWV 1006a — V",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-6": {
+    "title": "Suite BWV 1006a — VI",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-7": {
+    "title": "Suite BWV 1006a — VII",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-1g": {
+    "title": "Suite E-Dur - BWV 1006a — I",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-2g": {
+    "title": "Suite E-Dur - BWV 1006a — II",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-3g": {
+    "title": "Suite E-Dur - BWV 1006a — III",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-4g": {
+    "title": "Suite E-Dur - BWV 1006a — IV",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-5g": {
+    "title": "Suite E-Dur - Suite BWV 1006a — V",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-6g": {
+    "title": "Suite E-Dur - Suite BWV 1006a — VI",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1006a-7g": {
+    "title": "Suite E-Dur - Suite BWV 1006a — VII",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-1": {
+    "title": "Cello Suite VI (BWV 1012) — I",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-2": {
+    "title": "Cello Suite VI (BWV 1012) — II",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-3": {
+    "title": "Cello Suite VI (BWV 1012) — III",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-4": {
+    "title": "Cello Suite VI (BWV 1012) — IV",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-5-1": {
+    "title": "Cello Suite VI (BWV 1012) — I — BWV 1012 (2)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-5-2": {
+    "title": "Cello Suite VI (BWV 1012) — II — BWV 1012 (2)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1012-6": {
+    "title": "Cello Suite VI (BWV 1012) — VI",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-05": {
+    "title": "14 Kanons (BWV 1087) — V",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-06": {
+    "title": "14 Kanons (BWV 1087) — VI",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-07": {
+    "title": "14 Kanons (BWV 1087) — VII",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-08": {
+    "title": "14 Kanons (BWV 1087) — VIII",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-09": {
+    "title": "14 Kanons (BWV 1087) — IX",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-10": {
+    "title": "14 Kanons (BWV 1087) — X",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-11": {
+    "title": "14 Kanons (BWV 1087) — XI",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-12": {
+    "title": "14 Kanons (BWV 1087) — XII",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-13": {
+    "title": "14 Kanons (BWV 1087) — No. 13",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-1087-14": {
+    "title": "14 Kanons (BWV 1087) — No. 14",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-117a": {
+    "title": "Polonaise in F major (BWV Anh. 117a)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-117b": {
+    "title": "Polonaise in F major (BWV Anh. 117b)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-119": {
+    "title": "Polonaise in G minor (BWV Anh. 119)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-120": {
+    "title": "Minuet in A minor (BWV Anh. 120)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-121": {
+    "title": "Minuet in C minor (BWV Anh. 121)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-127": {
+    "title": "March in E-flat major (BWV Anh. 127)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-128": {
+    "title": "Polonaise in D minor (BWV Anh. 128)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-259": {
+    "title": "Ach, was soll ich Sünder machen (BWV 259)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-264": {
+    "title": "Als der gütige Gott vollenden wollt' sein Wort (BWV 264)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-269": {
+    "title": "Aus meines Herzens Grunde (BWV 269)",
+    "year": 1784
+  },
+  "m-bach-bwv-454": {
+    "title": "Ermuntre dich, mein schwacher Geist",
+    "year": 1736
+  },
+  "m-bach-bwv-462": {
+    "title": "Gott, wie gross ist deine Güte",
+    "year": 1736
+  },
+  "m-bach-bwv-510": {
+    "title": "Chorale setting (BWV 510)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-511": {
+    "title": "Chorale setting (BWV 511)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-512": {
+    "title": "Chorale setting (BWV 512)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-516": {
+    "title": "Aria “Warum betrübst du dich” (BWV 516)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-568": {
+    "title": "Präludium XII (BWV 568)",
+    "year": 1720
+  },
+  "m-bach-bwv-691": {
+    "title": "Chorale prelude “Wer nur den lieben Gott läßt walten” (BWV Anh. 691)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv-936": {
+    "title": "Praeludium Nr. 4 (BWV 936)",
+    "year": 1717
+  },
+  "m-bach-bwv-937": {
+    "title": "Praeludium Nr. 5 (BWV 937)",
+    "year": 1717
+  },
+  "m-bach-bwv-938": {
+    "title": "Praeludium Nr. 6 (BWV 938)",
+    "year": 1717
+  },
+  "m-bach-bwv-944-1": {
+    "title": "Fantasia (BWV 944)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv0998-2": {
+    "title": "Fuge (BWV 998)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv347": {
+    "title": "Ich dank dir, lieber Herre (BWV 347)",
+    "year": 1784
+  },
+  "m-bach-bwv533": {
+    "title": "Prélude en mi mineur (BWV 533)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv549prelude": {
+    "title": "Prélude de Prélude et Fugue en Ut mineur (BWV 549)",
+    "year": 1708
+  },
+  "m-bach-bwv582": {
+    "title": "Passacaglia (BWV 582)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv599": {
+    "title": "Nun komm' der Heiden Heiland (BWV 599)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv600": {
+    "title": "Gott durch deine Güte (BWV 600)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv601": {
+    "title": "Herr Christ der ein'ge Gottes Sohn (BWV 601)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv602": {
+    "title": "Lob sey dem allmächtigen Gott (BWV 602)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv604": {
+    "title": "Gelobet seist Du, Jesu Christ (BWV 604)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv605": {
+    "title": "Der Tag der ist so freudenreich (BWV 605)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv606": {
+    "title": "Vom Himmel hoch, da komm' ich her (BWV 606)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv609": {
+    "title": "Lobt Gott, ihr Christen allzugleich (BWV 609) — Prelude",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-lobt": {
+    "title": "Lobt Gott, ihr Christen allzugleich (BWV 609) — Setting II",
+    "year": 1714
+  },
+  "m-bach-bwv610": {
+    "title": "Jesu, meine Freude (BWV 610)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv611": {
+    "title": "Christum wir sollen loben schon (BWV 611)",
+    "year": 1715
+  },
+  "m-bach-bwv612": {
+    "title": "Wir Christenleut (BWV 612)",
+    "year": 1714
+  },
+  "m-bach-bwv613": {
+    "title": "Helfft mir Gottes Güte preisen (BWV 613)",
+    "year": 1740
+  },
+  "m-bach-bwv615": {
+    "title": "In dir ist Freude (BWV 615)",
+    "year": 1715
+  },
+  "m-bach-bwv616": {
+    "title": "Mit Fried und Freud ich fahr dahin (BWV 616)",
+    "year": 1715
+  },
+  "m-bach-bwv617": {
+    "title": "Herr Gott nun schleuß den Himmel auf (BWV 617)",
+    "year": 1715
+  },
+  "m-bach-bwv618": {
+    "title": "O Lamm Gottes, unschuldig (BWV 618)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv619": {
+    "title": "Christe, du Lamm Gottes (BWV 619)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv620": {
+    "title": "Christus der uns seelig macht (BWV 620)",
+    "year": 1715
+  },
+  "m-bach-bwv623": {
+    "title": "Wir danken dir, Herr Jesu Christ (BWV 623)",
+    "year": 1715
+  },
+  "m-bach-bwv624": {
+    "title": "Hilf Gott, dass mir's gelinge (BWV 624)",
+    "year": 1716
+  },
+  "m-bach-bwv626": {
+    "title": "Jesus Christus, unser Heiland (BWV 626)",
+    "year": 1714
+  },
+  "m-bach-bwv627": {
+    "title": "Christ ist erstanden (BWV 627)",
+    "year": 1714
+  },
+  "m-bach-bwv628": {
+    "title": "Erstanden ist der Heil'ge Christ (BWV 628)",
+    "year": 1715
+  },
+  "m-bach-bwv629": {
+    "title": "Erschienen ist der herrliche Tag (BWV 629)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv630": {
+    "title": "Heut triumphieret Gottes Sohn (BWV 630)",
+    "year": 1714
+  },
+  "m-bach-bwv631a": {
+    "title": "Komm Gott Schöpfer, Heiliger Geist (BWV 631a)",
+    "year": 1714
+  },
+  "m-bach-bwv632": {
+    "title": "Herr Jesu Christ, dich zu uns wend (BWV 632)",
+    "year": 1715
+  },
+  "m-bach-bwv633": {
+    "title": "Liebster Jesu, wir sind hier (BWV 633)",
+    "year": 1715
+  },
+  "m-bach-bwv634": {
+    "title": "Liebster Jesu, wir sind hier (BWV 634)",
+    "year": 1715
+  },
+  "m-bach-bwv635": {
+    "title": "Dies sind die Heilgen zehn Gebot (BWV 635)",
+    "year": 1715
+  },
+  "m-bach-bwv636": {
+    "title": "Vater unser im Himmelreich (BWV 636)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv638": {
+    "title": "Es ist das Heil uns kommen her (BWV 638)",
+    "year": 1714
+  },
+  "m-bach-bwv641": {
+    "title": "Wenn wir in höchsten Nöten sein (BWV 641)",
+    "year": 1714
+  },
+  "m-bach-bwv642": {
+    "title": "Wer nur den lieben Gott lässt walten (BWV 642)",
+    "year": 1714
+  },
+  "m-bach-bwv643": {
+    "title": "Alle Menschen müssen sterben (BWV 643)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv644": {
+    "title": "Ach wie nichtig, ach wie flüchtig (BWV 644)",
+    "year": 1714
+  },
+  "m-bach-bwv647": {
+    "title": "Wer nur den lieben Gott lässt walten (BWV 647)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv648": {
+    "title": "Meine Seele erhebt den Herren (BWV 648)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv649": {
+    "title": "Ach bleib bei uns, Herr Jesu Christ (BWV 649)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv650": {
+    "title": "Kommst du nun, Jesu, vom Himmel herunter (BWV 650)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv651": {
+    "title": "Fantasia super: Komm Heiliger Geist, Herre Gott (BWV 651)",
+    "year": 1708
+  },
+  "m-bach-bwv652": {
+    "title": "Komm, heiliger Geist, Herre Gott (BWV 652)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv653": {
+    "title": "An Wasserflüssen Babylon (BWV 653)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv653b": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv654": {
+    "title": "Schmücke dich, o liebe Seele (BWV 654)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv655": {
+    "title": "Herr Jesu Christ, dich zu uns wend' (BWV 655)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv657": {
+    "title": "Nun danket alle Gott (BWV 657)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv660": {
+    "title": "Nun komm, der Heiden Heiland (BWV 660)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv661": {
+    "title": "Nun komm, der Heiden Heiland (BWV 661)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv662": {
+    "title": "Allein Gott in der Höh' sei Ehr' (BWV 662)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv664": {
+    "title": "Allein Gott in der Höh' sei Ehr' (BWV 664)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv665": {
+    "title": "Jesus Christus, unser Heiland (BWV 665)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv666": {
+    "title": "Jesus Christus, unser Heiland (BWV 666)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv667": {
+    "title": "Komm Gott Schöpfer, Heiliger Geist (BWV 667)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv669": {
+    "title": "Kyrie, Gott Vater in Ewigkeit (BWV 669)",
+    "year": 1739
+  },
+  "m-bach-bwv670": {
+    "title": "Christe, aller Welt Trost (BWV 670)",
+    "year": 1739
+  },
+  "m-bach-bwv671": {
+    "title": "Kyrie, Gott heiliger Geist (BWV 671)",
+    "year": 1739
+  },
+  "m-bach-bwv672": {
+    "title": "Kyrie, Gott Vater in Ewigkeit (BWV 672)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv673": {
+    "title": "Christe, aller Welt Trost (BWV 673)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv674": {
+    "title": "Kyrie, Gott heiliger Geist (BWV 674)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv676": {
+    "title": "Allein Gott in der Höh' sei Ehr' (BWV 676)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv677": {
+    "title": "Allein Gott in der Höh' sei Ehr' (BWV 677)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv678": {
+    "title": "Dies sind die heil'gen zehn Gebot' (BWV 678)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv679": {
+    "title": "Dies sind die heil'gen zehn Gebot' (BWV 679)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv680": {
+    "title": "Wir glauben all an einen Gott (BWV 680)",
+    "year": 1739
+  },
+  "m-bach-bwv681": {
+    "title": "Wir glauben all an einen Gott (BWV 681)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv682": {
+    "title": "Vater unser im Himmelreich (BWV 682)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv683": {
+    "title": "Vater unser im Himmelreich (BWV 683)",
+    "year": 1739
+  },
+  "m-bach-bwv687": {
+    "title": "Aus tiefer Noth schrei' ich zu dir. (BWV 687)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv693": {
+    "title": "Ach Gott und Herr (BWV 693)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv720": {
+    "title": "Ein' feste Burg ist unser Gott (BWV 720)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv721": {
+    "title": "Erbarm dich mein, o Herre Gott (BWV 721)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv723": {
+    "title": "Gelobet seist du, Jesu Christ (BWV 723)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv724": {
+    "title": "Gottes Sohn ist kommen (BWV 724)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv727": {
+    "title": "Herzlich thut mich verlangen (BWV 727)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv735": {
+    "title": "Valet will ich dir geben (BWV 735)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv751": {
+    "title": "In Dulci Jubilo (BWV 751)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv848b": {
+    "title": "Fuga III (BWV 848)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv849b": {
+    "title": "Fuga IV (BWV 849)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv851-fugue06": {
+    "title": "Fugue 6 - BWV 851",
+    "year": 1725,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-bach-bwv853b": {
+    "title": "Fuga VIII (BWV 853)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv855b": {
+    "title": "Fuga X (BWV 855)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv856-fugue11": {
+    "title": "Fugue 11 - BWV 856",
+    "year": 1725,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-bach-bwv857-fuga12": {
+    "title": "Fuga XII (BWV 857)",
+    "year": 1722
+  },
+  "m-bach-bwv860-fuga15": {
+    "title": "Fuga 15 - BWV 860",
+    "year": 1725,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-bach-bwv861-fuga16": {
+    "title": "Fuga 16 - BWV 861",
+    "year": 1725,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-bach-bwv865-fuga20": {
+    "title": "Fuga 20 - BWV 865",
+    "year": 1725,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-bach-bwv875a": {
+    "title": "Praeludium VI (BWV 875)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv903fan": {
+    "title": "Chromatic Fantasy and Fugue, BWV 903 — I",
+    "year": 1730
+  },
+  "m-bach-bwv903fug": {
+    "title": "Chromatic Fantasy and Fugue, BWV 903 — II",
+    "year": 1730
+  },
+  "m-bach-bwv910": {
+    "title": "Toccata (BWV 910)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-bwv997-01prelude": {
+    "title": "Suite in C Minor for Lute (trans. to A minor) (BWV 997) — I",
+    "year": 1740
+  },
+  "m-bach-bwv997-02fuga": {
+    "title": "Suite in C Minor for Lute (trans. to A minor) (BWV 997) — II",
+    "year": 1740
+  },
+  "m-bach-bwv997-03sarabande": {
+    "title": "Suite in C Minor for Lute (trans. to A minor) (BWV 997) — III",
+    "year": 1740
+  },
+  "m-bach-bwv997-04gigue": {
+    "title": "Suite in C Minor for Lute (trans. to A minor) (BWV 997) — IV",
+    "year": 1740
+  },
+  "m-bach-bwv997-05double": {
+    "title": "Suite in C Minor for Lute (trans. to A minor) (BWV 997) — V",
+    "year": 1740
+  },
+  "m-bach-christ-lag-in-todesbanden": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-christlagmut": {
+    "title": "Christ lag in Todesbanden (BWV 625)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-contrapunctusii": {
+    "title": "Die Kunst der Fuge (BWV 1080) — I",
+    "year": 1750
+  },
+  "m-bach-contrapunctusiii": {
+    "title": "Die Kunst der Fuge (BWV 1080) — II",
+    "year": 1750
+  },
+  "m-bach-contrapunctusv": {
+    "title": "Die Kunst der Fuge (BWV 1080) — III",
+    "year": 1750
+  },
+  "m-bach-contrapunctusvi": {
+    "title": "Die Kunst der Fuge (BWV 1080) — IV",
+    "year": 1750
+  },
+  "m-bach-contrapunctusvii": {
+    "title": "Die Kunst der Fuge (BWV 1080) — V",
+    "year": 1750
+  },
+  "m-bach-contrapunctusviii": {
+    "title": "Die Kunst der Fuge (BWV 1080) — VI",
+    "year": 1750
+  },
+  "m-bach-contrapunctusx": {
+    "title": "Die Kunst der Fuge (BWV 1080) — VII",
+    "year": 1750
+  },
+  "m-bach-contrapunctusxi": {
+    "title": "Die Kunst der Fuge (BWV 1080) — VIII",
+    "year": 1750
+  },
+  "m-bach-contrapunctusxii": {
+    "title": "Die Kunst der Fuge (BWV 1080) — IX",
+    "year": 1750
+  },
+  "m-bach-contrapunctusxiii": {
+    "title": "Die Kunst der Fuge (BWV 1080) — X",
+    "year": 1750
+  },
+  "m-bach-contrapunctusxiv": {
+    "title": "Die Kunst der Fuge (BWV 1080) — XI",
+    "year": 1750
+  },
+  "m-bach-contrapunctusxix": {
+    "title": "Die Kunst der Fuge (BWV 1080) — XII",
+    "year": 1750
+  },
+  "m-bach-contrapunctusxv": {
+    "title": "Die Kunst der Fuge (BWV 1080) — No. 13",
+    "year": 1750
+  },
+  "m-bach-da-jesus-an-dem-kreuze-stund": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-das-alte-jahr": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-duetto": {
+    "title": "Duetto II (BWV 803)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-durch-adams-fall": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-f9": {
+    "year": 1725,
+    "yearEst": true,
+    "title": "Prelude & Fugue, BWV 878 (WTC)"
+  },
+  "m-bach-fuga2": {
+    "title": "Fuga II (BWV 847)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-fugue-c-major": {
+    "title": "Fugue in C major (BWV 952)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-ich-ruf-zu-dir2": {
+    "title": "à deux claviers et pédale (BWV 639)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-in-dich-habe-ich-gehoffet": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-minuet-xpose": {
+    "title": "Minuet",
+    "year": 1725
+  },
+  "m-bach-nun-komm-28": {
+    "title": "28. Nun komm, der Heiden Heiland.",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-o-haupt-voll-blut": {
+    "title": "Chorale",
+    "year": 1729
+  },
+  "m-bach-puer-natus-est": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-rectus": {
+    "title": "Contrapunctus XVI (BWV 1080)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-ricercare": {
+    "title": "Ricercare (BWV 1079)",
+    "year": 1747
+  },
+  "m-bach-ricercare6": {
+    "title": "Ricercare a 6 (BWV 1079)",
+    "year": 1747
+  },
+  "m-bach-sheep": {
+    "title": "Schafe Können Sicher Weiden (Sheep Will Safely Graze) (BWV 208)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-spiritus-domini-bach": {
+    "title": "Spiritus Domini (BWV 878)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-vom-himmel-kam-der-engel-schaar": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-von-gott-will-ich-nicht-lassen": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-vordeinent": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-womut": {
+    "title": "Wo soll ich fliehen hin ? (BWV 646)",
+    "year": 1747
+  },
+  "m-bach-wtk1-fugue1": {
+    "title": "Das Wohltemperierte Clavier I, Fuga I (BWV 846, Fuga à 4)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-wtk2-fugue2": {
+    "title": "Fuga II (BWV 871 -- Fuga)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-bach-wtk2fuga1": {
+    "title": "Fuga I (BWV 870 -- Fuga)",
+    "year": 1725,
+    "yearEst": true
+  },
+  "m-beethovenlv-aria-rocco": {
+    "title": "Aria - (Op. 72b)",
+    "year": 1814
+  },
+  "m-beethovenlv-lvb-sonate-02no1-1": {
+    "title": "Piano Sonate Opus 2 No 1 (1st Movement)",
+    "year": 1794
+  },
+  "m-beethovenlv-lvb-sonate-02no1-3": {
+    "title": "Piano Sonate Opus 2 No 1 (3rd Movement)",
+    "year": 1794
+  },
+  "m-beethovenlv-lvb-sonate-02no1-4": {
+    "title": "Piano Sonate Opus 2 No 1 (4th Movement)",
+    "year": 1794
+  },
+  "m-beethovenlv-lvb-sonate-10no1-1": {
+    "title": "Sonate Opus 10 No.1 - 1st Movement",
+    "year": 1805,
+    "yearEst": true
+  },
+  "m-beethovenlv-lvb-sonate-10no1-3": {
+    "title": "Sonate Opus 10 No.1 - 3rd Movement",
+    "year": 1805,
+    "yearEst": true
+  },
+  "m-beethovenlv-lvb-sonate-10no2-1": {
+    "title": "Sonate Opus 10 No.2 - 1st Movement",
+    "year": 1796
+  },
+  "m-beethovenlv-lvb-sonate-10no2-3": {
+    "title": "Sonate Opus 10 No.2 - 3rd Movement",
+    "year": 1796
+  },
+  "m-beethovenlv-lvb-sonate-49no1-1": {
+    "title": "Piano Sonate Opus 49 No. 1 (1st Movement: Andante)",
+    "year": 1796
+  },
+  "m-beethovenlv-lvb-sonate-49no2-1": {
+    "title": "Sonate Opus 49 No.2 - Part 1",
+    "year": 1805,
+    "yearEst": true
+  },
+  "m-beethovenlv-lvb-sonate-57-2": {
+    "title": "Sonate f-Moll (Appassionata) (Op. 57)",
+    "year": 1805,
+    "yearEst": true
+  },
+  "m-beethovenlv-lvb-sonate-78-1": {
+    "title": "Piano Sonate Opus 78 (1st Movement)",
+    "year": 1809
+  },
+  "m-beethovenlv-lvb-sonate-78-2": {
+    "title": "Piano Sonate Opus 78 (2nd Movement)",
+    "year": 1809
+  },
+  "m-beethovenlv-lvb-sonate-79-1": {
+    "title": "Piano Sonate Opus 79 (1st Movement)",
+    "year": 1809
+  },
+  "m-beethovenlv-lvb-sonate-79-3": {
+    "title": "Piano Sonate Opus 79 (3rd Movement)",
+    "year": 1809
+  },
+  "m-beethovenlv-lvb-sonate-90-1": {
+    "title": "Piano Sonate Opus 90 — I",
+    "year": 1814
+  },
+  "m-beethovenlv-lvb-sonate-90-2": {
+    "title": "Piano Sonate Opus 90 — II",
+    "year": 1814
+  },
+  "m-beethovenlv-menuett-woo82": {
+    "title": "Menuett Op. WoO 82",
+    "year": 1785
+  },
+  "m-beethovenlv-pathetique-1": {
+    "title": "Sonata No. 8 “Pathétique” (Op. 13)",
+    "year": 1805,
+    "yearEst": true,
+    "cpsMul": 2
+  },
+  "m-beethovenlv-prelude-woo55": {
+    "title": "Prelude Op. WoO 55",
+    "year": 1787
+  },
+  "m-beethovenlv-seven-variations-opuswoo78": {
+    "title": "Seven Variations - Opus WoO 78",
+    "year": 1803
+  },
+  "m-beethovenlv-six-variations-opus76": {
+    "title": "Six Variations - Opus 76",
+    "year": 1809
+  },
+  "m-brahms-brahms-sapphische-ode": {
+    "title": "Sapphische Ode (Op. 94, No. 4.)",
+    "year": 1884
+  },
+  "m-brahms-brahms-vals3": {
+    "title": "Vals no. 3 (Op. 39)",
+    "year": 1875,
+    "yearEst": true
+  },
+  "m-brahms-instillernacht": {
+    "title": "In stiller Nacht",
+    "year": 1860
+  },
+  "m-brahms-intermezzo": {
+    "title": "2. Intermezzo (Op. 118, No. 2)",
+    "year": 1875,
+    "yearEst": true
+  },
+  "m-brahms-nachtwache1": {
+    "title": "Nachtwache 1 (Op. 104)",
+    "year": 1875,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-brahms-waltz-op39-10": {
+    "title": "Waltz (Op.39, No.10)",
+    "year": 1875,
+    "yearEst": true
+  },
+  "m-chopin-10-02-i": {
+    "title": "Etüde a-moll",
+    "year": 1828
+  },
+  "m-chopin-chop-28-1": {
+    "title": "Prelude",
+    "year": 1837
+  },
+  "m-chopin-chop-28-10": {
+    "title": "Prélude (Op 28, No 10)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-11": {
+    "title": "Prélude (Op 28, No 11)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-12": {
+    "title": "Prélude (Op 28, No 12)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-13": {
+    "title": "Prélude (Op 28, No 13)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-14": {
+    "title": "Prélude (Op 28, No 14)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-16": {
+    "title": "Prélude (Op 28, No 16)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-18": {
+    "title": "Prélude (Op 28, No 18)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-19": {
+    "title": "Prélude (Op 28, No 19)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-2": {
+    "title": "Prélude (Op. 28)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-21": {
+    "title": "Prélude (Op 28, No 21)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-22": {
+    "title": "Prélude (Op 28, No 22)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-23": {
+    "title": "Prélude (Op 28, No 23)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-24": {
+    "title": "Prélude (Op 28, No 24)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-3": {
+    "title": "Prélude (Op 28, No 3)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-5": {
+    "title": "Prélude (Op 28, No 5)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-8": {
+    "title": "Prélude (Op 28, No 8)",
+    "year": 1837
+  },
+  "m-chopin-chop-28-9": {
+    "title": "Prélude (Op 28, No 9)",
+    "year": 1837
+  },
+  "m-chopin-chopin-op-10-09-wfi": {
+    "title": "Etüde f-moll",
+    "year": 1829
+  },
+  "m-chopin-chopin-prelude-op45": {
+    "title": "Prelude (Op. 45)",
+    "year": 1835,
+    "yearEst": true
+  },
+  "m-chopin-nocturne-in-e-minor": {
+    "title": "Nocturne — Minor",
+    "year": 1827
+  },
+  "m-chopin-troisnouvellesetudes-chopin-n1": {
+    "title": "Trois Nouvelles Etudes, No. 1 F Minor",
+    "year": 1835,
+    "yearEst": true,
+    "genre": "Classical"
+  },
+  "m-faure-djinns": {
+    "title": "Les Djinns (Op. 12)",
+    "year": 1890,
+    "yearEst": true
+  },
+  "m-faure-matelots": {
+    "title": "Les Matelots (Op.2, N°2)",
+    "year": 1870
+  },
+  "m-grieg-7-mountaineerssong": {
+    "title": "Lualåt (Op. 73, No. 7)",
+    "year": 1880,
+    "yearEst": true
+  },
+  "m-grieg-hjemkomst": {
+    "year": 1894
+  },
+  "m-handel-05-fuga": {
+    "title": "Fuga",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-07-concerto": {
+    "title": "Concerto",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-09-menueti": {
+    "title": "Menuet I — I",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-14-menueti": {
+    "title": "Menuet I — II",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-10-menuetii": {
+    "title": "Menuet II (Trio) — I",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-15-menuetii": {
+    "title": "Menuet II (Trio) — II",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-12-menuet": {
+    "title": "Menuet",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-20-sonatina": {
+    "title": "Sonatina",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-agitatodafieretempeste": {
+    "title": "Agitato da fiere tempeste (HWV 19)",
+    "year": 1727
+  },
+  "m-handel-altardardellavendetta": {
+    "title": "Al tardar della vendetta (HWV 42)",
+    "year": 1740
+  },
+  "m-handel-antioch": {
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-carasposa": {
+    "title": "Cara sposa, amanta cara (HWV 7)",
+    "year": 1711
+  },
+  "m-handel-corrivolaatuoitrofei": {
+    "title": "Corri, vola, a' tuoi trofei (HWV 37)",
+    "year": 1736
+  },
+  "m-handel-ecco-il-sol": {
+    "title": "Ecco il sol (HWV 47)",
+    "year": 1708
+  },
+  "m-handel-fra-l-ombre": {
+    "title": "Fra l'ombre e gl'orrori (HWV 72)",
+    "year": 1708
+  },
+  "m-handel-gavotta": {
+    "title": "Gavotta (HWV 35)",
+    "year": 1736
+  },
+  "m-handel-greci-tu-offendi": {
+    "title": "Grecia tu offendi (HWV 42)",
+    "year": 1740
+  },
+  "m-handel-imparaingrata": {
+    "title": "Impara, ingrata (HWV 35)",
+    "year": 1736
+  },
+  "m-handel-iogiatamai": {
+    "title": "Io già t'amai (HWV 19)",
+    "year": 1724
+  },
+  "m-handel-lagloriasola": {
+    "title": "La gloria sola (HWV 22)",
+    "year": 1727
+  },
+  "m-handel-larej": {
+    "title": "La Réjouissance (HWV 351)",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-lavendettaeuncibo": {
+    "title": "La vendetta e un cibo (HWV 10)",
+    "year": 1713
+  },
+  "m-handel-marche": {
+    "title": "Marche (HWV 42)",
+    "year": 1740
+  },
+  "m-handel-nellenubiintornoalfato": {
+    "title": "Nelle nubi intorno al Fato (HWV 42)",
+    "year": 1740
+  },
+  "m-handel-nonpensiquellaltera": {
+    "title": "Non pensi quell'altera (HWV 26)",
+    "year": 1729
+  },
+  "m-handel-norisolvoabbandonar": {
+    "title": "No! Risolvo abbandonar (HWV 21)",
+    "year": 1726
+  },
+  "m-handel-precipitoso-nel-mar": {
+    "title": "Precipitoso nel mar (HWV 72)",
+    "year": 1708
+  },
+  "m-handel-se-potessero": {
+    "title": "Se potessero i sospir' miei (HWV 41)",
+    "year": 1738
+  },
+  "m-handel-signorsignorlasciatefarame": {
+    "title": "Signor, Signor, lasciate far a me",
+    "year": 1730,
+    "yearEst": true
+  },
+  "m-handel-sol-la-brama": {
+    "title": "Sol la brama di vendetta (HWV 39)",
+    "year": 1737
+  },
+  "m-handel-solodalbrando": {
+    "title": "Solo dal brando (HWV 7)",
+    "year": 1711
+  },
+  "m-handel-sonatina-in-b-flat-major": {
+    "title": "Sonatina in B-flat Major (HWV 585)",
+    "year": 1721
+  },
+  "m-handel-sullaruotadifortuna": {
+    "title": "Sulla ruota di fortuna (HWV 7)",
+    "year": 1711
+  },
+  "m-handel-vado-a-recar": {
+    "title": "Vado a recar la morte (HWV 39)",
+    "year": 1737
+  },
+  "m-handel-voglio-che-sia-l-indegno": {
+    "title": "Voglio che sia l'indegno (HWV 39)",
+    "year": 1737
+  },
+  "m-liszt-ballade": {
+    "title": "Second Ballade",
+    "year": 1853,
+    "cpsMul": 2.2
+  },
+  "m-mozart-fantasia": {
+    "title": "Fantasy in D minor (KV 397)",
+    "year": 1785,
+    "yearEst": true
+  },
+  "m-mozart-k153": {
+    "title": "Fugue in E-flat Major KV 153/375f",
+    "year": 1782
+  },
+  "m-mozart-k154": {
+    "title": "Fugue in G Minor KV 154/385k",
+    "year": 1782
+  },
+  "m-mozart-k522-mv1": {
+    "title": "Divertimento: Ein Musikalischer Spass (A Musical Joke) (K. 522)",
+    "year": 1787
+  },
+  "m-mozart-k545-1": {
+    "title": "Sonate 16 in C major (K 545) — I",
+    "year": 1785,
+    "yearEst": true
+  },
+  "m-mozart-k545-2": {
+    "title": "Sonate 16 in C major (K 545) — II",
+    "year": 1785,
+    "yearEst": true
+  },
+  "m-mozart-k545-3": {
+    "title": "Sonate 16 in C major (K 545) — III",
+    "year": 1785,
+    "yearEst": true
+  },
+  "m-mozart-k574": {
+    "title": "Gigue in G Major (KV 574)",
+    "year": 1789
+  },
+  "m-mozart-k6deest": {
+    "title": "Sonata in C major — v",
+    "year": 1771
+  },
+  "m-mozart-kv331-1-4-var3": {
+    "title": "Sonate Opus KV 331 - Variation 3",
+    "year": 1778
+  },
+  "m-mozart-kv331-1-5-var4": {
+    "title": "Sonate Opus KV 331 - Variation 4",
+    "year": 1778
+  },
+  "m-mozart-kv331-1-6-var5": {
+    "title": "Sonate Opus KV 331 - Variation 5",
+    "year": 1778
+  },
+  "m-mozart-kv331-2-1-menuetto": {
+    "title": "Sonate Opus KV 331 - Menuetto",
+    "year": 1778
+  },
+  "m-mozart-magicflute-15-aria-piano": {
+    "title": "The Magic Flute (Die Zauberflöte) (KV 620)",
+    "year": 1791
+  },
+  "m-mozart-menuet-k2": {
+    "title": "Menuett N°2 fûr das Pianoforte Kôch Verz N°2",
+    "year": 1762
+  },
+  "m-mozart-mozart-abendruhe": {
+    "title": "Abendruhe (KV ANH C 9.10)",
+    "year": 1785,
+    "yearEst": true
+  },
+  "m-mozart-notteegiorno": {
+    "title": "Notte e giorno",
+    "year": 1785,
+    "yearEst": true
+  },
+  "m-mozart-sonata1": {
+    "title": "Piano Sonata in C minor (KV. 457) — I",
+    "year": 1878
+  },
+  "m-mozart-sonata2": {
+    "title": "Piano Sonata in C minor (KV. 457) — II",
+    "year": 1878
+  },
+  "m-mozart-sonata3": {
+    "title": "Piano Sonata in C minor (KV. 457) — III",
+    "year": 1784
+  },
+  "m-satie-celle": {
+    "title": "Chapitres Tournés en Tous Sens — I",
+    "year": 1913
+  },
+  "m-satie-le-porteur": {
+    "title": "Chapitres Tournés en Tous Sens — II",
+    "year": 1913
+  },
+  "m-satie-regrets": {
+    "title": "Chapitres Tournés en Tous Sens — III",
+    "year": 1913
+  },
+  "m-satie-espanana": {
+    "title": "Croquis & Agaceries D'un Gros Bonhomme En Bois — I",
+    "year": 1913
+  },
+  "m-satie-tyrolienne": {
+    "title": "Croquis & Agaceries D'un Gros Bonhomme En Bois — II",
+    "year": 1913
+  },
+  "m-satie-sa-taille": {
+    "title": "Les Trois Valses Distinguées du Précieux Dégoûté — I",
+    "year": 1914
+  },
+  "m-satie-ses-jambes": {
+    "title": "Les Trois Valses Distinguées du Précieux Dégoûté — II",
+    "year": 1914
+  },
+  "m-scarlatti-ds-sonate-c": {
+    "title": "Sonata in C major — v (2)",
+    "year": 1735,
+    "yearEst": true
+  },
+  "m-scarlatti-scarlatti-k455": {
+    "title": "Keyboard Sonata in G Major (K.455)",
+    "year": 1735,
+    "yearEst": true
+  },
+  "m-schubert-ansylvia": {
+    "title": "An Sylvia (D.891)",
+    "year": 1826,
+    "genre": "Classical"
+  },
+  "m-schubert-einsamkeit": {
+    "year": 1827
+  },
+  "m-schubert-schubertf-d120-trostinthraenen": {
+    "year": 1814,
+    "cpsMul": 2
+  },
+  "m-schubert-schubertf-d296-andenmond": {
+    "year": 1815
+  },
+  "m-schubert-schubertf-d706-psalm23": {
+    "title": "(Nach einer Reinschrift von Franz Schubert) (D.706)",
+    "year": 1820
+  },
+  "m-schubert-schubertf-d717-suleika-2": {
+    "year": 1821,
+    "cpsMul": 1.83
+  },
+  "m-schubert-schubertf-d733-2-troismarches": {
+    "title": "Trois Marches militaires — D 733",
+    "year": 1818
+  },
+  "m-schubert-schubertf-d733-3-troismarches": {
+    "title": "Trois Marches militaires — D 733 (2)",
+    "year": 1818
+  },
+  "m-schubert-schubertf-d743-seligewelt": {
+    "year": 1822,
+    "cpsMul": 1.33
+  },
+  "m-schubert-schubertf-d744-schwanengesang": {
+    "year": 1822
+  },
+  "m-schubert-schubertf-d751-dieliebehatgelogen": {
+    "year": 1822
+  },
+  "m-schubert-schubertf-d777-lachenundweinen": {
+    "year": 1823,
+    "cpsMul": 2
+  },
+  "m-schubert-schubertf-d828-diejungenonne": {
+    "year": 1825,
+    "cpsMul": 2
+  },
+  "m-schubert-schubertf-d881b-fischerweise": {
+    "title": "Zweite Fassung",
+    "year": 1826,
+    "cpsMul": 2.67
+  },
+  "m-schubert-schubertf-d899-1-impromptu": {
+    "title": "Impromptu in c-moll",
+    "year": 1827
+  },
+  "m-schubert-schubertf-d899-2-impromptu": {
+    "title": "Impromptu in Es-dur",
+    "year": 1827
+  },
+  "m-schubert-schubertf-d899-3-impromptu": {
+    "title": "Impromptu in Ges-dur",
+    "year": 1827
+  },
+  "m-schubert-schubertf-d899-4-impromptu": {
+    "title": "Impromptu in As-dur — D 899",
+    "year": 1827,
+    "cpsMul": 2.17
+  },
+  "m-schubert-schubertf-d935-1-impromptu": {
+    "title": "Impromptu in f-moll",
+    "year": 1827
+  },
+  "m-schubert-schubertf-d935-2-impromptu": {
+    "title": "Impromptu in As-dur — D 935",
+    "year": 1827
+  },
+  "m-schubert-schubertf-d935-3-impromptu": {
+    "title": "Impromptu in B-dur",
+    "year": 1827
+  },
+  "m-schubert-schubertf-d962-tantumergo": {
+    "title": "Tantum ergo (D.962)",
+    "year": 1828
+  },
+  "m-schubert-schubertf-d983-juenglingswonne": {
+    "title": "Jünglingswonne",
+    "year": 1823,
+    "cpsMul": 2
+  },
+  "m-schubert-schubertf-d983a-liebe": {
+    "title": "Liebe",
+    "year": 1823,
+    "cpsMul": 1.33
+  },
+  "m-schubert-schubertf-d983b-zumrundetanz": {
+    "title": "Zum Rundetanz",
+    "year": 1823,
+    "cpsMul": 1.83
+  },
+  "m-schubert-schubertf-d983c-dienacht": {
+    "title": "Die Nacht",
+    "year": 1823
+  },
+  "m-schubert-ungarische": {
+    "title": "Ungarische Melodie (D 817)",
+    "year": 1824
+  },
+  "m-schumann-02-freisinn": {
+    "title": "Freisinn (Op. 25, No. 2)",
+    "year": 1840,
+    "genre": "Classical"
+  },
+  "m-schumann-blume": {
+    "title": "Du bist wie eine Blume (Op. 25, No. 24)",
+    "year": 1840,
+    "genre": "Classical"
+  },
+  "m-schumann-ich-grolle-nicht": {
+    "title": "Ich grolle nicht (Op. 48, No. 7)",
+    "year": 1840
+  },
+  "m-schumann-ich-will-meine-seele-tauchen": {
+    "title": "Ich will meine Seele tauchen (Op. 48, No. 5)",
+    "year": 1840,
+    "genre": "Classical"
+  },
+  "m-schumann-schumann-op68-03-chanson-fredonnee": {
+    "title": "Chanson Fredonnee (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-04-choral": {
+    "title": "Choral (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-05-petite-piece": {
+    "title": "Petite Piece (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-06-pauvre-orpheline": {
+    "title": "Pauvre Orpheline (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-07-chanson-du-chasseur": {
+    "title": "Chanson Du Chasseur (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-09-chanson-populaire": {
+    "title": "Chanson Populaire (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-11-sicilienne": {
+    "title": "Sicilienne (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-12-pere-fouettard": {
+    "title": "Pere Fouettard (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-13-mai-cher-mai": {
+    "title": "Mai Cher Mai (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-14-petite-etude": {
+    "title": "Petite Etude (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-18-moissonneurs": {
+    "title": "Moissonneurs (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-25-theater": {
+    "title": "Theater (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-26-sans-titre": {
+    "title": "Sans Titre (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-op68-36-chant-de-marins-italiens": {
+    "title": "Chant De Marins Italiens (Album for the Young)",
+    "year": 1848
+  },
+  "m-schumann-schumann-widmung-low": {
+    "title": "Widmung (Op. 25, № 1.)",
+    "year": 1840
+  },
+  "m-schumann-schumannop15no03": {
+    "title": "Kinderscenen (Op. 15, No. 3)",
+    "year": 1840,
+    "yearEst": true
+  },
+  "m-tchaikovsky-dumka": {
+    "title": "Doumka (Op. 59)",
+    "year": 1886,
+    "cpsMul": 1.47
+  },
+  "m-tchaikovsky-tschaikowsky-op37-2": {
+    "title": "Februar: Carneval (op. 37,2)",
+    "year": 1880,
+    "yearEst": true
+  },
+  "m-tchaikovsky-tschaikowsky-op37-8": {
+    "title": "Август: Жатва (op. 37,8)",
+    "year": 1880,
+    "yearEst": true
+  },
+  "m-burgmuller-25ef-01": {
+    "title": "La Candeur"
+  },
+  "m-burgmuller-25ef-02": {
+    "title": "l'Arabesque"
+  },
+  "m-burgmuller-25ef-03": {
+    "title": "La Pastorale"
+  },
+  "m-burgmuller-25ef-04": {
+    "title": "La Petite Réunion"
+  },
+  "m-burgmuller-25ef-05": {
+    "title": "Innocence"
+  },
+  "m-burgmuller-25ef-06": {
+    "title": "Progrès"
+  },
+  "m-burgmuller-25ef-07": {
+    "title": "Le Courant Limpide"
+  },
+  "m-burgmuller-25ef-08": {
+    "title": "La Gracieuse"
+  },
+  "m-burgmuller-25ef-09": {
+    "title": "La Chasse"
+  },
+  "m-burgmuller-25ef-10": {
+    "title": "Tendre Fleur"
+  },
+  "m-burgmuller-25ef-11": {
+    "title": "La Bergeronnette"
+  },
+  "m-burgmuller-25ef-12": {
+    "title": "L'Adieu"
+  },
+  "m-burgmuller-25ef-13": {
+    "title": "Consolation"
+  },
+  "m-burgmuller-25ef-14": {
+    "title": "La Styrienne"
+  },
+  "m-burgmuller-25ef-15": {
+    "title": "Ballade"
+  },
+  "m-burgmuller-25ef-16": {
+    "title": "Douce Plainte"
+  },
+  "m-burgmuller-25ef-17": {
+    "title": "La Babillarde"
+  },
+  "m-burgmuller-25ef-18": {
+    "title": "Inquiétude"
+  },
+  "m-burgmuller-ploermel": {
+    "title": "EL PERDÓN DE PLOËRMEL"
+  },
+  "m-clementi-sonatina-1-1": {
+    "title": "Sonatina Op. 36 No. 1 — Spiritoso"
+  },
+  "m-clementi-sonatina-1-2": {
+    "title": "Sonatina Op. 36 No. 1 — Andante"
+  },
+  "m-field-field-nocturne-5": {
+    "title": "Nocturne — v",
+    "year": 1817
+  },
+  "m-haydn-hob-xvi-27-ii-menuet-trio": {
+    "title": "Sonata I (Hob. XVI:27) — II. Menuet Trio"
+  },
+  "m-haydn-hob-xvi-27-iii-presto": {
+    "title": "Sonata I (Hob. XVI:27) — III. Presto"
+  },
+  "m-haydn-hob-xvi-28-i-allegro-moderato": {
+    "title": "Sonata II (Hob. XVI:28) — I. Allegro Moderato"
+  },
+  "m-haydn-hob-xvi-28-ii-menuetto": {
+    "title": "Sonata II (Hob. XVI:28) — II. Menuetto"
+  },
+  "m-haydn-hob-xvi-28-iii-presto": {
+    "title": "Sonata II (Hob. XVI:28) — III. Presto"
+  },
+  "m-kuhlau-sonatine-1-allegro": {
+    "title": "Sonatine Op. 20 No. 1 — Allegro"
+  },
+  "m-kuhlau-sonatine-1-andante": {
+    "title": "Sonatine Op. 20 No. 1 — Andantino"
+  },
+  "m-kuhlau-sonatine-1-rondo": {
+    "title": "Sonatine Op. 20 No. 1 — Rondo"
+  },
+  "m-rameau-plaintes": {
+    "title": "Les Tendres Plaintes",
+    "year": 1724
+  },
+  "m-rameau-sauvages": {
+    "title": "Les Sauvages",
+    "year": 1728
+  },
+  "m-rameau-tambourin": {
+    "title": "Tambourin",
+    "year": 1724
+  },
+  "m-scriabin-scriabin-prelude-op11no1": {
+    "title": "Prelude Op. 11 No. 1"
+  },
+  "m-scriabin-scriabine-op16-no1": {
+    "title": "Cinq Préludes — No. 1"
+  },
+  "m-scriabin-scriabine-op16-no2": {
+    "title": "Cinq Préludes — No. 2"
+  },
+  "m-scriabin-scriabine-op16-no3": {
+    "title": "Cinq Préludes — No. 3"
+  },
+  "m-scriabin-scriabine-op16-no4": {
+    "title": "Cinq Préludes — No. 4"
+  },
+  "m-scriabin-scriabine-op16-no5": {
+    "title": "Cinq Préludes — No. 5"
+  },
+  "m-scriabin-scriabin-etude-2-1": {
+    "title": "Étude Op. 2 No. 1"
+  },
+  "m-scriabin-prelude": {
+    "title": "Prélude Op. 59 No. 2",
+    "year": 1910
+  },
+  "m-alkan-alkan-op31-1": {
+    "title": "Prélude (op. 31,1)",
+    "year": 1846
+  },
+  "m-alkan-alkan-op31-2": {
+    "title": "Prélude Nr. 2 (op. 31,2)",
+    "year": 1846
+  },
+  "m-alkan-alkan-op31-8": {
+    "title": "Chanson de la Folle au Bord de la Mer (Op. 31, No. 8)"
+  },
+  "m-alkan-toccatina": {
+    "title": "Toccatina"
+  },
+  "m-buxtehude-buxwv185": {
+    "title": "Erhalt uns, Herr, bei deinem Wort (BuxWV 185)"
+  },
+  "m-buxtehude-buxtehude-wv208-nun-bitten-wir": {
+    "title": "Nun bitten wir den heiligen Geist (BuxWV 208)"
+  },
+  "m-buxtehude-buxtehude-wv209-nun-bitten-wir": {
+    "title": "Nun bitten wir den heiligen Geist (BuxWV 209)"
+  },
+  "m-buxtehude-buxwv155": {
+    "title": "Toccata (BuxWV 155)"
+  },
+  "m-dandrieu-dandrieu-offertoire": {
+    "title": "Dandrieu Offertoire",
+    "cpsMul": 2
+  },
+  "m-dandrieu-fugue-sur-l-ave-maris-stella": {
+    "title": "Fugue sur l'hymne de la Vierge, Ave Maris Stella"
+  },
+  "m-dussek-dussek-op46-1-1": {
+    "title": "Sonate I — No. 1"
+  },
+  "m-dussek-dussek-op46-1-2": {
+    "title": "Sonate I — No. 2"
+  },
+  "m-dussek-dussek-op46-1-3": {
+    "title": "Sonate I — No. 3"
+  },
+  "m-dussek-dussek-op46-1-4": {
+    "title": "Sonate I — No. 4"
+  },
+  "m-dussek-dussek-op46-2-1": {
+    "title": "Sonate II"
+  },
+  "m-dussek-dussek-op46-3-1": {
+    "title": "Sonate III"
+  },
+  "m-dussek-dussek-op46-4-1": {
+    "title": "Sonate IV"
+  },
+  "m-dussek-dussek-op46-5-1": {
+    "title": "Sonate V"
+  },
+  "m-dussek-dussek-op46-6-1": {
+    "title": "Sonate VI — No. 1"
+  },
+  "m-dussek-dussek-op46-6-2": {
+    "title": "Sonate VI — No. 2"
+  },
+  "m-dussek-dussek-op46-6-3": {
+    "title": "Sonate VI — No. 3"
+  },
+  "m-dussek-dussek-op46-6-4": {
+    "title": "Sonate VI — No. 4"
+  },
+  "m-franck-pfmut": {
+    "title": "Prélude, Fugue et Variation (Op. 18)",
+    "year": 1862
+  },
+  "m-froberger-suite7-1": {
+    "title": "Suite VII in E minor — No. 1",
+    "year": 1656
+  },
+  "m-froberger-suite7-2": {
+    "title": "Suite VII in E minor — No. 2",
+    "year": 1656
+  },
+  "m-froberger-suite7-3": {
+    "title": "Suite VII in E minor — No. 3",
+    "year": 1656
+  },
+  "m-gottschalk-thedyingswan": {
+    "title": "The Dying Swan (Op. 100)"
+  },
+  "m-joplin-elitesyncopations": {
+    "title": "Elite Syncopations",
+    "year": 1902
+  },
+  "m-joplin-pineapplerag": {
+    "title": "Pineapple Rag",
+    "year": 1908
+  },
+  "m-joplin-somethingdoing": {
+    "title": "Something Doing",
+    "year": 1903
+  },
+  "m-joplin-thestrenuouslife": {
+    "title": "The Strenuous Life",
+    "year": 1902
+  },
+  "m-joplin-wallstreetrag": {
+    "title": "Wall Street",
+    "year": 1909
+  },
+  "m-joplin-a-breeze-from-alabama": {
+    "title": "A Breeze From Alabama",
+    "year": 1902
+  },
+  "m-joplin-bethena": {
+    "title": "Bethena"
+  },
+  "m-joplin-eugenia": {
+    "title": "Eugenia"
+  },
+  "m-joplin-magnetic": {
+    "title": "Magnetic Rag",
+    "year": 1914,
+    "cpsMul": 2.5
+  },
+  "m-joplin-original": {
+    "title": "Original Rags",
+    "year": 1907
+  },
+  "m-joplin-peacherine": {
+    "title": "Peacherine Rag",
+    "year": 1901
+  },
+  "m-joplin-search": {
+    "title": "Search-Light Rag",
+    "year": 1907
+  },
+  "m-joplin-solace": {
+    "title": "Solace"
+  },
+  "m-joplin-sugar-cane": {
+    "title": "Sugar Cane",
+    "year": 1908
+  },
+  "m-joplin-sun-flower-slow-drag": {
+    "title": "Sun Flower Slow Drag",
+    "year": 1901
+  },
+  "m-joplin-winners": {
+    "title": "The Easy Winners",
+    "year": 1901
+  },
+  "m-pachelbel-einfesteburg": {
+    "title": "Ein feste Burg ist unser Gott"
+  },
+  "m-pachelbel-fugue-3-7": {
+    "title": "Fugues on the Magnificat"
+  },
+  "m-pleyel-pleyel-menuett": {
+    "title": "Menuett"
+  },
+  "m-wanhal-wanhal-rondo": {
+    "title": "Rondo"
+  },
+  "m-bach-cpe-bach-rondo": {
+    "title": "Rondo in E-flat Major (H.288)"
+  },
+  "m-bruckner-perger": {
+    "title": "Perger Präludium in C-dur",
+    "year": 1884
+  },
+  "m-dukas-dukasvillanelle": {
+    "title": "Villanelle"
+  },
+  "m-fischer-fischer-eratoallemande": {
+    "title": "Erato — Allemande"
+  },
+  "m-fischer-fischer-eratopraeludium": {
+    "title": "Erato — Praeludium"
+  },
+  "m-glazunov-glazunovreveries": {
+    "title": "Reveries"
+  },
+  "m-grignynd-grigny-fugue-a-5": {
+    "title": "Fugue à 5"
+  },
+  "m-muffat-gmt1": {
+    "title": "Toccata prima",
+    "year": 1690
+  },
+  "m-rachmaninoff-rach-prelude23-01": {
+    "title": "Prelude I (Op. 23, No 1)",
+    "year": 1903
+  },
+  "m-rachmaninoff-rach-prelude23-02": {
+    "title": "Prelude II (Op. 23, No 2)",
+    "year": 1903
+  },
+  "m-rachmaninoff-rach-prelude23-03": {
+    "title": "Prelude III (Op. 23, No 3)",
+    "year": 1903
+  },
+  "m-rachmaninoff-rach-prelude23-04": {
+    "title": "Prelude IV (Op. 23, No 4)",
+    "year": 1903
+  },
+  "m-rachmaninoff-rach-prelude23-06": {
+    "title": "Prelude VI (Op. 23, No 6)",
+    "year": 1903
+  },
+  "m-rachmaninoff-rach-prelude23-08": {
+    "title": "Prelude VIII (Op. 23)",
+    "year": 1901
+  },
+  "m-rachmaninoff-rach-prelude23-09": {
+    "title": "Prelude IX (Op. 23, No. 9)",
+    "year": 1901
+  },
+  "m-rachmaninoff-rach-prelude23-10": {
+    "title": "Prelude X",
+    "year": 1901
+  },
+  "m-rachmaninoff-rach-prelude-op3-no2": {
+    "title": "Prelude in C# minor (Op. 3, No. 2)",
+    "year": 1892
+  },
+  "m-reger-reger-grosser-gott-wir-loben-dich": {
+    "title": "Großer Gott, wir loben dich (op. 135a, No. 10)"
+  },
+  "m-sousa-elcapitanmarch": {
+    "title": "El Capitan",
+    "year": 1895
+  },
+  "m-sousa-hailtothespiritofliberty": {
+    "title": "Hail to the Spirit of Liberty",
+    "year": 1900
+  },
+  "m-sousa-handsacrossthesea": {
+    "title": "Hands across the Sea",
+    "year": 1899
+  },
+  "m-sousa-kingcotton": {
+    "title": "King Cotton",
+    "year": 1895
+  },
+  "m-sousa-thegladiator": {
+    "title": "The Gladiator",
+    "year": 1886
+  },
+  "m-sousa-theinvincibleeagle": {
+    "title": "The Invincible Eagle",
+    "year": 1901
+  },
+  "m-sousa-thelibertybell": {
+    "title": "The Liberty Bell",
+    "year": 1893
+  },
+  "m-sousa-thestarsandstripesforever": {
+    "title": "The Stars and Stripes Forever",
+    "year": 1896
+  },
+  "m-sousa-transitofvenus": {
+    "title": "Transit Of Venus March",
+    "year": 1896
+  },
+  "m-sousa-sousa-washington-post": {
+    "title": "The Washington Post"
+  },
+  "m-widor-5-adagio": {
+    "title": "Adagio"
+  },
+  "m-bartok-rom-folk-dance-1-bartok": {
+    "title": "Romanian Folk Dance No. 2"
+  },
+  "m-gigout-toccata-1": {
+    "title": "Toccata"
+  },
+  "m-kuhnel-sonate6-1": {
+    "title": "Sonata No. 6 — I"
+  },
+  "m-kuhnel-sonate6-2": {
+    "title": "Sonata No. 6 — II"
+  },
+  "m-kuhnel-sonate6-3": {
+    "title": "Sonata No. 6 — III"
+  },
+  "m-roberday-roberday-fugue-1-1": {
+    "title": "Fugue No. 1"
+  },
+  "m-roberday-roberday-fugue-4-1": {
+    "title": "Fugue No. 4"
+  },
+  "m-roberday-roberday-fugue-5": {
+    "title": "Fugue No. 5"
+  },
+  "m-scheidemann-hspre13": {
+    "title": "Praeambulum No. 13 in G"
+  },
+  "m-scheidemann-hspre3": {
+    "title": "Praeambulum No. 3 in d"
+  },
+  "m-scheidemann-hspre4": {
+    "title": "Praeambulum No. 4 in d"
+  },
+  "m-scheidemann-hspre5": {
+    "title": "Praeambulum No. 5 in d"
+  },
+  "m-stanchinsky-pilm": {
+    "title": "Prelude in the Lydian Mode",
+    "year": 1908,
+    "cpsMul": 3
+  },
+  "m-weckmann-mwp5v": {
+    "title": "Praeambulum A. 5. Vocum"
+  },
+  "m-weckmann-mwppt": {
+    "title": "Praeambulum Primi toni a 5"
+  },
+  "m-weckmann-mwfan": {
+    "title": "Fantasia in D minor"
+  },
+  "caprice-24": {
+    "cpsMul": 0.5
+  },
+  "m-bach-bach-air-jlh-35": {
+    "title": "Air (BWV 1068)"
+  },
+  "m-bach-bwv850b": {
+    "title": "Prelude & Fugue, BWV 850 (WTC)"
+  },
+  "m-bach-bwv869b": {
+    "title": "Prelude & Fugue, BWV 869 (WTC)"
+  },
+  "m-chopin-ballade-4": {
+    "title": "Ballade No. 4 in F minor"
+  },
+  "m-mozart-k517": {
+    "title": "Klavierstück, K. 517"
+  },
+  "m-mozart-k518": {
+    "title": "Klavierstück, K. 518",
+    "cpsMul": 3
+  },
+  "m-mozart-k519": {
+    "title": "Klavierstück, K. 519"
+  },
+  "m-mozart-k520": {
+    "title": "Klavierstück, K. 520"
+  },
+  "m-mozart-k523": {
+    "title": "Klavierstück, K. 523"
+  },
+  "m-mozart-no1": {
+    "title": "Klavierstück No. 1"
+  },
+  "m-mozart-no10": {
+    "title": "Klavierstück No. 10"
+  },
+  "m-mozart-no11": {
+    "title": "Klavierstück No. 11"
+  },
+  "m-mozart-no12": {
+    "title": "Klavierstück No. 12"
+  },
+  "m-mozart-no2": {
+    "title": "Klavierstück No. 2"
+  },
+  "m-mozart-no3": {
+    "title": "Klavierstück No. 3"
+  },
+  "m-mozart-no4": {
+    "title": "Klavierstück No. 4"
+  },
+  "m-mozart-no5": {
+    "title": "Klavierstück No. 5"
+  },
+  "m-mozart-no6": {
+    "title": "Klavierstück No. 6"
+  },
+  "m-mozart-no7": {
+    "title": "Klavierstück No. 7"
+  },
+  "m-mozart-no8": {
+    "title": "Klavierstück No. 8"
+  },
+  "m-mozart-no9": {
+    "title": "Klavierstück No. 9"
+  },
+  "m-schumann-schumann-op68-32-sheherazade": {
+    "title": "Sheherazade (Album for the Young)"
+  },
+  "m-adam-giselle": {
+    "title": "Giselle - Pas de deux (1er Acte)",
+    "year": 1841
+  },
+  "m-andre-andre-sonatine": {
+    "title": "Sonatine",
+    "year": 1780,
+    "yearEst": true
+  },
+  "m-ascher-biga": {
+    "title": "Alice, Where Art Thou",
+    "year": 1868
+  },
+  "m-banchieri-reg1-suon1": {
+    "title": "Suonata PRIMA, Fvga Plagale",
+    "year": 1605
+  },
+  "m-banchieri-reg1-suon2": {
+    "title": "Suonata SECONDA, Fvga Triplicata",
+    "year": 1605
+  },
+  "m-banchieri-reg1-suon3": {
+    "title": "Suonata TERZA, Fvga Grave",
+    "year": 1605
+  },
+  "m-banchieri-reg1-suon4": {
+    "title": "Suonata QUARTA, Fvga Cromatica",
+    "year": 1605
+  },
+  "m-behr-in-may-piano": {
+    "title": "In May",
+    "year": 1880,
+    "yearEst": true,
+    "cpsMul": 3
+  },
+  "m-bizet-actii": {
+    "title": "Entr'acte",
+    "year": 1874
+  },
+  "m-bizet-prelude": {
+    "title": "Prelude — Prelude",
+    "year": 1874
+  },
+  "m-blumenthal-mdeux": {
+    "title": "Les Deux Anges",
+    "year": 1829
+  },
+  "m-brown-toccatina": {
+    "title": "Toccatina",
+    "year": 2008
+  },
+  "m-gobbaerts-les-etoiles-dor-no1": {
+    "title": "Les étoiles d'or",
+    "year": 1875,
+    "yearEst": true
+  },
+  "m-hunter-possumandtaters": {
+    "title": "Possum And Taters",
+    "year": 1900
+  },
+  "m-iliev-a-childs-wish": {
+    "title": "A Child's Wish",
+    "year": 2006
+  },
+  "m-jeffreys-dyfrdwy": {
+    "title": "Dyfrdwy",
+    "year": 1839
+  },
+  "m-kruetzer-lodiska": {
+    "title": "The Lancer's Quadrilles — Lodiska",
+    "year": 1817
+  },
+  "m-magnenat-variations-automne": {
+    "title": "Variations d'automne",
+    "year": 2007
+  },
+  "m-minkus-bayadere-acteii": {
+    "title": "La Bayadère - Acte II",
+    "year": 1877
+  },
+  "m-mueller-muller-siciliano": {
+    "title": "Siciliano",
+    "year": 1800,
+    "yearEst": true
+  },
+  "m-pease-amaryllis": {
+    "title": "Amaryllis",
+    "year": 1838
+  },
+  "m-pejacsevich-gondellied": {
+    "title": "Gondellied (Op. 4)",
+    "year": 1898
+  },
+  "m-ritter-crson": {
+    "title": "Sonatina d moll",
+    "year": 1690,
+    "yearEst": true
+  },
+  "m-root-o-morning-star-m": {
+    "title": "O Morning Star!",
+    "year": 1881
+  },
+  "m-sidwell-little-toy-lost": {
+    "title": "Little Toy Lost",
+    "year": 2006
+  },
+  "m-sidwell-miniature-2": {
+    "title": "Miniature No.2",
+    "year": 2007
+  },
+  "m-smallwood-the-harebell": {
+    "title": "The Harebell",
+    "year": 1875,
+    "yearEst": true
+  },
+  "m-spagnoletti-farnham": {
+    "title": "The Lancer's Quadrilles — Farnham",
+    "year": 1817
+  },
+  "m-spagnoletti-ladorset": {
+    "title": "The Lancer's Quadrilles — Ladorset",
+    "year": 1817
+  },
+  "m-strauss-blitz": {
+    "title": "Thunder And Lightning",
+    "year": 1825
+  },
+  "m-turpin-turpinhar": {
+    "title": "The Harlem Rag",
+    "year": 1899,
+    "genre": "Ragtime"
+  },
+  "m-turpin-turpin": {
+    "title": "The St. Louis Rag",
+    "year": 1903,
+    "genre": "Ragtime"
+  },
+  "m-williams-dymuniad": {
+    "title": "O Arglwydd! Na Cherydda Fi",
+    "year": 1835
+  },
+  "m-yaniewicz-leslanciers": {
+    "title": "The Lancer's Quadrilles — Leslanciers",
+    "year": 1817
+  },
+  "h-reger-schlichte-weisen-op-76": {
+    "year": 1834,
+    "yearEst": true
+  },
+  "h-mattheson-suite-no-5-in-c-minor": {
+    "year": 1714,
+    "yearEst": true
+  },
+  "h-moszkowski-8-morceaux-caracteristiques-op-36": {
+    "year": 1862,
+    "yearEst": true
+  },
+  "h-lefebure-wely-les-cloches-du-monastere-op-54a": {
+    "year": 1853,
+    "yearEst": true
+  },
+  "h-cottrau-canzone-al-principe-di-napoli": {
+    "year": 1840,
+    "yearEst": true
+  },
+  "h-curtis-a-cchiu-bella-figliola": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-matta-minueto-das-dores": {
+    "year": 1885,
+    "yearEst": true
+  },
+  "h-verdelot-madonna-per-voi-ardo": {
+    "year": 1533,
+    "yearEst": true
+  },
+  "h-kirnberger-8-fugues": {
+    "year": 1758,
+    "yearEst": true
+  },
+  "h-jensen-deutsche-suite-op-36": {
+    "year": 1869,
+    "yearEst": true
+  },
+  "h-scarlatti-keyboard-sonata-in-f-minor-k-519": {
+    "year": 1883,
+    "yearEst": true
+  },
+  "h-foster-santa-anna-s-retreat": {
+    "year": 1848,
+    "yearEst": true
+  },
+  "h-albertin-capatosta": {
+    "year": 1888,
+    "yearEst": true
+  },
+  "h-berlioz-l-enfance-du-christ-h-130": {
+    "year": 1850,
+    "yearEst": true
+  },
+  "h-praetorius-es-ist-ein-ros-entsprungen": {
+    "year": 1609,
+    "yearEst": true
+  },
+  "h-smith-the-star-spangled-banner": {
+    "year": 1778,
+    "yearEst": true
+  },
+  "h-biscardi-la-nnammurata-e-la-fattucchiara": {
+    "year": 1851,
+    "yearEst": true
+  },
+  "h-ravina-petit-bolero-op-62": {
+    "year": 1864,
+    "yearEst": true
+  },
+  "h-ivanovici-donauwellen": {
+    "year": 1880,
+    "yearEst": true
+  },
+  "h-haydn-divertimento-in-d-major-hob-xvi-19": {
+    "year": 1767,
+    "yearEst": true
+  },
+  "h-cramer-les-petits-riens": {
+    "year": 1808,
+    "yearEst": true
+  },
+  "h-merulo-la-leonora": {
+    "year": 1592,
+    "yearEst": true
+  },
+  "h-ricci-grida-de-venditori-di-napoli": {
+    "year": 1862,
+    "yearEst": true
+  },
+  "h-kingsley-the-timeworn-lute": {
+    "year": 1779,
+    "yearEst": true
+  },
+  "h-saint-saens-suite-op-49": {
+    "year": 1863,
+    "yearEst": true
+  },
+  "h-cottrau-la-pacchianella-i-fore": {
+    "year": 1871,
+    "yearEst": true
+  },
+  "h-foster-massa-s-in-de-cold-ground": {
+    "year": 1852,
+    "yearEst": true
+  },
+  "h-elgar-memorial-chimes": {
+    "year": 1923,
+    "yearEst": true
+  },
+  "h-glover-la-gitana": {
+    "year": 1841,
+    "yearEst": true
+  },
+  "h-boellmann-suite-gothique-op-25": {
+    "year": 1895,
+    "yearEst": true
+  },
+  "h-dowland-lachrimae-pavan-for-lute": {
+    "year": 1590,
+    "yearEst": true
+  },
+  "h-narvaez-los-seys-libros-del-delphin": {
+    "year": 1538,
+    "yearEst": true
+  },
+  "h-foster-beautiful-dreamer": {
+    "year": 1862,
+    "yearEst": true
+  },
+  "h-lisle-la-marseillaise": {
+    "year": 1792,
+    "yearEst": true
+  },
+  "h-gluck-alceste-wq-44": {
+    "year": 1767,
+    "yearEst": true
+  },
+  "h-albertin-a-cafettera": {
+    "year": 1891,
+    "yearEst": true
+  },
+  "h-kalinnikov-nocturne-in-f-sharp-minor": {
+    "year": 1901,
+    "yearEst": true
+  },
+  "h-castaldi-la-manella": {
+    "year": 1865,
+    "yearEst": true
+  },
+  "h-gigout-10-pieces-pour-orgue": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-cobb-alhambra": {
+    "year": 1919,
+    "yearEst": true
+  },
+  "h-martelli-masto-raffaele": {
+    "year": 1869,
+    "yearEst": true
+  },
+  "h-costa-e-vota-e-gira": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-billema-das-gezwitscher-der-vogel-op-48": {
+    "year": 1863,
+    "yearEst": true
+  },
+  "h-heinrich-tribute": {
+    "year": 1794,
+    "yearEst": true
+  },
+  "h-gregorio-a-spartenza": {
+    "year": 1876,
+    "yearEst": true
+  },
+  "h-mozart-divertimento-in-d-major-k-334-320b": {
+    "year": 1779,
+    "yearEst": true
+  },
+  "h-marpurg-fughe-e-capricci-op-1": {
+    "year": 1777,
+    "yearEst": true
+  },
+  "h-ascher-vaillance": {
+    "year": 1851,
+    "yearEst": true
+  },
+  "h-beethoven-fidelio-op-72": {
+    "year": 1804,
+    "yearEst": true
+  },
+  "h-gabrieli-domine-exaudi-orationem-meam-ch-15": {
+    "year": 1597,
+    "yearEst": true
+  },
+  "h-lawes-about-the-sweet-bag-of-the-bee": {
+    "year": 1591,
+    "yearEst": true
+  },
+  "h-lyadov-3-morceaux-op-11": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-krebs-prelude-and-fugue-in-f-minor-krebs-wv-408": {
+    "year": 1740,
+    "yearEst": true
+  },
+  "h-strazzullo-nenna-ne-jammoncenne-mo-pe-mo": {
+    "year": 1889,
+    "yearEst": true
+  },
+  "h-pagliara-sola-sola": {
+    "year": 1889,
+    "yearEst": true
+  },
+  "h-chopin-nocturnes-op-15": {
+    "year": 1830,
+    "yearEst": true
+  },
+  "h-bach-english-suite-no-3-in-g-minor-bwv-808": {
+    "year": 1715,
+    "yearEst": true
+  },
+  "h-clari-tantum-ergo-sacramentum": {
+    "year": 1738,
+    "yearEst": true
+  },
+  "h-bach-christ-lag-in-todes-banden-bwv-4": {
+    "year": 1707,
+    "yearEst": true
+  },
+  "h-ravina-4-piano-pieces-op-11": {
+    "year": 1846,
+    "yearEst": true
+  },
+  "h-frias-zamacueca-no-3": {
+    "year": 1850,
+    "yearEst": true
+  },
+  "h-ruta-ebbiva-lo-rre": {
+    "year": 1878,
+    "yearEst": true
+  },
+  "h-resinarius-nu-bitten-wir-den-heiligen-geist": {
+    "year": 1544,
+    "yearEst": true
+  },
+  "h-montagna-e-marenarielle": {
+    "year": 1868,
+    "yearEst": true
+  },
+  "h-servais-andante-cantabile-et-rondo-a-la-mazurka-op-7": {
+    "year": 1849,
+    "yearEst": true
+  },
+  "h-rubinstein-album-de-peterhof-op-75": {
+    "year": 1866,
+    "yearEst": true
+  },
+  "h-albertin-malatia": {
+    "year": 1888,
+    "yearEst": true
+  },
+  "h-eilenberg-petersburger-schlittenfahrt-op-57": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-beethoven-romance-in-g-major-op-40": {
+    "year": 1800,
+    "yearEst": true
+  },
+  "h-costa-dispietto": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-bizet-carmen": {
+    "year": 1873,
+    "yearEst": true
+  },
+  "h-handel-suite-in-e-major-hwv-430": {
+    "year": 1720,
+    "yearEst": true
+  },
+  "h-traditional-fitzwilliam-virginal-book": {
+    "year": 1610,
+    "yearEst": true
+  },
+  "h-beriot-methode-de-violon-op-102": {
+    "year": 1858,
+    "yearEst": true
+  },
+  "h-bach-fantasia-in-g-major-bwv-571": {
+    "year": 1720,
+    "yearEst": true
+  },
+  "h-hassler-exsultate-deo": {
+    "year": 1601,
+    "yearEst": true
+  },
+  "h-criscuolo-statt-attiente-a-soreta": {
+    "year": 1896,
+    "yearEst": true
+  },
+  "h-hassler-neue-teutsche-gesang": {
+    "year": 1596,
+    "yearEst": true
+  },
+  "h-vivaldi-farnace-rv-711": {
+    "year": 1726,
+    "yearEst": true
+  },
+  "h-gossec-le-triomphe-de-la-republique-rh-618": {
+    "year": 1794,
+    "yearEst": true
+  },
+  "h-desmarets-theagene-et-cariclee": {
+    "year": 1668,
+    "yearEst": true
+  },
+  "h-schubert-18-german-dances-and-ecossaises-d-783": {
+    "year": 1823,
+    "yearEst": true
+  },
+  "h-galilei-fronimo": {
+    "year": 1568,
+    "yearEst": true
+  },
+  "h-schubert-fugue-in-e-minor-d-952": {
+    "year": 1828,
+    "yearEst": true
+  },
+  "h-backer-grøndahl-menuet": {
+    "year": 1879,
+    "yearEst": true
+  },
+  "h-smith-the-fairy-queen-op-42": {
+    "year": 1866,
+    "yearEst": true
+  },
+  "h-elgar-variations-on-an-original-theme-enigma-op-36": {
+    "year": 1899,
+    "yearEst": true
+  },
+  "h-popper-tarantella-no-2-op-57": {
+    "year": 1863,
+    "yearEst": true
+  },
+  "h-mozart-adagio-in-c-major-k-356-617a": {
+    "year": 1791,
+    "yearEst": true
+  },
+  "h-recupito-l-aristocratico": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-capua-il-cake-walk": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-scheuenstuhl-partita-no-1-in-e-minor": {
+    "year": 1747,
+    "yearEst": true
+  },
+  "h-hermann-reverie-russe-op-2": {
+    "year": 1879,
+    "yearEst": true
+  },
+  "h-jadassohn-serenade-op-35": {
+    "year": 1865,
+    "yearEst": true
+  },
+  "h-moszkowski-6-phantasiestucke-op-52": {
+    "year": 1894,
+    "yearEst": true
+  },
+  "h-finamore-lo-pizzajuolo-de-palazzo": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-cottrau-statte-bona-e-governa-te": {
+    "year": 1840,
+    "yearEst": true
+  },
+  "h-woelfl-piano-sonata-in-f-major-op-1-no-1": {
+    "year": 1795,
+    "yearEst": true
+  },
+  "h-moszkowski-2-piano-pieces-op-45": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-mozart-divertimento-in-b-flat-major-k-240": {
+    "year": 1776,
+    "yearEst": true
+  },
+  "h-foster-old-black-joe": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-henselt-romance-op-10": {
+    "year": 1837,
+    "yearEst": true
+  },
+  "h-clausetti-mezarecchia": {
+    "year": 1891,
+    "yearEst": true
+  },
+  "h-verbytskyi-shche-ne-vmerla-ukrainy-i-slava-i-volia": {
+    "year": 1862,
+    "yearEst": true
+  },
+  "h-zugiani-luntano-a-te": {
+    "year": 1899,
+    "yearEst": true
+  },
+  "h-chedeville-il-pastor-fido-op-13": {
+    "year": 1737,
+    "yearEst": true
+  },
+  "h-amelio-lo-prosuntuoso": {
+    "year": 1865,
+    "yearEst": true
+  },
+  "h-wachs-capricante": {
+    "year": 1839,
+    "yearEst": true
+  },
+  "h-finamore-a-spatella": {
+    "year": 1889,
+    "yearEst": true
+  },
+  "h-bacon-we-ll-bring-our-heroes-home": {
+    "year": 1919,
+    "yearEst": true
+  },
+  "h-bach-fugue-in-a-minor-bwv-959": {
+    "year": 1894,
+    "yearEst": true,
+    "cpsMul": 4.5
+  },
+  "h-gade-4-fantasiestykker-op-41": {
+    "year": 1861,
+    "yearEst": true
+  },
+  "h-lully-armide-lwv-71": {
+    "year": 1685,
+    "yearEst": true
+  },
+  "h-bishop-the-slave": {
+    "year": 1816,
+    "yearEst": true
+  },
+  "h-montagna-o-surdato": {
+    "year": 1900,
+    "yearEst": true
+  },
+  "h-anepeta-blankenberghe": {
+    "year": 1859,
+    "yearEst": true
+  },
+  "h-criscuolo-o-sargente-e-bersagliere": {
+    "year": 1850,
+    "yearEst": true
+  },
+  "h-schein-suite-no-8": {
+    "year": 1617,
+    "yearEst": true
+  },
+  "h-campra-idomenee": {
+    "year": 1671,
+    "yearEst": true
+  },
+  "h-henestrosa-libro-de-cifra-nueva": {
+    "year": 1557,
+    "yearEst": true
+  },
+  "h-carey-god-save-the-king": {
+    "year": 1744,
+    "yearEst": true
+  },
+  "h-lichner-bunte-reihe-op-24": {
+    "year": 1865,
+    "yearEst": true
+  },
+  "h-mendelssohn-organ-sonata-no-4-mwv-w-59": {
+    "year": 1845,
+    "yearEst": true
+  },
+  "h-purcell-suite-in-c-major-z-666": {
+    "year": 1696,
+    "yearEst": true
+  },
+  "h-moszkowski-6-morceaux-op-31": {
+    "year": 1883,
+    "yearEst": true
+  },
+  "h-frescobaldi-toccata-sopra-i-pedali-per-l-organo-e-senza-f": {
+    "year": 1627,
+    "yearEst": true
+  },
+  "h-glover-osborne-quadrilles": {
+    "year": 1879,
+    "yearEst": true
+  },
+  "h-thalberg-romance-dramatique-op-79": {
+    "year": 1808,
+    "yearEst": true
+  },
+  "h-ravina-rondo-polka-op-20": {
+    "year": 1849,
+    "yearEst": true
+  },
+  "h-ascher-mazurka-des-traineaux": {
+    "year": 1854,
+    "yearEst": true
+  },
+  "h-burgmuller-duo-for-piano-and-clarinet-op-15": {
+    "year": 1834,
+    "yearEst": true
+  },
+  "h-fulvio-a-nzalatara": {
+    "year": 1894,
+    "yearEst": true
+  },
+  "h-handel-amadigi-di-gaula-hwv-11": {
+    "year": 1715,
+    "yearEst": true
+  },
+  "h-bach-ach-gott-vom-himmel-sieh-darein-bwv-2": {
+    "year": 1724,
+    "yearEst": true
+  },
+  "h-byrd-browning-t-387": {
+    "year": 1578,
+    "yearEst": true
+  },
+  "h-arensky-scherzo-op-8": {
+    "year": 1884,
+    "yearEst": true
+  },
+  "h-bach-es-ist-das-heil-uns-kommen-her-bwv-9": {
+    "year": 1731,
+    "yearEst": true
+  },
+  "h-moszkowski-valse-and-mazurka-op-46": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-fraja-a-sicilianella": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-moszkowski-2-concert-etudes-op-48": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-handel-water-music-hwv-348-350": {
+    "year": 1715,
+    "yearEst": true
+  },
+  "h-clementi-3-piano-sonatas-op-7": {
+    "year": 1782,
+    "yearEst": true
+  },
+  "h-kalkbrenner-pianoforte-schule-op-108": {
+    "year": 1832,
+    "yearEst": true
+  },
+  "h-traditional-o-esca-viatorum": {
+    "year": 1647,
+    "yearEst": true
+  },
+  "h-schubert-la-rose-de-palerme-op-232": {
+    "year": 1857,
+    "yearEst": true
+  },
+  "h-spohr-fantasia-for-harp-op-35": {
+    "year": 1807,
+    "yearEst": true
+  },
+  "h-verdi-nabucco": {
+    "year": 1841,
+    "yearEst": true
+  },
+  "h-russo-galeota-o-matremmonio-d-o-princepe": {
+    "year": 1896,
+    "yearEst": true
+  },
+  "h-capua-nini-nini": {
+    "year": 1896,
+    "yearEst": true
+  },
+  "h-modo-komm-heiliger-geist": {
+    "year": 1735,
+    "yearEst": true
+  },
+  "h-glover-what-are-the-wild-waves-saying": {
+    "year": 1813,
+    "yearEst": true
+  },
+  "h-jadassohn-improvisationen-op-75": {
+    "year": 1884,
+    "yearEst": true
+  },
+  "h-bach-non-sa-che-sia-dolore-bwv-209": {
+    "year": 1729,
+    "yearEst": true
+  },
+  "h-rameau-suite-in-e-minor-rct-2": {
+    "year": 1724,
+    "yearEst": true
+  },
+  "h-rosenmuller-studenten-music": {
+    "year": 1654,
+    "yearEst": true
+  },
+  "h-nutile-vocca-bella": {
+    "year": 1866,
+    "yearEst": true
+  },
+  "h-gruber-stille-nacht-heilige-nacht-h-145": {
+    "year": 1818,
+    "yearEst": true
+  },
+  "h-simone-vous-etez-si-jolie": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-lully-phaeton-lwv-61": {
+    "year": 1683,
+    "yearEst": true
+  },
+  "h-scarlatti-keyboard-sonata-in-d-minor-k-9": {
+    "year": 1738,
+    "yearEst": true
+  },
+  "h-gambardella-serenata-a-surriento": {
+    "year": 1907,
+    "yearEst": true
+  },
+  "h-gambardella-nanni-nanni": {
+    "year": 1901,
+    "yearEst": true
+  },
+  "h-raff-suite-de-morceaux-pour-les-petites-mains-op-75": {
+    "year": 1858,
+    "yearEst": true
+  },
+  "h-bach-prelude-and-fugue-in-c-major-bwv-545a": {
+    "year": 1708,
+    "yearEst": true
+  },
+  "h-jensen-berceuse-op-12": {
+    "year": 1863,
+    "yearEst": true
+  },
+  "h-caccini-amarilli-mia-bella": {
+    "year": 1601,
+    "yearEst": true
+  },
+  "h-moszkowski-tristesses-et-sourires-op-58": {
+    "year": 1896,
+    "yearEst": true
+  },
+  "h-cangiullo-rose-the": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-lully-atys-lwv-53": {
+    "year": 1676,
+    "yearEst": true
+  },
+  "h-benoist-recueil-de-4-morceaux-pour-orgue": {
+    "year": 1878,
+    "yearEst": true
+  },
+  "h-purcell-a-new-irish-tune-z-646": {
+    "year": 1689,
+    "yearEst": true
+  },
+  "h-handel-capriccio-in-f-major-hwv-481": {
+    "year": 1720,
+    "yearEst": true
+  },
+  "h-gambardella-madama-chichierchia": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-pescetti-harpsichord-sonata-in-g-minor": {
+    "year": 1739,
+    "yearEst": true
+  },
+  "h-bononcini-musico-prattico-op-8": {
+    "year": 1673,
+    "yearEst": true
+  },
+  "h-bortniansky-kol-slaven": {
+    "year": 1822,
+    "yearEst": true
+  },
+  "h-scarlatti-keyboard-sonata-in-f-major-k-17": {
+    "year": 1738,
+    "yearEst": true
+  },
+  "h-ravina-le-mouvement-perpetuel-op-18": {
+    "year": 1848,
+    "yearEst": true
+  },
+  "h-pergolesi-la-serva-padrona": {
+    "year": 1733,
+    "yearEst": true
+  },
+  "h-schumann-12-klavierstucke-fur-kleine-und-gro-e-kinder-o": {
+    "year": 1849,
+    "yearEst": true
+  },
+  "h-ortiz-recercada-primera-sobre-tenores-italianos": {
+    "year": 1553,
+    "yearEst": true
+  },
+  "h-locorotondo-nu-gelato-nu-soldo": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-pachelbel-fugue-in-c-major-p-131": {
+    "year": 1716,
+    "yearEst": true
+  },
+  "h-handel-messiah-hwv-56": {
+    "year": 1741,
+    "yearEst": true
+  },
+  "h-lange-hortensia-op-53": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-giuliani-6-cavatinas-op-39": {
+    "year": 1813,
+    "yearEst": true
+  },
+  "h-schubert-3-piano-pieces-d-459a": {
+    "year": 1816,
+    "yearEst": true
+  },
+  "h-swert-fantaisie-de-salon-sur-des-airs-scandinaves-op": {
+    "year": 1872,
+    "yearEst": true
+  },
+  "h-costa-serenata-medioevale": {
+    "year": 1859,
+    "yearEst": true
+  },
+  "h-moszkowski-scherzo-op-1": {
+    "year": 1875,
+    "yearEst": true
+  },
+  "h-rheinberger-organ-sonata-no-12-op-154": {
+    "year": 1827,
+    "yearEst": true
+  },
+  "h-vivaldi-giustino-rv-717": {
+    "year": 1627,
+    "yearEst": true
+  },
+  "h-mozart-le-nozze-di-figaro-k-492": {
+    "year": 1786,
+    "yearEst": true
+  },
+  "h-ravenscroft-the-three-ravens": {
+    "year": 1611,
+    "yearEst": true
+  },
+  "h-bach-fugue-in-e-minor-bwv-945": {
+    "year": 1695,
+    "yearEst": true
+  },
+  "h-albeniz-recuerdos-de-viaje-op-71": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-valente-il-massaggio": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-dussek-6-piano-sonatinas-op-20": {
+    "year": 1793,
+    "yearEst": true
+  },
+  "h-kiel-bolero": {
+    "year": 1875,
+    "yearEst": true
+  },
+  "h-falcon-o-ritratto-d-o-core": {
+    "year": 1869,
+    "yearEst": true
+  },
+  "h-bach-solfeggio-in-c-minor-h-220": {
+    "year": 1766,
+    "yearEst": true
+  },
+  "h-capua-comm-a-nu-suonno": {
+    "year": 1907,
+    "yearEst": true
+  },
+  "h-luca-la-donna-e-debole": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-carreno-le-printemps-op-25": {
+    "year": 1868,
+    "yearEst": true
+  },
+  "h-willaert-pater-noster-ave-maria": {
+    "year": 1545,
+    "yearEst": true
+  },
+  "h-d'ambrosio-a-funiculare-e-montesanto": {
+    "year": 1891,
+    "yearEst": true
+  },
+  "h-salzano-ncampagna": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-roche-so-pazza": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-kleber-stars-of-the-summer-night": {
+    "year": 1807,
+    "yearEst": true
+  },
+  "h-moszkowski-6-klavierstucke-op-15": {
+    "year": 1877,
+    "yearEst": true
+  },
+  "h-schubert-moments-musicaux-d-780": {
+    "year": 1823,
+    "yearEst": true
+  },
+  "h-wilson-take-o-take-those-lips-away": {
+    "year": 1564,
+    "yearEst": true
+  },
+  "h-verdi-il-trovatore": {
+    "year": 1852,
+    "yearEst": true
+  },
+  "h-chiara-ammore-e-mo": {
+    "year": 1900,
+    "yearEst": true
+  },
+  "h-bach-was-soll-ich-aus-dir-machen-ephraim-bwv-89": {
+    "year": 1723,
+    "yearEst": true
+  },
+  "h-couperin-pieces-de-clavecin-livre-2": {
+    "year": 1716,
+    "yearEst": true
+  },
+  "h-jensen-alla-marcia-canzonetta-und-scherzo-op-42": {
+    "year": 1871,
+    "yearEst": true
+  },
+  "h-lvov-god-save-the-tsar": {
+    "year": 1833,
+    "yearEst": true
+  },
+  "h-capua-a-robba-fina": {
+    "year": 1908,
+    "yearEst": true
+  },
+  "h-moszkowski-pensees-fugitives-op-66": {
+    "year": 1901,
+    "yearEst": true
+  },
+  "h-rameau-hippolyte-et-aricie-rct-43": {
+    "year": 1733,
+    "yearEst": true
+  },
+  "h-albertin-a-maestrina": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-ladukhin-6-pieces-miniatures": {
+    "year": 1898,
+    "yearEst": true
+  },
+  "h-bach-wachet-auf-ruft-uns-die-stimme-bwv-140": {
+    "year": 1731,
+    "yearEst": true
+  },
+  "h-musella-a-chiava-masculina": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-foster-the-village-bells": {
+    "year": 1850,
+    "yearEst": true
+  },
+  "h-mozart-idomeneo-k-366": {
+    "year": 1780,
+    "yearEst": true
+  },
+  "h-cottrau-l-agnesina": {
+    "year": 1840,
+    "yearEst": true
+  },
+  "h-bach-toccata-and-fugue-in-d-minor-bwv-538": {
+    "year": 1712,
+    "yearEst": true
+  },
+  "h-mozart-die-zauberflote-k-620": {
+    "year": 1791,
+    "yearEst": true
+  },
+  "h-moszkowski-caprice-op-4": {
+    "year": 1875,
+    "yearEst": true
+  },
+  "h-mendelssohn-6-preludes-and-fugues-op-35": {
+    "year": 1832,
+    "yearEst": true
+  },
+  "h-foster-where-has-lula-gone": {
+    "year": 1858,
+    "yearEst": true
+  },
+  "h-capua-don-guglie-ppo-ppo": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-florimo-ndinghe-ndinghe": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-albertin-putecara": {
+    "year": 1888,
+    "yearEst": true
+  },
+  "h-buongiovanni-che-me-ne-fo": {
+    "year": 1902,
+    "yearEst": true
+  },
+  "h-moszkowski-3-klavierstucke-op-32": {
+    "year": 1883,
+    "yearEst": true
+  },
+  "h-winner-gay-as-a-lark": {
+    "year": 1876,
+    "yearEst": true
+  },
+  "h-labriola-lo-marito-disperato": {
+    "year": 1817,
+    "yearEst": true
+  },
+  "h-taranto-si-o-no": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-ravina-elegy-op-22": {
+    "year": 1849,
+    "yearEst": true
+  },
+  "h-wagner-lohengrin-wwv-75": {
+    "year": 1846,
+    "yearEst": true
+  },
+  "h-finamore-mme-parite-na-faccia-canosciuta": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-liszt-album-leaf-andante-s-167r": {
+    "year": 1850,
+    "yearEst": true
+  },
+  "h-cottrau-dimme-na-vota-si": {
+    "year": 1872,
+    "yearEst": true
+  },
+  "h-biscardi-lo-coscritto": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-florimo-so-quatt-anne-che-partiste": {
+    "year": 1800,
+    "yearEst": true
+  },
+  "h-suppe-dichter-und-bauer": {
+    "year": 1846,
+    "yearEst": true
+  },
+  "h-merula-canzoni-da-suonare-op-17": {
+    "year": 1651,
+    "yearEst": true
+  },
+  "h-bach-siehe-zu-dass-deine-gottesfurcht-bwv-179": {
+    "year": 1723,
+    "yearEst": true
+  },
+  "h-scarlatti-keyboard-sonata-in-g-major-k-523": {
+    "year": 1883,
+    "yearEst": true
+  },
+  "h-bloch-4-easy-pieces-op-36": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-tucker-do-not-heed-her-warning": {
+    "year": 1866,
+    "yearEst": true
+  },
+  "h-palestrina-adoramus-te-christe-igp-3": {
+    "year": 1604,
+    "yearEst": true
+  },
+  "h-castellani-nu-marito-sfortunato": {
+    "year": 1900,
+    "yearEst": true
+  },
+  "h-mendelssohn-organ-sonata-no-3-mwv-w-58": {
+    "year": 1845,
+    "yearEst": true
+  },
+  "h-haydn-die-worte-des-erlosers-am-kreuze-hob-xx-1": {
+    "year": 1785,
+    "yearEst": true
+  },
+  "h-mozart-eine-kleine-nachtmusik-k-525": {
+    "year": 1787,
+    "yearEst": true
+  },
+  "h-pollio-ah-no": {
+    "year": 1885,
+    "yearEst": true
+  },
+  "h-sullivan-mary-now-the-seas-divide-us": {
+    "year": 1840,
+    "yearEst": true
+  },
+  "h-purcell-dido-and-aeneas-z-626": {
+    "year": 1677,
+    "yearEst": true
+  },
+  "h-lefebure-wely-la-clochette-du-patre-op-102": {
+    "year": 1856,
+    "yearEst": true
+  },
+  "h-liszt-recueillement-s-204": {
+    "year": 1877,
+    "yearEst": true
+  },
+  "h-telemann-allein-gott-in-der-hoh-sei-ehr-twv-31-4": {
+    "year": 1735,
+    "yearEst": true
+  },
+  "h-dix-the-trumpeter": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-moszkowski-esquisses-techniques-op-97": {
+    "year": 1920,
+    "yearEst": true
+  },
+  "h-bishop-the-noble-outlaw": {
+    "year": 1769,
+    "yearEst": true
+  },
+  "h-bach-jesu-nun-sei-gepreiset-bwv-41": {
+    "year": 1724,
+    "yearEst": true
+  },
+  "h-rameau-nouvelles-suites-de-pieces-de-clavecin-rct-5-6": {
+    "year": 1727,
+    "yearEst": true
+  },
+  "h-bach-geist-und-seele-wird-verwirret-bwv-35": {
+    "year": 1726,
+    "yearEst": true
+  },
+  "h-praetorius-musae-sioniae-theil-6": {
+    "year": 1568,
+    "yearEst": true
+  },
+  "h-lichner-bunte-blumen-op-111": {
+    "year": 1873,
+    "yearEst": true
+  },
+  "h-telemann-duet-for-2-flutes-twv-40-107": {
+    "year": 1728,
+    "yearEst": true
+  },
+  "h-hewitt-we-re-out-upon-the-moonlit-wave": {
+    "year": 1801,
+    "yearEst": true
+  },
+  "h-schutz-musikalische-exequien-op-7": {
+    "year": 1636,
+    "yearEst": true
+  },
+  "h-denza-rosa": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-scheuenstuhl-partita-no-2-in-g-major": {
+    "year": 1747,
+    "yearEst": true
+  },
+  "h-costa-serenatella": {
+    "year": 1860,
+    "yearEst": true
+  },
+  "h-liszt-romance-oubliee-s-527": {
+    "year": 1880,
+    "yearEst": true
+  },
+  "h-sor-grande-sonate-op-22": {
+    "year": 1825,
+    "yearEst": true
+  },
+  "h-ascher-la-perle-du-nord": {
+    "year": 1854,
+    "yearEst": true
+  },
+  "h-glover-the-gipsey-girl": {
+    "year": 1807,
+    "yearEst": true
+  },
+  "h-criscuolo-margari": {
+    "year": 1875,
+    "yearEst": true
+  },
+  "h-bach-gelobet-sei-der-herr-mein-gott-bwv-129": {
+    "year": 1726,
+    "yearEst": true
+  },
+  "h-foster-old-folks-at-home": {
+    "year": 1851,
+    "yearEst": true
+  },
+  "h-boely-24-pieces-pour-l-orgue-op-12": {
+    "year": 1842,
+    "yearEst": true
+  },
+  "h-moszkowski-tanz-momente-op-89": {
+    "year": 1912,
+    "yearEst": true
+  },
+  "h-couperin-pieces-de-clavecin-livre-3": {
+    "year": 1722,
+    "yearEst": true
+  },
+  "h-crescenzo-matenata-e-primmavera": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-gluck-iphigenie-en-aulide-wq-40": {
+    "year": 1716,
+    "yearEst": true
+  },
+  "h-bach-wir-danken-dir-gott-wir-danken-dir-bwv-29": {
+    "year": 1731,
+    "yearEst": true
+  },
+  "h-joyce-ancient-irish-music": {
+    "year": 1873,
+    "yearEst": true
+  },
+  "h-albertin-o-sbadiglio": {
+    "year": 1895,
+    "yearEst": true
+  },
+  "h-handel-alexander-s-feast-hwv-75": {
+    "year": 1736,
+    "yearEst": true
+  },
+  "h-boleyn-o-death-rock-me-to-sleep": {
+    "year": 1536,
+    "yearEst": true
+  },
+  "h-scholtz-andante-amoroso": {
+    "year": 1884,
+    "yearEst": true
+  },
+  "h-lefebure-wely-meditations-religieuses-op-122": {
+    "year": 1858,
+    "yearEst": true
+  },
+  "h-abig-the-snow-flake": {
+    "year": 1845,
+    "yearEst": true
+  },
+  "h-mendelssohn-kirchenmusik-op-23": {
+    "year": 1830,
+    "yearEst": true
+  },
+  "h-albertin-a-cagnacavalle": {
+    "year": 1889,
+    "yearEst": true
+  },
+  "h-fiocco-pieces-de-clavecin-op-1": {
+    "year": 1730,
+    "yearEst": true
+  },
+  "h-campra-carnaval-de-venise": {
+    "year": 1655,
+    "yearEst": true
+  },
+  "h-antonacci-perzeche": {
+    "year": 1900,
+    "yearEst": true
+  },
+  "h-gabrieli-o-rex-gloriae-domine-virtutem": {
+    "year": 1565,
+    "yearEst": true
+  },
+  "h-eberlin-9-toccatas-and-fugues": {
+    "year": 1745,
+    "yearEst": true
+  },
+  "h-moszkowski-4-morceaux-op-35": {
+    "year": 1885,
+    "yearEst": true
+  },
+  "h-nageli-freu-t-euch-des-lebens": {
+    "year": 1793,
+    "yearEst": true
+  },
+  "h-ilsley-yes-we-think-of-thee-at-home": {
+    "year": 1801,
+    "yearEst": true
+  },
+  "h-lacombe-3-melodies-op-18": {
+    "year": 1846,
+    "yearEst": true
+  },
+  "h-moszkowski-laurin-op-53": {
+    "year": 1895,
+    "yearEst": true
+  },
+  "h-bach-der-geist-hilft-unser-schwachheit-auf-bwv-226": {
+    "year": 1729,
+    "yearEst": true
+  },
+  "h-moszkowski-3-morceaux-op-76": {
+    "year": 1906,
+    "yearEst": true
+  },
+  "h-traditional-per-la-ricuperata-salute-di-ofelia": {
+    "year": 1785,
+    "yearEst": true
+  },
+  "h-schein-suite-no-14": {
+    "year": 1617,
+    "yearEst": true
+  },
+  "h-chopin-mazurkas-op-67": {
+    "year": 1830,
+    "yearEst": true
+  },
+  "h-stults-the-sweetest-story-ever-told": {
+    "year": 1892,
+    "yearEst": true
+  },
+  "h-princivalle-canta-accussi": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-schubert-schwanengesang-d-957": {
+    "year": 1828,
+    "yearEst": true
+  },
+  "h-vilbac-minuetto-gracieuse": {
+    "year": 1885,
+    "yearEst": true
+  },
+  "h-mendelssohn-6-duets-op-63": {
+    "year": 1836,
+    "yearEst": true
+  },
+  "h-bishop-the-mistletoe-bough": {
+    "year": 1797,
+    "yearEst": true
+  },
+  "h-ravina-sicilienne-op-21": {
+    "year": 1849,
+    "yearEst": true
+  },
+  "h-bach-nun-komm-der-heiden-heiland-bwv-62": {
+    "year": 1724,
+    "yearEst": true
+  },
+  "h-mercadante-4-canzone-napoletane": {
+    "year": 1809,
+    "yearEst": true
+  },
+  "h-franck-pieces-posthumes": {
+    "year": 1858,
+    "yearEst": true
+  },
+  "h-webster-sweet-by-and-by": {
+    "year": 1836,
+    "yearEst": true
+  },
+  "h-guilmant-pieces-dans-differents-styles": {
+    "year": 1864,
+    "yearEst": true
+  },
+  "h-gabrieli-angeli-archangeli": {
+    "year": 1576,
+    "yearEst": true
+  },
+  "h-thalberg-andante-op-32": {
+    "year": 1838,
+    "yearEst": true
+  },
+  "h-merulo-la-bovia": {
+    "year": 1592,
+    "yearEst": true
+  },
+  "h-tallis-felix-namque-i-fvb-109": {
+    "year": 1562,
+    "yearEst": true
+  },
+  "h-labriola-lo-spassatiempo": {
+    "year": 1817,
+    "yearEst": true
+  },
+  "h-cottrau-no-granillo-no-mazzo-de-fiore": {
+    "year": 1867,
+    "yearEst": true
+  },
+  "h-capua-serenatella-nera": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-merulo-la-cortese": {
+    "year": 1592,
+    "yearEst": true
+  },
+  "h-sieczynski-wien-du-stadt-meiner-traume-op-1": {
+    "year": 1914,
+    "yearEst": true
+  },
+  "h-beethoven-allegretto-woo-39": {
+    "year": 1812,
+    "yearEst": true
+  },
+  "h-lincoln-bees-wax-rag": {
+    "year": 1911,
+    "yearEst": true
+  },
+  "h-rossi-si-arivamo-a-sposa": {
+    "year": 1894,
+    "yearEst": true
+  },
+  "h-scognamiglio-murzillo-doce": {
+    "year": 1888,
+    "yearEst": true
+  },
+  "h-heinrich-the-log-house": {
+    "year": 1826,
+    "yearEst": true
+  },
+  "h-carissimi-jephte": {
+    "year": 1648,
+    "yearEst": true
+  },
+  "h-bach-jesu-meine-freude-bwv-227": {
+    "year": 1723,
+    "yearEst": true
+  },
+  "h-moszkowski-6-morceaux-op-81": {
+    "year": 1909,
+    "yearEst": true
+  },
+  "h-massenet-thais": {
+    "year": 1894,
+    "yearEst": true
+  },
+  "h-yradier-la-paloma": {
+    "year": 1859,
+    "yearEst": true
+  },
+  "h-chiara-a-vongola": {
+    "year": 1892,
+    "yearEst": true
+  },
+  "h-haydn-liebes-madchen-hor-mir-zu-hob-xxvia-d1": {
+    "year": 1859,
+    "yearEst": true
+  },
+  "h-galgani-o-sfaticato": {
+    "year": 1859,
+    "yearEst": true
+  },
+  "h-rameau-platee-rct-53": {
+    "year": 1745,
+    "yearEst": true
+  },
+  "h-gounod-marche-pontificale-cg-523": {
+    "year": 1869,
+    "yearEst": true
+  },
+  "h-palestrina-loquebantur-variis-linguis": {
+    "year": 1563,
+    "yearEst": true
+  },
+  "h-hiller-vermischte-klavierstucke-op-66": {
+    "year": 1857,
+    "yearEst": true
+  },
+  "h-praeger-scherzo-in-g-major-ifp-147": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-gungl-polka-militaire": {
+    "year": 1848,
+    "yearEst": true
+  },
+  "h-purcell-dioclesian-z-627": {
+    "year": 1635,
+    "yearEst": true
+  },
+  "h-guida-non-ce-penza": {
+    "year": 1886,
+    "yearEst": true
+  },
+  "h-hammerschmidt-musicalischer-andachten-teil-4": {
+    "year": 1646,
+    "yearEst": true
+  },
+  "h-amelio-la-varchetta": {
+    "year": 1858,
+    "yearEst": true
+  },
+  "h-lichner-herzenswunsche-op-5": {
+    "year": 1863,
+    "yearEst": true
+  },
+  "h-kalman-grafin-mariza": {
+    "year": 1877,
+    "yearEst": true
+  },
+  "h-ancona-neh-che-me-mporta": {
+    "year": 1890,
+    "yearEst": true
+  },
+  "h-bach-ach-gott-wie-manches-herzeleid-bwv-3": {
+    "year": 1725,
+    "yearEst": true
+  },
+  "h-gluck-orfeo-ed-euridice-wq-30": {
+    "year": 1762,
+    "yearEst": true
+  },
+  "h-handel-judas-maccabaeus-hwv-63": {
+    "year": 1746,
+    "yearEst": true
+  },
+  "h-andlauer-2-pieces-breves": {
+    "year": 1912,
+    "yearEst": true
+  },
+  "h-albeniz-chants-d-espagne-op-232": {
+    "year": 1891,
+    "yearEst": true
+  },
+  "h-fusco-l-aucelluzzo": {
+    "year": 1893,
+    "yearEst": true
+  },
+  "h-bach-himmelskonig-sei-willkommen-bwv-182": {
+    "year": 1714,
+    "yearEst": true
+  },
+  "h-herz-la-californienne-op-167": {
+    "year": 1852,
+    "yearEst": true
+  },
+  "h-marais-ariane-et-bacchus": {
+    "year": 1696,
+    "yearEst": true
+  },
+  "h-rubinstein-2-melodies-op-3": {
+    "year": 1852,
+    "yearEst": true
+  },
+  "h-gregorio-o-ppoco-e-pusilleco": {
+    "year": 1903,
+    "yearEst": true
+  },
+  "h-florimo-tre-bote-si-e-po-no": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-kurpinski-6-variations": {
+    "year": 1814,
+    "yearEst": true
+  },
+  "h-humperdinck-hansel-und-gretel": {
+    "year": 1891,
+    "yearEst": true
+  },
+  "h-giosa-li-marenare": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-root-kiss-me-mother-kiss-your-darling": {
+    "year": 1864,
+    "yearEst": true
+  },
+  "h-reger-introduction-und-passacaglia-woo-iv-6": {
+    "year": 1899,
+    "yearEst": true
+  },
+  "h-eilenberg-die-muhle-im-schwarzwald-op-52": {
+    "year": 1885,
+    "yearEst": true
+  },
+  "h-kleber-crotchets-quavers": {
+    "year": 1856,
+    "yearEst": true
+  },
+  "h-crecquillon-un-gay-bergier": {
+    "year": 1543,
+    "yearEst": true
+  },
+  "h-bruckner-wenn-ich-den-wandrer-frage": {
+    "year": 1837,
+    "yearEst": true
+  },
+  "h-moszkowski-3-moments-musicaux-op-7": {
+    "year": 1852,
+    "yearEst": true
+  },
+  "h-criscuolo-m-aggi-a-mmareta": {
+    "year": 1870,
+    "yearEst": true
+  },
+  "h-gade-3-albumblade-woo-108": {
+    "year": 1850,
+    "yearEst": true
+  },
+  "h-handel-saul-hwv-53": {
+    "year": 1738,
+    "yearEst": true
+  },
+  "h-scarlatti-keyboard-sonata-in-e-major-k-20": {
+    "year": 1738,
+    "yearEst": true
+  },
+  "h-herz-variations-et-rondeau-brillant-op-16": {
+    "year": 1827,
+    "yearEst": true
+  },
+  "h-heller-im-walde-op-86": {
+    "year": 1855,
+    "yearEst": true
+  },
+  "h-isaac-a-la-battaglia": {
+    "year": 1487,
+    "yearEst": true
+  },
+  "h-labriola-lu-muscillo": {
+    "year": 1828,
+    "yearEst": true
+  },
+  "h-purcell-the-old-bachelor-z-607": {
+    "year": 1691,
+    "yearEst": true
+  },
+  "h-chiara-serata-e-paraviso": {
+    "year": 1901,
+    "yearEst": true
+  },
+  "kalinka": {
+    "year": 1860
+  },
+  "waltzing-matilda": {
+    "year": 1895
+  },
+  "hava-nagila": {
+    "year": 1918
+  },
+  "auld-lang-syne": {
+    "year": 1788,
+    "yearEst": true
+  },
+  "amazing-grace": {
+    "year": 1835,
+    "yearEst": true
+  },
+  "shenandoah": {
+    "year": 1840,
+    "yearEst": true
+  },
+  "h-ascher-un-mot-du-coeur-op-39": {
+    "year": 1862,
+    "yearEst": true
+  },
+  "h-smallwood-introduction-and-march": {
+    "year": 1875,
+    "yearEst": true
+  },
+  "h-traditional-cancionero-de-la-colombina": {
+    "year": 1490,
+    "yearEst": true
+  },
+  "h-traditional-greensleeves-to-a-ground": {
+    "year": 1580,
+    "yearEst": true
+  },
+  "h-traditional-pieta-signore": {
+    "year": 1833,
+    "yearEst": true
+  },
+  "h-traditional-russian-march-and-the-emperor-alexander-s-walt": {
+    "year": 1815,
+    "yearEst": true
+  },
+  "m-mozart-dies-irae": {
+    "cpsMul": 0.55
+  },
+  "schubert-erlkonig": {
+    "cpsMul": 1.3
+  }
+}
