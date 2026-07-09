@@ -186,13 +186,19 @@ input[type=range].slider::-moz-range-thumb{ width:14px; height:14px; border-radi
 
 /* ---- fullscreen: score + keyboard both fill the screen (Fullscreen API + class fallback) ---- */
 .player:fullscreen, .player:-webkit-full-screen, .player.fs-fallback{
-  width:100vw; height:100vh; max-width:none; border-radius:0; display:flex; flex-direction:column; }
+  width:100vw; height:100vh; height:100dvh; max-width:none; border-radius:0; display:flex; flex-direction:column; }
+/* 100dvh = the *visible* viewport on mobile (excludes the Safari address bar), so the keyboard isn't pushed
+   off-screen the way plain 100vh does on iOS. */
 .player:fullscreen .player-top, .player:-webkit-full-screen .player-top, .player.fs-fallback .player-top{ flex:0 0 auto; }
 .player:fullscreen .player-body, .player:-webkit-full-screen .player-body, .player.fs-fallback .player-body{ flex:1 1 auto; min-height:0; }
 .player:fullscreen .notation-pane, .player:-webkit-full-screen .notation-pane, .player.fs-fallback .notation-pane{ max-height:none; flex:1 1 46%; min-height:0; }
 .player:fullscreen .stage, .player:-webkit-full-screen .stage, .player.fs-fallback .stage{ flex:1 1 54%; min-height:0; }
 .player:fullscreen .notation, .player:-webkit-full-screen .notation, .player.fs-fallback .notation{ font-size:17px; }
-.player.fs-fallback{ position:fixed; inset:0; z-index:300; }
+.player.fs-fallback{ position:fixed; inset:0; z-index:300; padding-top:env(safe-area-inset-top, 0px); box-sizing:border-box; }
+/* while the mobile CSS-overlay fullscreen is open: hide the site chrome (the fixed header would otherwise
+   peek over the trapped overlay) and lock the page so it can't scroll behind the player. */
+html.drd-fs{ overflow:hidden; }
+html.drd-fs #site-header, html.drd-fs #site-footer{ display:none !important; }
 .icon-btn.fs-btn.active{ color:var(--gold); border-color:rgba(244,193,93,.4); }
 
 /* ---- cinema mode: cinematic treatment layered onto fullscreen ---- */
@@ -211,7 +217,7 @@ input[type=range].slider::-moz-range-thumb{ width:14px; height:14px; border-radi
 .player.present .player-top,
 .player.present .stage-hint{ display:none !important; }
 .present-exit{ display:none; }
-.player.present .present-exit{ display:inline-flex; align-items:center; gap:6px; position:absolute; top:16px; right:18px; z-index:30;
+.player.present .present-exit{ display:inline-flex; align-items:center; gap:6px; position:absolute; top:calc(16px + env(safe-area-inset-top, 0px)); right:18px; z-index:30;
   font-family:var(--font-mono); font-size:.74rem; letter-spacing:.04em; color:#fff; background:rgba(18,18,28,.55);
   border:1px solid rgba(255,255,255,.28); border-radius:40px; padding:8px 15px; cursor:pointer; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); transition:background .15s; }
 .player.present .present-exit:hover{ background:rgba(44,44,60,.85); }

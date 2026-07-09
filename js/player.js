@@ -362,14 +362,14 @@
     function hit(x, y, octave, strength) {
       const rgb = hexRGB(OCT_HEX[clampOct(octave)] || '#8b6bff');
       if (x == null) { x = W * 0.5; y = H - 30; }
-      const n = MOBILE ? 2 + Math.round((strength || 1) * 2) : 4 + Math.round((strength || 1) * 4);
-      const cap = MOBILE ? 40 : 300;                 // fewer live particles on phones = lighter frames = smoother emit
+      const n = MOBILE ? 1 + Math.round((strength || 1)) : 4 + Math.round((strength || 1) * 4);
+      const cap = MOBILE ? 20 : 300;                 // fewer live particles on phones = lighter frames = smoother emit (halved again on user request)
       const spd = MOBILE ? 2 : 1;                    // the viz runs at ~30fps on mobile, so double per-step motion + decay to keep the same real-time speed (and stop particles lingering 2x longer)
       for (let i = 0; i < n && parts.length < cap; i++) {
         parts.push({ x: x + (Math.random() - 0.5) * 14, y: y, vx: (Math.random() - 0.5) * 0.5 * spd,
           vy: -(0.7 + Math.random() * 1.7) * spd, life: 1, decay: (0.006 + Math.random() * 0.01) * spd, size: 1.4 + Math.random() * 2.6, rgb });
       }
-      if (rings.length < (MOBILE ? 7 : 26)) rings.push({ x, y, r: 6, life: 1, rgb });
+      if (rings.length < (MOBILE ? 4 : 26)) rings.push({ x, y, r: 6, life: 1, rgb });
       if (!MOBILE) glow = Math.min(1, glow + 0.5);   // skip the full-canvas glow fill on phones (big fill cost, esp. fullscreen)
       if (rgb !== glowColor) { glowColor = rgb; glowGrad = null; }   // rebuild cached gradient only on colour change
       start();
@@ -682,6 +682,10 @@
     $('.fs-btn').addEventListener('click', toggleFullscreen);
     function isFsActive() { return !!(document.fullscreenElement || document.webkitFullscreenElement) || mount.classList.contains('fs-fallback'); }
     function toggleFullscreen() {
+      // Phones/tablets: iOS Safari has no reliable element-level Fullscreen API (only <video>), and even
+      // where it exists it fights the on-screen keyboard/toolbars. Always use our own CSS overlay instead —
+      // it's a real full-viewport layer we fully control (see .fs-fallback, sized with 100dvh).
+      if (MOBILE) { mount.classList.toggle('fs-fallback'); onFsChange(); return; }
       try {
         if (document.fullscreenElement || document.webkitFullscreenElement) {
           (document.exitFullscreen || document.webkitExitFullscreen).call(document);
@@ -694,6 +698,10 @@
       const on = isFsActive();
       const btn = $('.fs-btn'); if (btn) btn.classList.toggle('active', on);
       mount.classList.toggle('cinema', on);
+      // The CSS-overlay fallback (mobile) is a position:fixed layer, but the player is nested inside a
+      // transformed ancestor, so its stacking context is trapped below the fixed site header — the header
+      // would show through the "fullscreen". Flag <html> so we can hide the header/footer and lock scroll.
+      if (global.document && document.documentElement) document.documentElement.classList.toggle('drd-fs', mount.classList.contains('fs-fallback'));
       const cap = $('.stage-caption');   // cinema mode: name the piece instead of the generic caption
       if (cap) cap.textContent = on ? ((song.title || '') + (song.composer ? '  ·  ' + song.composer : '')) : 'Live keyboard';
       if (!on) { const wasPresent = mount.classList.contains('present'); clearPresent(); if (wasPresent && playing) pause(); }   // leaving fullscreen ends presentation
