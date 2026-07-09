@@ -694,14 +694,48 @@
         else { mount.classList.toggle('fs-fallback'); onFsChange(); }
       } catch (e) { mount.classList.toggle('fs-fallback'); onFsChange(); }
     }
+    // A position:fixed element is contained by ANY ancestor with a transform/filter/perspective/etc. — and
+    // here both a wrapper AND <body> (its page-in animation leaves an identity transform) do this, so the
+    // CSS-overlay "fullscreen" was contained by them and only covered part of the screen (and scrolled with
+    // the page). Neutralise those properties on the ancestors on the way in, restore on the way out, so the
+    // fixed overlay is finally relative to the viewport and truly fills it.
+    let fsNeutralised = [];
+    function neutraliseContainers() {
+      if (fsNeutralised.length) return;
+      const nodes = []; let el = mount.parentElement;
+      while (el && el !== document.documentElement) { nodes.push(el); el = el.parentElement; }
+      if (document.body) nodes.push(document.body);
+      nodes.forEach(function (n) {
+        const cs = getComputedStyle(n);
+        const traps = cs.transform !== 'none' || cs.perspective !== 'none' || cs.filter !== 'none' ||
+          (cs.backdropFilter && cs.backdropFilter !== 'none') || /transform|filter|perspective/.test(cs.willChange || '') ||
+          /paint|layout|strict|content/.test(cs.contain || '');
+        if (!traps) return;
+        const saved = { n: n, transform: n.style.transform, perspective: n.style.perspective, filter: n.style.filter, backdropFilter: n.style.backdropFilter, willChange: n.style.willChange, contain: n.style.contain, animation: n.style.animation };
+        n.style.transform = 'none'; n.style.perspective = 'none'; n.style.filter = 'none'; n.style.backdropFilter = 'none';
+        n.style.willChange = 'auto'; n.style.contain = 'none'; n.style.animation = 'none';   // animation:none kills the page-in's held identity transform
+        fsNeutralised.push(saved);
+      });
+    }
+    function restoreContainers() {
+      fsNeutralised.forEach(function (s) {
+        s.n.style.transform = s.transform || ''; s.n.style.perspective = s.perspective || ''; s.n.style.filter = s.filter || '';
+        s.n.style.backdropFilter = s.backdropFilter || ''; s.n.style.willChange = s.willChange || ''; s.n.style.contain = s.contain || '';
+        s.n.style.animation = (s.n === document.body) ? 'none' : (s.animation || '');   // don't replay the body page-in on exit
+      });
+      fsNeutralised = [];
+    }
     function onFsChange() {
       const on = isFsActive();
       const btn = $('.fs-btn'); if (btn) btn.classList.toggle('active', on);
       mount.classList.toggle('cinema', on);
-      // The CSS-overlay fallback (mobile) is a position:fixed layer, but the player is nested inside a
-      // transformed ancestor, so its stacking context is trapped below the fixed site header — the header
-      // would show through the "fullscreen". Flag <html> so we can hide the header/footer and lock scroll.
-      if (global.document && document.documentElement) document.documentElement.classList.toggle('drd-fs', mount.classList.contains('fs-fallback'));
+      // CSS-overlay fallback (mobile): flag <html> to hide the site header/footer + lock scroll, and
+      // neutralise the transformed ancestors that were containing (and shrinking) the fixed overlay.
+      if (global.document && document.documentElement) {
+        const fb = mount.classList.contains('fs-fallback');
+        document.documentElement.classList.toggle('drd-fs', fb);
+        if (fb) neutraliseContainers(); else restoreContainers();
+      }
       const cap = $('.stage-caption');   // cinema mode: name the piece instead of the generic caption
       if (cap) cap.textContent = on ? ((song.title || '') + (song.composer ? '  ·  ' + song.composer : '')) : 'Live keyboard';
       if (!on) { const wasPresent = mount.classList.contains('present'); clearPresent(); if (wasPresent && playing) pause(); }   // leaving fullscreen ends presentation
