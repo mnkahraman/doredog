@@ -232,8 +232,16 @@
     }
   };
   Synth.VOICES = VOICES;
-  // pause (don't close!) the audio when leaving — closing breaks sound on bfcache return; ensure() resumes it
-  if (global.addEventListener) global.addEventListener('pagehide', () => { try { if (Synth.ctx && Synth.ctx.state === 'running') Synth.ctx.suspend(); } catch (e) {} });
+  // pause (don't close!) the audio when leaving — closing breaks sound on bfcache return; ensure() resumes it.
+  // Also HARD-STOP every playing transport first: the look-ahead scheduler has ~0.18s of notes already
+  // scheduled via o.start(when); suspend() alone is async, so navigating away mid-playback would leak a brief
+  // burst of piano sound before the page unloads. Stopping the live oscillators synchronously kills that blip.
+  if (global.addEventListener) global.addEventListener('pagehide', () => {
+    try {
+      ALL_PLAYERS.forEach((p) => { try { if (p.playing) p.pause(); } catch (e) {} });
+      if (Synth.ctx && Synth.ctx.state === 'running') Synth.ctx.suspend();
+    } catch (e) {}
+  });
   // Safari auto-suspends the context when the tab is backgrounded — resume it on return so the next
   // play doesn't come back silent.
   if (global.document && global.document.addEventListener) {
