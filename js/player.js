@@ -236,22 +236,39 @@
   };
   Synth.VOICES = VOICES;
   // pause (don't close!) the audio when leaving — closing breaks sound on bfcache return; ensure() resumes it.
-  // Also HARD-STOP every playing transport first: the look-ahead scheduler has ~0.18s of notes already
-  // scheduled via o.start(when); suspend() alone is async, so navigating away mid-playback would leak a brief
-  // burst of piano sound before the page unloads. Stopping the live oscillators synchronously kills that blip.
+  // Leaving mid-playback used to leak a brief burst of the look-ahead-scheduled notes (suspend() is async).
+  // Click-free silence: fade the whole master bus to ~0 in 18ms — this silences the in-flight notes smoothly
+  // before the page unloads. (Hard-stopping the oscillators with o.stop() truncates the waveform mid-cycle,
+  // which pops/crackles on Safari — that was the residual "çıtırtı". A gain ramp has no discontinuity.)
   if (global.addEventListener) global.addEventListener('pagehide', () => {
     try {
-      ALL_PLAYERS.forEach((p) => { try { if (p.playing) p.pause(); } catch (e) {} });
-      if (Synth.ctx && Synth.ctx.state === 'running') Synth.ctx.suspend();
+      const ctx = Synth.ctx;
+      if (ctx && Synth.master && ctx.state === 'running') {
+        const g = Synth.master.gain, now = ctx.currentTime;
+        if (Synth._preNavGain == null) Synth._preNavGain = g.value;   // remember the volume so a bfcache return restores it
+        g.cancelScheduledValues(now); g.setValueAtTime(Math.max(g.value, 0.0001), now);
+        g.exponentialRampToValueAtTime(0.0001, now + 0.018);
+      }
+      // halt each transport's scheduler (no new notes) but DON'T hard-stop oscillators — the bus fade silences them
+      ALL_PLAYERS.forEach((p) => { try { if (p.playing && p.haltForNav) p.haltForNav(); } catch (e) {} });
+      if (ctx && ctx.state === 'running') ctx.suspend();
     } catch (e) {}
   });
   // Safari auto-suspends the context when the tab is backgrounded — resume it on return so the next
-  // play doesn't come back silent.
+  // play doesn't come back silent. Also undo the pagehide master-fade if this page is revived from bfcache.
+  Synth._onReturn = function () {
+    if (!Synth.ctx) return;
+    if (Synth.ctx.state === 'suspended') { try { Synth.ctx.resume(); } catch (e) {} }
+    if (Synth._preNavGain != null && Synth.master) {
+      const g = Synth.master.gain, now = Synth.ctx.currentTime;
+      try { g.cancelScheduledValues(now); g.setValueAtTime(Synth._preNavGain, now); } catch (e) {}
+      Synth._preNavGain = null;
+    }
+  };
   if (global.document && global.document.addEventListener) {
-    global.document.addEventListener('visibilitychange', () => {
-      if (!global.document.hidden && Synth.ctx && Synth.ctx.state === 'suspended') { try { Synth.ctx.resume(); } catch (e) {} }
-    });
+    global.document.addEventListener('visibilitychange', () => { if (!global.document.hidden) Synth._onReturn(); });
   }
+  if (global.addEventListener) global.addEventListener('pageshow', () => { Synth._onReturn(); });
 
   // Safari/iOS: unlock the audio context on the very FIRST real user gesture anywhere on the page,
   // so by the time the play button is pressed the context is already running (Safari won't start a
@@ -562,7 +579,7 @@
     const LOOKAHEAD_FG = MOBILE ? 0.5 : 0.3, LOOKAHEAD_BG = 2.5;   // bg window covers the ~1s background-timer throttle so audio keeps flowing cleanly
     let LOOKAHEAD = LOOKAHEAD_FG; const TICK = MOBILE ? 40 : 30;
 
-    const state = { get playing() { return playing; }, play, pause, toggle, stop, seekCol: (c) => seekTo(c / total),
+    const state = { get playing() { return playing; }, play, pause, toggle, stop, haltForNav, seekCol: (c) => seekTo(c / total),
       seekBlock: (n) => { if (blockMeta[n]) seekTo(blockMeta[n].start / total); }, el: mount,
       destroy() { hardStop(); if (viz) viz.destroy(); if (pianoResize && global.removeEventListener) global.removeEventListener('resize', pianoResize);
         if (global.document) { document.removeEventListener('fullscreenchange', onFsChange); document.removeEventListener('webkitfullscreenchange', onFsChange); document.removeEventListener('visibilitychange', onBg); document.removeEventListener('keydown', onPresentKey); }
@@ -764,17 +781,31 @@
       // silently dropped (Chrome plays it once resumed — hence "works in Chrome, silent in Safari").
       // Start the transport only once the context is confirmed running.
       if (Synth.ctx && Synth.ctx.state === 'running') { begin(); return; }
-      let launched = false; const go = function () { if (launched) return; launched = true; begin(); };
-      try { const pr = Synth.ctx && Synth.ctx.resume && Synth.ctx.resume(); if (pr && pr.then) pr.then(go, go); } catch (e) {}
-      let tries = 0;                                   // poll fallback in case resume() never resolves
+      // Only start once the context is CONFIRMED running — on iOS Safari a context can sit 'suspended' and
+      // oscillators scheduled while suspended are silently dropped (→ "played but no sound on the new piece").
+      // Never start on a rejected/early resume; re-kick resume periodically; force-start only as a last resort.
+      let launched = false;
+      const tryStart = function () { if (launched) return false; if (Synth.ctx && Synth.ctx.state === 'running') { launched = true; begin(); return true; } return false; };
+      try { const pr = Synth.ctx && Synth.ctx.resume && Synth.ctx.resume(); if (pr && pr.then) pr.then(tryStart, function () {}); } catch (e) {}
+      let tries = 0;
       const poll = setInterval(function () {
-        if (Synth.ctx && Synth.ctx.state === 'running') { clearInterval(poll); go(); }
-        else if (++tries >= 24) { clearInterval(poll); go(); }   // ~1.2s safety net — start anyway
+        if (tryStart()) { clearInterval(poll); return; }
+        if (++tries % 8 === 0) { try { Synth._kick(); } catch (e) {} }              // re-nudge iOS every ~400ms
+        if (tries >= 60) { clearInterval(poll); if (!launched) { launched = true; begin(); } }   // ~3s last-resort start so the button is never dead
       }, 50);
     }
     function pause() {
       pausedAt = currentElapsed(); playing = false;
       clearInterval(schedTimer); cancelAnimationFrame(raf); stopLive();
+      playBtn.classList.remove('playing'); playBtn.innerHTML = I.play; playBtn.setAttribute('aria-label', 'Play');
+    }
+    // Like pause() but WITHOUT stopLive() — used only by the pagehide handler, where the master-bus fade
+    // silences the live notes click-free (o.stop() would pop on Safari). Oscillators self-terminate at their
+    // already-scheduled stop times; the page is unloading anyway.
+    function haltForNav() {
+      if (!playing) return;
+      pausedAt = currentElapsed(); playing = false;
+      clearInterval(schedTimer); cancelAnimationFrame(raf);
       playBtn.classList.remove('playing'); playBtn.innerHTML = I.play; playBtn.setAttribute('aria-label', 'Play');
     }
     function stop() {
