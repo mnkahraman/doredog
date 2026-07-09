@@ -1,0 +1,10 @@
+# Files NOT to publish to the web (source data + tooling). Web content stays.
+/notes_csv/
+/tools/
+/scratchpad/
+/node_modules/
+*.md
+*.sh
+/wrangler.jsonc
+/.assetsignore
+/.gitignore

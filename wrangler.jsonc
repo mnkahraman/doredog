@@ -1,0 +1,10 @@
+{
+  // DoReDog — static site served by Cloudflare Workers Assets (no server code).
+  // `npx wrangler deploy` uploads the site files (see .assetsignore for exclusions).
+  "name": "doredog",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
