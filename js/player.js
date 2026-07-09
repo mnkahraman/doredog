@@ -246,8 +246,10 @@
       if (ctx && Synth.master && ctx.state === 'running') {
         const g = Synth.master.gain, now = ctx.currentTime;
         if (Synth._preNavGain == null) Synth._preNavGain = g.value;   // remember the volume so a bfcache return restores it
+        // ~8ms exponential fade to silence: fast enough that almost no audio leaks, still smooth enough to
+        // avoid the mid-cycle discontinuity that pops on Safari. (Much shorter starts to risk a click again.)
         g.cancelScheduledValues(now); g.setValueAtTime(Math.max(g.value, 0.0001), now);
-        g.exponentialRampToValueAtTime(0.0001, now + 0.018);
+        g.exponentialRampToValueAtTime(0.00008, now + 0.008);
       }
       // halt each transport's scheduler (no new notes) but DON'T hard-stop oscillators — the bus fade silences them
       ALL_PLAYERS.forEach((p) => { try { if (p.playing && p.haltForNav) p.haltForNav(); } catch (e) {} });
