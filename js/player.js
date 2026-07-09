@@ -168,7 +168,15 @@
       for (let ch = 0; ch < 2; ch++) { const d = buf.getChannelData(ch); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay); }
       return buf;
     },
-    setVolume(v) { if (this.master) this.master.gain.value = v; },
+    // Cancel any pending automation first (e.g. a leftover pagehide fade-to-0): a plain `.value =` does NOT
+    // clear scheduled ramps, so the gain would stay stuck at the fade's target → silence. This is the
+    // "Safari has no sound" bug. cancel + setValueAtTime forces the volume to actually take.
+    setVolume(v) {
+      if (!this.master) return;
+      const g = this.master.gain;
+      if (this.ctx) { const t = this.ctx.currentTime; try { g.cancelScheduledValues(t); g.setValueAtTime(v, t); return; } catch (e) {} }
+      g.value = v;
+    },
     // short metronome click. accent=true → louder/higher downbeat.
     tick(when, accent) {
       this.ensure();
@@ -269,9 +277,12 @@
   Synth._onReturn = function () {
     if (!Synth.ctx) return;
     if (Synth.ctx.state === 'suspended') { try { Synth.ctx.resume(); } catch (e) {} }
-    if (Synth._preNavGain != null && Synth.master) {
+    if (Synth.master) {
       const g = Synth.master.gain, now = Synth.ctx.currentTime;
-      try { g.cancelScheduledValues(now); g.setValueAtTime(Synth._preNavGain, now); } catch (e) {}
+      try { g.cancelScheduledValues(now); } catch (e) {}     // always kill a leftover pagehide fade ramp
+      // restore the saved volume; if none saved but the gain is stuck near-silent, bump it back to default
+      const target = Synth._preNavGain != null ? Synth._preNavGain : (g.value < 0.02 ? 0.85 : g.value);
+      try { g.setValueAtTime(target, now); } catch (e) { g.value = target; }
       Synth._preNavGain = null;
     }
   };
@@ -287,6 +298,7 @@
     const EVTS = ['pointerdown', 'touchend', 'mousedown', 'keydown'];
     const unlock = function () {
       Synth.ensure();
+      Synth._onReturn();   // any real gesture also clears a stuck master fade → a silent page recovers on the next tap
       if (Synth.ctx && Synth.ctx.state === 'running') EVTS.forEach((e) => global.removeEventListener(e, unlock, true));
     };
     EVTS.forEach((e) => global.addEventListener(e, unlock, true));
@@ -900,7 +912,7 @@
       const top = b.el.offsetTop, h = pane.clientHeight;
       const target = Math.max(0, top - h * 0.4);
       if (Math.abs(pane.scrollTop - target) <= 8) return;
-      if (!MOBILE && pane.scrollTo) pane.scrollTo({ top: target, behavior: 'smooth' }); else pane.scrollTop = target;   // instant on mobile — smooth-scroll animation janks against playback
+      pane.scrollTop = target;   // always instant — a smooth-scroll animation lags and chases on fast pieces (blocks change before it lands) and adds continuous compositor jank; a jump keeps the notes on the playhead exactly
     }
     function clearHighlights() {
       for (const s of litNotes) s.classList.remove('hit'); litNotes.length = 0;

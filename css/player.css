@@ -67,13 +67,15 @@ input[type=range].slider::-moz-range-thumb{ width:14px; height:14px; border-radi
 .notation-pane{
   position:relative; overflow:auto; min-height:160px; max-height:clamp(180px, 30vh, 340px);
   border-bottom:1px solid var(--border);
-  scrollbar-width:thin; scrollbar-color:var(--border-2) transparent;
+  scrollbar-width:none;                 /* hide the scrollbar — it sat next to the keyboard and cluttered the stage; the pane still wheel-scrolls and auto-follows playback */
 }
-.notation-pane::-webkit-scrollbar{ width:8px; height:8px; }
-.notation-pane::-webkit-scrollbar-thumb{ background:var(--border-2); border-radius:8px; }
+.notation-pane::-webkit-scrollbar{ width:0; height:0; display:none; }
 /* centred as a whole (same axis as the keyboard); blocks keep a shared left edge */
 .notation{ padding:22px 22px 40px; font-family:var(--font-mono); font-size:15px; line-height:1.55; width:max-content; margin-inline:auto; }
-.nota-block{ margin-bottom:20px; position:relative; }
+/* `contain:layout style` isolates each block's layout/style recalc so scrolling or highlighting one block
+   never re-flows the whole (huge) notation. Not content-visibility — that estimates off-screen block heights,
+   which broke the playhead auto-scroll (offsetTop drifted). Blocks stay laid out, so offsetTop stays exact. */
+.nota-block{ margin-bottom:20px; position:relative; contain:layout style; }
 .nota-block:last-child{ margin-bottom:0; }
 .nota-num{ font-size:.68rem; color:var(--text-mute); letter-spacing:.1em; margin-bottom:3px; user-select:none; }
 .nota-line{ white-space:pre; }
