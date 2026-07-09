@@ -143,8 +143,11 @@
       const AC = global.AudioContext || global.webkitAudioContext;
       this.ctx = new AC();
       this.master = this.ctx.createGain(); this.master.gain.value = 0.85; this.master.connect(this.ctx.destination);
-      this.reverb = this.ctx.createConvolver(); this.reverb.buffer = this._impulse(2.6, 2.4);
-      this.reverbGain = this.ctx.createGain(); this.reverbGain.gain.value = 0.20;
+      // Convolution reverb runs continuously and is the single biggest sustained audio-thread cost —
+      // the main reason a long piece heats the phone. On mobile use a much shorter impulse (~4x cheaper
+      // convolution) and a lower send; the ambient tail is barely audible on a phone speaker anyway.
+      this.reverb = this.ctx.createConvolver(); this.reverb.buffer = this._impulse(MOBILE ? 0.6 : 2.6, MOBILE ? 3.2 : 2.4);
+      this.reverbGain = this.ctx.createGain(); this.reverbGain.gain.value = MOBILE ? 0.13 : 0.20;
       this.reverb.connect(this.reverbGain); this.reverbGain.connect(this.master);
       for (const V of VOICES) {
         const p = V.partials, real = new Float32Array(p.length), imag = new Float32Array(p.length);
@@ -191,7 +194,7 @@
       filt.connect(g);
       const all = [];
       const main = this.ctx.createOscillator(); main.setPeriodicWave(V._wave); main.frequency.value = freq; main.connect(filt); all.push(main);
-      if (V.detune) { const o2 = this.ctx.createOscillator(); o2.setPeriodicWave(V._wave); o2.frequency.value = freq; o2.detune.value = V.detune; o2.connect(filt); all.push(o2); }
+      if (V.detune && !MOBILE) { const o2 = this.ctx.createOscillator(); o2.setPeriodicWave(V._wave); o2.frequency.value = freq; o2.detune.value = V.detune; o2.connect(filt); all.push(o2); }   // skip the detuned-twin "width" oscillator on mobile (halves osc count, inaudible on a phone speaker)
       if (V.sub) { const os = this.ctx.createOscillator(); os.type = 'sine'; os.frequency.value = freq / 2; const sg = this.ctx.createGain(); sg.gain.value = V.sub; os.connect(sg); sg.connect(filt); all.push(os); }
       g.gain.setValueAtTime(0.0001, t);
       g.gain.exponentialRampToValueAtTime(peak, t + V.atk);
@@ -207,7 +210,7 @@
       if (V.rvb > 0 && this.reverb) { const rs = this.ctx.createGain(); rs.gain.value = V.rvb * (0.6 + 0.4 * highMul); g.connect(rs); rs.connect(this.reverb); }
       const stopAt = t + V.dur + 0.08;
       for (const o of all) { o.start(t); o.stop(stopAt); }
-      if (V.shimmer) {
+      if (V.shimmer && !MOBILE) {   // skip the octave-up shimmer sine on mobile (extra osc + gain per note)
         const sh = this.ctx.createOscillator(); sh.type = 'sine'; sh.frequency.value = freq * (V.shimmerMul || 2);
         const g2 = this.ctx.createGain();
         g2.gain.setValueAtTime(0.0001, t);
@@ -286,6 +289,9 @@
     try { return !!(global.matchMedia && (global.matchMedia('(pointer:coarse)').matches || (global.innerWidth || 9999) < 820)); }
     catch (e) { return false; }
   })();
+  // Cap simultaneous voices harder on phones — dense passages otherwise pile up multi-oscillator notes
+  // on the audio thread. Stealing the oldest (already-decaying) note is inaudible but keeps CPU/heat down.
+  if (MOBILE) Synth.MAXVOICES = 14;
 
   /* --------------------------- visualizer -------------------------------- */
   // Lightweight canvas particle/glow system. Self-suspends when idle.
@@ -801,8 +807,10 @@
     }
 
     /* ----------------------------- visuals ----------------------------- */
+    let visSkip = false;
     function visual() {
       if (!playing) return;
+      if (MOBILE) { visSkip = !visSkip; if (visSkip) { raf = requestAnimationFrame(visual); return; } }   // ~30fps on phones: the playhead stays smooth but halves per-frame render/DOM work
       const elapsed = Synth.ctx.currentTime - startTime;
       if (learnMode) drawFalling(elapsed);
       const col = Math.max(0, Math.floor(elapsed / colDur));
