@@ -182,6 +182,9 @@ input[type=range].slider::-moz-range-thumb{ width:14px; height:14px; border-radi
   .piano-scroll::before{ display:none; }          /* drop the blurred key-glow on the scrolling keyboard */
   .player.cinema .player-top{ backdrop-filter:none; -webkit-backdrop-filter:none; }
   .player.present .present-exit{ backdrop-filter:none; -webkit-backdrop-filter:none; }
+  /* Fullscreen + cinema/present modes are removed on mobile — the phone Fullscreen API is unreliable and
+     the modes don't add much on a small screen. Hide both entry buttons (desktop keeps them). */
+  .player .fs-btn, .player .present-btn{ display:none !important; }
 }
 
 /* ---- fullscreen: score + keyboard both fill the screen (Fullscreen API + class fallback) ---- */
