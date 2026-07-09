@@ -1,4 +1,5 @@
-# Files NOT to publish to the web (source data + tooling). Web content stays.
+# Files NOT to publish to the web (source data, tooling, VCS). Web content stays.
+/.git/
 /notes_csv/
 /tools/
 /scratchpad/
@@ -8,3 +9,4 @@
 /wrangler.jsonc
 /.assetsignore
 /.gitignore
+/serve.sh
