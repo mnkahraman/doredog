@@ -120,10 +120,13 @@ input[type=range].slider::-moz-range-thumb{ width:14px; height:14px; border-radi
 .stage-spacer{ flex:1 1 auto; min-height:20px; }
 
 /* ---- piano ---- */
-.piano-scroll{ position:relative; z-index:1; width:100%; overflow-x:auto; padding:26px 2px 6px; scrollbar-width:thin; }
+/* overflow-y:hidden is the key fix — overflow-x:auto (needed to slide a wide keyboard sideways) implicitly
+   makes overflow-y `auto` too, and the sub-keyboard glow spills a few px below the box, so a stray VERTICAL
+   scrollbar appeared right next to the keyboard. Pin overflow-y and hide the (horizontal) scrollbar chrome. */
+.piano-scroll{ position:relative; z-index:1; width:100%; overflow-x:auto; overflow-y:hidden; padding:26px 2px 6px; scrollbar-width:none; }
 .piano-scroll::before{ content:""; position:absolute; left:50%; bottom:-4%; width:88%; height:74%; transform:translateX(-50%);
   background:radial-gradient(closest-side, rgba(139,107,255,.20), transparent 72%); filter:blur(16px); z-index:-1; pointer-events:none; }
-.piano-scroll::-webkit-scrollbar{ height:7px; } .piano-scroll::-webkit-scrollbar-thumb{ background:var(--border-2); border-radius:7px; }
+.piano-scroll::-webkit-scrollbar{ display:none; }
 .piano{ display:flex; justify-content:center; position:relative; height:150px; width:100%; user-select:none;
   transform:perspective(1600px) rotateX(7deg); transform-origin:center 94%; transition:transform .5s var(--ez); }
 .octave-group{ flex:none; }   /* keep the fitted key widths; centred by the piano */
