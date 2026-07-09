@@ -502,6 +502,19 @@ select.lib-composer option{ background:#0f0f1c; color:var(--text); }
   *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto; }
   [data-reveal]{ opacity:1; transform:none; }
 }
+/* ---------- Mobile performance ----------
+   Phones have weak GPUs and the audio scheduler shares the main thread with all rendering.
+   Animated blur() filters re-rasterise a large area every frame, and backdrop-filter repaints
+   on every scroll frame — both starve audio and cause the stutter/choppiness on touch devices.
+   Freeze the animations and drop the live blurs; on a small screen the look is nearly identical.
+   (Matches the JS `MOBILE` check in player.js: coarse pointer OR narrow viewport.) */
+@media (pointer:coarse), (max-width:820px){
+  .bg-aurora{ animation:none; }
+  .bg-rays{ animation:none; }
+  .scene-orb{ animation:none; }
+  .site-header.scrolled{ background:rgba(8,8,14,.95); backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .card, .btn-ghost, .dur-badge, .play-badge, .fav-btn{ backdrop-filter:none; -webkit-backdrop-filter:none; }
+}
 
 /* ============================================================================
    CINEMATIC 3D LAYER — depth engine, parallax, tilt. Pointer parallax writes

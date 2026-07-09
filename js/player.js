@@ -278,6 +278,15 @@
   const BLACK = { 0: 'C', 1: 'D', 3: 'F', 4: 'G', 5: 'A' };
   const WHITE_W = 40, BLACK_W = 26;
 
+  // Touch/phone devices get a lighter render path: capped canvas DPR, fewer particles, no canvas
+  // shadowBlur, no full-canvas glow, a wider audio look-ahead, and instant (non-smooth) score
+  // scrolling. Phones have far weaker GPUs, and the audio scheduler shares the main thread with
+  // all this drawing — starving it is what makes long pieces stutter and playback go choppy.
+  const MOBILE = (function () {
+    try { return !!(global.matchMedia && (global.matchMedia('(pointer:coarse)').matches || (global.innerWidth || 9999) < 820)); }
+    catch (e) { return false; }
+  })();
+
   /* --------------------------- visualizer -------------------------------- */
   // Lightweight canvas particle/glow system. Self-suspends when idle.
   function Visualizer(canvas, stage) {
@@ -297,7 +306,7 @@
     }
     function resize() {
       const r = stage.getBoundingClientRect();
-      dpr = Math.min(2, global.devicePixelRatio || 1);
+      dpr = MOBILE ? 1 : Math.min(2, global.devicePixelRatio || 1);
       W = Math.max(1, r.width); H = Math.max(1, r.height);
       canvas.width = W * dpr; canvas.height = H * dpr;
       canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
@@ -308,13 +317,14 @@
     function hit(x, y, octave, strength) {
       const rgb = hexRGB(OCT_HEX[clampOct(octave)] || '#8b6bff');
       if (x == null) { x = W * 0.5; y = H - 30; }
-      const n = 4 + Math.round((strength || 1) * 4);
-      for (let i = 0; i < n && parts.length < 300; i++) {
+      const n = MOBILE ? 2 + Math.round((strength || 1) * 2) : 4 + Math.round((strength || 1) * 4);
+      const cap = MOBILE ? 90 : 300;
+      for (let i = 0; i < n && parts.length < cap; i++) {
         parts.push({ x: x + (Math.random() - 0.5) * 14, y: y, vx: (Math.random() - 0.5) * 0.5,
           vy: -(0.7 + Math.random() * 1.7), life: 1, decay: 0.006 + Math.random() * 0.01, size: 1.4 + Math.random() * 2.6, rgb });
       }
-      if (rings.length < 26) rings.push({ x, y, r: 6, life: 1, rgb });
-      glow = Math.min(1, glow + 0.5);
+      if (rings.length < (MOBILE ? 10 : 26)) rings.push({ x, y, r: 6, life: 1, rgb });
+      if (!MOBILE) glow = Math.min(1, glow + 0.5);   // skip the full-canvas glow fill on phones (big fill cost, esp. fullscreen)
       if (rgb !== glowColor) { glowColor = rgb; glowGrad = null; }   // rebuild cached gradient only on colour change
       start();
     }
@@ -492,7 +502,7 @@
       if (!fallCanvas || !fallCtx) return;
       const st = mount.querySelector('.stage'); if (!st) return;
       const r = st.getBoundingClientRect();
-      fallDpr = Math.min(2, global.devicePixelRatio || 1);
+      fallDpr = MOBILE ? 1 : Math.min(2, global.devicePixelRatio || 1);
       fallW = Math.max(1, r.width); fallH = Math.max(1, r.height);
       fallCanvas.width = fallW * fallDpr; fallCanvas.height = fallH * fallDpr;
       fallCanvas.style.width = fallW + 'px'; fallCanvas.style.height = fallH + 'px';
@@ -528,8 +538,8 @@
         const active = elapsed >= tStart && elapsed < tEnd;
         const col = OCT_HEX[o] || '#8b6bff';
         fallCtx.save();
-        fallCtx.shadowColor = col; fallCtx.shadowBlur = active ? 22 : 13;       // glow
-        fallCtx.globalAlpha = active ? 0.8 : 0.42;                              // translucent
+        if (!MOBILE) { fallCtx.shadowColor = col; fallCtx.shadowBlur = active ? 22 : 13; }   // glow — shadowBlur is very costly on mobile GPUs, so skip it there
+        fallCtx.globalAlpha = active ? 0.85 : (MOBILE ? 0.5 : 0.42);            // translucent (a touch more opaque on mobile to compensate for the missing glow)
         fallCtx.fillStyle = col;
         rrect(fallCtx, kp.x - barW / 2, top, barW, bot - top, Math.min(4, barW / 2)); fallCtx.fill();
         fallCtx.restore();
@@ -540,8 +550,11 @@
     let schedTimer = 0, raf = 0;
     let live = [];                 // {nodes,end} scheduled within the look-ahead window only
     let litNotes = [], litKeys = [];
-    let LOOKAHEAD = 0.18; const TICK = 30;
-    const LOOKAHEAD_FG = 0.18, LOOKAHEAD_BG = 2.5;   // bg window covers the ~1s background-timer throttle so audio keeps flowing cleanly
+    // Wider look-ahead on mobile: the audio scheduler is a main-thread setInterval, so a heavy
+    // render/scroll frame can delay it. A bigger buffer means notes are already scheduled ahead and
+    // keep sounding cleanly through a frame spike (voice-stealing still caps live oscillators at 32).
+    const LOOKAHEAD_FG = MOBILE ? 0.5 : 0.3, LOOKAHEAD_BG = 2.5;   // bg window covers the ~1s background-timer throttle so audio keeps flowing cleanly
+    let LOOKAHEAD = LOOKAHEAD_FG; const TICK = MOBILE ? 40 : 30;
 
     const state = { get playing() { return playing; }, play, pause, toggle, stop, seekCol: (c) => seekTo(c / total),
       seekBlock: (n) => { if (blockMeta[n]) seekTo(blockMeta[n].start / total); }, el: mount,
@@ -826,11 +839,17 @@
         const p = keyPos[midi]; if (viz && p && vh < 6) { viz.hit(p.x, p.y, oct, strength); vh++; }
       }
     }
+    // While the user is scrolling the score themselves, don't yank it back — and never fight them
+    // with a smooth-scroll animation (which also competes with rAF/audio on the main thread).
+    let suppressAutoScroll = false, autoScrollTimer = 0;
+    function userTouchedScore() { suppressAutoScroll = true; clearTimeout(autoScrollTimer); autoScrollTimer = setTimeout(function () { suppressAutoScroll = false; }, 1500); }
+    if (pane) ['touchmove', 'wheel'].forEach((ev) => pane.addEventListener(ev, userTouchedScore, { passive: true }));
     function scrollToBlock(b) {
+      if (suppressAutoScroll) return;
       const top = b.el.offsetTop, h = pane.clientHeight;
       const target = Math.max(0, top - h * 0.4);
       if (Math.abs(pane.scrollTop - target) <= 8) return;
-      if (pane.scrollTo) pane.scrollTo({ top: target, behavior: 'smooth' }); else pane.scrollTop = target;
+      if (!MOBILE && pane.scrollTo) pane.scrollTo({ top: target, behavior: 'smooth' }); else pane.scrollTop = target;   // instant on mobile — smooth-scroll animation janks against playback
     }
     function clearHighlights() {
       for (const s of litNotes) s.classList.remove('hit'); litNotes.length = 0;
