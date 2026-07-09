@@ -1223,7 +1223,7 @@ window.DRD.SONGS = [
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 24,
-    dur: 519,
+    dur: 477,
     fp: ".N4`T<^X<SaHFNQFA:GR..:ZMMMM",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶","image":"assets/covers/moonlight-3.webp"},

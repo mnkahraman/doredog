@@ -2907,6 +2907,21 @@ function collapseHeld(notation, thresh) {
   }).join('\n');
 }
 
+// Strip fully-empty measures off the END of a piece (MIDIs often carry trailing silent bars → dead air at
+// the end of playback). Only trailing empties are removed; mid-piece rests are kept intact. The duration
+// (computed from column count below) recomputes automatically.
+function trimTrailingEmptyBlocks(notation) {
+  const lines = notation.split('\n'), blocks = [];
+  let cur = [];
+  for (const ln of lines) { cur.push(ln); if (/^\d+$/.test(ln.trim())) { blocks.push(cur); cur = []; } }
+  if (cur.length) blocks.push(cur);
+  const hasNote = (b) => b.some((l) => /[a-gA-G]/.test(l.replace(/^(RH|LH)\s*\d*\|?/, '').replace(/\|/g, '').replace(/^\d+$/, '')));
+  let last = -1;
+  for (let i = 0; i < blocks.length; i++) if (hasNote(blocks[i])) last = i;
+  if (last < 0 || last === blocks.length - 1) return notation;   // nothing empty at the tail
+  return blocks.slice(0, last + 1).flat().join('\n');
+}
+
 for (const f of reps) {
   const meta = META[f];
   if (!meta) { console.log('  ⚠ no metadata:', f); continue; }
@@ -2914,6 +2929,7 @@ for (const f of reps) {
   const parsed = parseCSV(buf.toString('utf8'));
   const conv = convert(parsed);
   conv.notation = collapseHeld(conv.notation);          // fix held-note artifacts (e.g. a pedal bass re-struck every 16th → "ggggg")
+  conv.notation = trimTrailingEmptyBlocks(conv.notation); // drop trailing silent measures (dead air at the end)
   const cover = coverFor(meta);
   const coverFile = COVER_MAP[meta.id] || meta.id;                    // mapped art, else same-name file
   if (fs.existsSync(ROOT + '/assets/covers/' + coverFile + '.webp')) cover.image = 'assets/covers/' + coverFile + '.webp';  // real art when present, else gradient

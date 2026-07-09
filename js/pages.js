@@ -12,7 +12,7 @@
     if (DRD.NOTATIONS[id]) return cb(DRD.NOTATIONS[id]);
     var sc = document.createElement('script');
     // cache-bust: bump on every content regeneration so browsers never serve a stale/404-cached notation.
-    sc.src = 'songs/' + id + '.js?v=70' + (_retry ? '&r=' + Date.now() : '');
+    sc.src = 'songs/' + id + '.js?v=85' + (_retry ? '&r=' + Date.now() : '');
     sc.onload = function () {
       var n = (DRD.NOTATIONS || {})[id] || null;
       if (n == null && !_retry) return loadNotation(id, cb, true);   // stale/empty cached response → retry uncached once
