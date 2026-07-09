@@ -4114,5 +4114,8 @@
   },
   "gnossienne-no-2": {
     "cpsMul": 1.75
+  },
+  "gnossienne-no-3": {
+    "cpsMul": 1.85
   }
 }
