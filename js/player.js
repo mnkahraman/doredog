@@ -192,10 +192,10 @@
       filt.frequency.setValueAtTime(V.fStart(freq), t);
       filt.frequency.exponentialRampToValueAtTime(Math.max(V.fEnd(freq), 180), t + V.fTime);
       filt.connect(g);
-      const all = [];
+      const all = [], down = [filt, g];   // `down` = this note's gain/filter/send nodes; disconnected on note end so they don't pile up on the master bus
       const main = this.ctx.createOscillator(); main.setPeriodicWave(V._wave); main.frequency.value = freq; main.connect(filt); all.push(main);
       if (V.detune && !MOBILE) { const o2 = this.ctx.createOscillator(); o2.setPeriodicWave(V._wave); o2.frequency.value = freq; o2.detune.value = V.detune; o2.connect(filt); all.push(o2); }   // skip the detuned-twin "width" oscillator on mobile (halves osc count, inaudible on a phone speaker)
-      if (V.sub) { const os = this.ctx.createOscillator(); os.type = 'sine'; os.frequency.value = freq / 2; const sg = this.ctx.createGain(); sg.gain.value = V.sub; os.connect(sg); sg.connect(filt); all.push(os); }
+      if (V.sub) { const os = this.ctx.createOscillator(); os.type = 'sine'; os.frequency.value = freq / 2; const sg = this.ctx.createGain(); sg.gain.value = V.sub; os.connect(sg); sg.connect(filt); all.push(os); down.push(sg); }
       g.gain.setValueAtTime(0.0001, t);
       g.gain.exponentialRampToValueAtTime(peak, t + V.atk);
       if (V.sustained) {
@@ -207,7 +207,7 @@
         g.gain.exponentialRampToValueAtTime(0.0001, t + V.dur);
       }
       g.connect(this.master);
-      if (V.rvb > 0 && this.reverb) { const rs = this.ctx.createGain(); rs.gain.value = V.rvb * (0.6 + 0.4 * highMul); g.connect(rs); rs.connect(this.reverb); }
+      if (V.rvb > 0 && this.reverb) { const rs = this.ctx.createGain(); rs.gain.value = V.rvb * (0.6 + 0.4 * highMul); g.connect(rs); rs.connect(this.reverb); down.push(rs); }
       const stopAt = t + V.dur + 0.08;
       for (const o of all) { o.start(t); o.stop(stopAt); }
       if (V.shimmer && !MOBILE) {   // skip the octave-up shimmer sine on mobile (extra osc + gain per note)
@@ -217,8 +217,16 @@
         g2.gain.exponentialRampToValueAtTime(Math.max(peak * V.shimmer * highMul, 0.00005), t + V.atk + 0.002);
         g2.gain.exponentialRampToValueAtTime(0.0001, t + (V.shimmerDur || 0.9));
         sh.connect(g2); g2.connect(this.master);
-        sh.start(t); sh.stop(t + (V.shimmerDur || 0.9) + 0.05); all.push(sh);
+        sh.start(t); sh.stop(t + (V.shimmerDur || 0.9) + 0.05); all.push(sh); down.push(g2);
       }
+      // Release the whole per-note sub-graph when the note ends, so gain/filter/send nodes don't accumulate
+      // on the master bus over a long piece — Web Audio keeps connected nodes alive, so without this they
+      // pile up (memory bloat) and grow the audio-thread load, which is what builds the stutter toward the
+      // end of a piece. Fires on the natural stop AND on a voice-steal stop().
+      main.onended = function () {
+        for (const nd of down) { try { nd.disconnect(); } catch (e) {} }
+        for (const o of all) { try { o.disconnect(); } catch (e) {} }
+      };
       // --- polyphony cap (voice-stealing) ---
       const now = this.ctx.currentTime;
       this._active = this._active.filter((grp) => grp.stopAt > now);   // drop notes that already finished
@@ -343,12 +351,12 @@
       const rgb = hexRGB(OCT_HEX[clampOct(octave)] || '#8b6bff');
       if (x == null) { x = W * 0.5; y = H - 30; }
       const n = MOBILE ? 2 + Math.round((strength || 1) * 2) : 4 + Math.round((strength || 1) * 4);
-      const cap = MOBILE ? 90 : 300;
+      const cap = MOBILE ? 60 : 300;                 // fewer live particles on phones = lighter frames = smoother emit
       for (let i = 0; i < n && parts.length < cap; i++) {
         parts.push({ x: x + (Math.random() - 0.5) * 14, y: y, vx: (Math.random() - 0.5) * 0.5,
           vy: -(0.7 + Math.random() * 1.7), life: 1, decay: 0.006 + Math.random() * 0.01, size: 1.4 + Math.random() * 2.6, rgb });
       }
-      if (rings.length < (MOBILE ? 10 : 26)) rings.push({ x, y, r: 6, life: 1, rgb });
+      if (rings.length < (MOBILE ? 7 : 26)) rings.push({ x, y, r: 6, life: 1, rgb });
       if (!MOBILE) glow = Math.min(1, glow + 0.5);   // skip the full-canvas glow fill on phones (big fill cost, esp. fullscreen)
       if (rgb !== glowColor) { glowColor = rgb; glowGrad = null; }   // rebuild cached gradient only on colour change
       start();
