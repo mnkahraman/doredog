@@ -134,7 +134,7 @@
 
   const Synth = {
     ctx: null, master: null, reverb: null, reverbGain: null, ready: false,
-    _active: [], MAXVOICES: 32,   // hard polyphony cap — bounds live oscillators so dense/fast pieces + heavy voices never overload the audio thread (stealing the oldest, already-decayed note is inaudible)
+    _active: [], MAXVOICES: 28,   // hard polyphony cap — bounds live oscillators so dense/fast pieces + heavy voices never overload the audio thread (stealing the oldest, already-decayed note is inaudible)
     voiceId: (function () { try { return (global.localStorage && localStorage.getItem('drd-voice')) || 'grand'; } catch (e) { return 'grand'; } })(),
     get voice() { return VOICES_BY_ID[this.voiceId] || VOICES[0]; },
     setVoice(id) { if (VOICES_BY_ID[id]) { this.voiceId = id; try { if (global.localStorage) localStorage.setItem('drd-voice', id); } catch (e) {} } },
@@ -318,7 +318,7 @@
   })();
   // Cap simultaneous voices harder on phones — dense passages otherwise pile up multi-oscillator notes
   // on the audio thread. Stealing the oldest (already-decaying) note is inaudible but keeps CPU/heat down.
-  if (MOBILE) Synth.MAXVOICES = 14;
+  if (MOBILE) Synth.MAXVOICES = 12;
 
   /* --------------------------- visualizer -------------------------------- */
   // Lightweight canvas particle/glow system. Self-suspends when idle.
@@ -351,18 +351,20 @@
       const rgb = hexRGB(OCT_HEX[clampOct(octave)] || '#8b6bff');
       if (x == null) { x = W * 0.5; y = H - 30; }
       const n = MOBILE ? 2 + Math.round((strength || 1) * 2) : 4 + Math.round((strength || 1) * 4);
-      const cap = MOBILE ? 60 : 300;                 // fewer live particles on phones = lighter frames = smoother emit
+      const cap = MOBILE ? 40 : 300;                 // fewer live particles on phones = lighter frames = smoother emit
+      const spd = MOBILE ? 2 : 1;                    // the viz runs at ~30fps on mobile, so double per-step motion + decay to keep the same real-time speed (and stop particles lingering 2x longer)
       for (let i = 0; i < n && parts.length < cap; i++) {
-        parts.push({ x: x + (Math.random() - 0.5) * 14, y: y, vx: (Math.random() - 0.5) * 0.5,
-          vy: -(0.7 + Math.random() * 1.7), life: 1, decay: 0.006 + Math.random() * 0.01, size: 1.4 + Math.random() * 2.6, rgb });
+        parts.push({ x: x + (Math.random() - 0.5) * 14, y: y, vx: (Math.random() - 0.5) * 0.5 * spd,
+          vy: -(0.7 + Math.random() * 1.7) * spd, life: 1, decay: (0.006 + Math.random() * 0.01) * spd, size: 1.4 + Math.random() * 2.6, rgb });
       }
       if (rings.length < (MOBILE ? 7 : 26)) rings.push({ x, y, r: 6, life: 1, rgb });
       if (!MOBILE) glow = Math.min(1, glow + 0.5);   // skip the full-canvas glow fill on phones (big fill cost, esp. fullscreen)
       if (rgb !== glowColor) { glowColor = rgb; glowGrad = null; }   // rebuild cached gradient only on colour change
       start();
     }
-    let glowGrad = null, glowGradWH = 0;
+    let glowGrad = null, glowGradWH = 0, fskip = false;
     function frame() {
+      if (MOBILE) { fskip = !fskip; if (fskip) { raf = requestAnimationFrame(frame); return; } }   // ~30fps on phones: halve the emit render cost so the particles (and the audio scheduler sharing the main thread) stay smooth
       ctx.clearRect(0, 0, W, H);
       if (glow > 0.01) {
         if (!glowGrad || glowGradWH !== W + H) {
