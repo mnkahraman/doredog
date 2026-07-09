@@ -51,7 +51,10 @@
 
 /* ---------- Reset ---------- */
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
-html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; scrollbar-width:none; }
+/* Hide the page scrollbar (still fully scrollable). It was showing up beside the player's keyboard and
+   broke the cinematic look; scrolling with wheel/trackpad/keys still works everywhere. */
+html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; display:none; }
 body{
   font-family:var(--font-body);
   background:var(--bg);
