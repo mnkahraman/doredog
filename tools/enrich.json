@@ -4111,5 +4111,8 @@
   },
   "schubert-erlkonig": {
     "cpsMul": 1.3
+  },
+  "gnossienne-no-2": {
+    "cpsMul": 1.75
   }
 }
