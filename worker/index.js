@@ -18,7 +18,7 @@ function breadcrumb(lastName) {
 }
 
 function songMeta(id, m) {
-  const title = m[0], composer = m[1], genre = m[2], year = m[3], img = m[4];
+  const title = m[0], composer = m[1], genre = m[2], year = m[3], img = m[4], diff = m[5];
   const by = composer ? ' by ' + composer : '';
   const pageTitle = title + (composer ? ' — ' + composer : '') + ' · Piano Letter Notes | DoReDog';
   const desc = 'Play ' + title + by + ' in colour-coded piano letter notes — free in your browser. Slow it down, loop any section and learn by ear.';
@@ -28,7 +28,10 @@ function songMeta(id, m) {
   if (composer) j.composer = { '@type': 'Person', name: composer };
   if (genre) j.genre = genre;
   if (year) j.datePublished = String(year);
-  return { pageTitle, desc, canon, ogType: 'music.song', ogImg, ld: ld(j) + breadcrumb(title) };
+  // a factual sentence for the page body so crawlers / AI agents (which mostly don't run JS) read real content
+  const blurb = title + (composer ? ' by ' + composer : '') + (genre ? ', a ' + genre + ' piece' : '')
+    + (year ? ' from ' + year : '') + ' — written out in colour-coded piano letter notes you can play live in the browser.';
+  return { kind: 'song', title, composer, genre, diff, blurb, pageTitle, desc, canon, ogType: 'music.song', ogImg, ld: ld(j) + breadcrumb(title) };
 }
 
 function composerMeta(name, count) {
@@ -37,7 +40,7 @@ function composerMeta(name, count) {
   const desc = 'Play ' + n + ' by ' + name + ' in colour-coded piano letter notes — free in your browser. Slow any melody down, loop it and learn by ear.';
   const canon = ORIGIN + '/composer?name=' + encodeURIComponent(name);
   const j = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: name + ' — Piano Letter Notes', url: canon, about: { '@type': 'Person', name: name } };
-  return { pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(name) };
+  return { kind: 'composer', pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(name) };
 }
 
 function metaFor(url) {
@@ -71,11 +74,21 @@ export default {
             '<meta property="og:image" content="' + attr(meta.ogImg) + '">' +
             '<meta name="twitter:card" content="summary_large_image">' +
             meta.ld;
-          return new HTMLRewriter()
+          const rw = new HTMLRewriter()
             .on('title', { element(e) { e.setInnerContent(meta.pageTitle); } })
             .on('meta[name="description"]', { element(e) { e.setAttribute('content', meta.desc); } })
-            .on('head', { element(e) { e.append(head, { html: true }); } })
-            .transform(res);
+            .on('head', { element(e) { e.append(head, { html: true }); } });
+          if (meta.kind === 'song') {
+            // fill the page-body placeholders ('Title', 'Composer', 'Genre', 'easy', empty blurb) with the
+            // real values so non-JS crawlers / AI agents read actual content, not placeholders. JS re-sets
+            // the same values on mount, so users see no change.
+            rw.on('#song-title', { element(e) { e.setInnerContent(meta.title); } })
+              .on('#song-composer', { element(e) { if (meta.composer) e.setInnerContent(meta.composer); } })
+              .on('#song-genre', { element(e) { if (meta.genre) e.setInnerContent(meta.genre); } })
+              .on('#song-diff', { element(e) { if (meta.diff) e.setInnerContent(meta.diff); } })
+              .on('#song-blurb', { element(e) { e.setInnerContent(meta.blurb); } });
+          }
+          return rw.transform(res);
         }
         return res;
       }
