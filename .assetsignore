@@ -4,6 +4,7 @@
 /tools/
 /scratchpad/
 /node_modules/
+/worker/
 *.md
 *.sh
 /wrangler.jsonc

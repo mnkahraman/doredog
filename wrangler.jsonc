@@ -1,10 +1,14 @@
 {
-  // DoReDog — static site served by Cloudflare Workers Assets (no server code).
-  // `npx wrangler deploy` uploads the site files (see .assetsignore for exclusions).
+  // DoReDog — static site + a thin edge Worker (worker/index.js) that injects per-song SEO meta
+  // (title / description / Open Graph / JSON-LD) into the otherwise JS-rendered pages.
+  // The Worker falls through to the static asset for everything it doesn't handle.
   "name": "doredog",
   "compatibility_date": "2025-06-01",
+  "main": "worker/index.js",
   "assets": {
     "directory": "./",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/song.html", "/song"]
   }
 }
