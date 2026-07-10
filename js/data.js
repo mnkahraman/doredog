@@ -18321,7 +18321,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-bizet-prelude",
-    title: "Prelude — Prelude",
+    title: "Prelude",
     composer: "Georges Bizet",
     difficulty: "medium",
     genre: "Romantic",
@@ -18496,7 +18496,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-burgmuller-25ef-02",
-    title: "l'Arabesque",
+    title: "L’Arabesque",
     composer: "Friedrich Burgmüller",
     difficulty: "medium",
     genre: "Romantic",
@@ -18802,7 +18802,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-burgmuller-ploermel",
-    title: "EL PERDÓN DE PLOËRMEL",
+    title: "El Perdón de Ploërmel",
     composer: "Friedrich Burgmüller",
     difficulty: "medium",
     genre: "Romantic",
@@ -21512,7 +21512,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-menuet-k2",
-    title: "Menuett N°2 fûr das Pianoforte Kôch Verz N°2",
+    title: "Menuet in F major, K. 2",
     composer: "W. A. Mozart",
     difficulty: "medium",
     genre: "Classical",
@@ -23980,7 +23980,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-tchaikovsky-tschaikowsky-op37-8",
-    title: "Август: Жатва (op. 37,8)",
+    title: "August: The Harvest (Op. 37, No. 8)",
     composer: "P. I. Tchaikovsky",
     difficulty: "medium",
     genre: "Romantic",
