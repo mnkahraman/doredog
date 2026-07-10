@@ -9,6 +9,13 @@ const DEFAULT_OG = ORIGIN + '/assets/covers/_mood-atlas.webp';
 
 function attr(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function ld(obj) { return '<script type="application/ld+json">' + JSON.stringify(obj).replace(/</g, '\\u003c') + '</script>'; }
+function breadcrumb(lastName) {
+  return ld({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: ORIGIN + '/' },
+    { '@type': 'ListItem', position: 2, name: 'Library', item: ORIGIN + '/library' },
+    { '@type': 'ListItem', position: 3, name: lastName }
+  ] });
+}
 
 function songMeta(id, m) {
   const title = m[0], composer = m[1], genre = m[2], year = m[3], img = m[4];
@@ -21,7 +28,7 @@ function songMeta(id, m) {
   if (composer) j.composer = { '@type': 'Person', name: composer };
   if (genre) j.genre = genre;
   if (year) j.datePublished = String(year);
-  return { pageTitle, desc, canon, ogType: 'music.song', ogImg, ld: ld(j) };
+  return { pageTitle, desc, canon, ogType: 'music.song', ogImg, ld: ld(j) + breadcrumb(title) };
 }
 
 function composerMeta(name, count) {
@@ -30,7 +37,7 @@ function composerMeta(name, count) {
   const desc = 'Play ' + n + ' by ' + name + ' in colour-coded piano letter notes — free in your browser. Slow any melody down, loop it and learn by ear.';
   const canon = ORIGIN + '/composer?name=' + encodeURIComponent(name);
   const j = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: name + ' — Piano Letter Notes', url: canon, about: { '@type': 'Person', name: name } };
-  return { pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) };
+  return { pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(name) };
 }
 
 function metaFor(url) {
