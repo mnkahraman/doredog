@@ -124,8 +124,9 @@
     var moreBtn = document.getElementById('lib-more');
     var qs = new URLSearchParams(location.search);
     var eraSel = document.getElementById('lib-era');
-    var state = { q: '', filter: (qs.get('filter') || 'all').toLowerCase(), composer: qs.get('composer') || '', sort: qs.get('sort') || '', era: qs.get('era') || '', mood: qs.get('mood') || '', shown: LIB_PAGE };
+    var state = { q: qs.get('q') || '', filter: (qs.get('filter') || 'all').toLowerCase(), composer: qs.get('composer') || '', sort: qs.get('sort') || '', era: qs.get('era') || '', mood: qs.get('mood') || '', shown: LIB_PAGE };
     if (sortSel && state.sort) sortSel.value = state.sort;
+    if (search && state.q) search.value = state.q;   // ?q=… deep link (also powers the Google sitelinks search box)
 
     // populate the period dropdown with per-century counts (chronological) — powered by song.year
     if (eraSel) {
