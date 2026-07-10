@@ -4326,7 +4326,7 @@ if (WRITE) {
   for (const s of songs) sm += `  <url><loc>https://doredog.com/song?id=${s.meta.id}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;
   // one indexable landing page per composer (big organic-search surface)
   const composers = [...new Set(songs.map((s) => s.meta.composer))];
-  for (const name of composers) sm += `  <url><loc>https://doredog.com/composer.html?name=${encodeURIComponent(name)}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>\n`;
+  for (const name of composers) sm += `  <url><loc>https://doredog.com/composer?name=${encodeURIComponent(name)}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>\n`;
   for (const slug of collectionSlugs) sm += `  <url><loc>https://doredog.com/collection.html?c=${slug}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`;
   sm += '</urlset>\n';
   fs.writeFileSync(ROOT + '/sitemap.xml', sm);

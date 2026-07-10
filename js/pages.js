@@ -103,7 +103,7 @@
     if (cloud) {
       var top = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); }).slice(0, 15);
       cloud.innerHTML = top.map(function (name) {
-        return '<a class="composer-link" href="composer.html?name=' + encodeURIComponent(name) + '">' +
+        return '<a class="composer-link" href="composer?name=' + encodeURIComponent(name) + '">' +
           '<span class="dot" style="background:' + (accent[name] || '#8b6bff') + ';color:' + (accent[name] || '#8b6bff') + '"></span>' +
           name + '<span class="n">' + counts[name] + '</span></a>';
       }).join('');
@@ -268,7 +268,7 @@
     var set = function (sel, val) { var e = document.querySelector(sel); if (e) e.textContent = val; };
     set('#song-title', song.title);
     var scEl = document.querySelector('#song-composer');
-    if (scEl) scEl.innerHTML = '<a href="composer.html?name=' + encodeURIComponent(song.composer) + '" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)">' + song.composer + '</a>' + (song.year ? '  ·  ' + (song.circa ? 'c. ' : '') + song.year : '');
+    if (scEl) scEl.innerHTML = '<a href="composer?name=' + encodeURIComponent(song.composer) + '" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)">' + song.composer + '</a>' + (song.year ? '  ·  ' + (song.circa ? 'c. ' : '') + song.year : '');
     set('#song-blurb', song.blurb || '');
     set('#song-genre', song.genre);
     set('#song-diff', song.difficulty);
@@ -490,7 +490,7 @@
     wrap.innerHTML = rows.map(function (r, i) {
       var e = r.e, range = e.lo === 0 ? 'before ' + e.hi : e.lo + '–' + (e.hi >= 3000 ? 'now' : e.hi);
       var bar = Math.max(5, Math.round(r.count / maxCount * 100));
-      var chips = r.top.map(function (n) { return '<a class="chip" href="composer.html?name=' + encodeURIComponent(n) + '">' + n + '</a>'; }).join('');
+      var chips = r.top.map(function (n) { return '<a class="chip" href="composer?name=' + encodeURIComponent(n) + '">' + n + '</a>'; }).join('');
       return '<div class="era-band" data-reveal data-delay="' + ((i % 4) + 1) + '" style="--accent:' + e.accent + '">' +
         '<div class="era-head">' +
           '<span class="era-glyph">' + e.glyph + '</span>' +
