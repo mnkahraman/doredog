@@ -1,0 +1,61 @@
+# DoReDog — Piano Letter Notes
+
+> DoReDog is a free, ad-supported library of **piano letter notes** (2417 public-domain pieces across 429 composers) with a built-in live in-browser player. Read the letters, press play, and hear the melody while a colour-coded keyboard lights up. Every piece is playable at doredog.com — no sheet music, no sign-up.
+
+## What "letter notes" mean (so you can read/cite the notation)
+
+Music is written as letters instead of sheet music:
+- Lowercase `c d e f g a b` = the seven white keys; the pattern repeats each octave.
+- An **uppercase** letter is the black key just to its right (a sharp): `C`=C#, `D`=D#, `F`=F#, `G`=G#, `A`=A#.
+- A leading number is the octave (middle C = `c4`). A dash `-` holds the note or is a rest; spacing = timing.
+- Lines are tagged `RH` (right hand) / `LH` (left hand); stacked lines play together.
+
+## Key pages
+
+- [Library — browse all 2417 pieces](https://doredog.com/library)
+- [How to read letter notes (guide)](https://doredog.com/guide)
+- [Learn letter notes in 5 steps](https://doredog.com/learn)
+- [Online piano](https://doredog.com/piano)
+- [Music-history timeline](https://doredog.com/timeline)
+
+## Popular pieces (each plays live in the browser)
+
+- [Für Elise — Ludwig van Beethoven](https://doredog.com/song?id=fur-elise)
+- [Moonlight Sonata — 1st Movement — Ludwig van Beethoven](https://doredog.com/song?id=moonlight-sonata)
+- [Moonlight Sonata — 3rd Movement — Ludwig van Beethoven](https://doredog.com/song?id=moonlight-3)
+- [Clair de Lune — Claude Debussy](https://doredog.com/song?id=clair-de-lune)
+- [The Entertainer — Scott Joplin](https://doredog.com/song?id=the-entertainer)
+- [Maple Leaf Rag — Scott Joplin](https://doredog.com/song?id=maple-leaf-rag)
+- [Ode to Joy — Ludwig van Beethoven](https://doredog.com/song?id=ode-to-joy)
+- [Rondo Alla Turca — Turkish March — W. A. Mozart](https://doredog.com/song?id=rondo-alla-turca)
+- [Gymnopédie No. 1 — Erik Satie](https://doredog.com/song?id=gymnopedie-no-1)
+- [Gnossienne No. 1 — Erik Satie](https://doredog.com/song?id=gnossienne-no-1)
+- [Canon in D — Johann Pachelbel](https://doredog.com/song?id=canon-in-d)
+- [Prelude in C (WTC I) — J. S. Bach](https://doredog.com/song?id=prelude-in-c)
+- [Fantaisie-Impromptu (Op. 66) — Frédéric Chopin](https://doredog.com/song?id=fantaisie-impromptu)
+- [Nocturne Op. 9 No. 2 — Frédéric Chopin](https://doredog.com/song?id=nocturne-op-9-no-2)
+- [Flight of the Bumblebee — N. Rimsky-Korsakov](https://doredog.com/song?id=flight-of-the-bumblebee)
+- [Hungarian Dance No. 5 — Johannes Brahms](https://doredog.com/song?id=hungarian-dance-5)
+- [Twinkle, Twinkle, Little Star — W. A. Mozart](https://doredog.com/song?id=twinkle-twinkle)
+- [Air on the G String — J. S. Bach](https://doredog.com/song?id=air-on-the-g-string)
+- [Waltz Op. 64 No. 1 “Minute” — Frédéric Chopin](https://doredog.com/song?id=minute-waltz)
+- [Prelude Op. 28 No. 15 “Raindrop” — Frédéric Chopin](https://doredog.com/song?id=raindrop-prelude)
+
+## Most-covered composers
+
+- [J. S. Bach (374 pieces)](https://doredog.com/composer?name=J.%20S.%20Bach)
+- [Franz Schubert (103 pieces)](https://doredog.com/composer?name=Franz%20Schubert)
+- [Johannes Brahms (95 pieces)](https://doredog.com/composer?name=Johannes%20Brahms)
+- [Ludwig van Beethoven (70 pieces)](https://doredog.com/composer?name=Ludwig%20van%20Beethoven)
+- [Augusta Mary Anne Holmès (66 pieces)](https://doredog.com/composer?name=Augusta%20Mary%20Anne%20Holm%C3%A8s)
+- [W. A. Mozart (65 pieces)](https://doredog.com/composer?name=W.%20A.%20Mozart)
+- [G. F. Handel (58 pieces)](https://doredog.com/composer?name=G.%20F.%20Handel)
+- [Frédéric Chopin (52 pieces)](https://doredog.com/composer?name=Fr%C3%A9d%C3%A9ric%20Chopin)
+- [Robert Schumann (50 pieces)](https://doredog.com/composer?name=Robert%20Schumann)
+- [Josephine Lang (41 pieces)](https://doredog.com/composer?name=Josephine%20Lang)
+- [Johanna Kinkel (39 pieces)](https://doredog.com/composer?name=Johanna%20Kinkel)
+- [Robert Franz (37 pieces)](https://doredog.com/composer?name=Robert%20Franz)
+
+## Notes
+
+All content is public-domain classical/traditional music or original DoReDog arrangements. Contact: mnkahraman@gmail.com
