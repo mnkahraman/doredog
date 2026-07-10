@@ -80,7 +80,7 @@
       var item = function (id) {
         var s = DRD.getSong(id); if (!s || !s.cover || !s.cover.image) return '';
         var comp = s.composer || '';
-        return '<a class="art-item" href="song.html?id=' + id + '" aria-label="Play ' + s.title + '">' +
+        return '<a class="art-item" href="song?id=' + id + '" aria-label="Play ' + s.title + '">' +
           '<img src="' + s.cover.image + '" alt="' + s.title + '" loading="lazy">' +
           '<span class="art-title">' + s.title + '<i>' + comp + '</i></span></a>';
       };

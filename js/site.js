@@ -259,7 +259,7 @@
   window.DRD.songCard = function (song, delay) {
     var art = DRD.coverArt(song);
     return (
-      '<a class="card song-card tilt" data-tilt href="song.html?id=' + song.id + '" data-reveal data-delay="' + (delay || 1) + '">' +
+      '<a class="card song-card tilt" data-tilt href="song?id=' + song.id + '" data-reveal data-delay="' + (delay || 1) + '">' +
         '<div class="cover' + (art.img ? ' img-cover' : '') + '"><div class="' + art.cls + '" style="' + art.style + '">' + art.inner +
         '</div>' +
           DRD.favBtn(song.id) +

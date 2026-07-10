@@ -15,7 +15,7 @@ function songMeta(id, m) {
   const pageTitle = title + (composer ? ' — ' + composer : '') + ' · Piano Letter Notes | DoReDog';
   const desc = 'Play ' + title + by + ' in colour-coded piano letter notes — free in your browser. '
     + 'Slow it down, loop any section and learn by ear.';
-  const canon = ORIGIN + '/song.html?id=' + encodeURIComponent(id);
+  const canon = ORIGIN + '/song?id=' + encodeURIComponent(id);   // clean URL (Cloudflare 307-redirects /song.html → /song)
   const ogImg = img ? ORIGIN + '/' + img : DEFAULT_OG;
   const ld = { '@context': 'https://schema.org', '@type': 'MusicComposition', name: title, url: canon };
   if (composer) ld.composer = { '@type': 'Person', name: composer };

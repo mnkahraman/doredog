@@ -4323,7 +4323,7 @@ if (WRITE) {
     'christmas-carols', 'etudes-studies'];
   let sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   for (const [u, p, cf] of staticUrls) sm += `  <url><loc>https://doredog.com/${u}</loc><changefreq>${cf}</changefreq><priority>${p}</priority></url>\n`;
-  for (const s of songs) sm += `  <url><loc>https://doredog.com/song.html?id=${s.meta.id}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;
+  for (const s of songs) sm += `  <url><loc>https://doredog.com/song?id=${s.meta.id}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;
   // one indexable landing page per composer (big organic-search surface)
   const composers = [...new Set(songs.map((s) => s.meta.composer))];
   for (const name of composers) sm += `  <url><loc>https://doredog.com/composer.html?name=${encodeURIComponent(name)}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>\n`;
