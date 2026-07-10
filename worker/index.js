@@ -56,10 +56,34 @@ function metaFor(url) {
   return null;
 }
 
+// Fetch songs/<id>.js, pull out the notation string, and render a capped, human-readable text block.
+// Returns '' on any problem (so the page just renders without it).
+async function notationText(env, url, id, title) {
+  if (!id) return '';
+  try {
+    const res = await env.ASSETS.fetch(new URL('/songs/' + encodeURIComponent(id) + '.js', url).toString());
+    if (!res.ok) return '';
+    const txt = await res.text();
+    const m = txt.match(/NOTATIONS\[[^\]]*\]\s*=\s*"((?:[^"\\]|\\.)*)"/);
+    if (!m) return '';
+    const notation = JSON.parse('"' + m[1] + '"');
+    const lines = notation.split('\n').filter((l) => l.trim() && !/^\d+$/.test(l.trim()));   // drop bare-number block separators
+    let body = '', kept = 0;
+    for (const l of lines) { if (body.length + l.length > 7000) break; body += l + '\n'; kept++; }
+    const trunc = kept < lines.length;
+    return '<details class="drd-notes-text" style="margin:22px 0">'
+      + '<summary style="cursor:pointer;font-weight:600;font-size:1rem">Letter notes (text) — ' + attr(title) + '</summary>'
+      + '<pre style="white-space:pre-wrap;overflow-x:auto;font-family:var(--font-mono,monospace);font-size:.78rem;line-height:1.5;margin-top:12px">'
+      + attr(body) + (trunc ? '…\n(opening shown — press play above to hear the full piece)' : '')
+      + '</pre></details>';
+  } catch (e) { return ''; }
+}
+
 export default {
   async fetch(request, env) {
     try {
-      const meta = metaFor(new URL(request.url));
+      const url = new URL(request.url);
+      const meta = metaFor(url);
       if (meta) {
         const res = await env.ASSETS.fetch(request);
         const ct = res.headers.get('content-type') || '';
@@ -87,6 +111,10 @@ export default {
               .on('#song-genre', { element(e) { if (meta.genre) e.setInnerContent(meta.genre); } })
               .on('#song-diff', { element(e) { if (meta.diff) e.setInnerContent(meta.diff); } })
               .on('#song-blurb', { element(e) { e.setInnerContent(meta.blurb); } });
+            // Inject the actual letter-notes TEXT (collapsed for users, full text in raw HTML for AI agents /
+            // non-JS crawlers) so the page can be cited as the source for "letter notes for <piece>".
+            const notes = await notationText(env, url, url.searchParams.get('id'), meta.title);
+            if (notes) rw.on('#song-player', { element(e) { e.after(notes, { html: true }); } });
           }
           return rw.transform(res);
         }
