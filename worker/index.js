@@ -3,6 +3,8 @@
 // DEFENSIVE: anything it doesn't specifically handle — or any error — falls straight through to the
 // static asset, so the Worker can never break the site.
 import { SEO, COMPOSERS } from './seo-data.js';
+import { BIOS } from './composer-bios.js';
+import { NOTES } from './song-notes.js';
 
 const ORIGIN = 'https://doredog.com';
 const DEFAULT_OG = ORIGIN + '/assets/covers/_mood-atlas.webp';
@@ -115,6 +117,18 @@ export default {
             // non-JS crawlers) so the page can be cited as the source for "letter notes for <piece>".
             const notes = await notationText(env, url, url.searchParams.get('id'), meta.title);
             if (notes) rw.on('#song-player', { element(e) { e.after(notes, { html: true }); } });
+            // Inject the verified, source-cited "About this piece" note (server-rendered for crawlers + users).
+            const note = NOTES[url.searchParams.get('id')];
+            if (note) rw.on('#song-about', { element(e) {
+              e.setInnerContent('<h2 class="drd-about-h">About this piece</h2>' + note, { html: true });
+              e.removeAttribute('style');
+            } });
+          } else if (meta.kind === 'composer') {
+            // Inject the verified, source-cited composer biography.
+            const bio = BIOS[url.searchParams.get('name')];
+            if (bio) rw.on('#composer-bio', { element(e) {
+              e.setInnerContent('<h2 class="drd-about-h">About ' + attr(url.searchParams.get('name')) + '</h2>' + bio, { html: true });
+            } }).on('#composer-bio-sec', { element(e) { e.removeAttribute('style'); } });
           }
           return rw.transform(res);
         }

@@ -268,7 +268,7 @@
     var set = function (sel, val) { var e = document.querySelector(sel); if (e) e.textContent = val; };
     set('#song-title', song.title);
     var scEl = document.querySelector('#song-composer');
-    if (scEl) scEl.innerHTML = '<a href="composer?name=' + encodeURIComponent(song.composer) + '" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)">' + song.composer + '</a>' + (song.year ? '  ·  ' + (song.circa ? 'c. ' : '') + song.year : '');
+    if (scEl) scEl.innerHTML = '<a href="composer?name=' + encodeURIComponent(song.composer) + '" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)">' + song.composer + '</a>' + (song.yv ? '  ·  ' + song.year : '');
     set('#song-blurb', song.blurb || '');
     set('#song-genre', song.genre);
     set('#song-diff', song.difficulty);

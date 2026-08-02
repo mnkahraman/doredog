@@ -46,6 +46,7 @@
     ['collections.html', 'Collections'],
     ['timeline.html', 'Timeline'],
     ['learn.html', 'Learn'],
+    ['articles.html', 'Guides'],
     ['about.html', 'About'],
     ['contact.html', 'Contact']
   ];
@@ -268,7 +269,7 @@
         '</div>' +
         '<div class="meta">' +
           '<h3>' + song.title + '</h3>' +
-          '<div class="sub">' + song.composer + (song.year ? ' · ' + (song.circa ? 'c. ' : '') + song.year : '') + '</div>' +
+          '<div class="sub">' + song.composer + (song.yv ? ' · ' + song.year : '') + '</div>' +
           '<div class="tags">' +
             '<span class="chip diff-' + song.difficulty + '">' + song.difficulty + '</span>' +
             '<span class="chip">' + song.genre + '</span>' +

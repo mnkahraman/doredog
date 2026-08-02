@@ -200,7 +200,7 @@
       '</style></head><body>' +
       '<div class="pbar"><button onclick="window.print()">Print / Save PDF</button></div>' +
       '<h1>' + esc(song.title || 'Untitled') + '</h1>' +
-      '<div class="sub">' + esc(song.composer || '') + (song.year ? ' · ' + (song.circa ? 'c. ' : '') + song.year : '') + '  —  letter notes from doredog.com</div>' +
+      '<div class="sub">' + esc(song.composer || '') + (song.yv ? ' · ' + song.year : '') + '  —  letter notes from doredog.com</div>' +
       '<div class="legend">' + legend + '</div>' +
       body +
       '<div class="hint">Lowercase = white key · UPPERCASE = sharp (black key) · <b>–</b> = hold · <b>·</b> = rest. Colour = octave. Play it live at doredog.com.</div>' +
