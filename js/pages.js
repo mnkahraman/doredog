@@ -375,11 +375,9 @@
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', 'All ' + works.length + ' pieces by ' + name + ' in playable piano letter notes — press play and hear each one on DoReDog.');
 
-    var years = works.map(function (s) { return s.year; }).filter(Boolean);
-    var minY = years.length ? Math.min.apply(null, years) : null;
-    var maxY = years.length ? Math.max.apply(null, years) : null;
-    var circa = works.some(function (s) { return s.circa; });
-    var eraLabel = minY ? ((circa ? 'c. ' : '') + minY + (maxY && maxY !== minY ? '–' + maxY : '')) : 'Composer';
+    // period label = dominant genre (piece years are approximate, so we don't show a year span)
+    var gcount = {}; works.forEach(function (s) { gcount[s.genre] = (gcount[s.genre] || 0) + 1; });
+    var eraLabel = Object.keys(gcount).sort(function (a, b) { return gcount[b] - gcount[a]; })[0] || 'Composer';
     set('#composer-era', eraLabel);
     set('#composer-name', name);
     set('#composer-meta', works.length + (works.length === 1 ? ' piece' : ' pieces') + ' in the library, ready to play in colour-coded letter notes.');
