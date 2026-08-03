@@ -420,7 +420,7 @@
     if (grid && DRD.COLLECTIONS) {
       grid.innerHTML = DRD.COLLECTIONS.map(function (c, i) {
         var songs = DRD.collectionSongs(c.slug);
-        return '<a class="collection-card" href="collection.html?c=' + c.slug + '" data-reveal data-delay="' + ((i % 4) + 1) + '" style="--accent:' + c.accent + '">' +
+        return '<a class="collection-card" href="collection?c=' + c.slug + '" data-reveal data-delay="' + ((i % 4) + 1) + '" style="--accent:' + c.accent + '">' +
           mosaic(songs) +
           '<div class="coll-body">' +
             '<div class="coll-glyph" style="color:' + c.accent + '">' + c.glyph + '</div>' +

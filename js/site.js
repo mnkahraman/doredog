@@ -286,8 +286,12 @@
     'Fanny Hensel': 1, 'Amy Beach': 1, 'Maria Szymanowska': 1, 'Agathe Backer Grøndahl': 1 };
   var CALM_RE = /nocturne|lullab|berceuse|r[eê]verie|reverie|clair|gymnop|romance|serenade|barcarolle|tr[aä]umerei/i;
   var WED_RE = /canon in d|ave maria|wedding|bridal|jesu, joy|jesu joy|panis angelicus|air on the g/i;
-  var XMAS_RE = /christmas|no[eë]l|carol|silent night|jingle|holy night|wenceslas|adeste|first noel|ding dong|we three|greensleeves/i;
+  // multilingual — the catalogue's carols are often titled in German or Latin
+  var XMAS_RE = /christmas|no[eë]l|carol|silent night|jingle|holy night|wenceslas|adeste|first noel|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit/i;
   var STUDY_RE = /[eé]tude|study|inventio|invention/i;
+  var ANTHEM_RE = /star.spangled banner|god save|marseillaise|national anthem|marche nationale/i;
+  var HYMN_RE = /chorale|psalm|kyrie|gloria|sanctus|agnus dei|magnificat|te deum|ave maris|pater noster|geistlich/i;
+  var LULLABY_RE = /lullaby|wiegenlied|cradle|berceuse|schlaflied|slumber|abendlied/i;
   window.DRD.COLLECTIONS = [
     { slug: 'first-steps', title: 'First Steps', glyph: '✿', accent: '#35e08c',
       sub: 'Gentle, easy pieces to begin with — the least demanding letter notes in the library.',
@@ -318,7 +322,16 @@
       match: function (s) { return XMAS_RE.test(s.title); } },
     { slug: 'etudes-studies', title: 'Études & Studies', glyph: '◈', accent: '#8fa8d8',
       sub: 'Inventions and studies that quietly build real technique.',
-      match: function (s) { return STUDY_RE.test(s.title); } }
+      match: function (s) { return STUDY_RE.test(s.title); } },
+    { slug: 'lullabies', title: 'Lullabies & Cradle Songs', glyph: '☽', accent: '#a99bff',
+      sub: 'Wiegenlieder, berceuses and cradle songs — the gentlest music in the library.',
+      match: function (s) { return LULLABY_RE.test(s.title); } },
+    { slug: 'sacred-hymns', title: 'Sacred & Hymns', glyph: '✞', accent: '#e6d5a8',
+      sub: 'Chorales, psalms and sacred settings, from Bach’s hymn tunes onward.',
+      match: function (s) { return HYMN_RE.test(s.title) || s.genre === 'Sacred'; } },
+    { slug: 'national-anthems', title: 'National Anthems', glyph: '⚑', accent: '#8fd4a8',
+      sub: 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.',
+      match: function (s) { return ANTHEM_RE.test(s.title); } }
   ];
   window.DRD.getCollection = function (slug) {
     return DRD.COLLECTIONS.filter(function (c) { return c.slug === slug; })[0] || null;

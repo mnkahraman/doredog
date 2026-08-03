@@ -45,8 +45,39 @@ function composerMeta(name, count) {
   return { kind: 'composer', pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(name) };
 }
 
+// curated collections — keep in sync with DRD.COLLECTIONS in js/site.js
+const COLLECTIONS = {
+  'first-steps': ['First Steps', 'Gentle, easy pieces to begin with — the least demanding letter notes in the library.'],
+  'calm-evening': ['Calm Evening', 'Nocturnes, reveries and lullabies to wind the night down.'],
+  'women-composers': ['Women Composers', 'Clara Schumann, Chaminade, Boulanger and more — voices long overlooked.'],
+  'baroque-counterpoint': ['Baroque Counterpoint', 'Bach, Handel and Scarlatti — the age of the fugue and the dance suite.'],
+  'virtuoso-fireworks': ['Virtuoso Fireworks', 'Storming showpieces for when you want a real challenge.'],
+  'impressionist-colours': ['Impressionist Colours', 'Debussy, Satie and Fauré — music made of light and haze.'],
+  'ragtime-parlour': ['Ragtime Parlour', 'Syncopated rags and struts from the ragtime age.'],
+  'wedding-ceremony': ['Wedding & Ceremony', 'Canon in D, Ave Maria, Bridal Chorus — music for the aisle and the altar.'],
+  'christmas-carols': ['Christmas & Carols', 'Carols and Christmas favourites, ready to play in letter notes.'],
+  'etudes-studies': ['Études & Studies', 'Inventions and studies that quietly build real technique.'],
+  'lullabies': ['Lullabies & Cradle Songs', 'Wiegenlieder, berceuses and cradle songs — the gentlest music in the library.'],
+  'sacred-hymns': ['Sacred & Hymns', 'Chorales, psalms and sacred settings, from Bach’s hymn tunes onward.'],
+  'national-anthems': ['National Anthems', 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.']
+};
+
+function collectionMeta(slug, c) {
+  const title = c[0], sub = c[1];
+  const pageTitle = title + ' — Piano Letter Notes | DoReDog';
+  const desc = sub + ' Free to play in your browser in colour-coded letter notes — no sheet music needed.';
+  const canon = ORIGIN + '/collection?c=' + encodeURIComponent(slug);
+  const j = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: title, description: sub, url: canon };
+  return { kind: 'collection', title, sub, pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(title) };
+}
+
 function metaFor(url) {
   const p = url.pathname;
+  if (p === '/collection.html' || p === '/collection') {
+    const slug = url.searchParams.get('c'), c = slug && COLLECTIONS[slug];
+    if (c) return collectionMeta(slug, c);
+    return null;
+  }
   if (p === '/song.html' || p === '/song') {
     const id = url.searchParams.get('id'), m = id && SEO[id];
     if (m) return songMeta(id, m);
@@ -123,6 +154,10 @@ export default {
               e.setInnerContent('<h2 class="drd-about-h">About this piece</h2>' + note, { html: true });
               e.removeAttribute('style');
             } });
+          } else if (meta.kind === 'collection') {
+            // fill the collection-page placeholders so crawlers read real content
+            rw.on('#collection-name', { element(e) { e.setInnerContent(meta.title); } })
+              .on('#collection-sub', { element(e) { e.setInnerContent(meta.sub); } });
           } else if (meta.kind === 'composer') {
             // Inject the verified, source-cited composer biography.
             const bio = BIOS[url.searchParams.get('name')];

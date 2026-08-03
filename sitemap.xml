@@ -2882,14 +2882,17 @@
   <url><loc>https://doredog.com/composer?name=Hugo%20Wolf</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://doredog.com/composer?name=Charles%20Wood</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://doredog.com/composer?name=Emilie%20Zumsteeg</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=first-steps</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=calm-evening</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=women-composers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=baroque-counterpoint</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=virtuoso-fireworks</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=impressionist-colours</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=ragtime-parlour</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=wedding-ceremony</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=christmas-carols</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://doredog.com/collection.html?c=etudes-studies</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=first-steps</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=calm-evening</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=women-composers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=baroque-counterpoint</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=virtuoso-fireworks</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=impressionist-colours</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=ragtime-parlour</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=wedding-ceremony</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=christmas-carols</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=etudes-studies</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://doredog.com/collection?c=lullabies</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=sacred-hymns</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=national-anthems</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
