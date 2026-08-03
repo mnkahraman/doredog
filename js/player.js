@@ -128,7 +128,59 @@
       fStart: (f) => Math.min(f * 9 + 2500, 13000), fEnd: (f) => Math.max(f * 5, 1800), fTime: .5, rvb: .4, gain: .22 },
     { id: 'musicbox', name: 'Music box', partials: [0, 1, .02, .35, .02, .14, .01, .07, .04],
       sub: 0, detune: 0, shimmer: .2, shimmerMul: 2, shimmerDur: 1.2, atk: .002, dec: .35, sus: .02, rel: 1.5, dur: 1.7, sustained: false,
-      fStart: (f) => Math.min(f * 8 + 2000, 12000), fEnd: (f) => Math.max(f * 3, 1200), fTime: .9, rvb: 1.0, gain: .22 }
+      fStart: (f) => Math.min(f * 8 + 2000, 12000), fEnd: (f) => Math.max(f * 3, 1200), fTime: .9, rvb: 1.0, gain: .22 },
+
+    /* ---- other instruments -------------------------------------------------
+       All of these are the same additive engine with a different harmonic recipe
+       and envelope, so they cost nothing extra to ship. `family` groups them on
+       the Instruments page. */
+    { id: 'kalimba', name: 'Kalimba', family: 'Plucked & struck', partials: [0, 1, .10, .30, .05, .15, .03, .07],
+      sub: .04, detune: 0, shimmer: .12, shimmerMul: 2, shimmerDur: .8, atk: .002, dec: .28, sus: .05, rel: 1.2, dur: 1.4, sustained: false,
+      fStart: (f) => Math.min(f * 7 + 1800, 10000), fEnd: (f) => Math.max(f * 2.6, 900), fTime: .8, rvb: .7, gain: .26 },
+
+    { id: 'marimba', name: 'Marimba', family: 'Tuned percussion', partials: [0, 1, .02, .03, .34, .02, .06, .02, .10],
+      sub: .05, detune: 0, shimmer: 0, shimmerMul: 2, shimmerDur: 0, atk: .002, dec: .22, sus: .02, rel: .9, dur: 1.05, sustained: false,
+      fStart: (f) => Math.min(f * 6 + 1500, 9000), fEnd: (f) => Math.max(f * 2.2, 700), fTime: .6, rvb: .4, gain: .3 },
+
+    { id: 'glockenspiel', name: 'Glockenspiel', family: 'Tuned percussion', partials: [0, 1, .04, .48, .08, .34, .06, .22, .12],
+      sub: 0, detune: 0, shimmer: .3, shimmerMul: 3, shimmerDur: 1.4, atk: .001, dec: .5, sus: .04, rel: 2.4, dur: 2.6, sustained: false,
+      fStart: (f) => Math.min(f * 9 + 3000, 14000), fEnd: (f) => Math.max(f * 4, 2000), fTime: 1.0, rvb: 1.1, gain: .17 },
+
+    { id: 'vibraphone', name: 'Vibraphone', family: 'Tuned percussion', partials: [0, 1, .03, .04, .30, .02, .09, .02],
+      sub: .06, detune: 3, shimmer: .08, shimmerMul: 2, shimmerDur: 1.0, atk: .003, dec: .6, sus: .18, rel: 2.6, dur: 2.8, sustained: false,
+      fStart: (f) => Math.min(f * 6 + 1800, 9500), fEnd: (f) => Math.max(f * 2.4, 800), fTime: 1.2, rvb: .9, gain: .24 },
+
+    { id: 'celesta', name: 'Celesta', family: 'Tuned percussion', partials: [0, 1, .04, .26, .05, .12, .03, .06],
+      sub: 0, detune: 0, shimmer: .22, shimmerMul: 2, shimmerDur: 1.1, atk: .002, dec: .45, sus: .05, rel: 2.0, dur: 2.2, sustained: false,
+      fStart: (f) => Math.min(f * 8 + 2400, 12000), fEnd: (f) => Math.max(f * 3, 1200), fTime: .95, rvb: 1.0, gain: .2 },
+
+    { id: 'tubularbells', name: 'Tubular bells', family: 'Tuned percussion', partials: [0, 1, .09, .38, .18, .46, .14, .28, .10],
+      sub: .1, detune: 4, shimmer: .18, shimmerMul: 2, shimmerDur: 1.6, atk: .004, dec: .8, sus: .3, rel: 3.2, dur: 3.4, sustained: false,
+      fStart: (f) => Math.min(f * 7 + 2200, 11000), fEnd: (f) => Math.max(f * 3, 1300), fTime: 1.6, rvb: 1.2, gain: .16 },
+
+    { id: 'harp', name: 'Harp', family: 'Plucked & struck', partials: [0, 1, .5, .3, .2, .14, .1, .07, .05, .03],
+      sub: .08, detune: 0, shimmer: .06, shimmerMul: 2, shimmerDur: .8, atk: .003, dec: .5, sus: .12, rel: 2.4, dur: 2.6, sustained: false,
+      fStart: (f) => Math.min(f * 6 + 1600, 9500), fEnd: (f) => Math.max(f * 2, 650), fTime: 1.2, rvb: .8, gain: .26 },
+
+    { id: 'guitar', name: 'Nylon guitar', family: 'Plucked & struck', partials: [0, 1, .45, .32, .16, .1, .06, .03],
+      sub: .12, detune: 0, shimmer: 0, shimmerMul: 2, shimmerDur: 0, atk: .004, dec: .4, sus: .1, rel: 1.8, dur: 2.0, sustained: false,
+      fStart: (f) => Math.min(f * 4.5 + 1000, 7000), fEnd: (f) => Math.max(f * 1.7, 520), fTime: 1.0, rvb: .5, gain: .3 },
+
+    { id: 'steeldrum', name: 'Steel drum', family: 'Tuned percussion', partials: [0, 1, .28, .12, .42, .08, .18, .05],
+      sub: .1, detune: 5, shimmer: .15, shimmerMul: 2, shimmerDur: 1.0, atk: .003, dec: .35, sus: .08, rel: 1.8, dur: 2.0, sustained: false,
+      fStart: (f) => Math.min(f * 6 + 1900, 9500), fEnd: (f) => Math.max(f * 2.4, 900), fTime: .9, rvb: .85, gain: .24 },
+
+    { id: 'toypiano', name: 'Toy piano', family: 'Plucked & struck', partials: [0, 1, .18, .44, .1, .28, .07, .12],
+      sub: 0, detune: 12, shimmer: .16, shimmerMul: 2, shimmerDur: .7, atk: .001, dec: .22, sus: .02, rel: .9, dur: 1.05, sustained: false,
+      fStart: (f) => Math.min(f * 8 + 2600, 12000), fEnd: (f) => Math.max(f * 3.2, 1300), fTime: .7, rvb: .5, gain: .24 },
+
+    { id: 'flute', name: 'Flute', family: 'Sustained', partials: [0, 1, .12, .06, .02, .01],
+      sub: .04, detune: 0, shimmer: .04, shimmerMul: 2, shimmerDur: .5, atk: .06, dec: .12, sus: .85, rel: .25, dur: 1.4, sustained: true,
+      fStart: (f) => Math.min(f * 4 + 1200, 7000), fEnd: (f) => Math.min(f * 4 + 1200, 7000), fTime: .3, rvb: .55, gain: .26 },
+
+    { id: 'strings', name: 'Strings', family: 'Sustained', partials: [0, 1, .6, .4, .3, .22, .17, .13, .1, .08, .06],
+      sub: .12, detune: 8, shimmer: 0, shimmerMul: 2, shimmerDur: 0, atk: .12, dec: .2, sus: .8, rel: .5, dur: 1.6, sustained: true,
+      fStart: (f) => Math.min(f * 5 + 1400, 8500), fEnd: (f) => Math.max(f * 2.5, 900), fTime: .6, rvb: .75, gain: .2 }
   ];
   const VOICES_BY_ID = {}; VOICES.forEach((v) => (VOICES_BY_ID[v.id] = v));
 

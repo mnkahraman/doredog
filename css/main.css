@@ -771,3 +771,20 @@ body{ animation:pageIn .5s var(--ez) both; }
 .quiz-recap-row i{font-style:normal;font-size:.84rem;color:var(--text-mute,#8a8a99);margin-left:auto}
 
 .otd-src{font-size:.72rem;color:var(--text-mute,#8a8a99)!important;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
+
+
+/* --- Instruments --- */
+.inst-stage{padding:26px 24px}
+.inst-now{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.inst-name{font-family:var(--font-body);font-weight:600;font-size:1.5rem;margin:.3rem 0 .35rem}
+.inst-desc{margin:0;max-width:52ch;line-height:1.6;font-size:.95rem}
+.inst-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.inst-card{display:flex;flex-direction:column;gap:5px;text-align:left;padding:15px 17px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.03);color:var(--text,#fff);
+  cursor:pointer;transition:border-color .16s,background .16s,transform .16s}
+.inst-card b{font-size:1rem}
+.inst-card i{font-style:normal;font-size:.82rem;color:var(--text-mute,#8a8a99);line-height:1.5}
+.inst-card:hover{border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.07);transform:translateY(-1px)}
+.inst-card.active{border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.13)}
+.inst-about{margin-top:40px;max-width:780px}
+@media (max-width:640px){.inst-now{flex-direction:column}.inst-stage{padding:20px 16px}}

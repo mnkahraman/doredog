@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play 22 Instruments in Your Browser — Kalimba, Marimba, Harp &amp; More | DoReDog</title>
+<meta name="description" content="Pick an instrument and play it right now — kalimba, marimba, glockenspiel, harp, celesta, steel drum, flute and more. Free, no sign-up, and every piece in the library can be heard on any of them.">
+<link rel="canonical" href="https://doredog.com/instruments">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Play 22 Instruments in Your Browser">
+<meta property="og:description" content="Kalimba, marimba, glockenspiel, harp, celesta, steel drum, flute — pick one and play it now, free.">
+<meta property="og:url" content="https://doredog.com/instruments">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=108">
+<link rel="stylesheet" href="css/player.css?v=108">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="instruments">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Sound lab</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Play <span class="text-grad">22 instruments</span><br>in your browser</h1>
+      <p class="lead" data-reveal data-delay="2">Kalimba, marimba, harp, glockenspiel, steel drum… Pick one, play the keys, and hear any piece in the library through it.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <!-- the live keyboard, shared by every instrument -->
+      <div class="inst-stage card" data-reveal>
+        <div class="inst-now">
+          <div>
+            <span class="eyebrow">Now playing</span>
+            <h2 class="inst-name" id="inst-name">Grand piano</h2>
+            <p class="inst-desc text-dim" id="inst-desc"></p>
+          </div>
+          <button class="btn btn-primary" id="inst-demo">▶ Hear a demo</button>
+        </div>
+        <div class="piano-wrap">
+          <div class="piano-scroll" id="inst-piano"></div>
+          <div class="oct-legend" id="inst-legend"></div>
+        </div>
+        <p class="text-mute" style="font-size:.84rem;margin:12px 2px 0">Click the keys, or use your computer keyboard — the home row is the white keys.</p>
+      </div>
+
+      <div id="inst-groups"></div>
+
+      <div class="inst-about" data-reveal>
+        <h2 class="title" style="font-size:1.5rem;margin:0 0 .7rem">How can one page play so many instruments?</h2>
+        <p class="text-dim" style="line-height:1.75">There are no recordings here and nothing to download. Every sound is built live in your browser with the Web Audio API by stacking harmonics — the recipe of overtones plus the shape of the attack and decay is what makes a marimba sound wooden and a glockenspiel sound like struck metal. A marimba bar, for instance, is tuned so its first strong overtone sits two octaves and a third above the note, which is exactly what its recipe here reproduces.</p>
+        <p class="text-dim" style="line-height:1.75">That means every one of the <strong style="color:var(--text)">2,400+ pieces</strong> in the library can be heard on any of these instruments — open a piece and change the <em>Sound</em> control in the player. New to letter notes? <a href="guide.html" style="color:var(--gold)">Start with the two-minute guide</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=108"></script>
+<script src="js/player.js?v=108"></script>
+<script src="js/site.js?v=108"></script>
+<script>
+(function () {
+  'use strict';
+  // A short, plain description of each voice — what it is and where you'd hear it.
+  var INFO = {
+    grand:        ['Piano', 'The full concert grand: bright attack, long ringing tail.'],
+    natural:      ['Piano', 'A closer, drier piano — less room, more wood.'],
+    warm:         ['Piano', 'Rounded and bass-heavy, good for slow pieces.'],
+    soft:         ['Piano', 'Gentle and muted, as if the soft pedal were down.'],
+    celestial:    ['Piano', 'A dreamy, slowly-blooming pad built from piano harmonics.'],
+    march:        ['Sustained', 'Brassy and direct — built for marches and fanfares.'],
+    organ:        ['Sustained', 'Drawbar-style organ: the note holds as long as you do.'],
+    rhodes:       ['Piano', 'Electric piano — bell-like, mellow, a little vintage.'],
+    harpsichord:  ['Plucked & struck', 'Plucked strings, no dynamics — the Baroque keyboard.'],
+    musicbox:     ['Tuned percussion', 'Tiny struck combs: sweet, glassy, and quickly gone.'],
+    kalimba:      ['Plucked & struck', 'The African thumb piano. Metal tines plucked by the thumbs — warm, round, with a soft metallic ring.'],
+    marimba:      ['Tuned percussion', 'Wooden bars over resonators. Its bars are tuned so the first overtone sits two octaves and a third up, which gives that hollow, woody knock.'],
+    glockenspiel: ['Tuned percussion', 'Small steel bars struck with hard mallets — piercingly bright and long-ringing.'],
+    vibraphone:   ['Tuned percussion', 'Metal bars with resonator tubes. Jazz-friendly, bell-like, with a long sustain.'],
+    celesta:      ['Tuned percussion', 'Struck metal plates played from a keyboard — the sound of the Sugar Plum Fairy.'],
+    tubularbells: ['Tuned percussion', 'Long hanging tubes: deep, cathedral-like, with an enormous ring.'],
+    harp:         ['Plucked & struck', 'Plucked strings, rich in harmonics and slow to fade.'],
+    guitar:       ['Plucked & struck', 'Nylon-string guitar — warm and quick to decay.'],
+    steeldrum:    ['Tuned percussion', 'Hammered steel pan from Trinidad and Tobago: metallic but mellow.'],
+    toypiano:     ['Plucked & struck', 'Struck metal rods in a child’s piano — bright, short, charmingly out of tune.'],
+    flute:        ['Sustained', 'An almost pure tone with a breathy start; it holds while you hold the key.'],
+    strings:      ['Sustained', 'A section of bowed strings, slow to speak and slow to fade.']
+  };
+  var ORDER = ['Piano', 'Plucked & struck', 'Tuned percussion', 'Sustained'];
+  var DEMO = { 'Tuned percussion': 'twinkle-twinkle', 'Plucked & struck': 'gymnopedie-no-1',
+               Sustained: 'ode-to-joy', Piano: 'fur-elise' };
+  var NOTA_V = 89;
+
+  function el(id) { return document.getElementById(id); }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!window.DRD || !DRD.Synth || !DRD.buildPiano) return;
+    var VOICES = DRD.Synth.VOICES || [];
+
+    // --- live keyboard ---------------------------------------------------
+    var built = DRD.buildPiano(el('inst-piano'), [3, 6], function (freq, keyEl, oct) {
+      DRD.Synth.note(freq);
+      var o = Math.max(2, Math.min(6, oct));
+      keyEl.classList.add('down', 'lit', 'lit-o' + o);
+      setTimeout(function () { keyEl.classList.remove('down', 'lit', 'lit-o' + o); }, 200);
+    });
+    if (DRD.fitPiano) DRD.fitPiano(el('inst-piano'));
+
+    // --- instrument cards, grouped by family -------------------------------
+    var groups = {};
+    VOICES.forEach(function (v) {
+      var fam = (INFO[v.id] && INFO[v.id][0]) || v.family || 'Piano';
+      (groups[fam] = groups[fam] || []).push(v);
+    });
+    el('inst-groups').innerHTML = ORDER.filter(function (f) { return groups[f]; }).map(function (fam) {
+      return '<section class="inst-group" data-reveal><h2 class="title" style="font-size:1.35rem;margin:26px 0 12px">' + fam + '</h2>' +
+        '<div class="inst-grid">' + groups[fam].map(function (v) {
+          return '<button class="inst-card" data-voice="' + v.id + '">' +
+            '<b>' + v.name + '</b><i>' + ((INFO[v.id] && INFO[v.id][1]) || '') + '</i></button>';
+        }).join('') + '</div></section>';
+    }).join('');
+
+    function select(id, play) {
+      var v = VOICES.filter(function (x) { return x.id === id; })[0];
+      if (!v) return;
+      DRD.Synth.setVoice(id); DRD.Synth.ensure();
+      el('inst-name').textContent = v.name;
+      el('inst-desc').textContent = (INFO[id] && INFO[id][1]) || '';
+      [].forEach.call(document.querySelectorAll('.inst-card'), function (b) {
+        b.classList.toggle('active', b.getAttribute('data-voice') === id);
+      });
+      if (play) {                       // a quick arpeggio so you hear it immediately
+        var t = DRD.Synth.ctx ? DRD.Synth.ctx.currentTime : 0;
+        [60, 64, 67, 72].forEach(function (m, i) { DRD.Synth.note(DRD.midiToFreq(m), t + i * 0.13); });
+      }
+    }
+
+    [].forEach.call(document.querySelectorAll('.inst-card'), function (b) {
+      b.addEventListener('click', function () { select(this.getAttribute('data-voice'), true); });
+    });
+    select(DRD.Synth.voiceId || 'grand', false);
+
+    // --- demo: play a real piece with the chosen instrument -----------------
+    el('inst-demo').addEventListener('click', function () {
+      var fam = (INFO[DRD.Synth.voiceId] && INFO[DRD.Synth.voiceId][0]) || 'Piano';
+      var id = DEMO[fam] || 'fur-elise';
+      var song = DRD.getSong(id); if (!song) return;
+      var btn = this; btn.disabled = true; btn.textContent = 'Loading…';
+      DRD.NOTATIONS = DRD.NOTATIONS || {};
+      var go = function (nota) {
+        btn.disabled = false; btn.textContent = '▶ Hear a demo';
+        if (!nota) return;
+        var cols = DRD.buildTimeline(DRD.parseNotation(nota)).cols;
+        var cps = song.cps || 6, t0 = DRD.Synth.ctx.currentTime + 0.1, LIMIT = 10;   // ~10 seconds
+        cols.forEach(function (col, i) {
+          var when = t0 + i / cps; if (when - t0 > LIMIT) return;
+          (col.events || []).forEach(function (ev) { DRD.Synth.note(DRD.midiToFreq(ev.midi), when, 0.85); });
+        });
+      };
+      if (DRD.NOTATIONS[id]) return go(DRD.NOTATIONS[id]);
+      var sc = document.createElement('script');
+      sc.src = 'songs/' + id + '.js?v=' + NOTA_V;
+      sc.onload = function () { go((DRD.NOTATIONS || {})[id]); };
+      sc.onerror = function () { go(null); };
+      document.head.appendChild(sc);
+    });
+  });
+})();
+</script>
+</body>
+</html>

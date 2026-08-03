@@ -2921,4 +2921,5 @@
   <url><loc>https://doredog.com/on-this-day</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://doredog.com/facts</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://doredog.com/quiz</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doredog.com/instruments</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
