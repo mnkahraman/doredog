@@ -2895,4 +2895,9 @@
   <url><loc>https://doredog.com/collection?c=lullabies</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://doredog.com/collection?c=sacred-hymns</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://doredog.com/collection?c=national-anthems</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=songs-and-lieder</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=preludes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=dances-and-minuets</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=waltzes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/collection?c=marches</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

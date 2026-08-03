@@ -291,8 +291,16 @@
   var XMAS_RE = /christmas|no[eë]l\b|carols?\b|silent night|jingle|holy night|wenceslas|adeste|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit/i;
   var STUDY_RE = /[eé]tude|study|inventio|invention/i;
   var ANTHEM_RE = /star.spangled banner|god save|marseillaise|national anthem|marche nationale/i;
-  var HYMN_RE = /chorale|psalm|kyrie|gloria|sanctus|agnus dei|magnificat|te deum|ave maris|pater noster|geistlich/i;
+  // sacred by function — many of these are filed under an era genre (Baroque/Romantic),
+  // because `genre` records the period, not what the piece is for.
+  var HYMN_RE = /chorale|psalm|kyrie|gloria|sanctus|benedictus|agnus dei|magnificat|te deum|ave maria|ave verum|ave maris|pater noster|salve regina|stabat mater|geistlich|motet|missa|requiem|hallelujah|jesu[,\s]|herr |gott |hymn/i;
   var LULLABY_RE = /lullaby|wiegenlied|cradle|berceuse|schlaflied|slumber|abendlied/i;
+  // musical form — the catalogue's biggest hidden dimension (752 of 2,417 pieces are songs)
+  var SONG_RE = /\blied(er)?\b|gesang|gesänge|\bsongs?\b|m[eé]lodies?\b|romanzen?\b|canzon|chanson|\baria\b/i;
+  var PRELUDE_RE = /prelude|pr[aä]ludium|vorspiel/i;
+  var DANCE_RE = /gavotte|sarabande|courante|allemande|bourr[eé]e|gigue|polka|mazurka|polonaise|minuet|menuett|tanz\b|danse|dances?\b/i;
+  var MARCH_RE = /\bmarch\b|marche\b|marsch\b|marches\b/i;
+  var WALTZ_RE = /waltz(es)?\b|valses?\b|walzer/i;   // word-bounded: "Waltzing Matilda" is not a waltz
   window.DRD.COLLECTIONS = [
     { slug: 'first-steps', title: 'First Steps', glyph: '✿', accent: '#35e08c',
       sub: 'Gentle, easy pieces to begin with — the least demanding letter notes in the library.',
@@ -332,7 +340,22 @@
       match: function (s) { return HYMN_RE.test(s.title) || s.genre === 'Sacred'; } },
     { slug: 'national-anthems', title: 'National Anthems', glyph: '⚑', accent: '#8fd4a8',
       sub: 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.',
-      match: function (s) { return ANTHEM_RE.test(s.title); } }
+      match: function (s) { return ANTHEM_RE.test(s.title); } },
+    { slug: 'songs-and-lieder', title: 'Songs & Lieder', glyph: '♪', accent: '#ff9ec7',
+      sub: 'The art song — Lieder, mélodies and romances, the largest seam in the library.',
+      match: function (s) { return SONG_RE.test(s.title); } },
+    { slug: 'preludes', title: 'Preludes', glyph: '❊', accent: '#9fd0ff',
+      sub: 'Short, self-contained openings — from Bach’s Little Preludes to Chopin’s Op. 28.',
+      match: function (s) { return PRELUDE_RE.test(s.title); } },
+    { slug: 'dances-and-minuets', title: 'Dances & Minuets', glyph: '❈', accent: '#f0a868',
+      sub: 'Minuets, gavottes, mazurkas and polonaises — music written to be danced.',
+      match: function (s) { return DANCE_RE.test(s.title); } },
+    { slug: 'waltzes', title: 'Waltzes', glyph: '❃', accent: '#d8a8f0',
+      sub: 'Valses and Walzer — three beats to a bar, from the ballroom to the salon.',
+      match: function (s) { return WALTZ_RE.test(s.title); } },
+    { slug: 'marches', title: 'Marches', glyph: '⁂', accent: '#a8c8a0',
+      sub: 'Marches and processionals, from Sousa’s bands to Schumann’s Soldier’s March.',
+      match: function (s) { return MARCH_RE.test(s.title); } }
   ];
   window.DRD.getCollection = function (slug) {
     return DRD.COLLECTIONS.filter(function (c) { return c.slug === slug; })[0] || null;

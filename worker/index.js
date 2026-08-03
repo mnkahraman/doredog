@@ -59,7 +59,12 @@ const COLLECTIONS = {
   'etudes-studies': ['Études & Studies', 'Inventions and studies that quietly build real technique.'],
   'lullabies': ['Lullabies & Cradle Songs', 'Wiegenlieder, berceuses and cradle songs — the gentlest music in the library.'],
   'sacred-hymns': ['Sacred & Hymns', 'Chorales, psalms and sacred settings, from Bach’s hymn tunes onward.'],
-  'national-anthems': ['National Anthems', 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.']
+  'national-anthems': ['National Anthems', 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.'],
+  'songs-and-lieder': ['Songs & Lieder', 'The art song — Lieder, mélodies and romances, the largest seam in the library.'],
+  'preludes': ['Preludes', 'Short, self-contained openings — from Bach’s Little Preludes to Chopin’s Op. 28.'],
+  'dances-and-minuets': ['Dances & Minuets', 'Minuets, gavottes, mazurkas and polonaises — music written to be danced.'],
+  'waltzes': ['Waltzes', 'Valses and Walzer — three beats to a bar, from the ballroom to the salon.'],
+  'marches': ['Marches', 'Marches and processionals, from Sousa’s bands to Schumann’s Soldier’s March.']
 };
 
 function collectionMeta(slug, c) {
