@@ -1,0 +1,2 @@
+window.DRD=window.DRD||{};DRD.NOTATIONS=DRD.NOTATIONS||{};
+DRD.NOTATIONS["o-christmas-tree"]="RH 4|----------d-|\n1\nRH 4|g--gg---a---|\n2\nRH 4|b--bb-----b-|\n3\nRH 5|----c-------|\nRH 4|a-b-----F---|\n4\nRH 5|----------d-|\nRH 4|a---g-------|\n5\nRH 5|d---e-----d-|\nRH 4|--b---------|\n6\nRH 5|d-c-c-----c-|\n7\nRH 5|c---d-----c-|\nRH 4|--a---------|\n8\nRH 5|c-----------|\nRH 4|--b-b-----d-|\n9\nRH 4|g--gg---a---|\n10\nRH 4|b--bb-----b-|\n11\nRH 5|----c-------|\nRH 4|a-b-----F---|\n12\nRH 4|a---g-------|\n13";

@@ -1,0 +1,2 @@
+window.DRD=window.DRD||{};DRD.NOTATIONS=DRD.NOTATIONS||{};
+DRD.NOTATIONS["away-in-a-manger"]="RH 5|--------c---|\n1\nRH 5|c-----------|\nRH 4|------A-a---|\n2\nRH 4|a-----g-f---|\n3\nRH 4|f---e---d---|\n4\nRH 4|c-------c---|\n5\nRH 4|c-----d-c---|\n6\nRH 4|c---g---e---|\n7\nRH 4|d---c---f---|\n8\nRH 5|--------c---|\nRH 4|a-----------|\n9\nRH 5|c-----------|\nRH 4|------A-a---|\n10\nRH 4|a-----g-f---|\n11\nRH 4|f---e---d---|\n12\nRH 4|c-------c---|\n13\nRH 4|A-----a-g---|\n14\nRH 4|a---g---f---|\n15\nRH 4|g---d---e---|\n16\nRH 4|f-----------|\n17";

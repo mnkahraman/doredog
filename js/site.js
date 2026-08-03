@@ -290,7 +290,7 @@
   var WED_RE = /canon in d|ave maria|wedding|bridal|jesu, joy|jesu joy|panis angelicus|air on the g/i;
   // multilingual — the catalogue's carols are often titled in German or Latin
   // word-bounded: bare /carol/ wrongly matched "Carolina" and "Barcarolle"
-  var XMAS_RE = /christmas|no[eë]l\b|carols?\b|silent night|jingle|holy night|wenceslas|adeste|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit/i;
+  var XMAS_RE = /christmas|no[eë]l\b|carols?\b|silent night|jingle|holy night|wenceslas|adeste|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit|away in a manger|herald angels/i;
   var STUDY_RE = /[eé]tude|study|inventio|invention/i;
   var ANTHEM_RE = /star.spangled banner|god save|marseillaise|national anthem|marche nationale/i;
   // sacred by function — many of these are filed under an era genre (Baroque/Romantic),

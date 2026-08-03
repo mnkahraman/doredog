@@ -43320,6 +43320,125 @@ window.DRD.SONGS = [
     authored: true,
     cover: {"from":"#12242e","mid":"#5fd8e6","to":"#08121a","glyph":"❈"},
     blurb: "London Bridge Is Falling Down — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "row-row-row-your-boat",
+    title: "Row, Row, Row Your Boat",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 5.6,
+    dur: 17,
+    fp: "00002442457<<<77744400075420",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#0f2a2e","mid":"#5fd8e6","to":"#07161a","glyph":"❈"},
+    blurb: "Row, Row, Row Your Boat — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "pop-goes-the-weasel",
+    title: "Pop Goes the Weasel",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 7.2,
+    dur: 13,
+    fp: "0002247400022400022474092540",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#33230f","mid":"#f6b73f","to":"#171005","glyph":"✶"},
+    blurb: "Pop Goes the Weasel — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "baa-baa-black-sheep",
+    title: "Baa, Baa, Black Sheep",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 6.4,
+    dur: 20,
+    fp: "0079;<7554227755544277757522",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#1d2230","mid":"#9fb4d8","to":"#0c0f16","glyph":"❊"},
+    blurb: "Baa, Baa, Black Sheep — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "away-in-a-manger",
+    title: "Away in a Manger",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["traditional","sacred","piano","beginner"],
+    cps: 6.67,
+    dur: 31,
+    fp: "00iieeb````dbei0iieeb`jgiegd",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#2b2413","mid":"#e6d5a8","to":"#141007","glyph":"✞"},
+    blurb: "Away in a Manger — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "o-christmas-tree",
+    title: "O Christmas Tree (O Tannenbaum)",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["traditional","sacred","piano","beginner"],
+    cps: 6.93,
+    dur: 23,
+    fp: "055799:9<7<<9::::79055999797",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#122a18","mid":"#8fd4a8","to":"#08150c","glyph":"❋"},
+    blurb: "O Christmas Tree (O Tannenbaum) — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "we-three-kings",
+    title: "We Three Kings",
+    composer: "John Henry Hopkins Jr.",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["jr.","sacred","piano","beginner"],
+    cps: 6.67,
+    dur: 29,
+    fp: "0hgg`Y\\Y\\^c``\\[\\\\\\\\\\\\\\\\`^\\\\\\",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#241a33","mid":"#a99bff","to":"#100c18","glyph":"✦"},
+    blurb: "We Three Kings — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "hark-the-herald-angels-sing",
+    title: "Hark! The Herald Angels Sing",
+    composer: "Felix Mendelssohn",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["mendelssohn","sacred","piano","beginner"],
+    cps: 7.2,
+    dur: 40,
+    fp: "0557<99559740<:9><97:7>>9<:5",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#33170f","mid":"#ff8f6b","to":"#170a06","glyph":"⁂"},
+    blurb: "Hark! The Herald Angels Sing — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
   }
 ];
 

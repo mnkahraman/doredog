@@ -1,0 +1,2 @@
+window.DRD=window.DRD||{};DRD.NOTATIONS=DRD.NOTATIONS||{};
+DRD.NOTATIONS["baa-baa-black-sheep"]="RH 4|e---e---|\n1\nRH 4|b---b---|\n2\nRH 5|C-D-e-C-|\n3\nRH 4|b-------|\n4\nRH 4|a---a---|\n5\nRH 4|G---G---|\n6\nRH 4|F---F---|\n7\nRH 4|e-------|\n8\nRH 4|b---b-b-|\n9\nRH 4|a---a-a-|\n10\nRH 4|G---G-G-|\n11\nRH 4|F-----F-|\n12\nRH 4|b---b-b-|\n13\nRH 5|----C---|\nRH 4|a-b---a-|\n14\nRH 4|G---F-F-|\n15\nRH 4|e-------|\n16";

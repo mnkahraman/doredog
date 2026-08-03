@@ -2909,4 +2909,11 @@
   <url><loc>https://doredog.com/collection?c=dances-and-minuets</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://doredog.com/collection?c=waltzes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://doredog.com/collection?c=marches</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=row-row-row-your-boat</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=pop-goes-the-weasel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=baa-baa-black-sheep</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=away-in-a-manger</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=o-christmas-tree</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=we-three-kings</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/song?id=hark-the-herald-angels-sing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
