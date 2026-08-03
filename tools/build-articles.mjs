@@ -23,6 +23,14 @@ const ARTS = [
   ['14-how-to-learn-moonlight-sonata.md', 'how-to-learn-moonlight-sonata', 'How to Learn the Moonlight Sonata (1st Movement)', 'The famous first movement of Beethoven’s Moonlight Sonata is built on a gentle repeating pattern — how a patient beginner can play it.'],
   ['15-can-adults-learn-piano.md', 'can-adults-learn-piano', 'Can Adults Learn Piano? Yes — Here’s How to Start', 'You are not too old to learn piano. Why adults can absolutely learn, and the fastest, lowest-frustration way to start.'],
   ['16-how-long-to-learn-piano.md', 'how-long-to-learn-piano', 'How Long Does It Take to Learn Piano?', 'A realistic timeline for learning piano — from your first tune (days) to intermediate playing (a few years) — and what determines your speed.'],
+  ['17-satie-for-beginners.md', 'satie-for-beginners', 'Erik Satie for Beginners: Where to Start', 'Satie’s Gymnopédies are the best beautiful-but-playable pieces for a beginner. Which to learn first, in what order, and how to play them well.'],
+  ['18-easiest-chopin-pieces.md', 'easiest-chopin-pieces', 'The Easiest Chopin Pieces to Learn (and How to Start)', 'Most Chopin is hard — but four of his Preludes are genuinely playable early. An honest guide to starting Chopin as a beginner.'],
+  ['19-piano-music-for-weddings.md', 'piano-music-for-weddings', 'Piano Music for Weddings (in Letter Notes You Can Play)', 'Canon in D, Bridal Chorus, Ave Maria and more — the wedding piano repertoire, how hard each really is, and which to choose for your level.'],
+  ['20-what-is-ragtime.md', 'what-is-ragtime', 'What Is Ragtime? A Beginner’s Guide (with Pieces to Play)', 'What ragtime is, why its syncopation feels the way it does, who Scott Joplin was, and which rags a learner should actually start with.'],
+  ['21-what-is-a-nocturne.md', 'what-is-a-nocturne', 'What Is a Nocturne? (And the Best Ones to Learn)', 'The nocturne explained — where the form came from, what makes its sound, and which nocturnes to learn first, from Chopin’s Op. 9 No. 2.'],
+  ['22-easiest-beethoven-pieces.md', 'easiest-beethoven-pieces', 'The Easiest Beethoven Pieces for Beginners', 'Beethoven you can genuinely play — starting with Ode to Joy, through his easiest sonata movements, up to Für Elise and the Moonlight Sonata.'],
+  ['23-schumann-for-beginners.md', 'schumann-for-beginners', 'Schumann for Beginners: Music Written for Young Players', 'Schumann wrote a whole album for children learning piano. The easiest Schumann pieces, in a sensible order, from The Happy Farmer to Träumerei.'],
+  ['24-bach-for-beginners.md', 'bach-for-beginners', 'Bach for Beginners: The Easiest Bach Pieces to Learn', 'Bach wrote short keyboard pieces for students — and they’re still the best beginner material there is. The easiest Bach, in a sensible order.'],
 ];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
