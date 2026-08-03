@@ -287,7 +287,8 @@
   var CALM_RE = /nocturne|lullab|berceuse|r[eê]verie|reverie|clair|gymnop|romance|serenade|barcarolle|tr[aä]umerei/i;
   var WED_RE = /canon in d|ave maria|wedding|bridal|jesu, joy|jesu joy|panis angelicus|air on the g/i;
   // multilingual — the catalogue's carols are often titled in German or Latin
-  var XMAS_RE = /christmas|no[eë]l|carol|silent night|jingle|holy night|wenceslas|adeste|first noel|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit/i;
+  // word-bounded: bare /carol/ wrongly matched "Carolina" and "Barcarolle"
+  var XMAS_RE = /christmas|no[eë]l\b|carols?\b|silent night|jingle|holy night|wenceslas|adeste|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit/i;
   var STUDY_RE = /[eé]tude|study|inventio|invention/i;
   var ANTHEM_RE = /star.spangled banner|god save|marseillaise|national anthem|marche nationale/i;
   var HYMN_RE = /chorale|psalm|kyrie|gloria|sanctus|agnus dei|magnificat|te deum|ave maris|pater noster|geistlich/i;
