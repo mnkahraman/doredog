@@ -769,3 +769,5 @@ body{ animation:pageIn .5s var(--ez) both; }
   border-bottom:1px solid rgba(255,255,255,.06);color:var(--text,#fff)}
 .quiz-recap-row span{font-weight:700}.quiz-recap-row span.ok{color:#35e08c}.quiz-recap-row span.no{color:#ff5f64}
 .quiz-recap-row i{font-style:normal;font-size:.84rem;color:var(--text-mute,#8a8a99);margin-left:auto}
+
+.otd-src{font-size:.72rem;color:var(--text-mute,#8a8a99)!important;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}

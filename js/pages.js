@@ -723,9 +723,14 @@
   }
 
   function eventHTML(e) {
+    // ours (c/s) link into the site; harvested ones (w) link to the article they came from
     var link = e.c ? 'composer?name=' + encodeURIComponent(e.c)
              : e.s ? 'song?id=' + e.s : '';
     var body = link ? '<a href="' + link + '">' + e.t + '</a>' : e.t;
+    if (!link && e.w) {
+      body = e.t + ' <a class="otd-src" href="https://en.wikipedia.org/wiki/' +
+             encodeURIComponent(e.w.replace(/ /g, '_')) + '" target="_blank" rel="noopener">source</a>';
+    }
     var ago = new Date().getFullYear() - e.y;
     return '<li class="otd-item"><span class="otd-year">' + e.y + '</span>' +
            '<span class="otd-text">' + body +
