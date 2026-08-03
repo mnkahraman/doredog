@@ -718,3 +718,5 @@ body{ animation:pageIn .5s var(--ez) both; }
 .otd-picker{display:flex;gap:8px;align-items:center}
 .otd-picker .field{padding:8px 12px;font-size:.92rem}
 @media (max-width:520px){.otd-item{gap:12px}.otd-year{min-width:3.2em;font-size:.85rem}}
+
+.otd-ago{font-size:.8rem;color:var(--text-mute,#8a8a99);white-space:nowrap}

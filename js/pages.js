@@ -707,25 +707,50 @@
   }
   function eventsFor(k) { return ((window.DRD && DRD.ONTHISDAY) || {})[k] || []; }
 
+  // The calendar is only as full as our sourced data, so ~40% of days are empty.
+  // Rather than show nothing, walk outwards to the nearest date that does have entries.
+  function nearestWithEvents(k) {
+    var all = (window.DRD && DRD.ONTHISDAY) || {};
+    var keys = Object.keys(all); if (!keys.length) return null;
+    var toNum = function (s) { return +s.slice(0, 2) * 31 + +s.slice(3); };
+    var here = toNum(k), best = null, bestDist = 1e9;
+    keys.forEach(function (kk) {
+      var d = Math.abs(toNum(kk) - here);
+      d = Math.min(d, 372 - d);                     // wrap around the year
+      if (d < bestDist) { bestDist = d; best = kk; }
+    });
+    return best;
+  }
+
   function eventHTML(e) {
     var link = e.c ? 'composer?name=' + encodeURIComponent(e.c)
              : e.s ? 'song?id=' + e.s : '';
     var body = link ? '<a href="' + link + '">' + e.t + '</a>' : e.t;
+    var ago = new Date().getFullYear() - e.y;
     return '<li class="otd-item"><span class="otd-year">' + e.y + '</span>' +
-           '<span class="otd-text">' + body + '</span></li>';
+           '<span class="otd-text">' + body +
+           (ago > 0 ? ' <span class="otd-ago">' + ago + ' years ago</span>' : '') +
+           '</span></li>';
   }
+  function humanKey(k) { return MONTHS[+k.slice(0, 2) - 1] + ' ' + (+k.slice(3)); }
 
   // small homepage teaser — shows up to 3 of today's entries
   function fillOnThisDay() {
     var slot = document.getElementById('otd-list');
     if (!slot) return;
-    var d = new Date(), evs = eventsFor(todayKey(d));
+    var d = new Date(), k = todayKey(d), evs = eventsFor(k);
     var label = document.getElementById('otd-date');
-    if (label) label.textContent = MONTHS[d.getMonth()] + ' ' + d.getDate();
-    if (!evs.length) { var sec = document.getElementById('on-this-day'); if (sec) sec.hidden = true; return; }
+    var nearK = null;
+    if (!evs.length) {                              // nothing today → nearest dated entry
+      nearK = nearestWithEvents(k);
+      if (!nearK) { var sec = document.getElementById('on-this-day'); if (sec) sec.hidden = true; return; }
+      evs = eventsFor(nearK);
+    }
+    if (label) label.textContent = nearK ? humanKey(nearK) : MONTHS[d.getMonth()] + ' ' + d.getDate();
     slot.innerHTML = evs.slice(0, 3).map(eventHTML).join('');
     var more = document.getElementById('otd-more');
-    if (more && evs.length > 3) more.textContent = 'See all ' + evs.length + ' entries for today →';
+    if (more) more.textContent = nearK ? 'Browse any date in music history →'
+      : (evs.length > 3 ? 'See all ' + evs.length + ' entries for today →' : 'Browse any date in music history →');
   }
 
   // full page: today, plus a date picker so any day can be browsed
@@ -740,7 +765,20 @@
       var evs = eventsFor(k);
       if (head) head.textContent = human;
       list.innerHTML = evs.map(eventHTML).join('');
-      if (empty) empty.hidden = evs.length > 0;
+      if (empty) {
+        empty.hidden = evs.length > 0;
+        if (!evs.length) {                          // point at the closest day we do have
+          var near = nearestWithEvents(k);
+          empty.innerHTML = near
+            ? 'Nothing recorded on this date yet — our calendar fills in as the library grows. The nearest entry is <a href="#" data-otd-jump="' + near + '" style="color:var(--gold)">' + humanKey(near) + '</a>.'
+            : 'Nothing recorded on this date yet.';
+          var jump = empty.querySelector('[data-otd-jump]');
+          if (jump) jump.addEventListener('click', function (ev) {
+            ev.preventDefault(); var kk = this.getAttribute('data-otd-jump');
+            show(kk, humanKey(kk));
+          });
+        }
+      }
       document.title = 'On This Day in Music — ' + human + ' · DoReDog';
     }
 
