@@ -3,7 +3,7 @@
 import fs from 'fs';
 const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
 const DRAFTS = ROOT + '/marketing/content-drafts';
-const V = 105;
+const V = 106;
 
 // file -> {slug, title, desc}
 const ARTS = [

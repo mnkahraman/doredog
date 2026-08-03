@@ -13,7 +13,7 @@
    ========================================================================== */
 import fs from 'fs';
 const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
-const V = 105;
+const V = 106;
 const W = (a) => 'https://en.wikipedia.org/wiki/' + a;
 
 const FACTS = [
