@@ -788,3 +788,17 @@ body{ animation:pageIn .5s var(--ez) both; }
 .inst-card.active{border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.13)}
 .inst-about{margin-top:40px;max-width:780px}
 @media (max-width:640px){.inst-now{flex-direction:column}.inst-stage{padding:20px 16px}}
+
+
+/* --- Instrument encyclopedia --- */
+.inst-encyclopedia{margin-top:48px;max-width:820px}
+.inst-enc{padding:24px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.inst-enc-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:.7rem}
+.inst-enc-head h3{font-family:var(--font-body);font-weight:600;font-size:1.22rem;margin:0}
+.inst-enc-origin{font-family:var(--font-mono,monospace);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute,#8a8a99)}
+.inst-enc-try{margin-left:auto;padding:6px 14px;font-size:.84rem}
+.inst-enc p{color:var(--text-dim,#b9b9c6);line-height:1.72;margin:0 0 .7rem}
+.inst-enc strong{color:var(--text,#fff);font-weight:600}
+.inst-enc-foot{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin:0!important}
+.inst-enc-foot a{color:var(--gold,#f6b73f);text-decoration:none;font-size:.9rem}
+.inst-enc-src{color:var(--text-mute,#8a8a99)!important;font-size:.78rem!important}
