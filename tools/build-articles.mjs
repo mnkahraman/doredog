@@ -3,7 +3,7 @@
 import fs from 'fs';
 const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
 const DRAFTS = ROOT + '/marketing/content-drafts';
-const V = 93;
+const V = 94;
 
 // file -> {slug, title, desc}
 const ARTS = [
@@ -17,6 +17,12 @@ const ARTS = [
   ['08-practice-when-you-cant-read-music.md', 'how-to-practice-piano-without-reading-music', 'How to Practice Piano When You Can’t Read Music', 'A simple, repeatable 20-minute piano practice session you can run today — no staff, no theory, just focused, effective work.'],
   ['09-beginners-guide-clair-de-lune.md', 'how-to-play-clair-de-lune', 'A Beginner’s Guide to Playing Clair de Lune', 'What Clair de Lune is, an honest word about its difficulty, and how a patient beginner can start playing it in letter notes.'],
   ['10-slow-down-and-loop.md', 'slow-down-and-loop-to-learn-faster', 'How to Slow Down and Loop a Piece to Learn It Faster', 'The two habits that separate steady progress from plateau: slow practice and looping. Why they work and how to use them.'],
+  ['11-how-to-learn-canon-in-d.md', 'how-to-learn-canon-in-d', 'How to Learn Canon in D (Pachelbel) in Letter Notes', 'What Pachelbel’s Canon in D really is and how to play it — built on one repeating pattern, it’s one of the most learnable famous pieces.'],
+  ['12-how-to-play-gymnopedie-no-1.md', 'how-to-play-gymnopedie-no-1', 'How to Play Gymnopédie No. 1 (Satie) in Letter Notes', 'Satie’s Gymnopédie No. 1 is one of the best first beautiful pieces — slow, calm and beginner-friendly. What it is and how to learn it.'],
+  ['13-how-to-play-the-entertainer.md', 'how-to-play-the-entertainer', 'How to Play The Entertainer (Joplin) in Letter Notes', 'What Joplin’s The Entertainer is, an honest word on ragtime difficulty, and how to learn it hands-separate in colour-coded letter notes.'],
+  ['14-how-to-learn-moonlight-sonata.md', 'how-to-learn-moonlight-sonata', 'How to Learn the Moonlight Sonata (1st Movement)', 'The famous first movement of Beethoven’s Moonlight Sonata is built on a gentle repeating pattern — how a patient beginner can play it.'],
+  ['15-can-adults-learn-piano.md', 'can-adults-learn-piano', 'Can Adults Learn Piano? Yes — Here’s How to Start', 'You are not too old to learn piano. Why adults can absolutely learn, and the fastest, lowest-frustration way to start.'],
+  ['16-how-long-to-learn-piano.md', 'how-long-to-learn-piano', 'How Long Does It Take to Learn Piano?', 'A realistic timeline for learning piano — from your first tune (days) to intermediate playing (a few years) — and what determines your speed.'],
 ];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
