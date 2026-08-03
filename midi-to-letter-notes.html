@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIDI to Letter Notes Converter — Free &amp; Private | DoReDog</title>
+<meta name="description" content="Convert any MIDI file into piano letter notes, free and instantly. Runs entirely in your browser — your file is never uploaded. Then hear the result and play along.">
+<link rel="canonical" href="https://doredog.com/midi-to-letter-notes">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:url" content="https://doredog.com/midi-to-letter-notes">
+<meta property="og:title" content="MIDI to Letter Notes Converter — Free &amp; Private | DoReDog">
+<meta property="og:description" content="Convert any MIDI file into piano letter notes, free and instantly. Runs entirely in your browser — your file is never uploaded.">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=97">
+<link rel="stylesheet" href="css/player.css?v=97">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MIDI to Letter Notes Converter","url":"https://doredog.com/midi-to-letter-notes","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert a MIDI file into piano letter notes in your browser. The file never leaves your device.","publisher":{"@type":"Organization","name":"DoReDog","url":"https://doredog.com/"}}</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="midi-tool">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Free tool</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">MIDI → <span class="text-grad">letter notes</span></h1>
+      <p class="lead" data-reveal data-delay="2">Drop in a MIDI file and get playable piano letter notes back — instantly, for free. Everything happens inside your browser, so your file is never uploaded anywhere.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:900px">
+
+      <!-- dropzone -->
+      <div class="card" id="drop" data-reveal style="padding:44px 26px;text-align:center;border:2px dashed rgba(255,255,255,.16);cursor:pointer;transition:border-color .2s,background .2s">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:44px;height:44px;color:var(--gold);margin-bottom:14px"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        <h2 style="font-family:var(--font-body);font-weight:600;font-size:1.2rem;margin:0 0 .35rem">Drop a .mid file here</h2>
+        <p class="text-dim" style="margin:0 0 16px;font-size:.95rem">…or click to choose one. Nothing is uploaded — the conversion runs on your device.</p>
+        <button class="btn btn-primary" type="button" id="pick">Choose a MIDI file</button>
+        <input type="file" id="file" accept=".mid,.midi,audio/midi" hidden>
+      </div>
+
+      <!-- options -->
+      <div class="card" data-reveal style="padding:20px 26px;margin-top:16px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+        <div style="flex:1;min-width:230px">
+          <label for="hand" style="display:block;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mute);margin-bottom:.4rem">Hand splitting</label>
+          <select id="hand" class="field">
+            <option value="auto">Automatic (recommended)</option>
+            <option value="melody">Melody on top (skyline)</option>
+            <option value="split">Split at middle C</option>
+          </select>
+        </div>
+        <p class="text-dim" style="flex:2;min-width:240px;margin:0;font-size:.9rem;line-height:1.6">Most piano MIDIs have two staves and convert perfectly on <strong style="color:var(--text)">Automatic</strong>. If the hands come out mixed up, try one of the others.</p>
+      </div>
+
+      <div id="status" class="text-dim" style="margin-top:18px;min-height:1.4em;font-size:.95rem"></div>
+
+      <!-- result -->
+      <div id="result" hidden>
+        <div class="card" data-reveal style="padding:22px 26px;margin-top:8px">
+          <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+            <h2 style="font-family:var(--font-body);font-weight:600;font-size:1.15rem;margin:0;flex:1">Your letter notes</h2>
+            <button class="btn btn-ghost" type="button" id="copy">Copy</button>
+            <button class="btn btn-ghost" type="button" id="download">↓ Download .txt</button>
+          </div>
+          <div id="meta" class="text-mute" style="font-family:var(--font-mono);font-size:.8rem;margin-bottom:12px"></div>
+          <pre id="out" class="drd-pre" style="max-height:420px;overflow:auto;white-space:pre;font-size:.8rem;line-height:1.5"></pre>
+        </div>
+
+        <!-- hear it -->
+        <div style="margin-top:22px" data-reveal>
+          <span class="eyebrow">Hear it</span>
+          <h2 class="title" style="font-size:1.6rem;margin:.6rem 0 1rem">Play your conversion</h2>
+          <div id="player"></div>
+        </div>
+      </div>
+
+      <!-- explainer -->
+      <div style="margin-top:52px" data-reveal>
+        <h2 class="title" style="font-size:1.7rem;margin-bottom:.8rem">What you get</h2>
+        <p class="text-dim" style="line-height:1.75">The converter turns your MIDI into the same <strong style="color:var(--text)">letter-note format</strong> used across DoReDog: each note becomes the letter of the key you press, lowercase for white keys and UPPERCASE for the black keys (sharps). The number in front of each line is the octave, the dashes between letters are time, and lines tagged <code>RH</code> and <code>LH</code> are the right and left hand.</p>
+        <p class="text-dim" style="line-height:1.75">It's the exact pipeline behind the 2,400+ pieces in our library — the same grid detection, hand assignment and note-hold cleanup — just running locally on your file instead of ours.</p>
+
+        <h2 class="title" style="font-size:1.7rem;margin:2rem 0 .8rem">Is my file uploaded?</h2>
+        <p class="text-dim" style="line-height:1.75"><strong style="color:var(--text)">No.</strong> The conversion is pure JavaScript running in your browser. Your MIDI is read from disk into memory and never sent to a server — you can even disconnect from the internet after the page loads and it will still work.</p>
+
+        <h2 class="title" style="font-size:1.7rem;margin:2rem 0 .8rem">Tips for a clean conversion</h2>
+        <ul class="text-dim" style="line-height:1.8;padding-left:1.2rem">
+          <li><strong style="color:var(--text)">Use a piano MIDI.</strong> Files written for two staves (right hand / left hand) convert best.</li>
+          <li><strong style="color:var(--text)">Multi-instrument files get flattened.</strong> A full orchestral MIDI will merge every part onto the keyboard, which is rarely playable — export just the piano part first.</li>
+          <li><strong style="color:var(--text)">If the hands look wrong</strong>, switch the hand-splitting mode above and convert again.</li>
+          <li><strong style="color:var(--text)">Want only the tune?</strong> Choose "Melody on top" and play the RH lines.</li>
+        </ul>
+
+        <p class="text-dim" style="line-height:1.75;margin-top:1.6rem">New to this notation? Read <a href="what-are-piano-letter-notes.html">what piano letter notes are</a>, or browse <a href="library.html">2,400+ ready-made pieces</a> — all free, all playable in the browser.</p>
+      </div>
+
+      <div class="ad-label" style="margin-top:44px">Advertisement</div>
+      <div class="ad-slot ad-leaderboard" data-ad="in-article">Ad space — responsive in-article · paste your AdSense unit here</div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=97"></script>
+<script src="js/player.js?v=97"></script>
+<script src="js/midi-convert.js?v=97"></script>
+<script src="js/site.js?v=97"></script>
+<script>
+(function () {
+  var drop = document.getElementById('drop'), file = document.getElementById('file'),
+      pick = document.getElementById('pick'), statusEl = document.getElementById('status'),
+      result = document.getElementById('result'), out = document.getElementById('out'),
+      metaEl = document.getElementById('meta'), handSel = document.getElementById('hand'),
+      playerEl = document.getElementById('player');
+  var lastName = 'letter-notes', lastBuf = null;
+
+  function say(msg, bad) { statusEl.innerHTML = msg; statusEl.style.color = bad ? '#ff8b8b' : ''; }
+
+  function run(buf, name) {
+    lastBuf = buf; if (name) lastName = name.replace(/\.[^.]+$/, '');
+    try {
+      var res = window.DRD.midiToLetterNotes(buf, { hand: handSel.value });
+      out.textContent = res.notation;
+      metaEl.textContent = res.measures + ' measures · ' + res.noteCount + ' notes · ' +
+        (res.tempoBpm ? res.tempoBpm + ' bpm · ' : '') + res.timeSig + ' · ' + res.how;
+      result.hidden = false;
+      say('Converted <strong>' + (name || 'your file') + '</strong> — scroll down to hear it.');
+      playerEl.innerHTML = '';
+      try {
+        window.DRD.createPlayer(playerEl, {
+          title: name || 'Your MIDI', composer: 'converted with DoReDog',
+          notation: res.notation, cps: res.cps
+        });
+      } catch (e) { /* player is a bonus; the notes are the deliverable */ }
+      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (e) {
+      result.hidden = true;
+      say('Could not convert that file: ' + (e && e.message ? e.message : 'unknown error'), true);
+    }
+  }
+
+  function read(f) {
+    if (!f) return;
+    say('Reading ' + f.name + '…');
+    var r = new FileReader();
+    r.onload = function () { run(r.result, f.name); };
+    r.onerror = function () { say('Could not read that file.', true); };
+    r.readAsArrayBuffer(f);
+  }
+
+  pick.addEventListener('click', function (e) { e.stopPropagation(); file.click(); });
+  drop.addEventListener('click', function () { file.click(); });
+  file.addEventListener('change', function () { read(file.files[0]); });
+  handSel.addEventListener('change', function () { if (lastBuf) run(lastBuf, lastName); });
+
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.style.borderColor = 'var(--gold)'; drop.style.background = 'rgba(246,183,63,.05)'; });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.style.borderColor = ''; drop.style.background = ''; });
+  });
+  drop.addEventListener('drop', function (e) {
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f) read(f);
+  });
+
+  document.getElementById('copy').addEventListener('click', function () {
+    var btn = this;
+    navigator.clipboard.writeText(out.textContent).then(function () {
+      var t = btn.textContent; btn.textContent = 'Copied ✓';
+      setTimeout(function () { btn.textContent = t; }, 1400);
+    });
+  });
+  document.getElementById('download').addEventListener('click', function () {
+    var blob = new Blob([out.textContent], { type: 'text/plain' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = lastName + ' — letter notes.txt';
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+})();
+</script>
+</body>
+</html>

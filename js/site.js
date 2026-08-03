@@ -89,7 +89,9 @@
           '</div>' +
         '</div>' +
         '<div class="footer-col"><h4>Explore</h4>' +
-          '<a href="library.html">Library</a><a href="guide.html">How to Read</a><a href="index.html#featured">Featured</a><a href="library.html#new">New Arrivals</a></div>' +
+          '<a href="library.html">Library</a><a href="guide.html">How to Read</a><a href="articles.html">Guides</a><a href="collections.html">Collections</a></div>' +
+        '<div class="footer-col"><h4>Tools</h4>' +
+          '<a href="midi-to-letter-notes.html">MIDI → letter notes</a><a href="piano.html">Online piano</a><a href="learn.html">Letter notes in 5 steps</a></div>' +
         '<div class="footer-col"><h4>Company</h4>' +
           '<a href="about.html">About</a><a href="contact.html">Contact</a><a href="mailto:mnkahraman@gmail.com">mnkahraman@gmail.com</a></div>' +
         '<div class="footer-col"><h4>Legal</h4>' +
