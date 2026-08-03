@@ -47,6 +47,7 @@
     ['timeline.html', 'Timeline'],
     ['learn.html', 'Learn'],
     ['articles.html', 'Guides'],
+    ['on-this-day.html', 'On This Day'],
     ['about.html', 'About'],
     ['contact.html', 'Contact']
   ];

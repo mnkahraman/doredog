@@ -705,3 +705,16 @@ body{ animation:pageIn .5s var(--ez) both; }
 .drd-faq summary:before{content:"+ ";color:var(--gold,#f6b73f)}
 .drd-faq details[open] summary:before{content:"– "}
 .drd-faq .drd-faq-a{color:var(--text-dim,#b9b9c6);line-height:1.7;padding:0 0 16px;margin:0}
+
+
+/* --- On This Day --- */
+.otd-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.08)}
+.otd-item{display:flex;gap:18px;align-items:baseline;padding:15px 2px;border-bottom:1px solid rgba(255,255,255,.08)}
+.otd-year{font-family:var(--font-mono,monospace);font-size:.92rem;color:var(--gold,#f6b73f);flex:none;min-width:3.6em;letter-spacing:.03em}
+.otd-text{color:var(--text-dim,#b9b9c6);line-height:1.6}
+.otd-text a{color:var(--text,#fff);text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)}
+.otd-text a:hover{border-bottom-color:var(--gold,#f6b73f)}
+.otd-bar{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.otd-picker{display:flex;gap:8px;align-items:center}
+.otd-picker .field{padding:8px 12px;font-size:.92rem}
+@media (max-width:520px){.otd-item{gap:12px}.otd-year{min-width:3.2em;font-size:.85rem}}

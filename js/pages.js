@@ -694,5 +694,81 @@
     else if (page === 'collection') initCollectionDetail();
     else if (page === 'timeline') initTimeline();
     else if (page === 'piano') initPiano();
+    else if (page === 'on-this-day') initOnThisDay();
+    fillOnThisDay();            // homepage widget (no-op when the slot isn't present)
   });
+
+  /* --------------------------- ON THIS DAY ----------------------------- */
+  // Rendered from the VISITOR'S LOCAL date, so the page is right wherever they are.
+  var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function todayKey(d) {
+    d = d || new Date();
+    return String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function eventsFor(k) { return ((window.DRD && DRD.ONTHISDAY) || {})[k] || []; }
+
+  function eventHTML(e) {
+    var link = e.c ? 'composer?name=' + encodeURIComponent(e.c)
+             : e.s ? 'song?id=' + e.s : '';
+    var body = link ? '<a href="' + link + '">' + e.t + '</a>' : e.t;
+    return '<li class="otd-item"><span class="otd-year">' + e.y + '</span>' +
+           '<span class="otd-text">' + body + '</span></li>';
+  }
+
+  // small homepage teaser — shows up to 3 of today's entries
+  function fillOnThisDay() {
+    var slot = document.getElementById('otd-list');
+    if (!slot) return;
+    var d = new Date(), evs = eventsFor(todayKey(d));
+    var label = document.getElementById('otd-date');
+    if (label) label.textContent = MONTHS[d.getMonth()] + ' ' + d.getDate();
+    if (!evs.length) { var sec = document.getElementById('on-this-day'); if (sec) sec.hidden = true; return; }
+    slot.innerHTML = evs.slice(0, 3).map(eventHTML).join('');
+    var more = document.getElementById('otd-more');
+    if (more && evs.length > 3) more.textContent = 'See all ' + evs.length + ' entries for today →';
+  }
+
+  // full page: today, plus a date picker so any day can be browsed
+  function initOnThisDay() {
+    var head = document.getElementById('otd-heading');
+    var list = document.getElementById('otd-full');
+    var empty = document.getElementById('otd-empty');
+    var picker = document.getElementById('otd-picker');
+    if (!list) return;
+
+    function show(k, human) {
+      var evs = eventsFor(k);
+      if (head) head.textContent = human;
+      list.innerHTML = evs.map(eventHTML).join('');
+      if (empty) empty.hidden = evs.length > 0;
+      document.title = 'On This Day in Music — ' + human + ' · DoReDog';
+    }
+
+    var now = new Date();
+    show(todayKey(now), MONTHS[now.getMonth()] + ' ' + now.getDate());
+
+    if (picker) {
+      // month/day selects
+      var mSel = picker.querySelector('[data-otd-month]'), dSel = picker.querySelector('[data-otd-day]');
+      MONTHS.forEach(function (m, i) {
+        var o = document.createElement('option'); o.value = String(i + 1); o.textContent = m;
+        if (i === now.getMonth()) o.selected = true; mSel.appendChild(o);
+      });
+      function fillDays() {
+        var m = +mSel.value, max = [31,29,31,30,31,30,31,31,30,31,30,31][m - 1], cur = +dSel.value || now.getDate();
+        dSel.innerHTML = '';
+        for (var i = 1; i <= max; i++) {
+          var o = document.createElement('option'); o.value = String(i); o.textContent = String(i);
+          if (i === cur) o.selected = true; dSel.appendChild(o);
+        }
+      }
+      fillDays();
+      function apply() {
+        var m = +mSel.value, dd = +dSel.value;
+        show(String(m).padStart(2, '0') + '-' + String(dd).padStart(2, '0'), MONTHS[m - 1] + ' ' + dd);
+      }
+      mSel.addEventListener('change', function () { fillDays(); apply(); });
+      dSel.addEventListener('change', apply);
+    }
+  }
 })();

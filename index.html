@@ -17,8 +17,8 @@
 <meta property="og:site_name" content="DoReDog">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://doredog.com/#website","url":"https://doredog.com/","name":"DoReDog","description":"A free library of piano letter notes with a built-in live in-browser player.","publisher":{"@id":"https://doredog.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://doredog.com/library?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://doredog.com/#org","name":"DoReDog","url":"https://doredog.com/","logo":"https://doredog.com/assets/og.webp"}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/main.css?v=100">
-<link rel="stylesheet" href="css/player.css?v=100">
+<link rel="stylesheet" href="css/main.css?v=101">
+<link rel="stylesheet" href="css/player.css?v=101">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
 </head>
@@ -173,6 +173,21 @@
     </div>
   </section>
 
+  <!-- ON THIS DAY — filled from the visitor's local date -->
+  <section class="section-sm" id="on-this-day">
+    <div class="container" style="max-width:760px">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>On this day · <span id="otd-date">today</span></span>
+          <h2 class="title" data-reveal data-delay="1">Music history, today</h2>
+        </div>
+        <a class="btn btn-ghost" href="on-this-day.html" data-reveal data-delay="1">Any date</a>
+      </div>
+      <ul class="otd-list" id="otd-list"></ul>
+      <p style="margin-top:14px"><a href="on-this-day.html" id="otd-more" style="color:var(--gold);font-size:.92rem">See the full day →</a></p>
+    </div>
+  </section>
+
   <!-- AD -->
   <div class="container">
     <div class="ad-label">Advertisement</div>
@@ -251,9 +266,10 @@
 
 <footer id="site-footer"></footer>
 
-<script src="js/data.js?v=100"></script>
-<script src="js/player.js?v=100"></script>
-<script src="js/site.js?v=100"></script>
-<script src="js/pages.js?v=100"></script>
+<script src="js/data.js?v=101"></script>
+<script src="js/on-this-day.js?v=101"></script>
+<script src="js/player.js?v=101"></script>
+<script src="js/site.js?v=101"></script>
+<script src="js/pages.js?v=101"></script>
 </body>
 </html>
