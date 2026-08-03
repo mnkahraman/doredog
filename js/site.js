@@ -48,6 +48,7 @@
     ['learn.html', 'Learn'],
     ['articles.html', 'Guides'],
     ['on-this-day.html', 'On This Day'],
+    ['facts.html', 'Facts'],
     ['about.html', 'About'],
     ['contact.html', 'Contact']
   ];

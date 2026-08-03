@@ -720,3 +720,22 @@ body{ animation:pageIn .5s var(--ez) both; }
 @media (max-width:520px){.otd-item{gap:12px}.otd-year{min-width:3.2em;font-size:.85rem}}
 
 .otd-ago{font-size:.8rem;color:var(--text-mute,#8a8a99);white-space:nowrap}
+
+
+/* --- Facts (curiosity gap) --- */
+.fact-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.fact{padding:26px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.fact-cat{font-family:var(--font-mono,monospace);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute,#8a8a99)}
+.fact-q{font-family:var(--font-body);font-weight:600;font-size:1.28rem;line-height:1.35;margin:.5rem 0 .5rem}
+.fact-hook{color:var(--text-dim,#b9b9c6);margin:0 0 1rem;line-height:1.6}
+.fact-reveal summary{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;
+  padding:9px 18px;border-radius:999px;border:1px solid rgba(246,183,63,.4);color:var(--gold,#f6b73f);
+  font-weight:600;font-size:.94rem;transition:background .18s,border-color .18s}
+.fact-reveal summary::-webkit-details-marker{display:none}
+.fact-reveal summary:hover{background:rgba(246,183,63,.1);border-color:var(--gold,#f6b73f)}
+.fact-reveal[open] summary{display:none}
+.fact-a{font-size:1.12rem;font-weight:600;color:var(--text,#fff);margin:.2rem 0 .7rem;line-height:1.45}
+.fact-body{color:var(--text-dim,#b9b9c6);line-height:1.72;margin:0 0 .9rem}
+.fact-foot{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin:0}
+.fact-foot a{color:var(--gold,#f6b73f);text-decoration:none;font-size:.92rem}
+.fact-src{color:var(--text-mute,#8a8a99)!important;font-size:.8rem!important}
