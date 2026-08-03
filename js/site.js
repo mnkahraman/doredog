@@ -48,8 +48,7 @@
     ['articles.html', 'Guides'],
     ['on-this-day.html', 'Today'],
     ['facts.html', 'Facts'],
-    ['about.html', 'About'],
-    ['contact.html', 'Contact']
+    ['quiz.html', 'Quiz']
   ];
 
   function page() {

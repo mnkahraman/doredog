@@ -739,3 +739,33 @@ body{ animation:pageIn .5s var(--ez) both; }
 .fact-foot{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin:0}
 .fact-foot a{color:var(--gold,#f6b73f);text-decoration:none;font-size:.92rem}
 .fact-src{color:var(--text-mute,#8a8a99)!important;font-size:.8rem!important}
+
+
+/* --- Quiz --- */
+.quiz-card{border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:30px 28px;background:rgba(255,255,255,.02)}
+.quiz-h{font-family:var(--font-body);font-weight:600;font-size:1.4rem;margin:0 0 .7rem}
+.quiz-meta{display:flex;justify-content:space-between;font-family:var(--font-mono,monospace);font-size:.8rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute,#8a8a99);margin-bottom:.9rem}
+/* the player is reused for audio only — its title would give the answer away, and the
+   notation would let a reader spot the piece, so both are hidden inside a quiz. */
+.quiz-audio .notation-pane,.quiz-audio .transport-title,.quiz-audio .piano-wrap{display:none!important}
+.quiz-audio{margin:0 0 22px}
+.quiz-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.quiz-opt{display:flex;flex-direction:column;gap:2px;text-align:left;padding:14px 16px;border-radius:13px;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--text,#fff);
+  font-size:.98rem;font-weight:600;cursor:pointer;transition:border-color .16s,background .16s}
+.quiz-opt i{font-style:normal;font-weight:400;font-size:.82rem;color:var(--text-mute,#8a8a99)}
+.quiz-opt:hover:not(:disabled){border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.08)}
+.quiz-opt:disabled{cursor:default;opacity:.65}
+.quiz-opt.is-right{border-color:#35e08c;background:rgba(53,224,140,.12);opacity:1}
+.quiz-opt.is-wrong{border-color:#ff5f64;background:rgba(255,95,100,.12);opacity:1}
+.quiz-after{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.09)}
+.quiz-verdict{font-weight:600;font-size:1.1rem;margin:0 0 .35rem}
+.quiz-verdict.ok{color:#35e08c}.quiz-verdict.no{color:#ff5f64}
+.quiz-truth{color:var(--text-dim,#b9b9c6);margin:0 0 1rem}
+.quiz-truth a{color:var(--gold,#f6b73f);text-decoration:none}
+.quiz-recap{display:flex;flex-direction:column;gap:2px;margin-top:16px}
+.quiz-recap-row{display:flex;gap:12px;align-items:baseline;padding:9px 2px;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.06);color:var(--text,#fff)}
+.quiz-recap-row span{font-weight:700}.quiz-recap-row span.ok{color:#35e08c}.quiz-recap-row span.no{color:#ff5f64}
+.quiz-recap-row i{font-style:normal;font-size:.84rem;color:var(--text-mute,#8a8a99);margin-left:auto}
