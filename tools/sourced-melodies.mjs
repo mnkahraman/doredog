@@ -52,7 +52,17 @@ const MELODIES = [
   { id: 'hark-the-herald-angels-sing', title: 'Hark! The Herald Angels Sing', composer: 'Felix Mendelssohn',
     genre: 'Sacred', file: 'Hark_The_Herald_Angels_Sing.ly', varName: 'soprano', beatsPerBar: 4, bpm: 108,
     source: 'Wikipedia — Hark! The Herald Angels Sing (embedded LilyPond score, soprano line)',
-    cover: { from: '#33170f', mid: '#ff8f6b', to: '#170a06', glyph: '⁂' } }
+    cover: { from: '#33170f', mid: '#ff8f6b', to: '#170a06', glyph: '⁂' } },
+
+  { id: 'o-little-town-of-bethlehem', title: 'O Little Town of Bethlehem', composer: 'Lewis H. Redner',
+    genre: 'Sacred', file: 'O_Little_Town_of_Bethlehem.ly', beatsPerBar: 4, bpm: 100, pickup: 1,
+    source: 'Wikipedia — O Little Town of Bethlehem (embedded LilyPond score)',
+    cover: { from: '#101d33', mid: '#7fa8ff', to: '#070d18', glyph: '✦' } },
+
+  { id: 'the-holly-and-the-ivy', title: 'The Holly and the Ivy', composer: 'Traditional',
+    genre: 'Sacred', file: 'The_Holly_and_the_Ivy.ly', beatsPerBar: 3, bpm: 104, pickup: 1,
+    source: 'Wikipedia — The Holly and the Ivy (embedded LilyPond score)',
+    cover: { from: '#13290f', mid: '#6fc46b', to: '#081406', glyph: '❋' } }
 ];
 
 // ---- rendering (same grid as tools/authored-melodies.mjs) --------------------

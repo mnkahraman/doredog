@@ -43439,6 +43439,40 @@ window.DRD.SONGS = [
     sourced: true,
     cover: {"from":"#33170f","mid":"#ff8f6b","to":"#170a06","glyph":"⁂"},
     blurb: "Hark! The Herald Angels Sing — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "o-little-town-of-bethlehem",
+    title: "O Little Town of Bethlehem",
+    composer: "Lewis H. Redner",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["redner","sacred","piano","beginner"],
+    cps: 6.67,
+    dur: 41,
+    fp: "0001jgj0503ehhj00hgeh00k3530",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#101d33","mid":"#7fa8ff","to":"#070d18","glyph":"✦"},
+    blurb: "O Little Town of Bethlehem — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "the-holly-and-the-ivy",
+    title: "The Holly and the Ivy",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["traditional","sacred","piano","beginner"],
+    cps: 6.93,
+    dur: 29,
+    fp: "0004907404i0540004000524i054",
+    mood: 1,
+    sourced: true,
+    cover: {"from":"#13290f","mid":"#6fc46b","to":"#081406","glyph":"❋"},
+    blurb: "The Holly and the Ivy — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
   }
 ];
 

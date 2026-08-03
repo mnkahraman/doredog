@@ -26,7 +26,8 @@ function clean(src) {
     .replace(/\\[a-zA-Z]+/g, ' ')                    // any remaining \command
     .replace(/#+'?[a-zA-Z0-9.#]+/g, ' ')             // scheme literals
     .replace(/[|~\[\]()]/g, ' ')                     // barlines, ties, slurs, beams
-    .replace(/[<>]/g, ' ')
+    .replace(/!/g, '')                               // reminder accidentals
+    .replace(/<\s*([^<>]*?)\s*>/g, (m, inner) => '<' + inner.replace(/\s+/g, '') + '>')  // keep chords as one token
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -62,11 +63,54 @@ export function parseLily(src, opts) {
   }
   body = clean(expandRepeats(body));
 
+  const absoluteMode = !relMatch;                    // no \relative -> octave marks are absolute
   const tokens = body.split(' ').filter(Boolean);
   const notes = [];
   let lastDur = 1;                                   // quarter note, in beats
 
+  // resolve one pitch token ("cis'", "bes,") against the running reference
+  function pitchOf(name, oct, advanceRef) {
+    const letter = name[0];
+    const acc = name.slice(1);
+    const alter = acc === 'is' ? 1 : acc === 'es' ? -1 : acc === 'isis' ? 2 : acc === 'eses' ? -2 : 0;
+    const step = STEP[letter];
+    const marks = (oct.match(/'/g) || []).length - (oct.match(/,/g) || []).length;
+    let octave;
+    if (absoluteMode) {
+      octave = 3 + marks;                            // c = C3, c' = C4
+    } else {
+      octave = refOct;
+      const delta = step - refStep;
+      if (delta > 3) octave -= 1; else if (delta < -3) octave += 1;
+      octave += marks;
+    }
+    if (advanceRef) { refStep = step; refOct = octave; }
+    return octave * 12 + SEMI[step] + alter;
+  }
+  const fmt = (abs) => NAME[((abs % 12) + 12) % 12] + Math.floor(abs / 12);
+
   for (const t of tokens) {
+    // --- chord  <g d>4.  -> take the top note (the melody), reference = first note
+    const ch = t.match(/^<([^>]*)>(\d+)?(\.*)$/);
+    if (ch) {
+      const inner = ch[1].match(/[a-g](?:is|es|isis|eses)?(?:'+|,+)?/g) || [];
+      if (!inner.length) continue;
+      let beats = lastDur;
+      if (ch[2]) { beats = 4 / +ch[2]; lastDur = beats; }
+      if (ch[3]) { let add = beats; for (let d = 0; d < ch[3].length; d++) { add /= 2; beats += add; } }
+      const saveStep = refStep, saveOct = refOct;
+      const pitches = inner.map((p, i) => {
+        const mm = p.match(/^([a-g](?:is|es|isis|eses)?)('*|,*)$/);
+        return pitchOf(mm[1], mm[2] || '', true);    // chain within the chord, LilyPond-style
+      });
+      // the note AFTER a chord references the chord's FIRST note
+      refStep = saveStep; refOct = saveOct;
+      const mm0 = inner[0].match(/^([a-g](?:is|es|isis|eses)?)('*|,*)$/);
+      pitchOf(mm0[1], mm0[2] || '', true);
+      notes.push([fmt(Math.max(...pitches)), beats]);
+      continue;
+    }
+
     const m = t.match(/^(r|R|s|[a-g](?:is|es|isis|eses)?)('*|,*)(\d+)?(\.*)$/);
     if (!m) continue;
     const [, name, oct, durRaw, dots] = m;
@@ -76,25 +120,7 @@ export function parseLily(src, opts) {
     if (dots) { let add = beats; for (let d = 0; d < dots.length; d++) { add /= 2; beats += add; } }
 
     if (name === 'r' || name === 'R' || name === 's') { notes.push(['r', beats]); continue; }
-
-    const letter = name[0];
-    const acc = name.slice(1);
-    const alter = acc === 'is' ? 1 : acc === 'es' ? -1 : acc === 'isis' ? 2 : acc === 'eses' ? -2 : 0;
-
-    // relative octave: pick the octave making this the nearest diatonic step to the reference
-    const step = STEP[letter];
-    let octave = refOct;
-    const delta = step - refStep;
-    if (delta > 3) octave -= 1;
-    else if (delta < -3) octave += 1;
-    octave += (oct.match(/'/g) || []).length - (oct.match(/,/g) || []).length;
-    refStep = step; refOct = octave;
-
-    const semitone = SEMI[step] + alter;
-    const absolute = octave * 12 + semitone;         // may cross an octave via accidental
-    const oOut = Math.floor(absolute / 12);
-    const sOut = ((absolute % 12) + 12) % 12;
-    notes.push([NAME[sOut] + oOut, beats]);
+    notes.push([fmt(pitchOf(name, oct, true)), beats]);
   }
   return notes;
 }
