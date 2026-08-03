@@ -40,14 +40,13 @@
     '</svg>';
 
   var NAV = [
-    ['index.html', 'Home'],
     ['library.html', 'Library'],
     ['piano.html', 'Piano'],
     ['collections.html', 'Collections'],
     ['timeline.html', 'Timeline'],
     ['learn.html', 'Learn'],
     ['articles.html', 'Guides'],
-    ['on-this-day.html', 'On This Day'],
+    ['on-this-day.html', 'Today'],
     ['facts.html', 'Facts'],
     ['about.html', 'About'],
     ['contact.html', 'Contact']
