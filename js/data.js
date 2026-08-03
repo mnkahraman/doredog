@@ -43184,6 +43184,142 @@ window.DRD.SONGS = [
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
     blurb: "The full Sonata Op. 79 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+  },
+
+  {
+    id: "happy-birthday",
+    title: "Happy Birthday to You",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 7.73,
+    dur: 14,
+    fp: "00020540022075<9005542::9575",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#3d1a2e","mid":"#ff54b2","to":"#140a10","glyph":"✿"},
+    blurb: "Happy Birthday to You — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "jingle-bells",
+    title: "Jingle Bells",
+    composer: "James Lord Pierpont",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["pierpont","folk","piano","beginner"],
+    cps: 8,
+    dur: 16,
+    fp: "000000003hj011111100000jj0j3",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#0d2233","mid":"#7fc4ff","to":"#07121c","glyph":"❄"},
+    blurb: "Jingle Bells — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "mary-had-a-little-lamb",
+    title: "Mary Had a Little Lamb",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 7.2,
+    dur: 18,
+    fp: "00jhj000jjj03300jhj0000jj0jh",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#26301a","mid":"#8fd4a8","to":"#101609","glyph":"❊"},
+    blurb: "Mary Had a Little Lamb — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "frere-jacques",
+    title: "Frère Jacques",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 7.47,
+    dur: 17,
+    fp: "0240024457457775407974000g00",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#2b2140","mid":"#a99bff","to":"#120e1c","glyph":"☾"},
+    blurb: "Frère Jacques — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "old-macdonald",
+    title: "Old MacDonald Had a Farm",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 7.73,
+    dur: 17,
+    fp: "0000giig444220000gggiig44220",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#33270f","mid":"#f6b73f","to":"#171105","glyph":"❋"},
+    blurb: "Old MacDonald Had a Farm — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "hot-cross-buns",
+    title: "Hot Cross Buns",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 6.67,
+    dur: 10,
+    fp: "00jjh00jjhhhhhhhhjjjjjjj0jjh",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#331c12","mid":"#f0a868","to":"#170b06","glyph":"✶"},
+    blurb: "Hot Cross Buns — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "joy-to-the-world",
+    title: "Joy to the World",
+    composer: "George Frideric Handel",
+    difficulty: "easy",
+    genre: "Sacred",
+    featured: false,
+    tags: ["handel","sacred","piano","beginner"],
+    cps: 6.93,
+    dur: 9,
+    fp: "00kkiiggeeddbb``ggiiiikk00kk",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#3a2410","mid":"#e6d5a8","to":"#1a1008","glyph":"✞"},
+    blurb: "Joy to the World — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "london-bridge",
+    title: "London Bridge Is Falling Down",
+    composer: "Traditional",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["traditional","folk","piano","beginner"],
+    cps: 7.73,
+    dur: 17,
+    fp: "0020jij00gijij00020jijj0g0ie",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#12242e","mid":"#5fd8e6","to":"#08121a","glyph":"❈"},
+    blurb: "London Bridge Is Falling Down — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
   }
 ];
 
