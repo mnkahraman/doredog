@@ -46,10 +46,17 @@
     ['collections.html', 'Collections'],
     ['timeline.html', 'Timeline'],
     ['learn.html', 'Learn'],
-    ['articles.html', 'Guides'],
-    ['on-this-day.html', 'Today'],
-    ['facts.html', 'Facts'],
-    ['quiz.html', 'Quiz']
+    ['articles.html', 'Guides']
+  ];
+  // Everything else lives under "More" — the bar stops growing, and the tools stop hiding in the footer.
+  var MORE = [
+    ['midi-to-letter-notes.html', 'MIDI → letter notes'],
+    ['quiz.html', 'Quizzes'],
+    ['facts.html', 'Music facts'],
+    ['on-this-day.html', 'On this day'],
+    ['guide.html', 'How to read letter notes'],
+    ['about.html', 'About'],
+    ['contact.html', 'Contact']
   ];
 
   function page() {
@@ -63,10 +70,18 @@
       var active = n[0] === here ? ' class="active"' : '';
       return '<a href="' + n[0] + '"' + active + '>' + n[1] + '</a>';
     }).join('');
+    var inMore = MORE.some(function (n) { return n[0] === here; });
+    var more =
+      '<div class="nav-more">' +
+        '<button class="nav-more-btn' + (inMore ? ' active' : '') + '" aria-expanded="false" aria-haspopup="true">More <span class="nav-chev">▾</span></button>' +
+        '<div class="nav-more-menu">' + MORE.map(function (n) {
+          return '<a href="' + n[0] + '"' + (n[0] === here ? ' class="active"' : '') + '>' + n[1] + '</a>';
+        }).join('') + '</div>' +
+      '</div>';
     return (
       '<div class="container"><nav class="nav">' +
         '<a class="brand" href="index.html">' + MARK + '<span>Do<b>Re</b>Dog</span></a>' +
-        '<div class="nav-links">' + links + '</div>' +
+        '<div class="nav-links">' + links + more + '</div>' +
         '<div class="nav-cta">' +
           '<a class="btn btn-primary" href="library.html">Browse Library</a>' +
           '<button class="nav-toggle" aria-label="Menu"><span></span></button>' +
@@ -179,6 +194,15 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     var toggle = header.querySelector('.nav-toggle');
     if (toggle) toggle.addEventListener('click', function () { header.classList.toggle('nav-open'); });
+
+    // "More" dropdown — click to open, click away or Escape to close
+    var more = header.querySelector('.nav-more'), moreBtn = header.querySelector('.nav-more-btn');
+    if (more && moreBtn) {
+      var setOpen = function (on) { more.classList.toggle('open', on); moreBtn.setAttribute('aria-expanded', String(on)); };
+      moreBtn.addEventListener('click', function (e) { e.stopPropagation(); setOpen(!more.classList.contains('open')); });
+      document.addEventListener('click', function (e) { if (!more.contains(e.target)) setOpen(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    }
   }
 
   function wireSpotlight() {

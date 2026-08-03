@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Name That Tune — Classical Music Quiz | DoReDog</title>
-<meta name="description" content="Can you name the piece by ear? Press play, hear a real classical melody, and pick the right answer. Eight questions, no sign-up — then play the piece yourself in letter notes.">
+<title>Music Quizzes — Name That Tune &amp; Endless Mode | DoReDog</title>
+<meta name="description" content="Five music quizzes played in your browser: name the tune by ear, guess the composer, read the letter notes, and an endless mode that runs until you get one wrong. Free, no sign-up.">
 <link rel="canonical" href="https://doredog.com/quiz">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DoReDog">
-<meta property="og:title" content="Name That Tune — Classical Music Quiz">
-<meta property="og:description" content="Can you name the piece by ear? Eight melodies, played live in your browser. How many will you get?">
+<meta property="og:title" content="Music Quizzes — Name That Tune &amp; Endless Mode">
+<meta property="og:description" content="Hear a real melody and name it. Five quiz types plus an endless streak mode. How far can you get?">
 <meta property="og:url" content="https://doredog.com/quiz">
 <meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#06060b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/main.css?v=110">
-<link rel="stylesheet" href="css/player.css?v=110">
+<link rel="stylesheet" href="css/main.css?v=111">
+<link rel="stylesheet" href="css/player.css?v=111">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
 </head>
@@ -27,29 +27,34 @@
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Test your ear</span>
-      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Name that <span class="text-grad">tune</span></h1>
-      <p class="lead" data-reveal data-delay="2">Eight melodies, played live in your browser. Listen, guess — then go and play the piece yourself.</p>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Music <span class="text-grad">quizzes</span></h1>
+      <p class="lead" data-reveal data-delay="2">Real melodies, played live in your browser. Pick a quiz — or take the endless run and see how long your streak lasts.</p>
     </div>
   </section>
 
   <section class="section-sm">
     <div class="container" style="max-width:720px">
 
-      <!-- START -->
-      <div class="quiz-card" id="quiz-start" data-reveal>
-        <h2 class="quiz-h">Ready?</h2>
-        <p class="text-dim">You'll hear eight real melodies from the library — no recordings, the notes are synthesised live from our letter notes. Slow them down or replay as much as you like.</p>
-        <button class="btn btn-primary btn-lg" id="quiz-go">Start the quiz</button>
+      <!-- MENU -->
+      <div id="quiz-menu" data-reveal>
+        <div class="quiz-modes" id="quiz-modes"></div>
+        <div class="quiz-card quiz-endless-card">
+          <h2 class="quiz-h">♾️ Endless mode</h2>
+          <p class="text-dim">Every type, mixed. Keep answering until you get one wrong — your best streak is saved on this device.</p>
+          <div class="quiz-meta" style="margin:14px 0 12px"><span>Best streak</span><span id="quiz-best">0</span></div>
+          <button class="btn btn-primary btn-lg" data-start="endless">Start endless run</button>
+        </div>
       </div>
 
       <!-- QUESTION -->
       <div class="quiz-card" id="quiz-play" hidden>
         <div class="quiz-meta">
-          <span id="quiz-progress">Question 1 of 8</span>
-          <span id="quiz-score">Score 0</span>
+          <span id="quiz-progress"></span>
+          <span id="quiz-score"></span>
         </div>
-        <h2 class="quiz-h">Which piece is this?</h2>
+        <h2 class="quiz-h" id="quiz-prompt">…</h2>
         <div class="quiz-audio" id="quiz-player"></div>
+        <pre class="quiz-notes" id="quiz-notes" hidden></pre>
         <div class="quiz-options" id="quiz-options"></div>
         <div class="quiz-after" id="quiz-after" hidden>
           <p class="quiz-verdict" id="quiz-verdict"></p>
@@ -60,19 +65,21 @@
 
       <!-- RESULT -->
       <div class="quiz-card" id="quiz-done" hidden>
-        <h2 class="quiz-h" id="quiz-final">You scored 0 / 8</h2>
+        <h2 class="quiz-h" id="quiz-final"></h2>
         <p class="text-dim" id="quiz-grade"></p>
         <div class="quiz-recap" id="quiz-recap"></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
           <button class="btn btn-primary" id="quiz-again">Play again</button>
+          <button class="btn btn-ghost" id="quiz-menu-btn">All quizzes</button>
           <a class="btn btn-ghost" href="library.html">Browse the library</a>
         </div>
       </div>
 
       <p class="text-mute" style="font-size:.85rem;margin-top:26px;line-height:1.6">
-        Every melody here is public domain and playable in full — see
-        <a href="facts.html" style="color:var(--gold)">surprising music facts</a> or
-        <a href="on-this-day.html" style="color:var(--gold)">what happened in music today</a>.
+        Questions are generated from the live library of 2,400+ public-domain pieces, so they never run out. See also
+        <a href="facts.html" style="color:var(--gold)">surprising music facts</a>,
+        <a href="on-this-day.html" style="color:var(--gold)">music history today</a> and
+        <a href="instruments.html" style="color:var(--gold)">the instruments</a>.
       </p>
     </div>
   </section>
@@ -85,128 +92,144 @@
 
 <footer id="site-footer"></footer>
 
-<script src="js/data.js?v=110"></script>
-<script src="js/player.js?v=110"></script>
-<script src="js/site.js?v=110"></script>
+<script src="js/data.js?v=111"></script>
+<script src="js/player.js?v=111"></script>
+<script src="js/quiz.js?v=111"></script>
+<script src="js/site.js?v=111"></script>
 <script>
 (function () {
   'use strict';
-  var POOL = ['fur-elise','moonlight-sonata','canon-in-d','clair-de-lune','gymnopedie-no-1',
-    'rondo-alla-turca','the-entertainer','nocturne-op-9-no-2','ave-maria','prelude-in-c',
-    'ode-to-joy','twinkle-twinkle','silent-night','jingle-bells','happy-birthday',
-    'air-on-the-g-string','blue-danube','hall-of-the-mountain-king','maple-leaf-rag','swan-lake',
-    'wedding-march','sugar-plum-fairy','humoresque-7','liebestraum-3','raindrop-prelude',
-    'arabesque-1','flight-of-the-bumblebee','minuet-in-g','morning-mood','waltz-of-the-flowers',
-    'amazing-grace','o-christmas-tree','we-three-kings','row-row-row-your-boat','pop-goes-the-weasel'];
-  var ROUND = 8, NOTA_V = 89;
-
+  var ROUND = 8, BEST_KEY = 'drd-quiz-best';
   var el = function (id) { return document.getElementById(id); };
-  var shuffle = function (a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
-  var song = function (id) { return (window.DRD && DRD.getSong) ? DRD.getSong(id) : null; };
 
-  // notation is loaded on demand, exactly like the song pages do it
-  function loadNotation(id, cb) {
-    DRD.NOTATIONS = DRD.NOTATIONS || {};
-    if (DRD.NOTATIONS[id]) return cb(DRD.NOTATIONS[id]);
-    var sc = document.createElement('script');
-    sc.src = 'songs/' + id + '.js?v=' + NOTA_V;
-    sc.onload = function () { cb((DRD.NOTATIONS || {})[id] || null); };
-    sc.onerror = function () { cb(null); };
-    document.head.appendChild(sc);
-  }
+  var mode = 'round', types = null, idx = 0, score = 0, streak = 0, q = null, answered = false, results = [];
 
-  var qs = [], idx = 0, score = 0, answered = false, results = [];
+  function best() { try { return +(localStorage.getItem(BEST_KEY) || 0); } catch (e) { return 0; } }
+  function setBest(v) { try { localStorage.setItem(BEST_KEY, String(v)); } catch (e) {} }
 
-  function build() {
-    var picks = shuffle(POOL.filter(function (id) { return !!song(id); })).slice(0, ROUND);
-    qs = picks.map(function (id) {
-      var others = shuffle(POOL.filter(function (o) { return o !== id && song(o); })).slice(0, 3);
-      return { id: id, options: shuffle([id].concat(others)) };
+  function renderMenu() {
+    el('quiz-modes').innerHTML = DRDQuiz.TYPES.map(function (t) {
+      return '<button class="quiz-mode" data-start="' + t + '"><b>' + DRDQuiz.LABELS[t] + '</b>' +
+             '<i>' + ROUND + ' questions</i></button>';
+    }).join('');
+    el('quiz-best').textContent = best();
+    [].forEach.call(document.querySelectorAll('[data-start]'), function (b) {
+      b.addEventListener('click', function () { start(this.getAttribute('data-start')); });
     });
-    idx = 0; score = 0; results = [];
   }
 
-  function render() {
-    answered = false;
-    var q = qs[idx], s = song(q.id);
-    el('quiz-progress').textContent = 'Question ' + (idx + 1) + ' of ' + ROUND;
-    el('quiz-score').textContent = 'Score ' + score;
-    el('quiz-after').hidden = true;
-    el('quiz-player').innerHTML = '<p class="text-mute" style="padding:18px">Loading the melody…</p>';
+  function start(what) {
+    if (what === 'endless') { mode = 'endless'; types = null; }
+    else { mode = 'round'; types = [what]; }
+    idx = 0; score = 0; streak = 0; results = [];
+    el('quiz-menu').hidden = true; el('quiz-done').hidden = true; el('quiz-play').hidden = false;
+    next();
+  }
 
-    // options
-    el('quiz-options').innerHTML = q.options.map(function (id) {
-      var o = song(id);
-      return '<button class="quiz-opt" data-id="' + id + '">' + o.title + '<i>' + (o.composer || '') + '</i></button>';
+  function next() {
+    answered = false;
+    q = DRDQuiz.makeQuestion(types);
+    if (!q) return finish();
+    el('quiz-after').hidden = true;
+    el('quiz-notes').hidden = true;
+    el('quiz-player').innerHTML = '';
+    el('quiz-prompt').textContent = q.prompt;
+    el('quiz-progress').textContent = mode === 'endless'
+      ? 'Endless · ' + DRDQuiz.LABELS[q.type] : 'Question ' + (idx + 1) + ' of ' + ROUND;
+    el('quiz-score').textContent = mode === 'endless' ? 'Streak ' + streak : 'Score ' + score;
+
+    el('quiz-options').innerHTML = q.options.map(function (o) {
+      return '<button class="quiz-opt" data-key="' + String(o.key).replace(/"/g, '&quot;') + '">' +
+             o.label + (o.sub ? '<i>' + o.sub + '</i>' : '') + '</button>';
     }).join('');
     [].forEach.call(el('quiz-options').querySelectorAll('.quiz-opt'), function (b) {
-      b.addEventListener('click', function () { answer(this.getAttribute('data-id'), this); });
+      b.addEventListener('click', function () { answer(this.getAttribute('data-key'), this); });
     });
 
-    // audio — the player is mounted with a MASKED title so it can't give the answer away
-    loadNotation(q.id, function (nota) {
-      if (!nota) { el('quiz-player').innerHTML = '<p class="text-mute" style="padding:18px">Could not load this melody — skip to the next one.</p>'; return; }
+    if (q.kind === 'audio') mountAudio(q.songId);
+    else if (q.kind === 'notes') showNotes(q.songId);
+  }
+
+  function mountAudio(id) {
+    var s = DRD.getSong(id); if (!s) return;
+    el('quiz-player').innerHTML = '<p class="text-mute" style="padding:18px">Loading the melody…</p>';
+    DRDQuiz.loadNotation(id, function (nota) {
+      if (!nota) { el('quiz-player').innerHTML = '<p class="text-mute" style="padding:18px">Could not load this one — skip ahead.</p>'; return; }
       el('quiz-player').innerHTML = '';
-      DRD.createPlayer(el('quiz-player'), {
-        id: q.id, title: '? ? ?', composer: '', notation: nota, cps: s.cps, dur: s.dur
-      }, { piano: false });
+      DRD.createPlayer(el('quiz-player'), { id: id, title: '? ? ?', composer: '', notation: nota, cps: s.cps, dur: s.dur }, { piano: false });
+    });
+  }
+
+  function showNotes(id) {
+    el('quiz-notes').hidden = false;
+    el('quiz-notes').textContent = 'loading…';
+    DRDQuiz.loadNotation(id, function (nota) {
+      if (!nota) { el('quiz-notes').textContent = '—'; return; }
+      el('quiz-notes').textContent = DRDQuiz.firstNotes(nota, 14).join(' ');
     });
   }
 
   function answer(picked, btn) {
     if (answered) return;
     answered = true;
-    var q = qs[idx], right = picked === q.id, truth = song(q.id);
-    if (right) score++;
-    results.push({ id: q.id, right: right });
+    var right = picked === String(q.answer);
+    if (right) { score++; streak++; }
+    results.push({ right: right, label: DRDQuiz.LABELS[q.type] });
 
     [].forEach.call(el('quiz-options').querySelectorAll('.quiz-opt'), function (b) {
       b.disabled = true;
-      if (b.getAttribute('data-id') === q.id) b.classList.add('is-right');
+      if (b.getAttribute('data-key') === String(q.answer)) b.classList.add('is-right');
       else if (b === btn) b.classList.add('is-wrong');
     });
-
     el('quiz-verdict').textContent = right ? 'Correct!' : 'Not this time.';
     el('quiz-verdict').className = 'quiz-verdict ' + (right ? 'ok' : 'no');
-    // "by Traditional" reads badly — those pieces have no named composer
-    var trad = /^Traditional/.test(truth.composer || '');
-    el('quiz-truth').innerHTML = 'It was <a href="song?id=' + q.id + '"><b>' + truth.title + '</b></a>' +
-      (trad ? ' — a traditional melody' : (truth.composer ? ' by ' + truth.composer : '')) + '.';
-    el('quiz-score').textContent = 'Score ' + score;
-    el('quiz-next').textContent = (idx + 1 >= ROUND) ? 'See your score' : 'Next question';
+    el('quiz-truth').innerHTML = q.truth || '';
+    el('quiz-score').textContent = mode === 'endless' ? 'Streak ' + streak : 'Score ' + score;
+
+    if (mode === 'endless' && !right) el('quiz-next').textContent = 'See your run';
+    else if (mode === 'round' && idx + 1 >= ROUND) el('quiz-next').textContent = 'See your score';
+    else el('quiz-next').textContent = 'Next question';
     el('quiz-after').hidden = false;
   }
 
   function finish() {
-    el('quiz-play').hidden = true;
-    el('quiz-done').hidden = false;
-    el('quiz-final').textContent = 'You scored ' + score + ' / ' + ROUND;
-    var g = score === ROUND ? 'Perfect. You have a serious ear.'
-          : score >= 6 ? 'Strong — you know your repertoire.'
-          : score >= 4 ? 'Not bad. A few more listens and these will stick.'
-          : 'Early days — and that is exactly what the library is for.';
-    el('quiz-grade').textContent = g;
-    el('quiz-recap').innerHTML = results.map(function (r) {
-      var s = song(r.id);
-      return '<a class="quiz-recap-row" href="song?id=' + r.id + '"><span class="' + (r.right ? 'ok' : 'no') + '">' +
-        (r.right ? '✓' : '✗') + '</span><b>' + s.title + '</b><i>' + (s.composer || '') + '</i></a>';
+    el('quiz-play').hidden = true; el('quiz-done').hidden = false;
+    if (mode === 'endless') {
+      var b = best();
+      if (streak > b) { setBest(streak); b = streak; }
+      el('quiz-final').textContent = 'Streak: ' + streak;
+      el('quiz-grade').textContent = streak >= 15 ? 'Outstanding — that is a serious ear.'
+        : streak >= 8 ? 'Strong run. Best streak on this device: ' + b + '.'
+        : streak >= 4 ? 'Good going — best streak here is ' + b + '.'
+        : 'Everything in these questions is playable in the library — go and learn a few.';
+    } else {
+      el('quiz-final').textContent = 'You scored ' + score + ' / ' + ROUND;
+      el('quiz-grade').textContent = score === ROUND ? 'Perfect.'
+        : score >= 6 ? 'Strong — you know your repertoire.'
+        : score >= 4 ? 'Not bad. A few more listens and these will stick.'
+        : 'Early days — and that is exactly what the library is for.';
+    }
+    el('quiz-recap').innerHTML = results.map(function (r, i) {
+      return '<div class="quiz-recap-row"><span class="' + (r.right ? 'ok' : 'no') + '">' +
+        (r.right ? '✓' : '✗') + '</span><b>Q' + (i + 1) + '</b><i>' + r.label + '</i></div>';
     }).join('');
   }
 
-  function start() {
-    build();
-    el('quiz-start').hidden = true;
-    el('quiz-done').hidden = true;
-    el('quiz-play').hidden = false;
-    render();
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
-    el('quiz-go').addEventListener('click', start);
-    el('quiz-again').addEventListener('click', start);
+    if (!window.DRDQuiz || !window.DRD) return;
+    renderMenu();
     el('quiz-next').addEventListener('click', function () {
+      if (mode === 'endless') {
+        if (results.length && !results[results.length - 1].right) return finish();
+        idx++; return next();
+      }
       if (idx + 1 >= ROUND) return finish();
-      idx++; render();
+      idx++; next();
+    });
+    el('quiz-again').addEventListener('click', function () { start(mode === 'endless' ? 'endless' : types[0]); });
+    el('quiz-menu-btn').addEventListener('click', function () {
+      el('quiz-done').hidden = true; el('quiz-play').hidden = true; el('quiz-menu').hidden = false;
+      el('quiz-best').textContent = best();
     });
   });
 })();

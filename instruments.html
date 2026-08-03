@@ -15,8 +15,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#06060b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/main.css?v=110">
-<link rel="stylesheet" href="css/player.css?v=110">
+<link rel="stylesheet" href="css/main.css?v=111">
+<link rel="stylesheet" href="css/player.css?v=111">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
 </head>
@@ -34,24 +34,100 @@
 
   <section class="section-sm">
     <div class="container">
-      <!-- the live keyboard, shared by every instrument -->
-      <div class="inst-stage card" data-reveal>
-        <div class="inst-now">
-          <div>
-            <span class="eyebrow">Now playing</span>
-            <h2 class="inst-name" id="inst-name">Grand piano</h2>
-            <p class="inst-desc text-dim" id="inst-desc"></p>
+      <!-- pick · read · play — all in one frame, so the keys are never more than a glance away -->
+      <div class="inst-lab card" data-reveal>
+
+        <div class="inst-pick">
+          <div class="inst-fams" id="inst-fams" role="group" aria-label="Instrument families"></div>
+          <label class="inst-jump"><span>Instrument</span><select id="inst-select" aria-label="Choose an instrument"></select></label>
+        </div>
+
+        <div class="inst-rail" id="inst-rail"></div>
+
+        <div class="inst-panel" id="inst-panel">
+          <span class="inst-panel-icon" id="inst-icon" aria-hidden="true"></span>
+          <div class="inst-panel-text">
+            <div class="inst-panel-head">
+              <h2 class="inst-name" id="inst-name">Grand piano</h2>
+              <span class="inst-origin" id="inst-origin"></span>
+            </div>
+            <p class="inst-desc" id="inst-desc"></p>
+            <p class="inst-what" id="inst-what"></p>
           </div>
-          <button class="btn btn-primary" id="inst-demo">▶ Hear a demo</button>
+          <div class="inst-panel-side">
+            <span class="inst-readout" id="inst-readout" aria-live="polite" title="Last note you played">—</span>
+            <button class="btn btn-primary" id="inst-demo">▶ Hear a demo</button>
+            <button class="btn btn-ghost inst-more" id="inst-more" aria-expanded="false" hidden>Full story ▾</button>
+          </div>
+          <div class="inst-panel-more" id="inst-more-body" hidden></div>
         </div>
-        <div class="piano-wrap">
-          <div class="piano-scroll" id="inst-piano"></div>
-          <div class="oct-legend" id="inst-legend"></div>
+
+        <div class="inst-kbd">
+          <div class="inst-kbd-bar">
+            <div class="ctrl octave-ctrl">
+              <label>Octave</label>
+              <div class="oct-stepper">
+                <button type="button" id="inst-oct-down" aria-label="Octave down (Z key)"><span class="oct-glyph">−</span><kbd>Z</kbd></button>
+                <span id="oct-label">4</span>
+                <button type="button" id="inst-oct-up" aria-label="Octave up (X key)"><span class="oct-glyph">+</span><kbd>X</kbd></button>
+              </div>
+            </div>
+            <div class="ctrl"><label>Volume</label><input type="range" id="inst-vol" min="0" max="1" step="0.01" value="0.8" aria-label="Volume"></div>
+            <button type="button" class="btn btn-ghost" id="inst-labels" aria-pressed="true">Key hints: on</button>
+            <span class="inst-kbd-tip">Home row <kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>… plays the white keys · top row <kbd>W</kbd><kbd>E</kbd><kbd>T</kbd>… the sharps</span>
+          </div>
+          <div class="piano-wrap">
+            <div class="piano-scroll" id="inst-piano"></div>
+            <div class="oct-legend" id="inst-legend"></div>
+          </div>
         </div>
-        <p class="text-mute" style="font-size:.84rem;margin:12px 2px 0">Click the keys, or use your computer keyboard — the home row is the white keys.</p>
       </div>
 
-      <div id="inst-groups"></div>
+      <!-- Studio: queue any piece, one instrument per piece, played back to back -->
+      <section class="studio" id="studio" data-reveal>
+        <span class="eyebrow">Playlist</span>
+        <h2 class="title" style="font-size:1.6rem;margin:.5rem 0 .4rem">Build a set — a different instrument for every piece</h2>
+        <p class="text-dim" style="margin:0 0 20px;max-width:64ch">Queue anything from the library, give each piece the instrument you want to hear it on, and let the set run straight through. Your playlist is kept on this device.</p>
+
+        <div class="studio-now">
+          <div class="studio-transport">
+            <button class="st-btn" data-act="prev" aria-label="Previous piece">⏮</button>
+            <button class="st-btn st-btn-main" id="st-play" data-act="toggle" aria-label="Play">▶</button>
+            <button class="st-btn" data-act="next" aria-label="Next piece">⏭</button>
+          </div>
+          <div class="studio-track">
+            <div class="studio-title" id="st-title">Nothing queued yet</div>
+            <div class="studio-sub" id="st-sub">Add pieces below and they will play one after another.</div>
+            <div class="studio-bar" id="st-bar" role="progressbar" aria-label="Playback position"><span id="st-fill"></span></div>
+          </div>
+          <div class="studio-side">
+            <span class="studio-time"><span id="st-time">0:00</span> / <span id="st-dur">0:00</span></span>
+            <button class="st-toggle" id="st-shuffle" data-act="shuffle" aria-pressed="false" aria-label="Shuffle">🔀</button>
+            <button class="st-toggle" id="st-repeat" data-act="repeat" data-mode="all" aria-pressed="true" aria-label="Repeat">🔁</button>
+          </div>
+        </div>
+
+        <div class="studio-grid">
+          <div class="studio-panel">
+            <h3 class="studio-h">Your playlist <span class="studio-count" id="st-count"></span></h3>
+            <ol class="studio-queue" id="st-queue"></ol>
+            <div class="studio-tools">
+              <button class="btn btn-ghost" data-act="add-favs">♥ Add my favourites</button>
+              <button class="btn btn-ghost" data-act="add-random">🎲 Surprise me</button>
+              <button class="btn btn-ghost" data-act="all-voice">Use current instrument for all</button>
+              <button class="btn btn-ghost" data-act="clear">Clear</button>
+            </div>
+          </div>
+          <div class="studio-panel">
+            <h3 class="studio-h">Add from the library</h3>
+            <input class="studio-search" id="st-search" type="search" placeholder="Search 2,400+ pieces — title or composer…" aria-label="Search the library">
+            <div class="studio-results" id="st-results"></div>
+            <p class="text-mute" style="font-size:.8rem;margin:12px 2px 0">Pieces are added with the instrument selected above — change any of them from the dropdown in the playlist.</p>
+          </div>
+        </div>
+      </section>
+
+
 
 
       <section class="inst-encyclopedia" id="encyclopedia" data-reveal>
@@ -257,10 +333,11 @@
 </main>
 
 <footer id="site-footer"></footer>
-
-<script src="js/data.js?v=110"></script>
-<script src="js/player.js?v=110"></script>
-<script src="js/site.js?v=110"></script>
+<script src="js/data.js?v=111"></script>
+<script src="js/player.js?v=111"></script>
+<script src="js/instrument-info.js?v=111"></script>
+<script src="js/studio.js?v=111"></script>
+<script src="js/site.js?v=111"></script>
 <script>
 (function () {
   'use strict';
@@ -292,94 +369,232 @@
   var ORDER = ['Piano', 'Plucked & struck', 'Tuned percussion', 'Sustained'];
   var DEMO = { 'Tuned percussion': 'twinkle-twinkle', 'Plucked & struck': 'gymnopedie-no-1',
                Sustained: 'ode-to-joy', Piano: 'fur-elise' };
-  var NOTA_V = 89;
+
+  // one small line-drawing per instrument shape, so the picker reads at a glance
+  var S = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">';
+  var ICONS = {
+    keys:  S + '<rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M8 5.5v13M13 5.5v13M18 5.5v13"/><path d="M6.2 5.5v6.4M11.2 5.5v6.4M16.2 5.5v6.4" stroke-width="2.6"/></svg>',
+    tines: S + '<rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M7.5 16.5V9.5M10.5 16.5V7.5M13.5 16.5V6.8M16.5 16.5V9"/><circle cx="12" cy="18.4" r=".9"/></svg>',
+    bars:  S + '<path d="M4 7.5h15M4 12h12M4 16.5h9"/><circle cx="18.8" cy="17.4" r="2"/><path d="M17.5 15.9 15 13.2"/></svg>',
+    bells: S + '<path d="M3.5 5h17"/><path d="M7 5v11M11 5v14M15 5v9.5M19 5v12.5"/></svg>',
+    harp:  S + '<path d="M6 20V5c6.2 0 10.5 5 10.5 11"/><path d="M5 20h12.5"/><path d="M9 19.4V9.6M12 19.4v-6.6M15 19.4v-2.8"/></svg>',
+    guitar:S + '<circle cx="9.2" cy="14.8" r="5.4"/><circle cx="9.2" cy="14.8" r="1.5"/><path d="M13 11 19 5"/><path d="M17.6 3.6 20.4 6.4"/></svg>',
+    pan:   S + '<circle cx="12" cy="12" r="9"/><ellipse cx="9.2" cy="9.8" rx="2.5" ry="1.9"/><ellipse cx="15" cy="14.4" rx="2.7" ry="2.1"/></svg>',
+    flute: S + '<rect x="2.5" y="10" width="19" height="4" rx="2"/><circle cx="6" cy="12" r=".9"/><circle cx="10" cy="12" r=".9"/><circle cx="14" cy="12" r=".9"/><circle cx="18" cy="12" r=".9"/></svg>',
+    wave:  S + '<path d="M2 12c2-5.5 4-5.5 6 0s4 5.5 6 0 4-5.5 6 0"/></svg>',
+    pipes: S + '<path d="M3 20h18"/><path d="M5.5 20V9.5a1.7 1.7 0 0 1 3.4 0V20M10.3 20V5.6a1.7 1.7 0 0 1 3.4 0V20M15.1 20v-8a1.7 1.7 0 0 1 3.4 0v8"/></svg>',
+    box:   S + '<rect x="3" y="8.5" width="14" height="11" rx="2"/><path d="M17 12.6h2.2a1.9 1.9 0 0 1 0 3.8H17"/><path d="M8 16V6.5l4.5-1.2V14"/><circle cx="6.6" cy="16.3" r="1.4"/><circle cx="11.1" cy="14.3" r="1.4"/></svg>',
+    horn:  S + '<path d="M2.5 12H11"/><path d="M11 8.2 20.5 4.5v15L11 15.8z"/><path d="M14 6.6v10.8"/></svg>'
+  };
+  var ICON_OF = { grand: 'keys', natural: 'keys', warm: 'keys', soft: 'keys', celestial: 'wave',
+    march: 'horn', organ: 'pipes', rhodes: 'keys', harpsichord: 'keys', musicbox: 'box',
+    kalimba: 'tines', marimba: 'bars', glockenspiel: 'bars', vibraphone: 'bars', celesta: 'bars',
+    tubularbells: 'bells', harp: 'harp', guitar: 'guitar', steeldrum: 'pan', toypiano: 'keys',
+    flute: 'flute', strings: 'wave' };
+
+  var LETTERS = ['c', 'C', 'd', 'D', 'e', 'f', 'F', 'g', 'G', 'a', 'A', 'b'];
 
   function el(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function icon(id) { return ICONS[ICON_OF[id] || 'keys']; }
 
   document.addEventListener('DOMContentLoaded', function () {
     if (!window.DRD || !DRD.Synth || !DRD.buildPiano) return;
     var VOICES = DRD.Synth.VOICES || [];
+    var ENC = DRD.INSTRUMENTS || {};
+    var curId = DRD.Synth.voiceId || 'grand', curFam = 'All';
 
-    // --- live keyboard ---------------------------------------------------
-    var built = DRD.buildPiano(el('inst-piano'), [3, 6], function (freq, keyEl, oct) {
-      DRD.Synth.note(freq);
-      var o = Math.max(2, Math.min(6, oct));
-      keyEl.classList.add('down', 'lit', 'lit-o' + o);
-      setTimeout(function () { keyEl.classList.remove('down', 'lit', 'lit-o' + o); }, 200);
-    });
-    // fitPiano(scrollEl, range, stageEl) — the range argument is required
-    var RANGE = [3, 6];
-    var fit = function () { if (DRD.fitPiano) DRD.fitPiano(el("inst-piano"), RANGE); };
-    fit(); window.addEventListener("resize", fit);
+    function voiceOf(id) { return VOICES.filter(function (v) { return v.id === id; })[0]; }
+    function famOf(v) { return (INFO[v.id] && INFO[v.id][0]) || v.family || 'Piano'; }
+    function descOf(id) { return (INFO[id] && INFO[id][1]) || ''; }
 
-    // --- instrument cards, grouped by family -------------------------------
-    var groups = {};
-    VOICES.forEach(function (v) {
-      var fam = (INFO[v.id] && INFO[v.id][0]) || v.family || 'Piano';
-      (groups[fam] = groups[fam] || []).push(v);
-    });
-    el('inst-groups').innerHTML = ORDER.filter(function (f) { return groups[f]; }).map(function (fam) {
-      return '<section class="inst-group" data-reveal><h2 class="title" style="font-size:1.35rem;margin:26px 0 12px">' + fam + '</h2>' +
-        '<div class="inst-grid">' + groups[fam].map(function (v) {
-          return '<button class="inst-card" data-voice="' + v.id + '">' +
-            '<b>' + v.name + '</b><i>' + ((INFO[v.id] && INFO[v.id][1]) || '') + '</i></button>';
-        }).join('') + '</div></section>';
+    /* ---------------------------------------------------------- picker --- */
+    var FAMS = ['All'].concat(ORDER.filter(function (f) {
+      return VOICES.some(function (v) { return famOf(v) === f; });
+    }));
+    el('inst-fams').innerHTML = FAMS.map(function (f) {
+      return '<button class="inst-fam' + (f === 'All' ? ' active' : '') + '" data-fam="' + esc(f) + '">' + esc(f) + '</button>';
     }).join('');
 
-    function select(id, play) {
-      var v = VOICES.filter(function (x) { return x.id === id; })[0];
-      if (!v) return;
-      DRD.Synth.setVoice(id); DRD.Synth.ensure();
-      el('inst-name').textContent = v.name;
-      el('inst-desc').textContent = (INFO[id] && INFO[id][1]) || '';
-      [].forEach.call(document.querySelectorAll('.inst-card'), function (b) {
+    function renderRail() {
+      var list = VOICES.filter(function (v) { return curFam === 'All' || famOf(v) === curFam; });
+      el('inst-rail').innerHTML = list.map(function (v) {
+        return '<button class="inst-chip' + (v.id === curId ? ' active' : '') + '" data-voice="' + v.id + '">' +
+          '<span class="inst-chip-ic">' + icon(v.id) + '</span><b>' + esc(v.name) + '</b></button>';
+      }).join('');
+    }
+
+    el('inst-select').innerHTML = ORDER.filter(function (f) {
+      return VOICES.some(function (v) { return famOf(v) === f; });
+    }).map(function (f) {
+      return '<optgroup label="' + esc(f) + '">' + VOICES.filter(function (v) { return famOf(v) === f; }).map(function (v) {
+        return '<option value="' + v.id + '">' + esc(v.name) + '</option>';
+      }).join('') + '</optgroup>';
+    }).join('');
+
+    /* ----------------------------------------------------- info panel --- */
+    function select(id, arp, fromStudio) {
+      var v = voiceOf(id); if (!v) return;
+      curId = id;
+      DRD.Synth.setVoice(id);
+      var e = ENC[id];
+      el('inst-icon').innerHTML = icon(id);
+      el('inst-name').textContent = e ? e.name : v.name;
+      el('inst-origin').textContent = e ? e.origin : famOf(v);
+      el('inst-desc').textContent = descOf(id);
+      el('inst-what').textContent = e ? e.what : '';
+      el('inst-what').hidden = !e;
+
+      var more = el('inst-more'), body = el('inst-more-body');
+      more.hidden = !e;
+      body.hidden = true; more.setAttribute('aria-expanded', 'false'); more.textContent = 'Full story ▾';
+      if (e) {
+        body.innerHTML =
+          '<p><strong>Where it comes from.</strong> ' + esc(e.history) + '</p>' +
+          '<p><strong>Worth knowing.</strong> ' + esc(e.fact) + '</p>' +
+          '<p class="inst-panel-links">' +
+            (e.link ? '<a href="' + esc(e.link) + '">' + esc(e.linkText) + ' →</a>' : '') +
+            '<a href="#about-' + esc(id) + '">Read the full entry ↓</a>' +
+            '<a class="inst-enc-src" href="' + esc(e.src) + '" target="_blank" rel="noopener">Source: Wikipedia — ' + esc(e.srcName) + '</a>' +
+          '</p>';
+      }
+
+      [].forEach.call(document.querySelectorAll('.inst-chip'), function (b) {
         b.classList.toggle('active', b.getAttribute('data-voice') === id);
       });
-      if (play) {                       // a quick arpeggio so you hear it immediately
+      if (el('inst-select').value !== id) el('inst-select').value = id;
+
+      // picking an instrument while the studio plays re-assigns the piece that is playing
+      if (!fromStudio && window.DRDStudio) DRDStudio.setCurrentVoice(id);
+
+      if (arp) {
+        DRD.Synth.ensure();
         var t = DRD.Synth.ctx ? DRD.Synth.ctx.currentTime : 0;
         [60, 64, 67, 72].forEach(function (m, i) { DRD.Synth.note(DRD.midiToFreq(m), t + i * 0.13); });
       }
     }
 
-    [].forEach.call(document.querySelectorAll('.inst-card'), function (b) {
-      b.addEventListener('click', function () { select(this.getAttribute('data-voice'), true); });
+    el('inst-fams').addEventListener('click', function (ev) {
+      var b = ev.target.closest('.inst-fam'); if (!b) return;
+      curFam = b.getAttribute('data-fam');
+      [].forEach.call(this.querySelectorAll('.inst-fam'), function (x) { x.classList.toggle('active', x === b); });
+      renderRail();
     });
-    select(DRD.Synth.voiceId || 'grand', false);
+    el('inst-rail').addEventListener('click', function (ev) {
+      var b = ev.target.closest('.inst-chip'); if (!b) return;
+      select(b.getAttribute('data-voice'), true);
+    });
+    el('inst-select').addEventListener('change', function () { select(this.value, true); });
+    el('inst-more').addEventListener('click', function () {
+      var body = el('inst-more-body'), open = body.hidden;
+      body.hidden = !open;
+      this.setAttribute('aria-expanded', String(open));
+      this.textContent = open ? 'Less ▴' : 'Full story ▾';
+    });
+
+    /* ------------------------------------------------------- keyboard --- */
+    var RANGE = [3, 6];
+    var built = DRD.buildPiano(el('inst-piano'), RANGE, function (freq, keyEl, oct, midi) {
+      DRD.Synth.note(freq); flash(keyEl, oct); readout(midi);
+    });
+    var keys = built.keys;
+
+    // computer-key → semitone offset from the base-octave C (same layout as the Online Piano)
+    var MAP = [
+      ['KeyA', 0, 'A'], ['KeyW', 1, 'W'], ['KeyS', 2, 'S'], ['KeyE', 3, 'E'], ['KeyD', 4, 'D'],
+      ['KeyF', 5, 'F'], ['KeyT', 6, 'T'], ['KeyG', 7, 'G'], ['KeyY', 8, 'Y'], ['KeyH', 9, 'H'],
+      ['KeyU', 10, 'U'], ['KeyJ', 11, 'J'], ['KeyK', 12, 'K'], ['KeyO', 13, 'O'], ['KeyL', 14, 'L'],
+      ['KeyP', 15, 'P'], ['Semicolon', 16, ';']
+    ];
+    var byCode = {}; MAP.forEach(function (m) { byCode[m[0]] = m; });
+    var baseOct = 4, labelsOn = true;
+    var midiFor = function (m) { return (baseOct + 1) * 12 + m[1]; };
+
+    function flash(elm, oct) {
+      var o = Math.max(2, Math.min(6, oct));
+      elm.classList.add('down', 'lit', 'lit-o' + o);
+      setTimeout(function () { elm.classList.remove('down', 'lit', 'lit-o' + o); }, 200);
+    }
+    function readout(midi) {
+      if (midi == null) return;
+      var r = el('inst-readout');
+      r.textContent = LETTERS[((midi % 12) + 12) % 12] + (Math.floor(midi / 12) - 1);
+      r.classList.remove('hit'); void r.offsetWidth; r.classList.add('hit');
+    }
+    function playMidi(midi) {
+      var k = keys[midi]; if (!k) return;
+      DRD.Synth.note(DRD.midiToFreq(midi)); flash(k, Math.floor(midi / 12) - 1); readout(midi);
+    }
+    function relabel() {
+      for (var mid in keys) { var old = keys[mid].querySelector('.kbd-hint'); if (old) old.remove(); }
+      if (labelsOn) MAP.forEach(function (m) {
+        var k = keys[midiFor(m)]; if (!k) return;
+        var b = document.createElement('b'); b.className = 'kbd-hint'; b.textContent = m[2]; k.appendChild(b);
+      });
+      var ol = el('oct-label'); if (ol) ol.textContent = baseOct;
+    }
+    function shiftOct(d) { baseOct = Math.max(3, Math.min(5, baseOct + d)); relabel(); }
+
+    var fit = function () { if (DRD.fitPiano) DRD.fitPiano(el('inst-piano'), RANGE); };
+    fit(); relabel();
+    window.addEventListener('resize', fit);
+
+    var held = {};
+    document.addEventListener('keydown', function (ev) {
+      var tag = (ev.target && ev.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+      if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+      if (ev.code === 'KeyZ') { shiftOct(-1); ev.preventDefault(); return; }
+      if (ev.code === 'KeyX') { shiftOct(1); ev.preventDefault(); return; }
+      var m = byCode[ev.code]; if (!m) return;
+      ev.preventDefault();
+      if (held[ev.code]) return;              // ignore auto-repeat — a real key strikes once
+      held[ev.code] = true;
+      DRD.Synth.ensure(); playMidi(midiFor(m));
+    });
+    document.addEventListener('keyup', function (ev) { delete held[ev.code]; });
+
+    el('inst-oct-down').addEventListener('click', function () { shiftOct(-1); });
+    el('inst-oct-up').addEventListener('click', function () { shiftOct(1); });
+    el('inst-vol').addEventListener('input', function () { DRD.Synth.ensure(); DRD.Synth.setVolume(+this.value); });
+    el('inst-labels').addEventListener('click', function () {
+      labelsOn = !labelsOn;
+      this.textContent = 'Key hints: ' + (labelsOn ? 'on' : 'off');
+      this.setAttribute('aria-pressed', String(labelsOn));
+      relabel();
+    });
+
+    var leg = el('inst-legend');
+    if (leg) { var h = ''; for (var o = RANGE[0]; o <= RANGE[1]; o++) h += '<span class="li"><span class="dot" style="background:var(--o' + o + ');color:var(--o' + o + ')"></span>Octave ' + o + '</span>'; leg.innerHTML = h; }
+
+    /* --------------------------------------------------------- studio --- */
+    if (window.DRDStudio) DRDStudio.init({ onVoice: function (v) { select(v, false, true); } });
+
+    function demoId() { var v = voiceOf(curId); return (v && DEMO[famOf(v)]) || 'fur-elise'; }
+    el('inst-demo').addEventListener('click', function () {
+      var st = window.DRDStudio; if (!st) return;
+      var id = demoId(), c = st.current;
+      if (st.playing && c && c.id === id) { st.pause(); return; }   // second press pauses — it never restarts on top of itself
+      st.playNow(id, curId);
+      document.getElementById('studio').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    setInterval(function () {
+      var st = window.DRDStudio; if (!st) return;
+      var c = st.current, on = st.playing && c && c.id === demoId();
+      el('inst-demo').textContent = on ? '❚❚ Pause demo' : '▶ Hear a demo';
+    }, 400);
 
     // encyclopedia "Play it ↑" buttons select the instrument and scroll back to the keyboard
-    [].forEach.call(document.querySelectorAll(".inst-enc-try"), function (b) {
-      b.addEventListener("click", function () {
-        select(this.getAttribute("data-voice"), true);
-        var st = document.querySelector(".inst-stage");
-        if (st) st.scrollIntoView({ behavior: "smooth", block: "start" });
+    [].forEach.call(document.querySelectorAll('.inst-enc-try'), function (b) {
+      b.addEventListener('click', function () {
+        select(this.getAttribute('data-voice'), true);
+        var st = document.querySelector('.inst-lab');
+        if (st) st.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
-
-    // --- demo: play a real piece with the chosen instrument -----------------
-    el('inst-demo').addEventListener('click', function () {
-      var fam = (INFO[DRD.Synth.voiceId] && INFO[DRD.Synth.voiceId][0]) || 'Piano';
-      var id = DEMO[fam] || 'fur-elise';
-      var song = DRD.getSong(id); if (!song) return;
-      var btn = this; btn.disabled = true; btn.textContent = 'Loading…';
-      DRD.NOTATIONS = DRD.NOTATIONS || {};
-      var go = function (nota) {
-        btn.disabled = false; btn.textContent = '▶ Hear a demo';
-        if (!nota) return;
-        var cols = DRD.buildTimeline(DRD.parseNotation(nota)).cols;
-        var cps = song.cps || 6, t0 = DRD.Synth.ctx.currentTime + 0.1, LIMIT = 10;   // ~10 seconds
-        cols.forEach(function (col, i) {
-          var when = t0 + i / cps; if (when - t0 > LIMIT) return;
-          (col.events || []).forEach(function (ev) { DRD.Synth.note(DRD.midiToFreq(ev.midi), when, 0.85); });
-        });
-      };
-      if (DRD.NOTATIONS[id]) return go(DRD.NOTATIONS[id]);
-      var sc = document.createElement('script');
-      sc.src = 'songs/' + id + '.js?v=' + NOTA_V;
-      sc.onload = function () { go((DRD.NOTATIONS || {})[id]); };
-      sc.onerror = function () { go(null); };
-      document.head.appendChild(sc);
-    });
+    renderRail();
+    select(curId, false);
   });
 })();
 </script>
