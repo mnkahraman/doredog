@@ -43,6 +43,8 @@
 .pr-btn.active{ color:#fff; background:var(--violet, #8b6bff); border-color:var(--violet, #8b6bff); }
 .pr-btn.set{ color:var(--gold, #f6b73f); border-color:var(--gold, #f6b73f); }
 .pr-btn.ab-off{ color:var(--text-mute); }
+.pr-btn:disabled{ opacity:.3; cursor:not-allowed; }
+.pr-btn:disabled:hover{ border-color:var(--border, #2a2a3a); color:var(--text-dim); }
 .tr-out{ font-family:var(--font-mono); font-size:.82rem; color:var(--gold, #f6b73f); min-width:2.1em; text-align:center; }
 .meas-out{ font-family:var(--font-mono); font-size:.74rem; color:var(--gold, #f6b73f); min-width:3.6em; text-align:center; }
 .progress{ position:relative; }

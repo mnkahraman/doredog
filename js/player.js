@@ -821,9 +821,27 @@
     // hands
     const handBtns = Array.prototype.slice.call(mount.querySelectorAll('.hand-btn'));
     handBtns.forEach((b) => b.addEventListener('click', function () {
+      if (this.disabled) return;
       handMode = this.getAttribute('data-hand');
       handBtns.forEach((x) => x.classList.toggle('active', x === this));
     }));
+    // Not everything here was written for two hands: ensemble works — solo violin partitas,
+    // a flute duet, Eine kleine Nachtmusik — transcribe as one stream, so one "hand" ends up
+    // empty. Offering Left on those just plays silence, so the empty side is disabled and
+    // says why on hover.
+    (function gateHands() {
+      let nR = 0, nL = 0;
+      for (const col of cols) for (const ev of col.events) { if (ev.hand === 'R') nR++; else if (ev.hand === 'L') nL++; }
+      const tagged = nR + nL;
+      if (!tagged) return;
+      const thin = { R: nR / tagged < 0.05, L: nL / tagged < 0.05 };
+      for (const b of handBtns) {
+        const h = b.getAttribute('data-hand');
+        if (h === 'both' || !thin[h]) continue;
+        b.disabled = true;
+        b.title = 'This transcription has no separate ' + (h === 'R' ? 'right' : 'left') + '-hand part';
+      }
+    })();
     // transpose — re-renders the letter notation (display) + shifts the audio; audio uses the original
     // timeline plus `transpose`, so cols never change (no double-shift) and the playhead stays aligned.
     const trOut = $('.tr-out');
