@@ -46,6 +46,10 @@ const noteMd = fs.readFileSync(DRAFTS + '/song-notes.md', 'utf8');
 const NOTES = {};
 for (const s of sections(noteMd)) {
   const id = s.heading.trim();                            // "## fur-elise"
+  // A second heading for the same id silently overwrote the first, so a note
+  // could be corrected in one place and left stale in another with no warning.
+  // Fail loudly instead — the draft is the source of truth, and it must be unique.
+  if (id in NOTES) throw new Error('song-notes.md: duplicate section for "' + id + '"');
   NOTES[id] = bodyToHtml(s.body);
 }
 
