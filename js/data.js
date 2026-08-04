@@ -22354,13 +22354,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-k517",
-    title: "Klavierstück, K. 517",
+    title: "Die Alte, K. 517",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 26,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1787, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 6.93,
@@ -22368,18 +22367,17 @@ window.DRD.SONGS = [
     fp: "ILLNKR3PQNPPLLSKLSDNKPIUHTPP",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück, K. 517 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Die Alte, K. 517 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-k518",
-    title: "Klavierstück, K. 518",
+    title: "Die Verschweigung, K. 518",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 24,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1787, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 3.6,
@@ -22387,18 +22385,17 @@ window.DRD.SONGS = [
     fp: "QLNJJSNNNQSAVOOQLQONLESJI_QV",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück, K. 518 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Die Verschweigung, K. 518 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-k519",
-    title: "Klavierstück, K. 519",
+    title: "Das Lied der Trennung, K. 519",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 55,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1787, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 11.2,
@@ -22406,18 +22403,17 @@ window.DRD.SONGS = [
     fp: "JEELA^IJRROHRQQHTQOXJFFUFJII",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück, K. 519 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Das Lied der Trennung, K. 519 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-k520",
-    title: "Klavierstück, K. 520",
+    title: "Als Luise die Briefe ihres ungetreuen Liebhabers verbrannte, K. 520",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 51,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1787, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 12,
@@ -22425,7 +22421,7 @@ window.DRD.SONGS = [
     fp: "EEQQMDTLLCCCHSTLMQNV^YLQLETT",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück, K. 520 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Als Luise die Briefe ihres ungetreuen Liebhabers verbrannte, K. 520 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22448,13 +22444,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-k523",
-    title: "Klavierstück, K. 523",
+    title: "Abendempfindung an Laura, K. 523",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 36,
     genre: "Classical",
-    year: 1787, yv: 1, yk: "p",
-    circa: true,
+    year: 1787, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 12,
@@ -22462,7 +22457,7 @@ window.DRD.SONGS = [
     fp: ">CCNEEIQHLLBSQLONVJJOSNLNLJJ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück, K. 523 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Abendempfindung an Laura, K. 523 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {

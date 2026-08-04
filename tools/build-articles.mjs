@@ -38,6 +38,11 @@ const ARTS = [
   ['26-one-sitting.md', 'piano-pieces-you-can-learn-in-one-sitting', 'Piano Pieces You Can Learn in One Sitting', '121 pieces that are both genuinely easy and under a minute long — measured, not guessed. Finish a whole piece today instead of half of a famous one.'],
   ['27-small-keyboard.md', 'piano-pieces-for-a-small-keyboard', 'Piano Pieces for a Small Keyboard (25, 37 and 49 Keys)', 'Exactly which pieces fit your keyboard, measured by pitch span: 34 pieces on 25 keys, 302 on 37, and 1,068 — 44% of the library — on 49.'],
   ['28-slowest-pieces.md', 'the-slowest-piano-pieces', 'The Slowest Piano Pieces in the Library', 'Slow is not the same as easy. The 35 pieces that run under two notes a second — Satie’s Gymnopédies, hymn tunes, method-book openings — and why.'],
+  ['29-hardest-pieces.md', 'the-hardest-pieces-in-the-library', 'The Hardest Pieces in the Library — and Why the List Is Full of Songs', 'The 40 hardest transcriptions we measured, unfiltered — plus an honest account of what the difficulty score measures and where it misleads.'],
+  ['30-easiest-schumann.md', 'the-easiest-schumann-pieces', 'The Easiest Schumann Pieces, Measured', 'All 50 Schumann pieces ranked by measured difficulty, easiest first. His Album for the Young is the most systematic beginner collection in the library.'],
+  ['31-easiest-brahms.md', 'the-easiest-brahms-pieces', 'The Easiest Brahms Pieces, Measured', 'All 95 Brahms pieces ranked easiest first. The Lullaby is both the most famous and the most playable — and an honest word about his hand stretches.'],
+  ['32-easiest-mozart.md', 'the-easiest-mozart-pieces', 'The Easiest Mozart Pieces, Measured', 'All 65 Mozart pieces ranked easiest first — plus the attribution problem with his very earliest keyboard music, which not everyone tells you about.'],
+  ['33-easiest-satie.md', 'the-easiest-satie-pieces', 'The Easiest Satie Pieces, Measured', 'All 27 Satie pieces ranked easiest first. Gymnopédie No. 1 is the hardest of the three, not the easiest — and five other pieces beat all of them.'],
 ];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
