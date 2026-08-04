@@ -791,18 +791,22 @@
       document.title = 'On This Day in Music — ' + human + ' · DoReDog';
     }
 
+    // ?d=MM-DD addresses one day of the year — each is its own page, server-rendered and in the sitemap
+    var qsD = (new URLSearchParams(location.search)).get('d') || '';
     var now = new Date();
-    show(todayKey(now), MONTHS[now.getMonth()] + ' ' + now.getDate());
+    var startKey = /^\d{2}-\d{2}$/.test(qsD) ? qsD : todayKey(now);
+    show(startKey, humanKey(startKey));
 
     if (picker) {
       // month/day selects
       var mSel = picker.querySelector('[data-otd-month]'), dSel = picker.querySelector('[data-otd-day]');
+      var startM = +startKey.slice(0, 2), startD = +startKey.slice(3);
       MONTHS.forEach(function (m, i) {
         var o = document.createElement('option'); o.value = String(i + 1); o.textContent = m;
-        if (i === now.getMonth()) o.selected = true; mSel.appendChild(o);
+        if (i === startM - 1) o.selected = true; mSel.appendChild(o);
       });
       function fillDays() {
-        var m = +mSel.value, max = [31,29,31,30,31,30,31,31,30,31,30,31][m - 1], cur = +dSel.value || now.getDate();
+        var m = +mSel.value, max = [31,29,31,30,31,30,31,31,30,31,30,31][m - 1], cur = +dSel.value || startD;
         dSel.innerHTML = '';
         for (var i = 1; i <= max; i++) {
           var o = document.createElement('option'); o.value = String(i); o.textContent = String(i);
@@ -812,7 +816,10 @@
       fillDays();
       function apply() {
         var m = +mSel.value, dd = +dSel.value;
-        show(String(m).padStart(2, '0') + '-' + String(dd).padStart(2, '0'), MONTHS[m - 1] + ' ' + dd);
+        var k = String(m).padStart(2, '0') + '-' + String(dd).padStart(2, '0');
+        show(k, MONTHS[m - 1] + ' ' + dd);
+        // keep the address bar on the day being read — every date is its own shareable page
+        if (window.history && history.replaceState) history.replaceState(null, '', 'on-this-day?d=' + k);
       }
       mSel.addEventListener('change', function () { fillDays(); apply(); });
       dSel.addEventListener('change', apply);

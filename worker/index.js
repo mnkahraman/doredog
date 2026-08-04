@@ -7,6 +7,7 @@ import { BIOS } from './composer-bios.js';
 import { NOTES } from './song-notes.js';
 import { DATES } from './composer-dates.js';
 import { MEMBERS } from './collection-members.js';
+import { OTD } from './on-this-day-data.js';
 
 const ORIGIN = 'https://doredog.com';
 const DEFAULT_OG = ORIGIN + '/assets/covers/_mood-atlas.webp';
@@ -127,8 +128,50 @@ function collectionMeta(slug, c) {
   return { kind: 'collection', title, sub, pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(title) };
 }
 
+/* ---- On This Day -----------------------------------------------------------
+   2,928 sourced events sat in a JavaScript file, which meant a crawler saw an empty
+   list. Each day is now its own addressable, server-rendered page. */
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+                'August', 'September', 'October', 'November', 'December'];
+function humanKey(k) { return MONTHS[+k.slice(0, 2) - 1] + ' ' + +k.slice(3); }
+function todayKey() {
+  const d = new Date();
+  return ('0' + (d.getUTCMonth() + 1)).slice(-2) + '-' + ('0' + d.getUTCDate()).slice(-2);
+}
+function otdItems(key) {
+  const evs = OTD[key] || [];
+  const year = new Date().getUTCFullYear();
+  return evs.map((e) => {
+    const ago = year - e.y;
+    let body = attr(e.t);
+    if (e.c) body = body.replace(attr(e.c), '<a href="/composer?name=' + encodeURIComponent(e.c) + '">' + attr(e.c) + '</a>');
+    else if (e.w) body += ' <a class="otd-src" href="https://en.wikipedia.org/wiki/' + attr(e.w.replace(/ /g, '_')) + '" target="_blank" rel="noopener">source</a>';
+    return '<li class="otd-item"><span class="otd-year">' + e.y + '</span><span class="otd-text">' + body
+      + (ago > 0 ? ' <span class="otd-ago">' + ago + ' years ago</span>' : '') + '</span></li>';
+  }).join('');
+}
+function otdMeta(key, explicit) {
+  const human = humanKey(key);
+  const evs = OTD[key] || [];
+  const pageTitle = 'Music History on ' + human + ' — ' + evs.length + ' Events | DoReDog';
+  const first = evs.slice(0, 3).map((e) => e.y).join(', ');
+  const desc = evs.length
+    ? human + ' in music history: ' + evs.length + ' sourced events' + (first ? ' (' + first + ' …)' : '') + ' — births, deaths and premieres, each linked to pieces you can play.'
+    : 'Music history on ' + human + ' — browse any date in the year.';
+  const canon = ORIGIN + '/on-this-day' + (explicit ? '?d=' + key : '');
+  const j = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Music history on ' + human,
+    url: canon, description: desc };
+  return { kind: 'otd', key, human, count: evs.length, pageTitle, desc, canon,
+    ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb('On This Day — ' + human) };
+}
+
 function metaFor(url) {
   const p = url.pathname;
+  if (p === '/on-this-day' || p === '/on-this-day.html') {
+    const d = url.searchParams.get('d');
+    const ok = /^\d{2}-\d{2}$/.test(d || '') && OTD[d];
+    return otdMeta(ok ? d : todayKey(), !!ok);
+  }
   if (p === '/collection.html' || p === '/collection') {
     const slug = url.searchParams.get('c'), c = slug && COLLECTIONS[slug];
     if (c) return collectionMeta(slug, c);
@@ -211,6 +254,11 @@ export default {
               e.setInnerContent('<h2 class="drd-about-h">About this piece</h2>' + note, { html: true });
               e.removeAttribute('style');
             } });
+          } else if (meta.kind === 'otd') {
+            const items = otdItems(meta.key);
+            rw.on('#otd-heading', { element(e) { e.setInnerContent(meta.human); } })
+              .on('#otd-full', { element(e) { if (items) e.setInnerContent(items, { html: true }); } });
+            if (meta.count) rw.on('#otd-empty', { element(e) { e.setAttribute('hidden', ''); } });
           } else if (meta.kind === 'collection') {
             // fill the collection-page placeholders so crawlers read real content
             rw.on('#collection-name', { element(e) { e.setInnerContent(meta.title); } })
