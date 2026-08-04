@@ -9,7 +9,7 @@ window.DRD.SONGS = [
   {
     id: "twinkle-twinkle",
     title: "Twinkle, Twinkle, Little Star",
-    composer: "W. A. Mozart",
+    composer: "Traditional · France",
     difficulty: "easy",
     genre: "Classical",
     year: 1785,
@@ -43291,7 +43291,7 @@ window.DRD.SONGS = [
   {
     id: "joy-to-the-world",
     title: "Joy to the World",
-    composer: "George Frideric Handel",
+    composer: "Lowell Mason",
     difficulty: "easy",
     genre: "Sacred",
     featured: false,
