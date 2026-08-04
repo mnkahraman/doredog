@@ -5047,25 +5047,6 @@ window.DRD.SONGS = [
   },
 
   {
-    id: "h-cangiullo-rose-the",
-    title: "Rose thè",
-    composer: "Francesco Cangiullo",
-    difficulty: "medium",
-    ds: 35,
-    genre: "Romantic",
-    year: 1902,
-    circa: true,
-    featured: false,
-    tags: ["cangiullo","romantic","piano"],
-    cps: 4,
-    dur: 154,
-    fp: "UENWURFYWDRKUUDUTPPDTTRWDRYY",
-    mood: 11,
-    cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#12122a","glyph":"☾"},
-    blurb: "The full Rose thè by Francesco Cangiullo, in colour-coded letter notes with separate right- and left-hand lines."
-  },
-
-  {
     id: "h-capua-a-robba-fina",
     title: "'A robba fina!",
     composer: "Eduardo Di Capua",
@@ -6051,25 +6032,6 @@ window.DRD.SONGS = [
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08141a","glyph":"❧"},
     blurb: "The full Un gay bergier by Thomas Crecquillon, in colour-coded letter notes with separate right- and left-hand lines."
-  },
-
-  {
-    id: "h-crescenzo-matenata-e-primmavera",
-    title: "Matenata 'e primmavera",
-    composer: "Vincenzo De Crescenzo",
-    difficulty: "hard",
-    ds: 43,
-    genre: "Romantic",
-    year: 1903,
-    circa: true,
-    featured: false,
-    tags: ["crescenzo","romantic","piano"],
-    cps: 8.53,
-    dur: 211,
-    fp: "SWOQ@X;SJXWIQ;CCBVLLOV;?W;@@",
-    mood: 11,
-    cover: {"from":"#10303a","mid":"#4dd0ff","to":"#081016","glyph":"❖"},
-    blurb: "The full Matenata 'e primmavera by Vincenzo De Crescenzo, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
