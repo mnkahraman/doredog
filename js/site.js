@@ -45,6 +45,7 @@
     ['piano.html', 'Piano'],
     ['instruments.html', 'Instruments'],
     ['collections.html', 'Collections'],
+    ['atlas.html', 'Atlas'],
     ['learn.html', 'Learn'],
     ['articles.html', 'Guides']
   ];

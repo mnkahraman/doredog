@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Atlas — Five Centuries of Composers on One Map | DoReDog</title>
+<meta name="description" content="Every composer in the library drawn as a lifespan on a single zoomable map, 1397 to 1953 — coloured by period, weighted by how much of them we hold, and every bar a click from their music.">
+<link rel="canonical" href="https://doredog.com/atlas">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="The Atlas — five centuries of composers on one map">
+<meta property="og:description" content="327 composers as lifespans on a zoomable map, from 1397 to 1953.">
+<meta property="og:url" content="https://doredog.com/atlas">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=128">
+<link rel="stylesheet" href="css/player.css?v=128">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="atlas">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero" style="padding-bottom:0">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Every composer, one map</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">The <span class="text-grad">Atlas</span></h1>
+      <p class="lead" data-reveal data-delay="2">Each bar is a life. Time runs left to right, from the 1390s to the 1950s; the thicker the bar, the more of that composer the library holds. Drag to move, scroll to zoom, click anyone to hear them.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="atlas-bar-top">
+        <div class="atlas-find-wrap">
+          <input class="atlas-find" id="atlas-find" type="search" autocomplete="off" placeholder="Find a composer…" aria-label="Find a composer">
+          <div class="atlas-suggest" id="atlas-suggest"></div>
+        </div>
+        <span class="atlas-summary" id="atlas-summary"></span>
+        <button class="btn btn-ghost" id="atlas-reset">Reset view</button>
+      </div>
+
+      <div class="atlas-legend" id="atlas-legend"></div>
+
+      <div class="atlas-wrap">
+        <span class="atlas-zoomnote" id="atlas-zoomnote"></span>
+        <div class="atlas" id="atlas"></div>
+        <aside class="atlas-panel" id="atlas-panel" hidden></aside>
+      </div>
+
+      <p class="text-mute" style="font-size:.84rem;margin-top:14px">
+        Bars are drawn from sourced birth and death years. A composer with no dates we could
+        source does not appear — 327 of the library's 433 are here, covering 2,281 pieces.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>How to read it</h2>
+      <p>The horizontal axis is time and nothing else: a bar starts at a composer's birth and ends at their death, so the map is a picture of who was alive at the same moment as whom. That turns out to be the most interesting thing about it. Zoom into the 1810s and you find Chopin, Liszt and Schumann born within a year of each other, all still children while Beethoven was writing his late quartets.</p>
+      <p>Rows carry no meaning — bars are packed into the first free row so that none overlap, which is why the map looks dense in the nineteenth century and sparse in the fifteenth. That density <em>is</em> the meaning: it is where the public-domain repertoire lives.</p>
+      <p>It also sets a hard limit. In the 1800s more than a hundred of these composers were alive at the same moment, and rows that never overlap need at least that many lanes — a map of everyone at once would be several thousand pixels tall and unreadable. So the wide view shows the composers the library holds most of, and the rest appear as you zoom in. The label at the bottom left always says how many are currently hidden.</p>
+      <p><strong>Thickness</strong> is how many pieces of that composer we hold, on a log scale, so Bach's 373 reads as a heavy line without flattening everyone else. <strong>Colour</strong> is the period — but only where a sourced biography names one. For the rest the band is simply their century, because a genre is not an era and we would rather say "18th century" than invent a label.</p>
+
+      <h2>What to look for</h2>
+      <p>Use the legend to isolate a period; click it again to bring everyone back. Search jumps the view to a composer and opens their card, which gives you their dates, how many of their pieces are here, and two ways in: the easiest one we hold, and the best known.</p>
+      <p>Some things worth hunting for. The Baroque bars end almost together around 1750, and the Classical ones barely overlap them. The nineteenth century is a wall — that is the century of published song collections, and why the library leans the way it does. And the longest bar on the map belongs to somebody you have probably never played; the map is quite good at making that a question rather than an oversight.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=128"></script>
+<script src="js/atlas-data.js?v=128"></script>
+<script src="js/site.js?v=128"></script>
+<script src="js/atlas.js?v=128"></script>
+</body>
+</html>
