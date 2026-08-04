@@ -311,6 +311,18 @@
     var ladder = document.getElementById('song-ladder');
     if (ladder && lv) ladder.innerHTML = ladderHTML(song, lv);
 
+    // poster — needs the notation, so it loads on demand rather than up front
+    var posterBtn = document.getElementById('exp-poster');
+    if (posterBtn) posterBtn.addEventListener('click', function () {
+      var b = this;
+      if (!DRD.poster) return;
+      b.disabled = true; var was = b.textContent; b.textContent = 'Drawing…';
+      loadNotation(song.id, function (nota) {
+        b.disabled = false; b.textContent = was;
+        if (nota) DRD.poster.open(song, nota);
+      });
+    });
+
     if (DRD.recent) DRD.recent.push(song.id);        // remember for the homepage strip
     var chipRow = diffChip ? diffChip.parentNode : null;
     if (chipRow) {
