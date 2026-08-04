@@ -55,6 +55,7 @@
     ['progress.html', 'Your progress'],
     ['timeline.html', 'Timeline'],
     ['midi-to-letter-notes.html', 'MIDI → letter notes'],
+    ['circle-of-fifths.html', 'Circle of fifths'],
     ['quiz.html', 'Quizzes'],
     ['facts.html', 'Music facts'],
     ['on-this-day.html', 'On this day'],

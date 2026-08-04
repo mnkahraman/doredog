@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive Circle of Fifths — in Letter Notes | DoReDog</title>
+<meta name="description" content="The circle of fifths shown as the letters you actually press, not as sharps on a staff. Click any key to hear it and see its seven notes on the keyboard. Free, no sign-up.">
+<link rel="canonical" href="https://doredog.com/circle-of-fifths">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Interactive Circle of Fifths — in Letter Notes">
+<meta property="og:description" content="Every other circle of fifths shows key signatures. This one shows the keys you press — and reveals that in letter notes there are no flats at all.">
+<meta property="og:url" content="https://doredog.com/circle-of-fifths">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=139">
+<link rel="stylesheet" href="css/player.css?v=139">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="circle">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Free tool</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">The circle of <span class="text-grad">fifths</span></h1>
+      <p class="lead" data-reveal data-delay="2">Click any key to hear it and see its seven notes — written as the letters you press, not as sharps on a staff.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:900px">
+      <div class="cof-wrap" data-reveal>
+        <div id="cof"></div>
+        <div class="cof-panel">
+          <h2 class="cof-key" id="cof-name">C major</h2>
+          <p class="cof-sig" id="cof-sig"></p>
+
+          <div class="cof-letters" id="cof-letters"></div>
+          <p class="cof-hint">The seven notes of the scale, in DoReDog letter notes. Pink means a black key.</p>
+
+          <div class="cof-keys" id="cof-keys"></div>
+
+          <p class="cof-rel" id="cof-rel"></p>
+          <div class="cof-neighbours" id="cof-neighbours"></div>
+
+          <button class="btn btn-primary" id="cof-play-scale" type="button">▶ Play the scale</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>What the circle actually tells you</h2>
+      <p>The circle of fifths is the most reproduced diagram in music, and it is usually explained backwards — as a chart of key signatures you are supposed to memorise. It is more useful than that, and the useful part survives perfectly well without a staff.</p>
+      <p>Here is the whole idea. Take any key and move one step clockwise. <strong>Exactly one note changes.</strong> C major and G major share six of their seven notes; the only difference is that G major has an F♯ where C major has an F. Move another step to D major and you swap one more. Keep going and after twelve steps you are back where you started, having changed one note at a time.</p>
+      <p>That single fact is why the circle is shaped like a circle, why keys next to each other sound related, and why so much music moves between neighbours rather than jumping across.</p>
+
+      <h2>Why letter notes make this easier, not harder</h2>
+      <p>In standard notation each key comes with a signature — a row of sharps or flats at the start of every line that you must remember to apply for the rest of the piece. That is the part beginners find punishing, and it is also the part that has nothing to do with which key your finger presses.</p>
+      <p>Letter notes cut it out. A sharp is simply written as a capital letter where it occurs. Look at the seven letters above for any key on the circle: that is the key. There is nothing to remember and nothing to apply.</p>
+
+      <h2>The thing that surprises people: there are no flats</h2>
+      <p>Click round to D♭ major. Standard notation calls it a five-flat key, and its home note is D♭. Look at what the letters say: <code>C D f F G A c</code>. Not a flat anywhere — the tonic is written <code>C</code>, meaning C♯.</p>
+      <p>That is not a mistake. D♭ and C♯ are the same black key. Letter notes describe the key your finger lands on, so every black key is written the same way — as a capital letter — and the concept of a flat simply never arises. Whether a note is called "D♭" or "C♯" is a question about how music is written down, not about what you play.</p>
+      <p>Every flat key on this circle behaves the same way. E♭ major reads <code>D f g G A c d</code>; B♭ major, A♭ major and the rest are all spelled with capitals.</p>
+      <p>This matters for two reasons. It removes about half of what makes key signatures intimidating — there is only one kind of accidental here instead of two. And it explains why a piece that looks alarming on paper, like Chopin's five-flat <em>Raindrop</em> prelude, can be perfectly approachable in this format.</p>
+
+      <h2>Major and minor are the same seven notes</h2>
+      <p>Each major key on the outer ring has a <strong>relative minor</strong> on the inner ring, and they use an identical set of notes. A minor uses the same seven letters as C major. What differs is where the music treats home as being — which note it starts and ends on, and which chords it leans on.</p>
+      <p>Play the two scales one after the other using the button above. Same keys under your fingers, completely different mood. That is one of the cleanest demonstrations in music that character comes from context rather than from the raw material.</p>
+
+      <h2>Using this while you learn a piece</h2>
+      <p>Find the key of what you are playing and look at its seven letters. Those are the notes that will make up the great majority of the piece. Anything <em>outside</em> that set is the composer deliberately colouring outside the lines — and those are almost always the moments that make the piece interesting.</p>
+      <p>It is also the fastest route into playing by ear. If you can work out which seven notes a tune lives in, you have narrowed twelve possibilities to seven before you guess anything.</p>
+
+      <p style="margin-top:1.6rem">More free tools and guides: <a href="midi-to-letter-notes.html">the MIDI → letter notes converter</a>, <a href="guide.html">how letter notes work</a>, and <a href="piano.html">the online piano</a>.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=139"></script>
+<script src="js/player.js?v=139"></script>
+<script src="js/site.js?v=139"></script>
+<script src="js/circle.js?v=139"></script>
+</body>
+</html>
