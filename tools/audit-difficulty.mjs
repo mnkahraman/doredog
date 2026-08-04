@@ -79,8 +79,11 @@ function measure(song) {
         if (g.length > 1) { spans.push(Math.max(...g) - Math.min(...g)); chords.push(g.length); }
         else if (g.length === 1) chords.push(1);
       }
-      const top = [...byHand.R, ...byHand.N];
-      if (top.length) melody.push(Math.max(...top));
+      // The melody is the top sounding note, whatever hand it was tagged with. Some
+      // transcriptions have their hand tags skewed (one file had 2,279 notes tagged LH
+      // and 117 RH), so trusting the RH tag would badly mismeasure them.
+      const all = [...byHand.R, ...byHand.L, ...byHand.N];
+      if (all.length) melody.push(Math.max(...all));
     }
   }
   for (let i = 1; i < melody.length; i++) leaps.push(Math.abs(melody[i] - melody[i - 1]));
@@ -89,7 +92,7 @@ function measure(song) {
   return {
     id: song.id, title: song.title, composer: song.composer, diff: song.difficulty, dur: Math.round(dur),
     nps: +(total / dur).toFixed(2),
-    melNps: +(melody.length / dur).toFixed(2),
+    onset: +(melody.length / dur).toFixed(2),      // how often the hands have to do something
     span: pct(spans, 0.9),
     maxChord: chords.length ? Math.max(...chords) : 0,
     leap: pct(leaps, 0.9),
@@ -110,7 +113,7 @@ const stat = (set, k) => ({ p50: pct(set.map((r) => r[k]), 0.5), p90: pct(set.ma
 
 console.log('measured ' + rows.length + ' / ' + songs.length + ' pieces');
 console.log('\n            easy(' + easy.length + ')        medium(' + med.length + ')      hard(' + hard.length + ')');
-for (const k of ['nps', 'melNps', 'span', 'maxChord', 'leap', 'range', 'acc']) {
+for (const k of ['nps', 'onset', 'span', 'maxChord', 'leap', 'range', 'acc']) {
   const f = (s) => (s.p50 + ' / ' + s.p90).padEnd(16);
   console.log(k.padEnd(10) + f(stat(easy, k)) + f(stat(med, k)) + f(stat(hard, k)));
 }
