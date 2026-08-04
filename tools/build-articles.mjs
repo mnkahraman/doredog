@@ -43,6 +43,10 @@ const ARTS = [
   ['31-easiest-brahms.md', 'the-easiest-brahms-pieces', 'The Easiest Brahms Pieces, Measured', 'All 95 Brahms pieces ranked easiest first. The Lullaby is both the most famous and the most playable — and an honest word about his hand stretches.'],
   ['32-easiest-mozart.md', 'the-easiest-mozart-pieces', 'The Easiest Mozart Pieces, Measured', 'All 65 Mozart pieces ranked easiest first — plus the attribution problem with his very earliest keyboard music, which not everyone tells you about.'],
   ['33-easiest-satie.md', 'the-easiest-satie-pieces', 'The Easiest Satie Pieces, Measured', 'All 27 Satie pieces ranked easiest first. Gymnopédie No. 1 is the hardest of the three, not the easiest — and five other pieces beat all of them.'],
+  ['34-easiest-baroque.md', 'the-easiest-baroque-pieces', 'The Easiest Baroque Pieces, Measured', 'All 552 Baroque pieces ranked easiest first — and why the most famous “Bach” beginner pieces were written by Petzold, Couperin and Stölzel.'],
+  ['35-easiest-romantic.md', 'the-easiest-romantic-pieces', 'The Easiest Romantic Pieces, Measured', 'Two thirds of the library is Romantic, and 150 of those pieces score under 40. The measured list, easiest first, and why fame and difficulty are unrelated.'],
+  ['36-easiest-handel.md', 'the-easiest-handel-pieces', 'The Easiest Handel Pieces, Measured', 'All 58 Handel pieces ranked easiest first. The Aylesford miniatures — collected by the man who wrote the words of Messiah — are the way in.'],
+  ['37-easiest-burgmuller.md', 'the-easiest-burgmuller-pieces', 'The Easiest Burgmüller Pieces, Measured', 'The only composer in the library with no hard end: all 19 pieces score between 22 and 59. Studies that do not sound like studies.'],
 ];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

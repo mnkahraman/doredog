@@ -102,10 +102,16 @@ const hardest = measured.slice().sort((a, b) => b.ds - a.ds);
 // 6. Easiest-first, per composer. `ds` exists for all 2,433 pieces, so "the
 //    easiest Mozart" is a measurement rather than an opinion.
 const EASIEST_FOR = ['W. A. Mozart', 'Franz Schubert', 'Johannes Brahms', 'G. F. Handel',
-  'Robert Schumann', 'Erik Satie'];
+  'Robert Schumann', 'Erik Satie', 'Friedrich Burgmüller', 'Scott Joplin'];
+
+// 7. Easiest-first inside an era. `genre` records the period, so these are the
+//    era pages: the same measurement, sliced the other way.
+const EASIEST_ERA = ['Baroque', 'Romantic', 'Classical', 'Ragtime'];
 const composerOf = {};
 for (const s of SONGS) composerOf[s.id] = s.composer;
-const slug = (n) => n.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+// fold diacritics first — without this "Burgmüller" slugs to "burgm-ller"
+const slug = (n) => n.normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
 
 const LISTS = {
   'no-black-keys': idsOf(noBlackKeys),
@@ -120,6 +126,13 @@ for (const name of EASIEST_FOR) {
   const list = measured.filter((m) => composerOf[m.id] === name).sort(by('ds'));
   if (!list.length) throw new Error('gen-article-lists: no pieces for composer "' + name + '"');
   LISTS['easiest-' + slug(name)] = idsOf(list);
+}
+const genreOf = {};
+for (const s of SONGS) genreOf[s.id] = s.genre;
+for (const era of EASIEST_ERA) {
+  const list = measured.filter((m) => genreOf[m.id] === era).sort(by('ds'));
+  if (!list.length) throw new Error('gen-article-lists: no pieces for era "' + era + '"');
+  LISTS['easiest-era-' + slug(era)] = idsOf(list);
 }
 
 fs.writeFileSync(ROOT + '/js/article-lists.js',
