@@ -190,72 +190,72 @@
     "year": 1720
   },
   "m-bach-bwv-1006a-1": {
-    "title": "Suite BWV 1006a — I",
+    "title": "Suite in E major, BWV 1006a — I. Prélude",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-2": {
-    "title": "Suite BWV 1006a — II",
+    "title": "Suite in E major, BWV 1006a — II. Loure",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-3": {
-    "title": "Suite BWV 1006a — III",
+    "title": "Suite in E major, BWV 1006a — III. Gavotte en Rondeau",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-4": {
-    "title": "Suite BWV 1006a — IV",
+    "title": "Suite in E major, BWV 1006a — IV. Menuet I",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-5": {
-    "title": "Suite BWV 1006a — V",
+    "title": "Suite in E major, BWV 1006a — V. Menuet II",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-6": {
-    "title": "Suite BWV 1006a — VI",
+    "title": "Suite in E major, BWV 1006a — VI. Bourrée",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-7": {
-    "title": "Suite BWV 1006a — VII",
+    "title": "Suite in E major, BWV 1006a — VII. Gigue",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-1g": {
-    "title": "Suite E-Dur - BWV 1006a — I",
+    "title": "Suite in E major, BWV 1006a — I. Prélude (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-2g": {
-    "title": "Suite E-Dur - BWV 1006a — II",
+    "title": "Suite in E major, BWV 1006a — II. Loure (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-3g": {
-    "title": "Suite E-Dur - BWV 1006a — III",
+    "title": "Suite in E major, BWV 1006a — III. Gavotte en Rondeau (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-4g": {
-    "title": "Suite E-Dur - BWV 1006a — IV",
+    "title": "Suite in E major, BWV 1006a — IV. Menuet I (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-5g": {
-    "title": "Suite E-Dur - Suite BWV 1006a — V",
+    "title": "Suite in E major, BWV 1006a — V. Menuet II (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-6g": {
-    "title": "Suite E-Dur - Suite BWV 1006a — VI",
+    "title": "Suite in E major, BWV 1006a — VI. Bourrée (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
   "m-bach-bwv-1006a-7g": {
-    "title": "Suite E-Dur - Suite BWV 1006a — VII",
+    "title": "Suite in E major, BWV 1006a — VII. Gigue (guitar setting)",
     "year": 1725,
     "yearEst": true
   },
@@ -668,7 +668,8 @@
   },
   "m-bach-bwv653b": {
     "year": 1725,
-    "yearEst": true
+    "yearEst": true,
+    "title": "An Wasserflüssen Babylon, BWV 653b"
   },
   "m-bach-bwv654": {
     "title": "Schmücke dich, o liebe Seele (BWV 654)",
@@ -1025,7 +1026,7 @@
     "yearEst": true
   },
   "m-bach-minuet-xpose": {
-    "title": "Minuet",
+    "title": "Menuet in G major, BWV Anh. 114",
     "year": 1725
   },
   "m-bach-nun-komm-28": {
@@ -1034,7 +1035,7 @@
     "yearEst": true
   },
   "m-bach-o-haupt-voll-blut": {
-    "title": "Chorale",
+    "title": "O Haupt voll Blut und Wunden (St Matthew Passion, BWV 244)",
     "year": 1729
   },
   "m-bach-puer-natus-est": {
@@ -1486,9 +1487,8 @@
     "cpsMul": 2.2
   },
   "m-mozart-fantasia": {
-    "title": "Fantasy in D minor (KV 397)",
-    "year": 1785,
-    "yearEst": true
+    "title": "Adagio and Allegro in F minor, K. 594",
+    "year": 1790
   },
   "m-mozart-k153": {
     "title": "Fugue in E-flat Major KV 153/375f",
@@ -1522,7 +1522,7 @@
     "year": 1789
   },
   "m-mozart-k6deest": {
-    "title": "Sonata in C major — v",
+    "title": "Sonata in C major (fragment), K⁶ deest",
     "year": 1771
   },
   "m-mozart-kv331-1-4-var3": {
@@ -1542,7 +1542,7 @@
     "year": 1778
   },
   "m-mozart-magicflute-15-aria-piano": {
-    "title": "The Magic Flute (Die Zauberflöte) (KV 620)",
+    "title": "In diesen heil’gen Hallen (Die Zauberflöte, K. 620)",
     "year": 1791
   },
   "m-mozart-menuet-k2": {
@@ -1555,17 +1555,16 @@
     "yearEst": true
   },
   "m-mozart-notteegiorno": {
-    "title": "Notte e giorno",
-    "year": 1785,
-    "yearEst": true
+    "title": "Notte e giorno faticar (Don Giovanni, K. 527)",
+    "year": 1787
   },
   "m-mozart-sonata1": {
     "title": "Piano Sonata in C minor (KV. 457) — I",
-    "year": 1878
+    "year": 1784
   },
   "m-mozart-sonata2": {
     "title": "Piano Sonata in C minor (KV. 457) — II",
-    "year": 1878
+    "year": 1784
   },
   "m-mozart-sonata3": {
     "title": "Piano Sonata in C minor (KV. 457) — III",
@@ -1659,7 +1658,7 @@
     "cpsMul": 2
   },
   "m-schubert-schubertf-d881b-fischerweise": {
-    "title": "Zweite Fassung",
+    "title": "Fischerweise, D. 881 (Op. 96 No. 4) — second version",
     "year": 1826,
     "cpsMul": 2.67
   },
@@ -2125,7 +2124,8 @@
     "title": "Erato — Praeludium"
   },
   "m-glazunov-glazunovreveries": {
-    "title": "Reveries"
+    "title": "Rêverie in D-flat major, Op. 24",
+    "year": 1890
   },
   "m-grignynd-grigny-fugue-a-5": {
     "title": "Fugue à 5"
@@ -2281,56 +2281,73 @@
     "title": "Ballade No. 4 in F minor"
   },
   "m-mozart-k517": {
-    "title": "Klavierstück, K. 517"
+    "title": "Die Alte, K. 517",
+    "year": 1787
   },
   "m-mozart-k518": {
-    "title": "Klavierstück, K. 518",
-    "cpsMul": 3
+    "title": "Die Verschweigung, K. 518",
+    "cpsMul": 3,
+    "year": 1787
   },
   "m-mozart-k519": {
-    "title": "Klavierstück, K. 519"
+    "title": "Das Lied der Trennung, K. 519",
+    "year": 1787
   },
   "m-mozart-k520": {
-    "title": "Klavierstück, K. 520"
+    "title": "Als Luise die Briefe ihres ungetreuen Liebhabers verbrannte, K. 520",
+    "year": 1787
   },
   "m-mozart-k523": {
-    "title": "Klavierstück, K. 523"
+    "title": "Abendempfindung an Laura, K. 523",
+    "year": 1787
   },
   "m-mozart-no1": {
-    "title": "Klavierstück No. 1"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 1",
+    "year": 1786
   },
   "m-mozart-no10": {
-    "title": "Klavierstück No. 10"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 10",
+    "year": 1786
   },
   "m-mozart-no11": {
-    "title": "Klavierstück No. 11"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 11",
+    "year": 1786
   },
   "m-mozart-no12": {
-    "title": "Klavierstück No. 12"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 12",
+    "year": 1786
   },
   "m-mozart-no2": {
-    "title": "Klavierstück No. 2"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 2",
+    "year": 1786
   },
   "m-mozart-no3": {
-    "title": "Klavierstück No. 3"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 3",
+    "year": 1786
   },
   "m-mozart-no4": {
-    "title": "Klavierstück No. 4"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 4",
+    "year": 1786
   },
   "m-mozart-no5": {
-    "title": "Klavierstück No. 5"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 5",
+    "year": 1786
   },
   "m-mozart-no6": {
-    "title": "Klavierstück No. 6"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 6",
+    "year": 1786
   },
   "m-mozart-no7": {
-    "title": "Klavierstück No. 7"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 7",
+    "year": 1786
   },
   "m-mozart-no8": {
-    "title": "Klavierstück No. 8"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 8",
+    "year": 1786
   },
   "m-mozart-no9": {
-    "title": "Klavierstück No. 9"
+    "title": "Twelve Duos for Two Horns, K. 487 — No. 9",
+    "year": 1786
   },
   "m-schumann-schumann-op68-32-sheherazade": {
     "title": "Sheherazade (Album for the Young)"
@@ -4107,7 +4124,9 @@
     "yearEst": true
   },
   "m-mozart-dies-irae": {
-    "cpsMul": 0.55
+    "cpsMul": 0.55,
+    "title": "Dies irae (Requiem, K. 626)",
+    "year": 1791
   },
   "schubert-erlkonig": {
     "cpsMul": 1.3
@@ -4117,5 +4136,139 @@
   },
   "gnossienne-no-3": {
     "cpsMul": 1.85
+  },
+  "m-mozart-k375g": {
+    "title": "Fugue in G major (fragment), K. Anh. 41/375g",
+    "year": 1777,
+    "yearEst": true
+  },
+  "m-mozart-k453a": {
+    "title": "Kleiner Trauermarsch in C minor, K. 453a",
+    "year": 1784
+  },
+  "m-mozart-symphony25-2": {
+    "title": "Symphony No. 25 in G minor, K. 183 — II. Andante",
+    "year": 1773
+  },
+  "m-mozart-mozarthornquintet": {
+    "title": "Horn Quintet in E-flat major, K. 407",
+    "year": 1782
+  },
+  "m-mozart-zither": {
+    "title": "Komm, liebe Zither, komm, K. 351",
+    "year": 1781,
+    "yearEst": true
+  },
+  "m-mozart-zufriedenheit": {
+    "title": "Die Zufriedenheit, K. 349 (voice and mandolin)",
+    "year": 1781,
+    "yearEst": true
+  },
+  "m-mozart-zufriedenheit-piano": {
+    "title": "Die Zufriedenheit, K. 349 (voice and piano)",
+    "year": 1781,
+    "yearEst": true
+  },
+  "m-beethovenlv-symphony5-2": {
+    "title": "Symphony No. 5 in C minor, Op. 67 — II. Andante con moto",
+    "year": 1808
+  },
+  "m-beethovenlv-symphony7-2": {
+    "title": "Symphony No. 7 in A major, Op. 92 — II. Allegretto",
+    "year": 1812,
+    "yearEst": true
+  },
+  "m-beethovenlv-violinsonata-no7-1": {
+    "title": "Violin Sonata No. 7 in C minor, Op. 30 No. 2 — I. Allegro con brio",
+    "year": 1802,
+    "yearEst": true
+  },
+  "m-beethovenlv-violinsonata-no7-4": {
+    "title": "Violin Sonata No. 7 in C minor, Op. 30 No. 2 — IV. Finale: Allegro",
+    "year": 1802,
+    "yearEst": true
+  },
+  "m-beethovenlv-cellosonata-no3-1": {
+    "title": "Cello Sonata No. 3 in A major, Op. 69 — I. Allegro ma non tanto",
+    "year": 1807,
+    "yearEst": true
+  },
+  "m-beethovenlv-quartetopus18-no4-1": {
+    "title": "String Quartet No. 4 in C minor, Op. 18 No. 4 — I. Allegro ma non tanto",
+    "year": 1799,
+    "yearEst": true
+  },
+  "m-beethovenlv-quartetopus18-no4-2": {
+    "title": "String Quartet No. 4 in C minor, Op. 18 No. 4 — II. Andante scherzoso quasi allegretto",
+    "year": 1799,
+    "yearEst": true
+  },
+  "m-beethovenlv-quartetopus18-no4-3": {
+    "title": "String Quartet No. 4 in C minor, Op. 18 No. 4 — III. Menuetto: Allegretto",
+    "year": 1799,
+    "yearEst": true
+  },
+  "m-beethovenlv-quartetopus18-no4-4": {
+    "title": "String Quartet No. 4 in C minor, Op. 18 No. 4 — IV. Allegro – Prestissimo",
+    "year": 1799,
+    "yearEst": true
+  },
+  "m-beethovenlv-quartet-opus-59no3-2": {
+    "title": "String Quartet No. 9 in C major, Op. 59 No. 3 — II. Andante con moto quasi allegretto",
+    "year": 1806
+  },
+  "m-beethovenlv-violin-concerto-2": {
+    "title": "Violin Concerto in D major, Op. 61 — II. Larghetto",
+    "year": 1806
+  },
+  "m-beethovenlv-violin-concerto-3": {
+    "title": "Violin Concerto in D major, Op. 61 — III. Rondo: Allegro",
+    "year": 1806
+  },
+  "m-beethovenlv-trio-op11-1": {
+    "title": "Clarinet Trio in B-flat major, Op. 11 — I. Allegro con brio",
+    "year": 1797
+  },
+  "m-beethovenlv-trio-op11-3": {
+    "title": "Clarinet Trio in B-flat major, Op. 11 — III. Tema con variazioni",
+    "year": 1797
+  },
+  "m-beethovenlv-romanze-opus40": {
+    "title": "Romance No. 1 in G major, Op. 40",
+    "year": 1802,
+    "yearEst": true
+  },
+  "m-beethovenlv-romanze-opus50": {
+    "title": "Romance No. 2 in F major, Op. 50",
+    "year": 1798,
+    "yearEst": true
+  },
+  "m-beethovenlv-variations-opus66": {
+    "title": "12 Variations on “Ein Mädchen oder Weibchen”, Op. 66",
+    "year": 1796,
+    "yearEst": true
+  },
+  "m-beethovenlv-fuge-opus137": {
+    "title": "Fugue in D major for String Quintet, Op. 137",
+    "year": 1817
+  },
+  "m-beethovenlv-marsch-woo29": {
+    "title": "March in B-flat major for Wind Sextet, WoO 29"
+  },
+  "m-debussy-l117-prel-4": {
+    "title": "Préludes, Book I — No. 4: Les sons et les parfums tournent dans l’air du soir",
+    "year": 1910
+  },
+  "m-chopin-chp-op-35-4-scholz-fi": {
+    "title": "Piano Sonata No. 2 in B-flat minor, Op. 35 — IV. Finale: Presto",
+    "year": 1839
+  },
+  "m-schubert-erlkoenig-alt": {
+    "title": "Erlkönig, D. 328 (Op. 1)",
+    "year": 1815
+  },
+  "m-schumann-16-berceuse": {
+    "title": "Albumblätter, Op. 124 — No. 16: Schlummerlied",
+    "year": 1841
   }
 }

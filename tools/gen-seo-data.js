@@ -3,7 +3,7 @@
 // year is exposed ONLY for pieces with a source-verified composition year (yv flag) — otherwise ''.
 // Run:  node tools/gen-seo-data.js
 const fs = require('fs');
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = require('path').dirname(__dirname);  // repo root, so this also works from a git worktree
 global.window = {};
 require(ROOT + '/js/data.js');
 const S = window.DRD.SONGS;

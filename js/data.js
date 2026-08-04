@@ -14594,7 +14594,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-bwv-1006a-1",
-    title: "Suite BWV 1006a — I",
+    title: "Suite in E major, BWV 1006a — I. Prélude",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 58,
@@ -14608,12 +14608,12 @@ window.DRD.SONGS = [
     fp: "1HPIIAPK:I:ABB;B;P8?GB=FMIII",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — I. Prélude by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-1g",
-    title: "Suite E-Dur - BWV 1006a — I",
+    title: "Suite in E major, BWV 1006a — I. Prélude (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 55,
@@ -14627,12 +14627,12 @@ window.DRD.SONGS = [
     fp: "=T\\UUM\\WFUFMBBGBG\\DKSNIRYUUU",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — I. Prélude (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-2",
-    title: "Suite BWV 1006a — II",
+    title: "Suite in E major, BWV 1006a — II. Loure",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 30,
@@ -14646,12 +14646,12 @@ window.DRD.SONGS = [
     fp: "DIKBBEHHOOOOOMKKKFKKPPNKKBBB",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — II. Loure by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-2g",
-    title: "Suite E-Dur - BWV 1006a — II",
+    title: "Suite in E major, BWV 1006a — II. Loure (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 44,
@@ -14665,12 +14665,12 @@ window.DRD.SONGS = [
     fp: "PUWNNQTT[[[[[YWWWRWW\\\\ZWWNNN",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — II. Loure (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-3",
-    title: "Suite BWV 1006a — III",
+    title: "Suite in E major, BWV 1006a — III. Gavotte en Rondeau",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 37,
@@ -14684,12 +14684,12 @@ window.DRD.SONGS = [
     fp: "DAHIAMFHDDDDIIMJNNH?HMHFFNNN",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — III. Gavotte en Rondeau by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-3g",
-    title: "Suite E-Dur - BWV 1006a — III",
+    title: "Suite in E major, BWV 1006a — III. Gavotte en Rondeau (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 42,
@@ -14703,12 +14703,12 @@ window.DRD.SONGS = [
     fp: "PMUUMYRTPPPPUUYVZZTKTYTRRZZZ",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — III. Gavotte en Rondeau (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-4",
-    title: "Suite BWV 1006a — IV",
+    title: "Suite in E major, BWV 1006a — IV. Menuet I",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 30,
@@ -14722,12 +14722,12 @@ window.DRD.SONGS = [
     fp: "MKHKKNNHPPINHHBDF=?KDKABDDDD",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — IV. Menuet I by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-4g",
-    title: "Suite E-Dur - BWV 1006a — IV",
+    title: "Suite in E major, BWV 1006a — IV. Menuet I (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 42,
@@ -14741,12 +14741,12 @@ window.DRD.SONGS = [
     fp: "YWTYWY\\T\\\\UZTRNPRIKWPWMNHPPP",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — IV. Menuet I (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-5",
-    title: "Suite BWV 1006a — V",
+    title: "Suite in E major, BWV 1006a — V. Menuet II",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 39,
@@ -14760,12 +14760,12 @@ window.DRD.SONGS = [
     fp: "DAA8IMNAAIHM?HKKFKPFNDIMPBBB",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — V. Menuet II by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-5g",
-    title: "Suite E-Dur - Suite BWV 1006a — V",
+    title: "Suite in E major, BWV 1006a — V. Menuet II (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 44,
@@ -14779,12 +14779,12 @@ window.DRD.SONGS = [
     fp: "PNMDTYZMUUTYKTWWRW\\RZPUY\\NNN",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — V. Menuet II (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-6",
-    title: "Suite BWV 1006a — VI",
+    title: "Suite in E major, BWV 1006a — VI. Bourrée",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 38,
@@ -14798,12 +14798,12 @@ window.DRD.SONGS = [
     fp: "DDFIDIIAFFICMPHADPD;JDNIDBDD",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — VI. Bourrée by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-6g",
-    title: "Suite E-Dur - Suite BWV 1006a — VI",
+    title: "Suite in E major, BWV 1006a — VI. Bourrée (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 40,
@@ -14817,12 +14817,12 @@ window.DRD.SONGS = [
     fp: "PPRUPUUKTTTPY\\TMP\\PGVWYWNPUU",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — VI. Bourrée (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-7",
-    title: "Suite BWV 1006a — VII",
+    title: "Suite in E major, BWV 1006a — VII. Gigue",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 52,
@@ -14836,12 +14836,12 @@ window.DRD.SONGS = [
     fp: "PI?=IBKMHIHIKKH>NK=F?BPIHM33",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — VII. Gigue by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-1006a-7g",
-    title: "Suite E-Dur - Suite BWV 1006a — VII",
+    title: "Suite in E major, BWV 1006a — VII. Gigue (guitar setting)",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 55,
@@ -14855,7 +14855,7 @@ window.DRD.SONGS = [
     fp: "\\UIIUNWYTUUUWPTJ\\WNPKP\\TNYAA",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Suite E-Dur - Suite BWV 1006a by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Suite in E major, BWV 1006a — VII. Gigue (guitar setting) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -16481,7 +16481,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-bwv653b",
-    title: "Chorale Prelude, BWV 653",
+    title: "An Wasserflüssen Babylon, BWV 653b",
     composer: "J. S. Bach",
     difficulty: "medium",
     ds: 51,
@@ -16495,7 +16495,7 @@ window.DRD.SONGS = [
     fp: "__\\PZ]XaSU\\UU_WWdQ]Zaa]XXaaa",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Chorale Prelude, BWV 653 by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full An Wasserflüssen Babylon, BWV 653b by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18050,7 +18050,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-minuet-xpose",
-    title: "Minuet",
+    title: "Menuet in G major, BWV Anh. 114",
     composer: "J. S. Bach",
     difficulty: "easy",
     ds: 12,
@@ -18063,7 +18063,7 @@ window.DRD.SONGS = [
     fp: "SLSLNSNNLXSQL\\ZURUWGLKSGPLLL",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Minuet by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Menuet in G major, BWV Anh. 114 by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18087,7 +18087,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-o-haupt-voll-blut",
-    title: "Chorale",
+    title: "O Haupt voll Blut und Wunden (St Matthew Passion, BWV 244)",
     composer: "J. S. Bach",
     difficulty: "easy",
     ds: 21,
@@ -18100,7 +18100,7 @@ window.DRD.SONGS = [
     fp: "NOLUVLLLNNVSSEBNHONVDSUNEEEE",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Chorale by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full O Haupt voll Blut und Wunden (St Matthew Passion, BWV 244) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18458,12 +18458,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-beethovenlv-cellosonata-no3-1",
-    title: "Cellosonata No3 1",
+    title: "Cello Sonata No. 3 in A major, Op. 69 — I. Allegro ma non tanto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 82,
     genre: "Classical",
-    year: 1805,
+    year: 1807,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -18472,7 +18472,7 @@ window.DRD.SONGS = [
     fp: "66DOTHNNNG=Y?T-Waa]JJUWOU;^^",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Cellosonata No3 1 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Cello Sonata No. 3 in A major, Op. 69 — I. Allegro ma non tanto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18496,13 +18496,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-beethovenlv-fuge-opus137",
-    title: "Fuge Opus137",
+    title: "Fugue in D major for String Quintet, Op. 137",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 76,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1817, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 5.07,
@@ -18510,7 +18509,7 @@ window.DRD.SONGS = [
     fp: "ZGIK?PT\\@R^6]dX?U@FDZeZ\\Z\\aa",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Fuge Opus137 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Fugue in D major for String Quintet, Op. 137 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18826,7 +18825,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-beethovenlv-marsch-woo29",
-    title: "Marsch Woo29",
+    title: "March in B-flat major for Wind Sextet, WoO 29",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 66,
@@ -18840,7 +18839,7 @@ window.DRD.SONGS = [
     fp: "JOTQVVVVLSENVVQ[XSOQQQQVVOOO",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Marsch Woo29 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full March in B-flat major for Wind Sextet, WoO 29 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18900,13 +18899,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-beethovenlv-quartet-opus-59no3-2",
-    title: "Quartet Opus 59 No3 2",
+    title: "String Quartet No. 9 in C major, Op. 59 No. 3 — II. Andante con moto quasi allegretto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 48,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1806, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 13.6,
@@ -18914,17 +18912,17 @@ window.DRD.SONGS = [
     fp: "1BIPGP]QV>MCQNZFB[/IZMX]N[[[",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Quartet Opus 59 No3 2 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full String Quartet No. 9 in C major, Op. 59 No. 3 — II. Andante con moto quasi allegretto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-quartetopus18-no4-1",
-    title: "Quartet Opus18 No4 1",
+    title: "String Quartet No. 4 in C minor, Op. 18 No. 4 — I. Allegro ma non tanto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 76,
     genre: "Classical",
-    year: 1805,
+    year: 1799,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -18933,17 +18931,17 @@ window.DRD.SONGS = [
     fp: "@bXCXSNPbXCXSNWTX]QLH_ZVZHLL",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Quartet Opus18 No4 1 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full String Quartet No. 4 in C minor, Op. 18 No. 4 — I. Allegro ma non tanto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-quartetopus18-no4-2",
-    title: "Quartet Opus18 No4 2",
+    title: "String Quartet No. 4 in C minor, Op. 18 No. 4 — II. Andante scherzoso quasi allegretto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 65,
     genre: "Classical",
-    year: 1805,
+    year: 1799,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -18952,17 +18950,17 @@ window.DRD.SONGS = [
     fp: "LXXSWRNS8VV[JTALUNQVP]Y>X]QQ",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Quartet Opus18 No4 2 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full String Quartet No. 4 in C minor, Op. 18 No. 4 — II. Andante scherzoso quasi allegretto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-quartetopus18-no4-3",
-    title: "Quartet Opus18 No4 3",
+    title: "String Quartet No. 4 in C minor, Op. 18 No. 4 — III. Menuetto: Allegretto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 79,
     genre: "Classical",
-    year: 1805,
+    year: 1799,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -18971,17 +18969,17 @@ window.DRD.SONGS = [
     fp: "@@QQFWWQSLLZZLN@SOYYMTTC@`LL",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Quartet Opus18 No4 3 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full String Quartet No. 4 in C minor, Op. 18 No. 4 — III. Menuetto: Allegretto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-quartetopus18-no4-4",
-    title: "Quartet Opus18 No4 4",
+    title: "String Quartet No. 4 in C minor, Op. 18 No. 4 — IV. Allegro – Prestissimo",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 84,
     genre: "Classical",
-    year: 1805,
+    year: 1799,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -18990,17 +18988,17 @@ window.DRD.SONGS = [
     fp: "TXSSFHYRRSLQDPJXVTSLLGXTTTEE",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Quartet Opus18 No4 4 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full String Quartet No. 4 in C minor, Op. 18 No. 4 — IV. Allegro – Prestissimo by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-romanze-opus40",
-    title: "Romanze Opus40",
+    title: "Romance No. 1 in G major, Op. 40",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 51,
     genre: "Classical",
-    year: 1805,
+    year: 1802,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -19009,17 +19007,17 @@ window.DRD.SONGS = [
     fp: "LSaaWZGXXZRGNP^SSU\\\\XXFSPPXX",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Romanze Opus40 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Romance No. 1 in G major, Op. 40 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-romanze-opus50",
-    title: "Romanze Opus50",
+    title: "Romance No. 2 in F major, Op. 50",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 62,
     genre: "Classical",
-    year: 1805,
+    year: 1798,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -19028,7 +19026,7 @@ window.DRD.SONGS = [
     fp: "VQP]NESSddU_9EaJFHQI]V]Z\\JZZ",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Romanze Opus50 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Romance No. 2 in F major, Op. 50 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -19069,13 +19067,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-beethovenlv-symphony5-2",
-    title: "Symphony5 2",
+    title: "Symphony No. 5 in C minor, Op. 67 — II. Andante con moto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 64,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1808, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 6.2,
@@ -19083,17 +19080,17 @@ window.DRD.SONGS = [
     fp: "<Q@WWW@Q<U0EQBLYXdLH4OM>]]YY",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Symphony5 2 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Symphony No. 5 in C minor, Op. 67 — II. Andante con moto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-symphony7-2",
-    title: "Symphony7 2",
+    title: "Symphony No. 7 in A major, Op. 92 — II. Allegretto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 71,
     genre: "Classical",
-    year: 1805,
+    year: 1812,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -19102,18 +19099,17 @@ window.DRD.SONGS = [
     fp: "ZZ?GBUBUE8^DcaVIB_XFL]\\Raaaa",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Symphony7 2 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Symphony No. 7 in A major, Op. 92 — II. Allegretto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-trio-op11-1",
-    title: "Trio Op11 1",
+    title: "Clarinet Trio in B-flat major, Op. 11 — I. Allegro con brio",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 80,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1797, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 29.2,
@@ -19121,18 +19117,17 @@ window.DRD.SONGS = [
     fp: "VV;NNVZZbbObbAMMRRV@J]bV]HEE",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Trio Op11 1 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Clarinet Trio in B-flat major, Op. 11 — I. Allegro con brio by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-trio-op11-3",
-    title: "Trio Op11 3",
+    title: "Clarinet Trio in B-flat major, Op. 11 — III. Tema con variazioni",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 91,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1797, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 29.2,
@@ -19140,17 +19135,17 @@ window.DRD.SONGS = [
     fp: "OQZBMMVOOOO[]TJ7[[ELZ[PPOVOO",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Trio Op11 3 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Clarinet Trio in B-flat major, Op. 11 — III. Tema con variazioni by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-variations-opus66",
-    title: "Variations Opus66",
+    title: "12 Variations on “Ein Mädchen oder Weibchen”, Op. 66",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 76,
     genre: "Classical",
-    year: 1805,
+    year: 1796,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -19159,18 +19154,17 @@ window.DRD.SONGS = [
     fp: "QQBOL]_>UaT=SQQO\\\\ONJZLBZ\\bb",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Variations Opus66 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full 12 Variations on “Ein Mädchen oder Weibchen”, Op. 66 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-violin-concerto-2",
-    title: "Violin Concerto 2",
+    title: "Violin Concerto in D major, Op. 61 — II. Larghetto",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 44,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1806, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 9.6,
@@ -19178,18 +19172,17 @@ window.DRD.SONGS = [
     fp: "LLLZeaL\\\\RNGQSKS]?LZQNLEZaaa",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Violin Concerto 2 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Violin Concerto in D major, Op. 61 — II. Larghetto by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-violin-concerto-3",
-    title: "Violin Concerto 3",
+    title: "Violin Concerto in D major, Op. 61 — III. Rondo: Allegro",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 87,
     genre: "Classical",
-    year: 1805,
-    circa: true,
+    year: 1806, yv: 1,
     featured: false,
     tags: ["beethoven","classical","piano"],
     cps: 25.6,
@@ -19197,17 +19190,17 @@ window.DRD.SONGS = [
     fp: "G^G_^=^GW]V[XB_G_SNMLLYSdU__",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Violin Concerto 3 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Violin Concerto in D major, Op. 61 — III. Rondo: Allegro by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-violinsonata-no7-1",
-    title: "Violinsonata No7 1",
+    title: "Violin Sonata No. 7 in C minor, Op. 30 No. 2 — I. Allegro con brio",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 94,
     genre: "Classical",
-    year: 1805,
+    year: 1802,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -19216,17 +19209,17 @@ window.DRD.SONGS = [
     fp: "L,LTVG_]TDY]@@@-<]QS\\J=Q[8``",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Violinsonata No7 1 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Violin Sonata No. 7 in C minor, Op. 30 No. 2 — I. Allegro con brio by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-beethovenlv-violinsonata-no7-4",
-    title: "Violinsonata No7 4",
+    title: "Violin Sonata No. 7 in C minor, Op. 30 No. 2 — IV. Finale: Allegro",
     composer: "Ludwig van Beethoven",
     difficulty: "medium",
     ds: 93,
     genre: "Classical",
-    year: 1805,
+    year: 1802,
     circa: true,
     featured: false,
     tags: ["beethoven","classical","piano"],
@@ -19235,7 +19228,7 @@ window.DRD.SONGS = [
     fp: ",,SREOHWWWQLSbbVZP@ZE]]]XEQQ",
     mood: 2,
     cover: {"from":"#5c1420","mid":"#ff5f64","to":"#160809","glyph":"✶"},
-    blurb: "The full Violinsonata No7 4 by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Violin Sonata No. 7 in C minor, Op. 30 No. 2 — IV. Finale: Allegro by Ludwig van Beethoven, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -20316,13 +20309,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-chopin-chp-op-35-4-scholz-fi",
-    title: "Op. 35 No. 4",
+    title: "Piano Sonata No. 2 in B-flat minor, Op. 35 — IV. Finale: Presto",
     composer: "Frédéric Chopin",
     difficulty: "medium",
     ds: 82,
     genre: "Romantic",
-    year: 1835,
-    circa: true,
+    year: 1839, yv: 1,
     featured: false,
     tags: ["chopin","romantic","piano"],
     cps: 11.2,
@@ -20330,7 +20322,7 @@ window.DRD.SONGS = [
     fp: ">HPMKRHLJ5FHLFEMOTOKOC?:EC::",
     mood: 0,
     cover: {"from":"#2a0f3a","mid":"#c77dff","to":"#0d0616","glyph":"♪"},
-    blurb: "The full Op. 35 No. 4 by Frédéric Chopin, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Piano Sonata No. 2 in B-flat minor, Op. 35 — IV. Finale: Presto by Frédéric Chopin, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -20448,13 +20440,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-debussy-l117-prel-4",
-    title: "L117 Prel 4",
+    title: "Préludes, Book I — No. 4: Les sons et les parfums tournent dans l’air du soir",
     composer: "Claude Debussy",
     difficulty: "medium",
     ds: 61,
     genre: "Impressionist",
-    year: 1902,
-    circa: true,
+    year: 1910, yv: 1,
     featured: false,
     tags: ["debussy","impressionist","piano"],
     cps: 16.8,
@@ -20462,7 +20453,7 @@ window.DRD.SONGS = [
     fp: "*[FO[JTeTRFF^<]]YbIPFMMMIIII",
     mood: 3,
     cover: {"from":"#0d3540","mid":"#5fd8e6","to":"#08161a","glyph":"❖"},
-    blurb: "The full L117 Prel 4 by Claude Debussy, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Préludes, Book I — No. 4: Les sons et les parfums tournent dans l’air du soir by Claude Debussy, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -20898,13 +20889,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-glazunov-glazunovreveries",
-    title: "Reveries",
+    title: "Rêverie in D-flat major, Op. 24",
     composer: "Alexander Glazunov",
     difficulty: "medium",
     ds: 66,
     genre: "Romantic",
-    year: 1890,
-    circa: true,
+    year: 1890, yv: 1, yk: "p",
     featured: false,
     tags: ["glazunov","romantic","piano"],
     cps: 13.2,
@@ -20912,7 +20902,7 @@ window.DRD.SONGS = [
     fp: "JJJKK.N4WE0FR?3?EAKK>?5HHM>>",
     mood: 6,
     cover: {"from":"#1a3050","mid":"#5ab4ff","to":"#080f1a","glyph":"❄"},
-    blurb: "The full Reveries by Alexander Glazunov, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Rêverie in D-flat major, Op. 24 by Alexander Glazunov, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22242,13 +22232,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-dies-irae",
-    title: "Dies Irae",
+    title: "Dies irae (Requiem, K. 626)",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 78,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1791, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 13.2,
@@ -22256,18 +22245,17 @@ window.DRD.SONGS = [
     fp: "SNUN>SUZZPUOL@SQARBBXZZSSXRR",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Dies Irae by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Dies irae (Requiem, K. 626) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-fantasia",
-    title: "Fantasy in D minor (KV 397)",
+    title: "Adagio and Allegro in F minor, K. 594",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 64,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1790, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 14.8,
@@ -22275,7 +22263,7 @@ window.DRD.SONGS = [
     fp: "QYYYQQQ[GL[QSW]]EOYXU]YYY[[[",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Fantasy in D minor (KV 397) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Adagio and Allegro in F minor, K. 594 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22316,12 +22304,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-k375g",
-    title: "K375g",
+    title: "Fugue in G major (fragment), K. Anh. 41/375g",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 41,
     genre: "Classical",
-    year: 1785,
+    year: 1777,
     circa: true,
     featured: false,
     tags: ["mozart","classical","piano"],
@@ -22330,18 +22318,17 @@ window.DRD.SONGS = [
     fp: "UQPGSLWBNUXUTKGPSPRIBIUQPGLL",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full K375g by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Fugue in G major (fragment), K. Anh. 41/375g by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-k453a",
-    title: "K453a",
+    title: "Kleiner Trauermarsch in C minor, K. 453a",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 35,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1784, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 4,
@@ -22349,7 +22336,7 @@ window.DRD.SONGS = [
     fp: "QLTSLLVT8YYVSTL@PLVT>QRbJ@QQ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full K453a by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Kleiner Trauermarsch in C minor, K. 453a by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22537,7 +22524,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-k6deest",
-    title: "Sonata in C major — v",
+    title: "Sonata in C major (fragment), K⁶ deest",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 54,
@@ -22550,7 +22537,7 @@ window.DRD.SONGS = [
     fp: "XZJPI\\IPIU@@@QPNXJXUUG\\DLUUU",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Sonata in C major by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Sonata in C major (fragment), K⁶ deest by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22627,12 +22614,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-magicflute-15-aria-piano",
-    title: "The Magic Flute (Die Zauberflöte) (KV 620)",
+    title: "In diesen heil’gen Hallen (Die Zauberflöte, K. 620)",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 58,
     genre: "Classical",
-    year: 1791,
+    year: 1791, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 4,
@@ -22640,7 +22627,7 @@ window.DRD.SONGS = [
     fp: "PPUNMUaaKKWUFTPPNKUMMKKWTNTT",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full The Magic Flute (Die Zauberflöte) (KV 620) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full In diesen heil’gen Hallen (Die Zauberflöte, K. 620) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22682,13 +22669,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-mozarthornquintet",
-    title: "Mozart Horn Quintet",
+    title: "Horn Quintet in E-flat major, K. 407",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 79,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1782, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 24,
@@ -22696,18 +22682,17 @@ window.DRD.SONGS = [
     fp: "HJ;ELO<YYQHMYTTVJTHLVOQLO<XX",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Mozart Horn Quintet by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Horn Quintet in E-flat major, K. 407 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no1",
-    title: "Klavierstück No. 1",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 1",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 12,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 6,
@@ -22715,18 +22700,17 @@ window.DRD.SONGS = [
     fp: "NJLJLQQSUSENOEIEJQJL[QOJJNLL",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 1 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 1 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no10",
-    title: "Klavierstück No. 10",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 10",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 1,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 2.33,
@@ -22734,18 +22718,17 @@ window.DRD.SONGS = [
     fp: "QQELUSPXSZQXWXUZSVVEVUPVZPQQ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 10 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 10 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no11",
-    title: "Klavierstück No. 11",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 11",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 13,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 12,
@@ -22753,18 +22736,17 @@ window.DRD.SONGS = [
     fp: "QSVUXSLVLXSVPQRSVSXQONXQSQJJ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 11 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 11 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no12",
-    title: "Klavierstück No. 12",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 12",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 20,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 13.33,
@@ -22772,18 +22754,17 @@ window.DRD.SONGS = [
     fp: "VJTOVVSSVQSVXXSSSOSSTJSQQQOO",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 12 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 12 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no2",
-    title: "Klavierstück No. 2",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 2",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 2,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 14.67,
@@ -22791,18 +22772,17 @@ window.DRD.SONGS = [
     fp: "XXUL@@SPPSQQSQUSSSNQZQSVVVPP",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 2 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 2 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no3",
-    title: "Klavierstück No. 3",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 3",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 8,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 13,
@@ -22810,18 +22790,17 @@ window.DRD.SONGS = [
     fp: "JJJN>LQNSQPPENQLOULBNSQHVVVV",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 3 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 3 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no4",
-    title: "Klavierstück No. 4",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 4",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 16,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 17,
@@ -22829,18 +22808,17 @@ window.DRD.SONGS = [
     fp: "QSUSQSUUSXSXWXWXXVQSUSQSUUUU",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 4 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 4 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no5",
-    title: "Klavierstück No. 5",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 5",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 1,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 4,
@@ -22848,18 +22826,17 @@ window.DRD.SONGS = [
     fp: "USLUXUSUSLVXSQLXSUQXVUQSUUQQ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 5 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 5 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no6",
-    title: "Klavierstück No. 6",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 6",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 18,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 20,
@@ -22867,18 +22844,17 @@ window.DRD.SONGS = [
     fp: "JILPZZZN9UQLQOOONQLJOPONNLQQ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 6 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 6 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no7",
-    title: "Klavierstück No. 7",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 7",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 5,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 3.6,
@@ -22886,18 +22862,17 @@ window.DRD.SONGS = [
     fp: "JBN8LO>LSJISQ9DE9QZNNJLUQQJJ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 7 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 7 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no8",
-    title: "Klavierstück No. 8",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 8",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 7,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 7.73,
@@ -22905,18 +22880,17 @@ window.DRD.SONGS = [
     fp: "QVQSQQVWNQPVUUUUQQSUQRSXQXSS",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 8 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 8 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-no9",
-    title: "Klavierstück No. 9",
+    title: "Twelve Duos for Two Horns, K. 487 — No. 9",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 3,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1786, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 5.2,
@@ -22924,18 +22898,17 @@ window.DRD.SONGS = [
     fp: "QSPQXUUPSPQSXXNQXQVQQZSEVVUV",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Klavierstück No. 9 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Twelve Duos for Two Horns, K. 487 — No. 9 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-notteegiorno",
-    title: "Notte e giorno",
+    title: "Notte e giorno faticar (Don Giovanni, K. 527)",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 67,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1787, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 31,
@@ -22943,7 +22916,7 @@ window.DRD.SONGS = [
     fp: "JENNJJOOZZZZZZZZZZI=OZ[VNBSS",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Notte e giorno by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Notte e giorno faticar (Don Giovanni, K. 527) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -22953,7 +22926,7 @@ window.DRD.SONGS = [
     difficulty: "medium",
     ds: 61,
     genre: "Classical",
-    year: 1878,
+    year: 1784, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 33.6,
@@ -22971,7 +22944,7 @@ window.DRD.SONGS = [
     difficulty: "medium",
     ds: 53,
     genre: "Classical",
-    year: 1878,
+    year: 1784, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 6.8,
@@ -23002,13 +22975,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-mozart-symphony25-2",
-    title: "Symphony25 2",
+    title: "Symphony No. 25 in G minor, K. 183 — II. Andante",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 62,
     genre: "Classical",
-    year: 1785,
-    circa: true,
+    year: 1773, yv: 1,
     featured: false,
     tags: ["mozart","classical","piano"],
     cps: 11.2,
@@ -23016,17 +22988,17 @@ window.DRD.SONGS = [
     fp: "OLFV?@NVJR>BLCBJGLAOYAQS8Y@@",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Symphony25 2 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Symphony No. 25 in G minor, K. 183 — II. Andante by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-zither",
-    title: "Zither",
+    title: "Komm, liebe Zither, komm, K. 351",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 52,
     genre: "Classical",
-    year: 1785,
+    year: 1781,
     circa: true,
     featured: false,
     tags: ["mozart","classical","piano"],
@@ -23035,17 +23007,17 @@ window.DRD.SONGS = [
     fp: "QUSQQZSSSPSWXXSXLNXLNP]QPUQQ",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Zither by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Komm, liebe Zither, komm, K. 351 by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-zufriedenheit-piano",
-    title: "Zufriedenheit Piano",
+    title: "Die Zufriedenheit, K. 349 (voice and piano)",
     composer: "W. A. Mozart",
     difficulty: "medium",
     ds: 39,
     genre: "Classical",
-    year: 1785,
+    year: 1781,
     circa: true,
     featured: false,
     tags: ["mozart","classical","piano"],
@@ -23054,17 +23026,17 @@ window.DRD.SONGS = [
     fp: "XXSISGSKLLGNIIKPNNPQTUKNELLL",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Zufriedenheit Piano by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Die Zufriedenheit, K. 349 (voice and piano) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-mozart-zufriedenheit",
-    title: "Zufriedenheit",
+    title: "Die Zufriedenheit, K. 349 (voice and mandolin)",
     composer: "W. A. Mozart",
     difficulty: "easy",
     ds: 25,
     genre: "Classical",
-    year: 1785,
+    year: 1781,
     circa: true,
     featured: false,
     tags: ["mozart","classical","piano"],
@@ -23073,7 +23045,7 @@ window.DRD.SONGS = [
     fp: "XXXXXWWWIQSGSNSGNNNULLLWNQXX",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾"},
-    blurb: "The full Zufriedenheit by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Die Zufriedenheit, K. 349 (voice and mandolin) by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -23870,13 +23842,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-schubert-erlkoenig-alt",
-    title: "Erlkoenig Alt",
+    title: "Erlkönig, D. 328 (Op. 1)",
     composer: "Franz Schubert",
     difficulty: "medium",
     ds: 78,
     genre: "Romantic",
-    year: 1822,
-    circa: true,
+    year: 1815, yv: 1,
     featured: false,
     tags: ["schubert","romantic","piano"],
     cps: 30.4,
@@ -23884,7 +23855,7 @@ window.DRD.SONGS = [
     fp: "LLLLQJJJSQIJRTVSSQVVVBRR7444",
     mood: 11,
     cover: {"from":"#4a1230","mid":"#ff7db0","to":"#150610","glyph":"✦"},
-    blurb: "The full Erlkoenig Alt by Franz Schubert, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Erlkönig, D. 328 (Op. 1) by Franz Schubert, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -24106,12 +24077,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-schubert-schubertf-d881b-fischerweise",
-    title: "Zweite Fassung",
+    title: "Fischerweise, D. 881 (Op. 96 No. 4) — second version",
     composer: "Franz Schubert",
     difficulty: "medium",
     ds: 61,
     genre: "Romantic",
-    year: 1826,
+    year: 1826, yv: 1,
     featured: false,
     tags: ["schubert","romantic","piano"],
     cps: 5.34,
@@ -24119,7 +24090,7 @@ window.DRD.SONGS = [
     fp: "NNLDNMNSUBILINGBBPNLBBGSRSBB",
     mood: 11,
     cover: {"from":"#4a1230","mid":"#ff7db0","to":"#150610","glyph":"✦"},
-    blurb: "The full Zweite Fassung by Franz Schubert, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Fischerweise, D. 881 (Op. 96 No. 4) — second version by Franz Schubert, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -24395,13 +24366,12 @@ window.DRD.SONGS = [
 
   {
     id: "m-schumann-16-berceuse",
-    title: "16 Berceuse",
+    title: "Albumblätter, Op. 124 — No. 16: Schlummerlied",
     composer: "Robert Schumann",
     difficulty: "medium",
     ds: 43,
     genre: "Romantic",
-    year: 1840,
-    circa: true,
+    year: 1841, yv: 1,
     featured: false,
     tags: ["schumann","romantic","piano"],
     cps: 10.13,
@@ -24409,7 +24379,7 @@ window.DRD.SONGS = [
     fp: "OAGAGQRS@CMSG;LM>O7ESHLLIHHH",
     mood: 11,
     cover: {"from":"#1b1035","mid":"#b7a3ff","to":"#0a0714","glyph":"✦"},
-    blurb: "The full 16 Berceuse by Robert Schumann, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Albumblätter, Op. 124 — No. 16: Schlummerlied by Robert Schumann, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
