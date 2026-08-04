@@ -40,7 +40,11 @@
     { id: 'ear',        icon: '👂', name: 'Good ear',          want: 'A 10-answer streak in endless quiz mode',
       test: function (d) { return d.quizBest >= 10; } },
     { id: 'collector',  icon: '❤️', name: 'Collector',         want: 'Save 10 pieces to your favourites',
-      test: function (d) { return d.favs >= 10; } }
+      test: function (d) { return d.favs >= 10; } },
+    { id: 'alongside',  icon: '🎼', name: 'Played along',      want: 'Score a piece with "Score me" turned on',
+      test: function (d) { return d.scores.count >= 1; } },
+    { id: 'accurate',   icon: '🎯', name: 'Dead on',           want: 'Land 90% of your notes in one play-along',
+      test: function (d) { return d.scores.best >= 90; } }
   ];
 
   /* --------------------------------------------------------------- data */
@@ -82,6 +86,12 @@
       dailyPlayed: daily.played || 0,
       dailyWins: daily.wins || 0,
       quizBest: +(localStorage.getItem('drd-quiz-best') || 0),
+      scores: (function () {
+        var o = readJSON('drd-scores', {}), ids = Object.keys(o);
+        var best = 0, bestId = null;
+        ids.forEach(function (id) { if (o[id].best > best) { best = o[id].best; bestId = id; } });
+        return { count: ids.length, best: best, id: bestId };
+      })(),
       catalogue: songs.length
     };
   }
@@ -157,7 +167,9 @@
     el('pg-saved').innerHTML =
       '<div class="pg-stat"><b>' + d.favs + '</b><span>Favourites</span></div>' +
       '<div class="pg-stat"><b>' + d.queue + '</b><span>In your playlist</span></div>' +
-      '<div class="pg-stat"><b>' + d.quizBest + '</b><span>Best quiz streak</span></div>';
+      '<div class="pg-stat"><b>' + d.quizBest + '</b><span>Best quiz streak</span></div>' +
+      '<div class="pg-stat"><b>' + (d.scores.best || 0) + '%</b><span>Best play-along</span></div>' +
+      '<div class="pg-stat"><b>' + d.scores.count + '</b><span>Pieces scored</span></div>';
   }
 
   function init() {
@@ -166,7 +178,7 @@
     var reset = el('pg-reset');
     if (reset) reset.addEventListener('click', function () {
       if (!confirm('Clear everything this browser has recorded — plays, streaks, favourites and playlist? This cannot be undone.')) return;
-      ['drd-progress', 'drd-daily', 'drd-quiz-best', 'drd-favs', 'drd-recent', 'drd-queue-v1'].forEach(function (k) {
+      ['drd-progress', 'drd-daily', 'drd-quiz-best', 'drd-favs', 'drd-recent', 'drd-queue-v1', 'drd-scores'].forEach(function (k) {
         try { localStorage.removeItem(k); } catch (e) {}
       });
       render();

@@ -500,6 +500,10 @@
             '<button type="button" class="pr-btn hand-btn" data-hand="R">Right</button>' +
             '<button type="button" class="pr-btn hand-btn" data-hand="L">Left</button>' +
           '</div>' +
+          '<div class="pr-group"><span class="pr-label">Play along</span>' +
+            '<button type="button" class="pr-btn score-btn" aria-pressed="false" title="Play along on the keyboard and see how many notes you land">Score me</button>' +
+            '<span class="score-row" hidden><span class="score-out">0/0  0%</span></span>' +
+          '</div>' +
           '<div class="pr-group"><span class="pr-label">Transpose</span>' +
             '<button type="button" class="pr-btn tr-btn" data-tr="-1" aria-label="Transpose down">–</button>' +
             '<span class="tr-out">0</span>' +
@@ -548,6 +552,7 @@
       viz = Visualizer($('.viz'), $('.stage'));
       piano = buildPiano($('.piano-scroll'), range, (freq, keyEl, oct, midi) => {
         Synth.note(freq); const p = keyPos[midi]; if (viz) viz.hit(p ? p.x : null, p ? p.y : null, oct, 1.2);
+        if (scoring && playing) judge(midi);
       });
       buildLegend($('.oct-legend'), range);
       // cache each key's centre relative to the canvas ONCE (re-synced on resize/scroll),
@@ -816,7 +821,68 @@
       });
     }
 
+    /* ------------------------------ play-along scoring ------------------------------
+       Turn it on and play along on the keyboard: every key you press is matched against
+       the notes the piece expects around that moment. A note counts as hit if the right
+       pitch arrives within 300ms of its onset — generous enough to be encouraging, tight
+       enough that random mashing scores badly, because a note can only be claimed once. */
+    let scoring = false, expected = [], claimed = null, userHits = 0, userPresses = 0;
+    const SCORE_KEY = 'drd-scores';
+
+    function buildExpected() {
+      expected = [];
+      for (let i = 0; i < total; i++) {
+        for (const ev of cols[i].events) {
+          if (!playable(ev)) continue;
+          expected.push({ t: i * colDur, midi: ev.midi + transpose });
+        }
+      }
+      claimed = new Array(expected.length).fill(false);
+    }
+    function judge(midi) {
+      userPresses++;
+      const now = currentElapsed();
+      let best = -1, bestDt = 0.31;
+      for (let i = 0; i < expected.length; i++) {
+        if (claimed[i] || expected[i].midi !== midi) continue;
+        const dt = Math.abs(expected[i].t - now);
+        if (dt < bestDt) { bestDt = dt; best = i; }
+      }
+      if (best >= 0) { claimed[best] = true; userHits++; }
+      paintScore();
+    }
+    function paintScore() {
+      const out = $('.score-out'); if (!out) return;
+      const pct = userPresses ? Math.round(userHits / userPresses * 100) : 0;
+      out.textContent = userHits + '/' + userPresses + '  ' + pct + '%';
+    }
+    function resetScore() { userHits = 0; userPresses = 0; buildExpected(); paintScore(); }
+    function finishScore() {
+      if (!scoring || !userPresses) return;
+      const pct = Math.round(userHits / userPresses * 100);
+      const covered = Math.round(claimed.filter(Boolean).length / Math.max(1, expected.length) * 100);
+      // the sandbox and the five Learn examples mount players with no catalogue id — show the
+      // result, but keep those runs out of the saved scores (and out of /progress)
+      if (song.id) try {
+        const all = JSON.parse(localStorage.getItem(SCORE_KEY) || '{}');
+        const prev = all[song.id] || { best: 0 };
+        if (pct > prev.best) all[song.id] = { best: pct, covered, at: Date.now() };
+        localStorage.setItem(SCORE_KEY, JSON.stringify(all));
+      } catch (e) {}
+      const out = $('.score-out');
+      if (out) out.textContent = userHits + '/' + userPresses + '  ' + pct + '%  ·  ' + covered + '% of the piece';
+    }
+
     /* --------------------- practice tools (hands / transpose / A–B loop) --------------------- */
+    const scoreBtn = $('.score-btn');
+    if (scoreBtn) scoreBtn.addEventListener('click', function () {
+      scoring = !scoring;
+      this.classList.toggle('active', scoring);
+      this.setAttribute('aria-pressed', String(scoring));
+      const row = $('.score-row'); if (row) row.hidden = !scoring;
+      if (scoring) resetScore();
+    });
+
     const curCol = () => Math.max(0, Math.min(total - 1, Math.floor(currentElapsed() / colDur)));
     // hands
     const handBtns = Array.prototype.slice.call(mount.querySelectorAll('.hand-btn'));
@@ -915,6 +981,7 @@
         nextCol = Math.max(0, Math.floor(pausedAt / colDur + 1e-6));
         lastVisCol = -1;
         playing = true; mount.classList.add('played'); playBtn.classList.add('playing'); playBtn.innerHTML = I.pause; playBtn.setAttribute('aria-label', 'Pause');
+        if (scoring && pausedAt === 0) resetScore();
         schedTimer = setInterval(schedule, TICK); schedule();
         raf = requestAnimationFrame(visual);
       };
@@ -939,6 +1006,7 @@
       pausedAt = currentElapsed(); playing = false;
       clearInterval(schedTimer); cancelAnimationFrame(raf); stopLive();
       playBtn.classList.remove('playing'); playBtn.innerHTML = I.play; playBtn.setAttribute('aria-label', 'Play');
+      finishScore();     // most people stop when they've had enough, not at the double bar — bank the run here too
     }
     // Like pause() but WITHOUT stopLive() — used only by the pagehide handler, where the master-bus fade
     // silences the live notes click-free (o.stop() would pop on Safari). Oscillators self-terminate at their
@@ -948,8 +1016,10 @@
       pausedAt = currentElapsed(); playing = false;
       clearInterval(schedTimer); cancelAnimationFrame(raf);
       playBtn.classList.remove('playing'); playBtn.innerHTML = I.play; playBtn.setAttribute('aria-label', 'Play');
+      finishScore();     // navigating away mid-run still counts
     }
     function stop() {
+      finishScore();
       hardStop(); pausedAt = 0; lastVisCol = -1; curBlock = -1;
       progressFill.style.width = '0%'; clearHighlights(); blocksInfo.forEach((b) => b.playhead.classList.remove('on'));
     }
