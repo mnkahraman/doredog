@@ -344,7 +344,7 @@
   var MARCH_RE = /\bmarch\b|marche\b|marsch\b|marches\b/i;
   var WALTZ_RE = /waltz(es)?\b|valses?\b|walzer/i;   // word-bounded: "Waltzing Matilda" is not a waltz
   window.DRD.COLLECTIONS = [
-    { slug: 'first-steps', title: 'First Steps', glyph: '✿', accent: '#35e08c',
+    { slug: 'first-steps', title: 'First Steps', glyph: '✿', accent: '#35e08c', byDifficulty: true,
       sub: 'Gentle, easy pieces to begin with — the least demanding letter notes in the library.',
       match: function (s) { return s.difficulty === 'easy'; } },
     { slug: 'calm-evening', title: 'Calm Evening', glyph: '☾', accent: '#8b6bff',
@@ -406,6 +406,13 @@
   window.DRD.collectionSongs = function (slug, cap) {
     var c = DRD.getCollection(slug); if (!c) return [];
     var list = (DRD.SONGS || []).filter(c.match);
+    // A beginner collection is useless in "featured first" order — someone opening First
+    // Steps wants the gentlest thing in the library at the top, so it sorts by the measured
+    // difficulty score instead.
+    if (c.byDifficulty) {
+      list.sort(function (a, b) { return (a.ds == null ? 50 : a.ds) - (b.ds == null ? 50 : b.ds) || a.title.localeCompare(b.title); });
+      return cap ? list.slice(0, cap) : list;
+    }
     list.sort(function (a, b) {
       var fa = a.featured ? 1 : 0, fb = b.featured ? 1 : 0; if (fa !== fb) return fb - fa;
       var ia = (a.cover && a.cover.image) ? 1 : 0, ib = (b.cover && b.cover.image) ? 1 : 0; if (ia !== ib) return ib - ia;

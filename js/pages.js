@@ -211,6 +211,9 @@
       if (by === 'title') copy.sort(function (a, b) { return a.title.localeCompare(b.title); });
       else if (by === 'year') copy.sort(function (a, b) { return (a.year || big) - (b.year || big) || a.composer.localeCompare(b.composer); });
       else if (by === 'year-desc') copy.sort(function (a, b) { return (b.year || -big) - (a.year || -big) || a.composer.localeCompare(b.composer); });
+      // ds = the measured difficulty score (0-100) — finer than the three labels, so
+      // "easiest first" really does put the gentlest transcription in the library on top
+      else if (by === 'easiest') copy.sort(function (a, b) { return (a.ds == null ? 50 : a.ds) - (b.ds == null ? 50 : b.ds) || a.title.localeCompare(b.title); });
       return copy;
     }
 
