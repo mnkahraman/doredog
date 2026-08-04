@@ -36,6 +36,16 @@
     // are already live. The reveal observer is not — it only sees what existed
     // at load — so show these outright rather than leave them invisible.
     Array.prototype.forEach.call(grid.querySelectorAll('[data-reveal]'), function (n) { n.classList.add('in'); });
+
+    // And critically: reveal every [data-reveal] ANCESTOR of this list. Injecting
+    // a grid of cards makes the surrounding <article> thousands of pixels tall,
+    // and an element taller than the viewport can never reach the observer's
+    // visibility threshold — so the whole page stayed at opacity 0 with all its
+    // text present but invisible. Content must never depend on an animation
+    // firing, so this does not wait for the observer.
+    for (var p = el.parentNode; p && p.nodeType === 1; p = p.parentNode) {
+      if (p.hasAttribute && p.hasAttribute('data-reveal')) p.classList.add('in');
+    }
   }
 
   function init() {

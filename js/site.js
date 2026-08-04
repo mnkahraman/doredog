@@ -219,15 +219,42 @@
     });
   }
 
+  // A [data-reveal] element starts at opacity 0 and fades in when it comes into
+  // view. The catch: an element TALLER than the viewport can never reach 14%
+  // visibility, so it stays invisible forever. That is what happened to the
+  // measured guides — injecting a grid of song cards made <article> 6,000–17,000px
+  // tall, and the entire page rendered blank with all its text present in the DOM.
+  // So: fire at 0 as well, and for anything roughly viewport-height or taller,
+  // reveal as soon as any part of it is on screen.
   function wireReveal() {
     var els = document.querySelectorAll('[data-reveal]');
     if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        var rootH = (en.rootBounds && en.rootBounds.height) || window.innerHeight || 1;
+        var tall = en.boundingClientRect.height > rootH * 0.9;
+        if (tall || en.intersectionRatio >= 0.14) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (e) { io.observe(e); });
+    }, { threshold: [0, 0.14], rootMargin: '0px 0px -8% 0px' });
+    var vh = window.innerHeight || 800;
+    els.forEach(function (e) {
+      // Anything already taller than the viewport cannot animate in meaningfully
+      // and risks never qualifying — show it now rather than gamble on the observer.
+      if (e.getBoundingClientRect().height > vh * 0.9) { e.classList.add('in'); return; }
+      io.observe(e);
+    });
+    // Last resort: anything already on screen but still hidden after 2.5s gets shown.
+    // A fade-in is decoration; invisible content is a broken page, so it must not
+    // depend on the observer behaving. Elements below the fold are left alone so
+    // they still animate as you scroll to them.
+    setTimeout(function () {
+      var h = window.innerHeight || 800;
+      document.querySelectorAll('[data-reveal]:not(.in)').forEach(function (e) {
+        var r = e.getBoundingClientRect();
+        if (r.top < h && r.bottom > 0) { e.classList.add('in'); io.unobserve(e); }
+      });
+    }, 2500);
   }
 
   function injectMascot(el) {

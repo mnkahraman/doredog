@@ -35,8 +35,16 @@
     var els = (scope || document).querySelectorAll('[data-reveal]:not(.in)');
     if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        // same trap as wireReveal in site.js: an element taller than the viewport
+        // never reaches 12% visibility, so it would stay invisible forever
+        var rootH = (en.rootBounds && en.rootBounds.height) || window.innerHeight || 1;
+        if (en.boundingClientRect.height > rootH * 0.9 || en.intersectionRatio >= 0.12) {
+          en.target.classList.add('in'); io.unobserve(en.target);
+        }
+      });
+    }, { threshold: [0, 0.12], rootMargin: '0px 0px -6% 0px' });
     els.forEach(function (e) { io.observe(e); });
   }
 
