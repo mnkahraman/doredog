@@ -814,6 +814,57 @@ body{ animation:pageIn .5s var(--ez) both; }
 .otd-src{font-size:.72rem;color:var(--text-mute,#8a8a99)!important;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
 
 
+/* --- Progress page --- */
+.pg-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:28px}
+.pg-stats-sm{margin-bottom:12px}
+.pg-stat{display:flex;flex-direction:column;gap:3px;align-items:center;text-align:center;padding:18px 12px;
+  border-radius:15px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
+.pg-stat b{font-family:var(--font-body);font-size:1.9rem;font-weight:600;color:var(--gold,#f6b73f);line-height:1}
+.pg-stat span{font-family:var(--font-mono,monospace);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-mute,#8a8a99)}
+.pg-block{border:1px solid var(--border);border-radius:20px;padding:24px 24px 22px;margin-bottom:20px;
+  background:rgba(255,255,255,.02)}
+.pg-h{font-family:var(--font-body);font-weight:600;font-size:1.15rem;margin:0 0 16px;display:flex;align-items:baseline;gap:10px}
+.pg-count{font-family:var(--font-mono,monospace);font-size:.72rem;color:var(--gold,#f6b73f);font-weight:400}
+.pg-note{font-size:.88rem;line-height:1.65;margin:14px 0 0}
+.pg-note a{color:var(--gold,#f6b73f);text-decoration:none}
+.pg-two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+.pg-ladder{display:flex;gap:8px;align-items:flex-end;height:150px}
+.pg-bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px;height:100%;
+  --lvl:#f6b73f}
+.pg-bar-fill{width:100%;border-radius:6px 6px 3px 3px;background:rgba(255,255,255,.07);transition:height .5s var(--ease)}
+.pg-bar.on .pg-bar-fill{background:color-mix(in srgb,var(--lvl) 55%,transparent);box-shadow:0 0 14px color-mix(in srgb,var(--lvl) 30%,transparent)}
+.pg-bar-n{font-family:var(--font-mono,monospace);font-size:.7rem;color:var(--text,#fff);height:1em}
+.pg-bar-l{font-family:var(--font-mono,monospace);font-size:.62rem;color:var(--text-mute,#8a8a99)}
+.pg-bar.on .pg-bar-l{color:var(--lvl)}
+
+.pg-badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:10px}
+.pg-badge{display:flex;flex-direction:column;gap:3px;padding:14px 16px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);opacity:.4}
+.pg-badge.got{opacity:1;border-color:rgba(246,183,63,.35);background:rgba(246,183,63,.08)}
+.pg-badge-icon{font-size:1.4rem;line-height:1;margin-bottom:4px}
+.pg-badge b{font-size:.92rem;font-weight:600}
+.pg-badge i{font-style:normal;font-size:.76rem;color:var(--text-mute,#8a8a99);line-height:1.45}
+.pg-badge.got i{color:var(--gold,#f6b73f)}
+
+.pg-list{display:flex;flex-direction:column;gap:2px}
+.pg-row{display:flex;align-items:center;gap:12px;padding:10px 6px;text-decoration:none;color:var(--text,#fff);
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.pg-row:hover{background:rgba(255,255,255,.03)}
+.pg-row-txt{flex:1;min-width:0;display:flex;flex-direction:column}
+.pg-row-txt b{font-size:.94rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pg-row-txt i{font-style:normal;font-size:.78rem;color:var(--text-mute,#8a8a99)}
+.pg-row-n{font-family:var(--font-mono,monospace);font-size:.82rem;color:var(--gold,#f6b73f)}
+.pg-chips{display:flex;gap:8px;flex-wrap:wrap}
+.pg-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text,#fff);
+  text-decoration:none;font-size:.88rem}
+.pg-chip:hover{border-color:var(--gold,#f6b73f)}
+.pg-chip span{font-family:var(--font-mono,monospace);font-size:.72rem;color:var(--text-mute,#8a8a99)}
+@media (max-width:700px){.pg-two{grid-template-columns:1fr}.pg-block{padding:20px 16px}.pg-ladder{height:120px;gap:5px}}
+
+
 /* --- Melody of the day: homepage teaser --- */
 .daily-teaser{display:flex;align-items:center;gap:18px;padding:20px 24px;margin-bottom:26px;
   border-radius:18px;border:1px solid rgba(246,183,63,.28);text-decoration:none;

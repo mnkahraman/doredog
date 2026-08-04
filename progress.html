@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Progress — Levels, Streaks and Badges | DoReDog</title>
+<meta name="description" content="Everything DoReDog has recorded about your playing — pieces played, levels climbed, daily streak, quiz best and badges. Kept in your own browser, with no account and nothing uploaded.">
+<link rel="canonical" href="https://doredog.com/progress">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Your Progress — levels, streaks and badges">
+<meta property="og:description" content="Pieces played, levels climbed, daily streak and badges — kept in your own browser.">
+<meta property="og:url" content="https://doredog.com/progress">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=126">
+<link rel="stylesheet" href="css/player.css?v=126">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="progress">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero" style="padding-bottom:0">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Kept in your browser, nowhere else</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Your <span class="text-grad">progress</span></h1>
+      <p class="lead" data-reveal data-delay="2">What you have played, how far up the levels you have gone, and how long your streaks are running. There is no account — this is simply what this browser remembers.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:900px">
+
+      <div class="pg-stats" id="pg-stats"></div>
+
+      <div class="pg-block">
+        <h2 class="pg-h">How far up you have climbed</h2>
+        <div class="pg-ladder" id="pg-ladder"></div>
+        <p class="pg-note text-dim" id="pg-ladder-note"></p>
+      </div>
+
+      <div class="pg-block">
+        <h2 class="pg-h">Badges <span class="pg-count" id="pg-badge-count"></span></h2>
+        <div class="pg-badges" id="pg-badges"></div>
+      </div>
+
+      <div class="pg-block">
+        <h2 class="pg-h">What you keep going back to</h2>
+        <div class="pg-list" id="pg-played"></div>
+      </div>
+
+      <div class="pg-block">
+        <h2 class="pg-h">Composers you have heard most</h2>
+        <div class="pg-chips" id="pg-composers"></div>
+      </div>
+
+      <div class="pg-two">
+        <div class="pg-block">
+          <h2 class="pg-h">Melody of the day</h2>
+          <div class="pg-stats pg-stats-sm" id="pg-daily"></div>
+          <p class="pg-note text-dim"><a href="daily.html">Today's melody →</a></p>
+        </div>
+        <div class="pg-block">
+          <h2 class="pg-h">Saved and set aside</h2>
+          <div class="pg-stats pg-stats-sm" id="pg-saved"></div>
+          <p class="pg-note text-dim"><a href="library.html?filter=favorites">Your favourites →</a> · <a href="instruments.html#studio">Your playlist →</a></p>
+        </div>
+      </div>
+
+      <div class="pg-block">
+        <h2 class="pg-h">What is stored, and where</h2>
+        <p class="text-dim" style="line-height:1.75;margin:0 0 1rem">Everything on this page comes out of your browser's own local storage. It never leaves this device: there is no account to create, no cookie that follows you, and no copy of any of it on our side. That also means it does not travel — open DoReDog on your phone and it starts from zero, and clearing your browsing data clears this with it.</p>
+        <p class="text-dim" style="line-height:1.75;margin:0 0 1.2rem">Six keys hold the lot: what you pressed play on, your melody-of-the-day history, your best quiz streak, your favourites, your recent pieces and your playlist.</p>
+        <button class="btn btn-ghost" id="pg-reset">Clear everything</button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=126"></script>
+<script src="js/site.js?v=126"></script>
+<script src="js/progress.js?v=126"></script>
+</body>
+</html>

@@ -50,6 +50,7 @@
   ];
   // Everything else lives under "More" — the bar stops growing, and the tools stop hiding in the footer.
   var MORE = [
+    ['progress.html', 'Your progress'],
     ['timeline.html', 'Timeline'],
     ['midi-to-letter-notes.html', 'MIDI → letter notes'],
     ['quiz.html', 'Quizzes'],
@@ -277,6 +278,30 @@
     has: function (id) { return this.all().indexOf(id) > -1; },
     toggle: function (id) { var a = this.all(), i = a.indexOf(id); if (i > -1) a.splice(i, 1); else a.unshift(id); lsSet('drd-favs', a); return i < 0; }
   };
+  /* A piece counts as played the moment you press play on it — not when you open the
+     page. That distinction is what makes the progress panel mean anything. Everything
+     lives in this browser; there is no account and nothing is sent anywhere. */
+  window.DRD.progress = {
+    KEY: 'drd-progress',
+    read: function () {
+      try { return JSON.parse(window.localStorage.getItem(this.KEY)) || {}; } catch (e) { return {}; }
+    },
+    write: function (o) { try { window.localStorage.setItem(this.KEY, JSON.stringify(o)); } catch (e) {} },
+    played: function (id) {
+      if (!id) return;
+      var o = this.read();
+      o.plays = o.plays || {};
+      o.plays[id] = (o.plays[id] || 0) + 1;
+      o.total = (o.total || 0) + 1;
+      o.first = o.first || Date.now();
+      o.last = Date.now();
+      this.write(o);
+    },
+    ids: function () { return Object.keys(this.read().plays || {}); },
+    count: function (id) { return (this.read().plays || {})[id] || 0; },
+    total: function () { return this.read().total || 0; }
+  };
+
   window.DRD.recent = {
     all: function () { return lsGet('drd-recent'); },
     push: function (id) { var a = this.all().filter(function (x) { return x !== id; }); a.unshift(id); lsSet('drd-recent', a.slice(0, 24)); }

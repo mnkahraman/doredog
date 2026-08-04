@@ -898,11 +898,16 @@
     function currentElapsed() { return playing ? Math.max(0, Synth.ctx.currentTime - startTime) : pausedAt; }
     function toggle() { playing ? pause() : play(); }
 
+    let countedPlay = false;
     function play() {
       Synth.ensure(); Synth.setVolume(parseFloat(vol.value));
       ALL_PLAYERS.forEach((p) => { if (p !== state && p.playing) p.pause(); });
       const begin = function () {
         if (playing) return;
+        // count this as a piece the listener actually played (once per mount)
+        if (!countedPlay && song && song.id && global.DRD && global.DRD.progress) {
+          countedPlay = true; try { global.DRD.progress.played(song.id); } catch (e) {}
+        }
         // Base the transport on the *running* clock, with a small lead so the first notes are always
         // scheduled slightly in the future. Safari drops oscillators started in the past OR while the
         // context is still suspended, so both guards matter.
