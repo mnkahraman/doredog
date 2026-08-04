@@ -268,7 +268,11 @@
     var set = function (sel, val) { var e = document.querySelector(sel); if (e) e.textContent = val; };
     set('#song-title', song.title);
     var scEl = document.querySelector('#song-composer');
-    if (scEl) scEl.innerHTML = '<a href="composer?name=' + encodeURIComponent(song.composer) + '" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)">' + song.composer + '</a>' + (song.yv ? '  ·  ' + song.year : '');
+    if (scEl) scEl.innerHTML = '<a href="composer?name=' + encodeURIComponent(song.composer) + '" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)">' + song.composer + '</a>' + (song.yv ? '  ·  ' + (song.yk === 'p' ? 'published ' : '') + song.year : '');
+    // No sourced year for this piece? Then say what IS known: when its composer lived.
+    // A lifespan is a fact we can cite; a guessed composition year is not.
+    var dateEl = document.querySelector('#song-dating');
+    if (dateEl) dateEl.innerHTML = DRD.datingLine ? DRD.datingLine(song) : '';
     set('#song-blurb', song.blurb || '');
     set('#song-genre', song.genre);
     set('#song-diff', song.difficulty);

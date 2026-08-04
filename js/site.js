@@ -282,6 +282,21 @@
   };
   var HEART = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>';
   window.DRD.fmtDur = function (s) { if (!s) return ''; var m = Math.floor(s / 60), ss = s % 60; return m + ':' + (ss < 10 ? '0' : '') + ss; };
+  /* A dating line that never guesses. Either the piece has a year we could source, or we say
+     plainly that it has not, and give the one date that IS documented: the composer's lifespan. */
+  window.DRD.datingLine = function (song) {
+    if (!song || !song.composer) return '';
+    var d = (window.DRD.COMPOSER_DATES || {})[song.composer];
+    var life = d ? song.composer + ' lived from ' + d.b + ' to ' + d.d + (d.era ? ', in the ' + d.era + ' period' : '') : '';
+    if (song.yv) {
+      return (song.yk === 'p' ? 'First published in ' : 'Composed in ') + song.year +
+        (d ? '. ' + life + '.' : '.');
+    }
+    if (!d) return '';
+    return 'No composition year could be sourced for this piece. What is documented is the composer: ' +
+      life + ', which places it in the ' + d.century + '.';
+  };
+
   window.DRD.favBtn = function (id) { return '<button class="fav-btn' + (DRD.favs.has(id) ? ' on' : '') + '" data-fav="' + id + '" aria-label="Save to favourites" title="Save to favourites">' + HEART + '</button>'; };
 
   window.DRD.songCard = function (song, delay) {

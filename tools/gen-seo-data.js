@@ -11,6 +11,7 @@ const SEO = {}, COMP = {};
 for (const s of S) {
   const year = s.yv ? s.year : '';
   SEO[s.id] = [s.title, s.composer || '', s.genre || '', year, (s.cover && s.cover.image) || '', s.difficulty || ''];
+  if (s.yv && s.yk === 'p') SEO[s.id].push('p');       // the verified year is a publication date, not a composition date
   if (s.composer) COMP[s.composer] = (COMP[s.composer] || 0) + 1;
 }
 const out =

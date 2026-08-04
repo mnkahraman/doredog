@@ -5,6 +5,8 @@
 import { SEO, COMPOSERS } from './seo-data.js';
 import { BIOS } from './composer-bios.js';
 import { NOTES } from './song-notes.js';
+import { DATES } from './composer-dates.js';
+import { MEMBERS } from './collection-members.js';
 
 const ORIGIN = 'https://doredog.com';
 const DEFAULT_OG = ORIGIN + '/assets/covers/_mood-atlas.webp';
@@ -19,8 +21,23 @@ function breadcrumb(lastName) {
   ] });
 }
 
+/* Dating, stated honestly. A piece either has a year we could source, or it does not —
+   in which case we give the date that IS documented, the composer's lifespan, and say so.
+   Guessing a year would be worse than admitting we do not have one. */
+function datingLine(composer, year, published) {
+  const d = composer && DATES[composer];
+  if (year) {
+    return (published ? 'First published in ' : 'Composed in ') + year +
+      (d ? '. ' + composer + ' lived from ' + d.b + ' to ' + d.d + (d.era ? ', in the ' + d.era + ' period' : '') + '.' : '.');
+  }
+  if (!d) return '';
+  return 'No composition year could be sourced for this piece. What is documented is the composer: ' +
+    composer + ' lived from ' + d.b + ' to ' + d.d + (d.era ? ', in the ' + d.era + ' period' : '') +
+    ', which places it in the ' + d.century + '.';
+}
+
 function songMeta(id, m) {
-  const title = m[0], composer = m[1], genre = m[2], year = m[3], img = m[4], diff = m[5];
+  const title = m[0], composer = m[1], genre = m[2], year = m[3], img = m[4], diff = m[5], published = m[6] === 'p';
   const by = composer ? ' by ' + composer : '';
   const pageTitle = title + (composer ? ' — ' + composer : '') + ' · Piano Letter Notes | DoReDog';
   const desc = 'Play ' + title + by + ' in colour-coded piano letter notes — free in your browser. Slow it down, loop any section and learn by ear.';
@@ -33,7 +50,8 @@ function songMeta(id, m) {
   // a factual sentence for the page body so crawlers / AI agents (which mostly don't run JS) read real content
   const blurb = title + (composer ? ' by ' + composer : '') + (genre ? ', a ' + genre + ' piece' : '')
     + (year ? ' from ' + year : '') + ' — written out in colour-coded piano letter notes you can play live in the browser.';
-  return { kind: 'song', title, composer, genre, diff, blurb, pageTitle, desc, canon, ogType: 'music.song', ogImg, ld: ld(j) + breadcrumb(title) };
+  const dating = datingLine(composer, year, published);
+  return { kind: 'song', title, composer, genre, diff, blurb, dating, pageTitle, desc, canon, ogType: 'music.song', ogImg, ld: ld(j) + breadcrumb(title) };
 }
 
 function composerMeta(name, count) {
@@ -66,6 +84,39 @@ const COLLECTIONS = {
   'waltzes': ['Waltzes', 'Valses and Walzer — three beats to a bar, from the ballroom to the salon.'],
   'marches': ['Marches', 'Marches and processionals, from Sousa’s bands to Schumann’s Soldier’s March.']
 };
+
+/* Built once per isolate. The catalogue only ever reaches the browser as JavaScript, so
+   without these indexes a crawler sees an empty grid on every composer and collection page. */
+const BY_COMPOSER = (() => {
+  const m = {};
+  for (const id in SEO) { const s = SEO[id]; if (!s[1]) continue; (m[s[1]] = m[s[1]] || []).push(id); }
+  return m;
+})();
+const DIFF_ORDER = { easy: 0, medium: 1, hard: 2 };
+
+function songLink(id) {
+  const s = SEO[id]; if (!s) return '';
+  return '<li><a href="/song?id=' + encodeURIComponent(id) + '">' + attr(s[0]) + '</a>'
+    + (s[1] ? ' <span class="drd-li-sub">' + attr(s[1]) + '</span>' : '')
+    + (s[5] ? ' <span class="drd-li-sub">· ' + attr(s[5]) + '</span>' : '') + '</li>';
+}
+/* The card grid above is drawn by JavaScript, so repeating the same pieces as plain links
+   would double them up for a reader. They go in a <details> instead: one click for a person,
+   always present in the HTML for anything that does not run scripts. */
+function songList(ids, cap, summary) {
+  const shown = ids.slice(0, cap).map(songLink).join('');
+  const rest = ids.length - Math.min(ids.length, cap);
+  const list = '<ul class="drd-list">' + shown + '</ul>'
+    + (rest > 0 ? '<p class="drd-list-more">…and ' + rest + ' more in the grid above.</p>' : '');
+  return summary
+    ? '<details class="drd-index-det"><summary>' + attr(summary) + '</summary>' + list + '</details>'
+    : list;
+}
+function genreTally(ids) {
+  const t = {};
+  for (const id of ids) { const g = SEO[id] && SEO[id][2]; if (g) t[g] = (t[g] || 0) + 1; }
+  return Object.entries(t).sort((a, b) => b[1] - a[1]);
+}
 
 function collectionMeta(slug, c) {
   const title = c[0], sub = c[1];
@@ -148,7 +199,8 @@ export default {
               .on('#song-composer', { element(e) { if (meta.composer) e.setInnerContent(meta.composer); } })
               .on('#song-genre', { element(e) { if (meta.genre) e.setInnerContent(meta.genre); } })
               .on('#song-diff', { element(e) { if (meta.diff) e.setInnerContent(meta.diff); } })
-              .on('#song-blurb', { element(e) { e.setInnerContent(meta.blurb); } });
+              .on('#song-blurb', { element(e) { e.setInnerContent(meta.blurb); } })
+              .on('#song-dating', { element(e) { if (meta.dating) e.setInnerContent(meta.dating); } });
             // Inject the actual letter-notes TEXT (collapsed for users, full text in raw HTML for AI agents /
             // non-JS crawlers) so the page can be cited as the source for "letter notes for <piece>".
             const notes = await notationText(env, url, url.searchParams.get('id'), meta.title);
@@ -163,12 +215,42 @@ export default {
             // fill the collection-page placeholders so crawlers read real content
             rw.on('#collection-name', { element(e) { e.setInnerContent(meta.title); } })
               .on('#collection-sub', { element(e) { e.setInnerContent(meta.sub); } });
+            // …and the pieces themselves, which otherwise only ever exist in JavaScript
+            const ids = MEMBERS[url.searchParams.get('c')] || [];
+            if (ids.length) {
+              const tally = genreTally(ids).slice(0, 5).map((g) => g[1] + ' ' + g[0]).join(', ');
+              const body = '<div class="drd-index"><p>' + ids.length + ' pieces in this collection'
+                + (tally ? ' — ' + attr(tally) : '') + '. Every one is free to play in the browser in colour-coded letter notes.</p>'
+                + songList(ids, 60, 'Text index of all ' + ids.length + ' pieces') + '</div>';
+              rw.on('#collection-works', { element(e) { e.after(body, { html: true }); } });
+            }
           } else if (meta.kind === 'composer') {
-            // Inject the verified, source-cited composer biography.
-            const bio = BIOS[url.searchParams.get('name')];
+            const name = url.searchParams.get('name');
+            const bio = BIOS[name];
             if (bio) rw.on('#composer-bio', { element(e) {
-              e.setInnerContent('<h2 class="drd-about-h">About ' + attr(url.searchParams.get('name')) + '</h2>' + bio, { html: true });
+              e.setInnerContent('<h2 class="drd-about-h">About ' + attr(name) + '</h2>' + bio, { html: true });
             } }).on('#composer-bio-sec', { element(e) { e.removeAttribute('style'); } });
+            // the catalogue side of the page: lifespan, where to start, what the library holds
+            const ids = (BY_COMPOSER[name] || []).slice();
+            if (ids.length) {
+              const d = DATES[name];
+              ids.sort((a, b) => (DIFF_ORDER[SEO[a][5]] ?? 3) - (DIFF_ORDER[SEO[b][5]] ?? 3));
+              const easy = ids.filter((id) => SEO[id][5] === 'easy');
+              const tally = genreTally(ids);
+              const life = d ? attr(name) + ' lived from ' + d.b + ' to ' + d.d
+                + (d.era ? ', in the ' + attr(d.era) + ' period' : '') + ', which places this music in the ' + d.century + '. ' : '';
+              const body = '<div class="drd-index">'
+                + '<p>' + life + 'DoReDog holds ' + ids.length + (ids.length === 1 ? ' piece' : ' pieces')
+                + ' by ' + attr(name) + ' in letter notes'
+                + (tally.length ? ' — ' + attr(tally.slice(0, 4).map((g) => g[1] + ' ' + g[0]).join(', ')) : '') + '.</p>'
+                + (easy.length ? '<h3 class="drd-index-h">Where to start</h3><p>' + easy.length
+                    + (easy.length === 1 ? ' piece is' : ' pieces are') + ' rated easy for a beginner:</p>'
+                    + songList(easy, 10, 'The easy ' + easy.length) : '')
+                + '<h3 class="drd-index-h">Every ' + attr(name) + ' piece in the library</h3>'
+                + songList(ids, 60, 'Text index of all ' + ids.length + ' pieces')
+                + '</div>';
+              rw.on('#composer-grid', { element(e) { e.after(body, { html: true }); } });
+            }
           }
           return rw.transform(res);
         }
