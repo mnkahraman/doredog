@@ -161,7 +161,7 @@ function otdMeta(key, explicit) {
   const canon = ORIGIN + '/on-this-day' + (explicit ? '?d=' + key : '');
   const j = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Music history on ' + human,
     url: canon, description: desc };
-  return { kind: 'otd', key, human, count: evs.length, pageTitle, desc, canon,
+  return { kind: 'otd', key, human, explicit, count: evs.length, pageTitle, desc, canon,
     ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb('On This Day — ' + human) };
 }
 
@@ -300,7 +300,15 @@ export default {
               rw.on('#composer-grid', { element(e) { e.after(body, { html: true }); } });
             }
           }
-          return rw.transform(res);
+          const out = rw.transform(res);
+          // "/on-this-day" with no date renders *today* — it must not sit in the edge cache
+          // long enough to serve yesterday's events to a crawler. Dated URLs are stable.
+          if (meta.kind === 'otd' && !meta.explicit) {
+            const h = new Headers(out.headers);
+            h.set('cache-control', 'public, max-age=300, s-maxage=300');
+            return new Response(out.body, { status: out.status, headers: h });
+          }
+          return out;
         }
         return res;
       }
