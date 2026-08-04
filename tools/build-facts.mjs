@@ -12,8 +12,9 @@
    Run:  node tools/build-facts.mjs
    ========================================================================== */
 import fs from 'fs';
+import { siteVersion } from './site-version.mjs';
 const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
-const V = 110;
+const V = siteVersion();
 const W = (a) => 'https://en.wikipedia.org/wiki/' + a;
 
 const FACTS = [

@@ -1,9 +1,10 @@
 // Build styled article HTML pages + a "/articles" hub from the reviewed markdown drafts.
 // Output: <slug>.html at repo root (Cloudflare serves clean /<slug>), plus articles.html hub.
 import fs from 'fs';
+import { siteVersion } from './site-version.mjs';
 const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
 const DRAFTS = ROOT + '/marketing/content-drafts';
-const V = 110;
+const V = siteVersion();
 
 // file -> {slug, title, desc}
 const ARTS = [
@@ -31,6 +32,12 @@ const ARTS = [
   ['22-easiest-beethoven-pieces.md', 'easiest-beethoven-pieces', 'The Easiest Beethoven Pieces for Beginners', 'Beethoven you can genuinely play — starting with Ode to Joy, through his easiest sonata movements, up to Für Elise and the Moonlight Sonata.'],
   ['23-schumann-for-beginners.md', 'schumann-for-beginners', 'Schumann for Beginners: Music Written for Young Players', 'Schumann wrote a whole album for children learning piano. The easiest Schumann pieces, in a sensible order, from The Happy Farmer to Träumerei.'],
   ['24-bach-for-beginners.md', 'bach-for-beginners', 'Bach for Beginners: The Easiest Bach Pieces to Learn', 'Bach wrote short keyboard pieces for students — and they’re still the best beginner material there is. The easiest Bach, in a sensible order.'],
+  // Measured guides — the piece lists come from parsing all 2,433 transcriptions
+  // (tools/gen-article-lists.mjs), not from hand-picking.
+  ['25-no-black-keys.md', 'piano-pieces-with-no-black-keys', 'Piano Pieces With No Black Keys (All 21 of Them)', 'We parsed every piece in the library: 21 never touch a black key, from a 13th-century Cantiga to Satie. Playable in letter notes, easiest first.'],
+  ['26-one-sitting.md', 'piano-pieces-you-can-learn-in-one-sitting', 'Piano Pieces You Can Learn in One Sitting', '121 pieces that are both genuinely easy and under a minute long — measured, not guessed. Finish a whole piece today instead of half of a famous one.'],
+  ['27-small-keyboard.md', 'piano-pieces-for-a-small-keyboard', 'Piano Pieces for a Small Keyboard (25, 37 and 49 Keys)', 'Exactly which pieces fit your keyboard, measured by pitch span: 34 pieces on 25 keys, 302 on 37, and 1,068 — 44% of the library — on 49.'],
+  ['28-slowest-pieces.md', 'the-slowest-piano-pieces', 'The Slowest Piano Pieces in the Library', 'Slow is not the same as easy. The 35 pieces that run under two notes a second — Satie’s Gymnopédies, hymn tunes, method-book openings — and why.'],
 ];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -68,6 +75,13 @@ function mdToHtml(md) {
       out.push(t + '</tbody></table></div>');
       continue;
     }
+    // playable piece list — {{list:key}} or {{list:key,48}} for a bigger first page.
+    // js/lists.js fills it from the frozen scan in js/article-lists.js.
+    const list = l.trim().match(/^\{\{list:([a-z0-9-]+)(?:,(\d+))?\}\}$/);
+    if (list) {
+      out.push('<div class="drd-list" data-list="' + list[1] + '" data-show="' + (list[2] || 24) + '"></div>');
+      i++; continue;
+    }
     // heading
     let h = l.match(/^(#{2,4})\s+(.*)/);
     if (h) { const lvl = h[1].length; out.push('<h' + lvl + '>' + inline(h[2]) + '</h' + lvl + '>'); i++; continue; }
@@ -87,7 +101,7 @@ function mdToHtml(md) {
       out.push('<blockquote>' + inline(buf.join(' ')) + '</blockquote>'); continue;
     }
     // paragraph
-    const buf = []; while (i < lines.length && lines[i].trim() !== '' && !/^(#{2,4}\s|[-*]\s|\d+\.\s|\||>|```)/.test(lines[i].trim())) { buf.push(lines[i].trim()); i++; }
+    const buf = []; while (i < lines.length && lines[i].trim() !== '' && !/^(#{2,4}\s|[-*]\s|\d+\.\s|\||>|```|\{\{list:)/.test(lines[i].trim())) { buf.push(lines[i].trim()); i++; }
     out.push('<p>' + inline(buf.join(' ')) + '</p>');
   }
   return out.join('\n      ');
@@ -147,7 +161,9 @@ ${ADSENSE}
 </main>
 <footer id="site-footer"></footer>
 <script src="js/data.js?v=${V}"></script>
-<script src="js/site.js?v=${V}"></script>
+<script src="js/site.js?v=${V}"></script>${bodyHtml.includes('class="drd-list"') ? `
+<script src="js/article-lists.js?v=${V}"></script>
+<script src="js/lists.js?v=${V}"></script>` : ''}
 </body>
 </html>
 `;
