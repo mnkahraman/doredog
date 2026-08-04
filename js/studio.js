@@ -13,7 +13,10 @@
   var NOTA_V = 89;
   var QKEY = 'drd-queue-v1';
   var MAXQ = 300;
-  var LOOK = 0.35, TICK = 40;
+  // Foreground look-ahead is short so a seek feels instant. When the tab is hidden or the window
+  // loses focus the browser throttles setInterval to ~1s — a 0.35s buffer runs dry between ticks and
+  // the piece audibly breaks up, so the window widens to cover a whole throttled tick.
+  var LOOK_FG = 0.35, LOOK_BG = 2.5, LOOK = LOOK_FG, TICK = 40;
 
   function el(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
@@ -59,7 +62,10 @@
   }
 
   /* ------------------------------------------------------------ playback */
-  function stopLive() { live.forEach(function (n) { (n || []).forEach(function (o) { try { o.stop(); } catch (e) {} }); }); live = []; }
+  function stopLive() {
+    live.forEach(function (n) { (n.nodes || []).forEach(function (o) { try { o.stop(); } catch (e) {} }); });
+    live = [];
+  }
 
   function halt() {
     playing = false;
@@ -130,18 +136,31 @@
   function schedule() {
     if (!playing || !cols) return;
     var now = ctx().currentTime, horizon = now + LOOK;
+    live = live.filter(function (n) { return n.end > now; });        // let finished notes go
     while (nextCol < total && startTime + nextCol * colDur < horizon) {
       var when = Math.max(startTime + nextCol * colDur, now);
       var evs = cols[nextCol].events, topMidi = -1, i;
       for (i = 0; i < evs.length; i++) if (evs[i].midi > topMidi) topMidi = evs[i].midi;
       for (i = 0; i < evs.length; i++) {
-        live.push(DRD.Synth.note(DRD.midiToFreq(evs[i].midi), when, evs[i].midi === topMidi ? 1 : 0.6));
+        live.push({ nodes: DRD.Synth.note(DRD.midiToFreq(evs[i].midi), when, evs[i].midi === topMidi ? 1 : 0.6),
+                    end: when + 3 });
       }
-      if (live.length > 400) live = live.slice(-200);
       nextCol++;
     }
     if (nextCol >= total && ctx().currentTime > startTime + total * colDur + 0.25) ended();
   }
+
+  // Widen the buffer the moment the tab goes to the background, and top it up right at the
+  // transition so there is no gap; narrow it again on return.
+  var winBlur = false;
+  function applyLookahead() {
+    var bg = (global.document && global.document.hidden) || winBlur;
+    LOOK = bg ? LOOK_BG : LOOK_FG;
+    if (playing) schedule();
+  }
+  if (global.document) global.document.addEventListener('visibilitychange', applyLookahead);
+  global.addEventListener('blur', function () { winBlur = true; applyLookahead(); });
+  global.addEventListener('focus', function () { winBlur = false; applyLookahead(); });
 
   function ended() {
     halt(); pausedAt = 0;

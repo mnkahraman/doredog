@@ -856,6 +856,9 @@ body{ animation:pageIn .5s var(--ez) both; }
   padding:4px 10px;border-radius:11px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08)}
 .inst-readout.hit{animation:instPop .28s var(--ease)}
 @keyframes instPop{0%{transform:scale(1.16);color:#fff}100%{transform:scale(1)}}
+/* .btn sets display:inline-flex, which beats the UA rule for [hidden] — so a hidden
+   button would still show (and open an empty panel). Make hidden mean hidden. */
+[hidden]{display:none!important}
 .inst-panel-more{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
 .inst-panel-more p{color:var(--text-dim);line-height:1.7;margin:0 0 .6rem;font-size:.93rem}
 .inst-panel-more strong{color:var(--text);font-weight:600}
