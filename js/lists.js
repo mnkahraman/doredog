@@ -5,7 +5,7 @@
    49-key keyboard") are only worth reading if you can hear the pieces without
    leaving the page. A draft drops in a placeholder:
 
-     <div class="drd-list" data-list="no-black-keys" data-show="24"></div>
+     <div class="drd-pieces" data-list="no-black-keys" data-show="24"></div>
 
    and this fills it from the frozen list in js/article-lists.js, using the same
    card the library uses. Long lists open with a "Show all" button rather than
@@ -25,7 +25,7 @@
     var grid = el.querySelector('.song-grid');
     var slice = songs.slice(0, show);
     grid.innerHTML = slice.map(function (s, i) { return DRD.songCard(s, (i % 4) + 1); }).join('');
-    var more = el.querySelector('.drd-list-more');
+    var more = el.querySelector('.drd-pieces-more');
     if (songs.length > show) {
       more.hidden = false;
       more.textContent = 'Show all ' + songs.length.toLocaleString('en-GB') + ' pieces';
@@ -49,7 +49,7 @@
   }
 
   function init() {
-    var holders = document.querySelectorAll('.drd-list[data-list]');
+    var holders = document.querySelectorAll('.drd-pieces[data-list]');
     if (!holders.length) return;
     var LISTS = DRD.ARTICLE_LISTS || {};
     var map = byId(DRD.SONGS || []);
@@ -62,10 +62,10 @@
 
       var show = +(el.getAttribute('data-show') || 24);
       el.innerHTML = '<div class="song-grid"></div>' +
-        '<button type="button" class="btn btn-ghost drd-list-more" hidden style="margin:20px auto 0;display:block"></button>';
+        '<button type="button" class="btn btn-ghost drd-pieces-more" hidden style="margin:20px auto 0;display:block"></button>';
       render(el, songs, show);
 
-      el.querySelector('.drd-list-more').addEventListener('click', function () {
+      el.querySelector('.drd-pieces-more').addEventListener('click', function () {
         render(el, songs, songs.length);
         this.hidden = true;
       });

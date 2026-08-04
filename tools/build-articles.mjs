@@ -88,7 +88,7 @@ function mdToHtml(md) {
     // js/lists.js fills it from the frozen scan in js/article-lists.js.
     const list = l.trim().match(/^\{\{list:([a-z0-9-]+)(?:,(\d+))?\}\}$/);
     if (list) {
-      out.push('<div class="drd-list" data-list="' + list[1] + '" data-show="' + (list[2] || 24) + '"></div>');
+      out.push('<div class="drd-pieces" data-list="' + list[1] + '" data-show="' + (list[2] || 24) + '"></div>');
       i++; continue;
     }
     // heading
@@ -170,7 +170,7 @@ ${ADSENSE}
 </main>
 <footer id="site-footer"></footer>
 <script src="js/data.js?v=${V}"></script>
-<script src="js/site.js?v=${V}"></script>${bodyHtml.includes('class="drd-list"') ? `
+<script src="js/site.js?v=${V}"></script>${bodyHtml.includes('class="drd-pieces"') ? `
 <script src="js/article-lists.js?v=${V}"></script>
 <script src="js/lists.js?v=${V}"></script>` : ''}
 </body>

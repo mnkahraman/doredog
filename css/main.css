@@ -631,6 +631,11 @@ select.lib-composer option{ background:#0f0f1c; color:var(--text); }
    ========================================================================== */
 .mascot-img{ display:block; width:100%; height:auto; }
 .scene-mascot{ width:clamp(140px, 16vw, 210px); top:-10%; right:-4%; }
+/* This block lands AFTER the `@media (max-width:560px)` rule further up, so it was
+   silently overriding it — on a phone Doré rendered at the 140px clamp floor with
+   right:-4%, oversized against the hero and hanging off the right edge. Repeat the
+   mobile sizing here so the later rule cannot win, and keep him inside the box. */
+@media (max-width:560px){ .scene-mascot{ width:88px; top:-4%; right:0; } }
 
 /* cinematic hero photograph, faded in from the left so the copy stays crisp */
 .hero::before{ content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
@@ -1093,12 +1098,19 @@ body{ animation:pageIn .5s var(--ez) both; }
 .drd-index-det{border-top:1px solid rgba(255,255,255,.08);padding-top:12px;margin-top:8px}
 .drd-index-det summary{cursor:pointer;font-size:.9rem;color:var(--text-mute,#8a8a99)}
 .drd-index-det summary:hover{color:var(--text,#fff)}
+/* .drd-list is the Worker's two-column link list on composer pages. It is NOT the
+   playable card grid inside the measured guides — that is .drd-pieces below.
+   They used to share a class name, and `columns:2` fragmented the card grid into
+   a 369px column that collided with the surrounding text. */
 .drd-list{list-style:none;margin:12px 0 0;padding:0;columns:2;column-gap:34px}
 .drd-list li{break-inside:avoid;padding:5px 0;font-size:.9rem;line-height:1.5}
 .drd-list a{color:var(--text,#fff);text-decoration:none;border-bottom:1px solid rgba(246,183,63,.3)}
 .drd-list a:hover{color:var(--gold,#f6b73f)}
 .drd-li-sub{color:var(--text-mute,#8a8a99);font-size:.8rem}
 .drd-list-more{color:var(--text-mute,#8a8a99);font-size:.85rem;margin:10px 0 0!important}
+/* the playable card grid dropped into a measured guide by js/lists.js */
+.drd-pieces{margin:1.6rem 0 2rem}
+.drd-pieces .song-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
 @media (max-width:700px){.drd-list{columns:1}}
 
 
