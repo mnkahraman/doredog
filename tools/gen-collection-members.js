@@ -22,15 +22,23 @@ global.navigator = { userAgent: 'node' };
 
 require(ROOT + '/js/data.js');
 require(ROOT + '/js/site.js');
+// site.js is browser code: inside it `DRD` resolves through window. Node has no such
+// binding, so publish it as a real global before calling anything site.js defined.
+global.DRD = window.DRD;
 
 const SONGS = window.DRD.SONGS;
 const COLLECTIONS = window.DRD.COLLECTIONS;
 if (!COLLECTIONS) throw new Error('DRD.COLLECTIONS not defined — did js/site.js change?');
 
+// Use the site's own collectionSongs(), not a re-implementation: it applies the match
+// rules AND the ordering (First Steps sorts gentlest-first), so the server-rendered list
+// reads in the same order as the grid a visitor sees.
 const out = {};
 for (const c of COLLECTIONS) {
-  const ids = SONGS.filter((s) => { try { return c.match(s); } catch (e) { return false; } }).map((s) => s.id);
-  out[c.slug] = ids;
+  let list;
+  try { list = window.DRD.collectionSongs(c.slug); }
+  catch (e) { list = SONGS.filter((s) => { try { return c.match(s); } catch (_) { return false; } }); }
+  out[c.slug] = list.map((s) => s.id);
 }
 
 fs.writeFileSync(ROOT + '/worker/collection-members.js',
