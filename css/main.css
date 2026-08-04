@@ -814,6 +814,24 @@ body{ animation:pageIn .5s var(--ez) both; }
 .otd-src{font-size:.72rem;color:var(--text-mute,#8a8a99)!important;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
 
 
+/* --- Long-form page copy (library / timeline / quiz explainers) --- */
+.page-copy{max-width:760px}
+.page-copy h2{font-family:var(--font-body);font-weight:600;font-size:1.45rem;margin:2.2rem 0 .7rem;line-height:1.3}
+.page-copy h2:first-child{margin-top:0}
+.page-copy h3{font-family:var(--font-body);font-weight:600;font-size:1.1rem;margin:1.7rem 0 .5rem;
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.page-copy-n{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold,#f6b73f);font-weight:400}
+.page-copy p{color:var(--text-dim,#b9b9c6);line-height:1.78;margin:0 0 1rem;font-size:1rem}
+.page-copy strong{color:var(--text,#fff);font-weight:600}
+.page-copy a{color:var(--gold,#f6b73f);text-decoration:none;border-bottom:1px solid rgba(246,183,63,.3)}
+.page-copy a:hover{border-bottom-color:var(--gold,#f6b73f)}
+.page-copy ul{margin:0 0 1.2rem;padding-left:1.2rem}
+.page-copy li{color:var(--text-dim,#b9b9c6);line-height:1.75;margin-bottom:.55rem}
+.page-copy code{font-family:var(--font-mono,monospace);font-size:.9em;color:var(--gold,#f6b73f);
+  background:rgba(255,255,255,.05);padding:2px 6px;border-radius:6px}
+
+
 /* --- Dating line + the server-rendered text indexes --- */
 .song-dating{margin:.7rem 0 0;font-size:.86rem;line-height:1.6;color:var(--text-mute,#8a8a99);max-width:64ch}
 .drd-index{margin:26px 0 4px;max-width:820px}
