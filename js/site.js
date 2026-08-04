@@ -40,16 +40,17 @@
     '</svg>';
 
   var NAV = [
+    ['daily.html', 'Daily'],
     ['library.html', 'Library'],
     ['piano.html', 'Piano'],
     ['instruments.html', 'Instruments'],
     ['collections.html', 'Collections'],
-    ['timeline.html', 'Timeline'],
     ['learn.html', 'Learn'],
     ['articles.html', 'Guides']
   ];
   // Everything else lives under "More" — the bar stops growing, and the tools stop hiding in the footer.
   var MORE = [
+    ['timeline.html', 'Timeline'],
     ['midi-to-letter-notes.html', 'MIDI → letter notes'],
     ['quiz.html', 'Quizzes'],
     ['facts.html', 'Music facts'],
@@ -299,6 +300,31 @@
 
   window.DRD.favBtn = function (id) { return '<button class="fav-btn' + (DRD.favs.has(id) ? ' on' : '') + '" data-fav="' + id + '" aria-label="Save to favourites" title="Save to favourites">' + HEART + '</button>'; };
 
+  /* ---- Difficulty levels ------------------------------------------------
+     `ds` is the measured 0-100 score (tools/audit-difficulty.mjs). Three labels are
+     too coarse to show progress with, so the score also reads as ten levels: you can
+     finish a level-3 piece and see that level 4 is one real step, not a leap from
+     "easy" to "medium". Bands group them the way a teacher would talk about them. */
+  var LEVEL_BANDS = [
+    { max: 1,  name: 'Super easy',   accent: '#35e08c' },
+    { max: 4,  name: 'Easy',         accent: '#8fd4a8' },
+    { max: 7,  name: 'Intermediate', accent: '#f6b73f' },
+    { max: 10, name: 'Advanced',     accent: '#ff5f64' }
+  ];
+  window.DRD.level = function (song) {
+    var ds = (song && typeof song.ds === 'number') ? song.ds : 50;
+    var n = Math.max(1, Math.min(10, Math.floor(ds / 10) + 1));
+    for (var i = 0; i < LEVEL_BANDS.length; i++) {
+      if (n <= LEVEL_BANDS[i].max) return { n: n, band: LEVEL_BANDS[i].name, accent: LEVEL_BANDS[i].accent, ds: ds };
+    }
+    return { n: n, band: 'Advanced', accent: '#ff5f64', ds: ds };
+  };
+  window.DRD.levelBadge = function (song) {
+    var l = DRD.level(song);
+    return '<span class="lvl-badge" style="--lvl:' + l.accent + '" title="' + l.band + ' — difficulty score ' + l.ds + '/100">L' + l.n + '</span>';
+  };
+  window.DRD.LEVEL_BANDS = LEVEL_BANDS;
+
   window.DRD.songCard = function (song, delay) {
     var art = DRD.coverArt(song);
     return (
@@ -313,6 +339,7 @@
           '<h3>' + song.title + '</h3>' +
           '<div class="sub">' + song.composer + (song.yv ? ' · ' + song.year : '') + '</div>' +
           '<div class="tags">' +
+            DRD.levelBadge(song) +
             '<span class="chip diff-' + song.difficulty + '">' + song.difficulty + '</span>' +
             '<span class="chip">' + song.genre + '</span>' +
           '</div>' +

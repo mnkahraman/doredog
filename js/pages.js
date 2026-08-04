@@ -55,6 +55,23 @@
         .map(function (s, i) { return DRD.songCard(s, (i % 4) + 1); }).join('');
       reobserve(grid);
     }
+    // melody of the day — the ritual, so it sits above the picks
+    var teaser = document.getElementById('daily-teaser');
+    if (teaser && DRD.DAILY_POOL) {
+      var EPOCH = Date.UTC(2026, 7, 1), now = new Date();
+      var dayN = Math.floor((Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - EPOCH) / 86400000) + 1;
+      var numEl = document.getElementById('daily-teaser-num');
+      if (numEl) numEl.textContent = '#' + dayN;
+      try {
+        var st = JSON.parse(localStorage.getItem('drd-daily') || '{}');
+        var sub = document.getElementById('daily-teaser-sub');
+        if (sub) {
+          if (st.day === dayN && st.done) sub.textContent = 'Solved today' + (st.streak ? ' · ' + st.streak + '-day streak' : '') + '. Come back tomorrow.';
+          else if (st.streak) sub.textContent = st.streak + '-day streak going — today\'s melody is waiting.';
+        }
+      } catch (e) {}
+    }
+
     // piece of the day — deterministic by calendar date, drawn from the curated (featured) pool
     var dg = document.getElementById('daily-grid');
     if (dg && SONGS.length) {
@@ -281,6 +298,18 @@
     set('#song-diff', song.difficulty);
     var diffChip = document.querySelector('#song-diff');
     if (diffChip) diffChip.className = 'chip diff-' + song.difficulty;
+    // level badge next to the difficulty chip, and a ladder to the next step up
+    var lv = DRD.level ? DRD.level(song) : null;
+    if (lv && diffChip && diffChip.parentNode && !document.querySelector('#song-diff ~ .lvl-badge')) {
+      var lb = document.createElement('span');
+      lb.className = 'lvl-badge lvl-badge-lg';
+      lb.style.setProperty('--lvl', lv.accent);
+      lb.title = lv.band + ' — difficulty score ' + lv.ds + '/100';
+      lb.textContent = 'Level ' + lv.n;
+      diffChip.parentNode.insertBefore(lb, diffChip);
+    }
+    var ladder = document.getElementById('song-ladder');
+    if (ladder && lv) ladder.innerHTML = ladderHTML(song, lv);
 
     if (DRD.recent) DRD.recent.push(song.id);        // remember for the homepage strip
     var chipRow = diffChip ? diffChip.parentNode : null;
@@ -472,6 +501,28 @@
     if (cov) { cov.style.setProperty('--accent', c.accent); cov.innerHTML = mosaic(songs) + '<span class="coll-cover-glyph" style="color:' + c.accent + '">' + c.glyph + '</span>'; }
     var grid = document.getElementById('collection-works');
     if (grid) { grid.innerHTML = songs.map(function (s, i) { return DRD.songCard(s, (i % 4) + 1); }).join(''); reobserve(grid); }
+  }
+
+
+  /* The step up from whatever you just played: the nearest piece one level higher,
+     preferring the same composer, then the same genre — so "next" feels like a
+     continuation rather than a random pick. */
+  function ladderHTML(song, lv) {
+    if (lv.n >= 10) return '';
+    var want = lv.n + 1;
+    var pool = SONGS.filter(function (s) { return s.id !== song.id && DRD.level(s).n === want; });
+    if (!pool.length) return '';
+    var pick = pool.filter(function (s) { return s.composer === song.composer; })[0]
+            || pool.filter(function (s) { return s.genre === song.genre; })
+                   .sort(function (a, b) { return a.ds - b.ds; })[0]
+            || pool.sort(function (a, b) { return a.ds - b.ds; })[0];
+    var pl = DRD.level(pick);
+    var scale = '<span class="lvl-scale" style="--lvl:' + lv.accent + '">';
+    for (var i = 1; i <= 10; i++) scale += '<i class="' + (i <= lv.n ? 'on' : '') + '" style="height:' + (5 + i * 1.3) + 'px"></i>';
+    scale += '</span>';
+    return '<span class="lvl-ladder-label">You are on level ' + lv.n + ' of 10 · ' + lv.band + '</span>' + scale +
+      '<a href="song?id=' + pick.id + '">Next step up: <strong>' + pick.title + '</strong>' +
+      '<span class="lvl-badge" style="--lvl:' + pl.accent + '">L' + pl.n + '</span></a>';
   }
 
   /* ---------------------------- TIMELINE ------------------------------- */

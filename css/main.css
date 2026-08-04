@@ -814,6 +814,85 @@ body{ animation:pageIn .5s var(--ez) both; }
 .otd-src{font-size:.72rem;color:var(--text-mute,#8a8a99)!important;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
 
 
+/* --- Melody of the day: homepage teaser --- */
+.daily-teaser{display:flex;align-items:center;gap:18px;padding:20px 24px;margin-bottom:26px;
+  border-radius:18px;border:1px solid rgba(246,183,63,.28);text-decoration:none;
+  background:linear-gradient(120deg,rgba(246,183,63,.12),rgba(139,107,255,.07) 60%,rgba(255,255,255,.02));
+  transition:border-color .2s,transform .2s}
+.daily-teaser:hover{border-color:var(--gold,#f6b73f);transform:translateY(-2px)}
+.daily-teaser-icon{font-size:1.7rem;flex:none}
+.daily-teaser-text{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.daily-teaser-text b{font-size:1.05rem;font-weight:600;color:var(--text,#fff)}
+.daily-teaser-text b span{font-family:var(--font-mono,monospace);font-size:.8rem;color:var(--gold,#f6b73f)}
+.daily-teaser-text i{font-style:normal;font-size:.88rem;color:var(--text-dim,#b9b9c6)}
+.daily-teaser-cta{flex:none;font-family:var(--font-mono,monospace);font-size:.78rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold,#f6b73f)}
+@media (max-width:560px){.daily-teaser{padding:16px}.daily-teaser-cta{display:none}}
+
+
+/* --- Melody of the day --- */
+.daily-card{border:1px solid rgba(246,183,63,.24);border-radius:22px;padding:28px 26px;
+  background:linear-gradient(150deg,rgba(246,183,63,.09),rgba(255,255,255,.02) 58%)}
+.daily-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+  font-family:var(--font-mono,monospace);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-mute,#8a8a99);margin-bottom:16px}
+.daily-num{color:var(--gold,#f6b73f);font-weight:700}
+.daily-heard b{color:var(--text,#fff)}
+.daily-steps{display:flex;gap:6px;margin-bottom:20px}
+.daily-step{flex:1;text-align:center;padding:7px 0;border-radius:9px;font-family:var(--font-mono,monospace);
+  font-size:.72rem;color:var(--text-mute,#8a8a99);background:rgba(255,255,255,.04);
+  border:1px solid transparent;transition:.18s}
+.daily-step.now{border-color:var(--gold,#f6b73f);color:var(--gold,#f6b73f)}
+.daily-step.miss{background:rgba(255,95,100,.16);color:#ff8a8e}
+.daily-step.skip{background:rgba(255,255,255,.12);color:var(--text-dim,#b9b9c6)}
+.daily-step.hit{background:rgba(53,224,140,.18);color:#5cf0a8}
+.daily-play-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.daily-guessed{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:5px}
+.daily-guessed li{padding:8px 12px;border-radius:10px;font-size:.9rem;background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07)}
+.daily-guessed li.miss{color:#ff8a8e}.daily-guessed li.hit{color:#5cf0a8}
+.daily-guessed li.skip{color:var(--text-mute,#8a8a99)}
+.daily-guess-row{position:relative}
+.daily-input{width:100%;font:inherit;font-size:.98rem;padding:13px 16px;border-radius:13px;
+  background:rgba(0,0,0,.3);border:1px solid var(--border);color:var(--text,#fff)}
+.daily-input:focus{outline:none;border-color:var(--gold,#f6b73f)}
+.daily-suggest{display:flex;flex-direction:column;gap:2px;margin-top:8px;max-height:290px;overflow-y:auto}
+.daily-suggest button{display:flex;flex-direction:column;gap:2px;text-align:left;padding:10px 14px;border-radius:11px;
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:var(--text,#fff);cursor:pointer}
+.daily-suggest button:hover{border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.08)}
+.daily-suggest i{font-style:normal;font-size:.8rem;color:var(--text-mute,#8a8a99)}
+.daily-result{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:4px}
+.daily-verdict{font-weight:600;font-size:1.15rem;margin:0 0 .4rem}
+.daily-verdict.ok{color:#5cf0a8}.daily-verdict.no{color:#ff8a8e}
+.daily-answer{color:var(--text-dim,#b9b9c6);margin:0 0 1rem;line-height:1.6}
+.daily-answer a{color:var(--gold,#f6b73f);text-decoration:none}
+.daily-share{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.daily-grid{font-size:1.35rem;letter-spacing:.16em}
+.daily-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+.daily-stats span{display:flex;flex-direction:column;gap:2px;font-family:var(--font-mono,monospace);
+  font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mute,#8a8a99);text-align:center}
+.daily-stats b{font-family:var(--font-body);font-size:1.5rem;font-weight:600;color:var(--gold,#f6b73f);letter-spacing:0;text-transform:none}
+@media (max-width:560px){.daily-card{padding:22px 16px}.daily-stats{grid-template-columns:repeat(2,1fr)}}
+
+
+/* --- Difficulty levels (1-10, derived from the measured score) --- */
+.lvl-badge{display:inline-flex;align-items:center;justify-content:center;min-width:2.1em;padding:.28em .5em;
+  border-radius:7px;font-family:var(--font-mono,monospace);font-size:.68rem;font-weight:700;letter-spacing:.04em;
+  color:var(--lvl,#f6b73f);background:color-mix(in srgb,var(--lvl,#f6b73f) 14%,transparent);
+  border:1px solid color-mix(in srgb,var(--lvl,#f6b73f) 40%,transparent)}
+.lvl-badge-lg{font-size:.82rem;padding:.4em .7em;min-width:2.6em}
+.lvl-ladder{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.lvl-ladder-label{font-family:var(--font-mono,monospace);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-mute,#8a8a99)}
+.lvl-ladder a{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:11px;
+  border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text,#fff);
+  text-decoration:none;font-size:.88rem;transition:.16s}
+.lvl-ladder a:hover{border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.08)}
+.lvl-scale{display:flex;gap:3px;align-items:flex-end;height:18px}
+.lvl-scale i{width:5px;border-radius:2px;background:rgba(255,255,255,.14)}
+.lvl-scale i.on{background:var(--lvl,#f6b73f)}
+
+
 /* --- Long-form page copy (library / timeline / quiz explainers) --- */
 .page-copy{max-width:760px}
 .page-copy h2{font-family:var(--font-body);font-weight:600;font-size:1.45rem;margin:2.2rem 0 .7rem;line-height:1.3}

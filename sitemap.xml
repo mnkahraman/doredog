@@ -3287,4 +3287,5 @@
   <url><loc>https://doredog.com/on-this-day?d=12-30</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://doredog.com/on-this-day?d=12-31</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://doredog.com/song?id=mozart-twinkle-variations</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doredog.com/daily</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
 </urlset>
