@@ -1,0 +1,2516 @@
+{
+ "J. S. Bach": {
+  "of": [
+   "Holy Roman Empire",
+   "Saxe-Eisenach"
+  ],
+  "g": [
+   "Holy Roman Empire",
+   "German lands"
+  ]
+ },
+ "Franz Schubert": {
+  "of": [
+   "Austrian Empire",
+   "Archduchy of Austria"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Johannes Brahms": {
+  "of": [
+   "Germany",
+   "Hamburg"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Ludwig van Beethoven": {
+  "of": [
+   "Austrian Empire",
+   "Electorate of Cologne"
+  ],
+  "g": [
+   "Austria",
+   "German lands"
+  ]
+ },
+ "W. A. Mozart": {
+  "of": [
+   "Prince-Archbishopric of Salzburg"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "G. F. Handel": {
+  "of": [
+   "Holy Roman Empire",
+   "Brandenburg-Prussia",
+   "Kingdom of Great Britain"
+  ],
+  "g": [
+   "Holy Roman Empire",
+   "German lands",
+   "British Isles"
+  ]
+ },
+ "Frédéric Chopin": {
+  "of": [
+   "France",
+   "Russian Empire",
+   "Duchy of Warsaw",
+   "Congress Poland"
+  ],
+  "g": [
+   "France",
+   "Russia",
+   "Poland"
+  ]
+ },
+ "Robert Schumann": {
+  "of": [
+   "Kingdom of Saxony"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Erik Satie": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Georges Bizet": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Joseph Haydn": {
+  "of": [
+   "Holy Roman Empire"
+  ],
+  "g": [
+   "Holy Roman Empire"
+  ]
+ },
+ "Scott Joplin": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Gabriel Fauré": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "P. I. Tchaikovsky": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Edvard Grieg": {
+  "of": [
+   "Norway"
+  ],
+  "g": [
+   "Norway"
+  ]
+ },
+ "Claude Debussy": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Franz Liszt": {
+  "of": [
+   "Austria–Hungary",
+   "Austrian Empire",
+   "Kingdom of Hungary"
+  ],
+  "g": [
+   "Austria",
+   "Hungary"
+  ]
+ },
+ "Felix Mendelssohn": {
+  "of": [
+   "Hamburg",
+   "Kingdom of Saxony"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Domenico Scarlatti": {
+  "of": [
+   "Kingdom of Naples",
+   "Kingdom of Spain"
+  ],
+  "g": [
+   "Italian states",
+   "Spain"
+  ]
+ },
+ "Augusta Mary Anne Holmès": {
+  "of": [
+   "France",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "France",
+   "British Isles"
+  ]
+ },
+ "Sergei Rachmaninoff": {
+  "of": [
+   "United States",
+   "Russian Empire"
+  ],
+  "g": [
+   "United States",
+   "Russia"
+  ]
+ },
+ "Edward Elgar": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Josephine Lang": {
+  "of": [
+   "Kingdom of Bavaria"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Johanna Kinkel": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Robert Franz": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Liza Lehmann": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Friedrich Burgmüller": {
+  "of": [
+   "France",
+   "Kingdom of Bavaria"
+  ],
+  "g": [
+   "France",
+   "German lands"
+  ]
+ },
+ "Moritz Moszkowski": {
+  "of": [
+   "Poland",
+   "France"
+  ],
+  "g": [
+   "Poland",
+   "France"
+  ]
+ },
+ "Cécile Chaminade": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Lili Boulanger": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Johann Pachelbel": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Antonio Vivaldi": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Peter Cornelius": {
+  "of": [
+   "Grand Duchy of Hesse"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Corona Schröter": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Pauline Viardot": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Mathilde Kralik": {
+  "of": [
+   "Austria"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Charles Villiers Stanford": {
+  "of": [
+   "Ireland",
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Peter Warlock": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Isaac Albéniz": {
+  "of": [
+   "Spain"
+  ],
+  "g": [
+   "Spain"
+  ]
+ },
+ "Muzio Clementi": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Hugo Wolf": {
+  "of": [
+   "Austria–Hungary",
+   "Austrian Empire"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "John Philip Sousa": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Anton Webern": {
+  "of": [
+   "Austria"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Alexander Scriabin": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Stephen Foster": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Amy Marcy Beach": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Samuel Coleridge-Taylor": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Ernest Chausson": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "George Butterworth": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Maria Theresia von Paradis": {
+  "of": [
+   "Austrian Empire"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Marie Jaëll": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Teodoro Cottrau": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Clémence de Grandval": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Helena Munktell": {
+  "of": [
+   "Sweden"
+  ],
+  "g": [
+   "Sweden"
+  ]
+ },
+ "Arthur Somervell": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Frank Bridge": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Harry Thacker Burleigh": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Chiquinha Gonzaga": {
+  "of": [
+   "Brazil"
+  ],
+  "g": [
+   "Brazil"
+  ]
+ },
+ "Jean-Philippe Rameau": {
+  "of": [
+   "Kingdom of France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Richard Wagner": {
+  "of": [
+   "Kingdom of Saxony"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Henry Purcell": {
+  "of": [
+   "Kingdom of England"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Gustav Mahler": {
+  "of": [
+   "Austrian Empire",
+   "Cisleithania"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Frederick Delius": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Hubert Parry": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Dieterich Buxtehude": {
+  "of": [
+   "Germany",
+   "Kingdom of Denmark"
+  ],
+  "g": [
+   "German lands",
+   "Denmark"
+  ]
+ },
+ "Charles-Valentin Alkan": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Emilie Mayer": {
+  "of": [
+   "Grand Duchy of Mecklenburg-Strelitz"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Luise Adolpha Le Beau": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Maude Valérie White": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Eduardo Di Capua": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Septimus Winner": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Johann Jakob Froberger": {
+  "of": [
+   "Duchy of Württemberg"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Friedrich Kuhlau": {
+  "of": [
+   "Kingdom of Hanover",
+   "Kingdom of Denmark"
+  ],
+  "g": [
+   "German lands",
+   "Denmark"
+  ]
+ },
+ "August Kühnel": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "François Roberday": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Matthias Weckmann": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Augusta Browne": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Emmanuel Chabrier": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Frederic Hymen Cowen": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Ellen Dickson": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Edward German": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Poldowski": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Loïsa Puget": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Giacomo Puccini": {
+  "of": [
+   "Grand Duchy of Tuscany",
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Franz Gruber": {
+  "of": [
+   "Austrian Empire"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "J. K. F. Fischer": {
+  "of": [
+   "Holy Roman Empire",
+   "Kingdom of Bohemia"
+  ],
+  "g": [
+   "Holy Roman Empire",
+   "Czech lands"
+  ]
+ },
+ "Francesco Florimo": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Christoph Willibald Gluck": {
+  "of": [
+   "Kingdom of Bohemia",
+   "Archduchy of Austria"
+  ],
+  "g": [
+   "Czech lands",
+   "Austria"
+  ]
+ },
+ "Charles Gounod": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Hans Leo Hassler": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Henri Herz": {
+  "of": [
+   "France",
+   "Holy Roman Empire"
+  ],
+  "g": [
+   "France",
+   "Holy Roman Empire"
+  ]
+ },
+ "Adolf Jensen": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Heinrich Lichner": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Jean-Baptiste Lully": {
+  "of": [
+   "Kingdom of France",
+   "Grand Duchy of Tuscany"
+  ],
+  "g": [
+   "France",
+   "Italian states"
+  ]
+ },
+ "Claudio Merulo": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Giovanni Pierluigi da Palestrina": {
+  "of": [
+   "Papal States"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Max Reger": {
+  "of": [
+   "Kingdom of Bavaria"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Walter Parratt": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Emilie Zumsteeg": {
+  "of": [
+   "Kingdom of Württemberg"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Luise Greger": {
+  "of": [
+   "German Reich"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Guy d’ Hardelot": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Walford Davies": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Laura Netzel": {
+  "of": [
+   "Sweden"
+  ],
+  "g": [
+   "Sweden"
+  ]
+ },
+ "Jean Henri Ravina": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Ann Mounsey Bartholomew": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Joseph Ascher": {
+  "of": [
+   "Kingdom of the Netherlands"
+  ],
+  "g": [
+   "Netherlands"
+  ]
+ },
+ "Granville Bantock": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Charlotte Alington - aka Claribel Barnard": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Ivor Gurney": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Carrie Jacobs-Bond": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Amelia Lehmann": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Pasquale Mario Costa": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Guillaume Louis Cottrau": {
+  "of": [
+   "France",
+   "Kingdom of the Two Sicilies"
+  ],
+  "g": [
+   "France",
+   "Italian states"
+  ]
+ },
+ "Heinrich Scheidemann": {
+  "of": [
+   "Duchy of Holstein"
+  ],
+  "g": [
+   "Denmark"
+  ]
+ },
+ "Pauline Duchambge": {
+  "of": [
+   "France",
+   "United Kingdom"
+  ],
+  "g": [
+   "France",
+   "British Isles"
+  ]
+ },
+ "Evelyn Faltis": {
+  "of": [
+   "Czechoslovakia",
+   "Cisleithania"
+  ],
+  "g": [
+   "Czech lands",
+   "Austria"
+  ]
+ },
+ "Virginia Gabriel": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Amy Elsie Horrocks": {
+  "of": [
+   "Brazil"
+  ],
+  "g": [
+   "Brazil"
+  ]
+ },
+ "Richard Strauss": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Giuseppe Verdi": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Vincenzo Di Chiara": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Johann Strauss II": {
+  "of": [
+   "Austrian Empire",
+   "Cisleithania"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Camille Saint-Saëns": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "C. P. E. Bach": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "André Campra": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Giovanni Carlo Maria Clari": {
+  "of": [
+   "Grand Duchy of Tuscany"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "François Couperin": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Richard Eilenberg": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "César Franck": {
+  "of": [
+   "Belgium",
+   "France",
+   "United Kingdom of the Netherlands"
+  ],
+  "g": [
+   "Belgium",
+   "France",
+   "Netherlands"
+  ]
+ },
+ "Andrea Gabrieli": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Niels Gade": {
+  "of": [
+   "Kingdom of Denmark"
+  ],
+  "g": [
+   "Denmark"
+  ]
+ },
+ "Eugène Gigout": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Louis Moreau Gottschalk": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Johann Nicolaus Hanff": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Stephen Heller": {
+  "of": [
+   "Hungary",
+   "France"
+  ],
+  "g": [
+   "Hungary",
+   "France"
+  ]
+ },
+ "Adolf von Henselt": {
+  "of": [
+   "Kingdom of Bavaria"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Salomon Jadassohn": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Friedrich Wilhelm Kalkbrenner": {
+  "of": [
+   "Holy Roman Empire"
+  ],
+  "g": [
+   "Holy Roman Empire"
+  ]
+ },
+ "Johann Ludwig Krebs": {
+  "of": [
+   "Holy Roman Empire"
+  ],
+  "g": [
+   "Holy Roman Empire"
+  ]
+ },
+ "Michael Praetorius": {
+  "of": [
+   "Brunswick-Lüneburg"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Geo. F. Root": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Anton Rubinstein": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Johann Hermann Schein": {
+  "of": [
+   "Electorate of Saxony"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Sophie Gail": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Jane Mary Guest": {
+  "of": [
+   "Kingdom of Great Britain",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Maria Lindsay": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Florence Ashton Marshall": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Elizabeth Philp": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Clara Schumann": {
+  "of": [
+   "Kingdom of Saxony"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Arthur Sullivan": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Alice Tegnér": {
+  "of": [
+   "Sweden"
+  ],
+  "g": [
+   "Sweden"
+  ]
+ },
+ "Samuel A. Ward": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Niccolò Paganini": {
+  "of": [
+   "Republic of Genoa"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Edward MacDowell": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Antonín Dvořák": {
+  "of": [
+   "Kingdom of Bohemia",
+   "Cisleithania"
+  ],
+  "g": [
+   "Czech lands",
+   "Austria"
+  ]
+ },
+ "N. Rimsky-Korsakov": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Georg Philipp Telemann": {
+  "of": [
+   "Holy Roman Empire"
+  ],
+  "g": [
+   "Holy Roman Empire"
+  ]
+ },
+ "Sigismond Thalberg": {
+  "of": [
+   "Austrian Empire"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Paul Wachs": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Jean-François Dandrieu": {
+  "of": [
+   "Kingdom of France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Tom Turpin": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Harriett Abrams": {
+  "of": [
+   "Kingdom of Great Britain",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Joseph Barnby": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Mel Bonis": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Gabrielle Ferrari": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Eleanor Everest Freer": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Pietro Labriola": {
+  "of": [
+   "Kingdom of Italy",
+   "Kingdom of the Two Sicilies"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Giuseppe De Gregorio": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Paolo Spagnoletti": {
+  "of": [
+   "Kingdom of Great Britain",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Jane Bingham Abbott": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Johann Friedrich Alberti": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Louis Marie François Andlauer": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Anton Arensky": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Tekla Bądarzewska-Baranowska": {
+  "of": [
+   "Congress Poland"
+  ],
+  "g": [
+   "Poland"
+  ]
+ },
+ "François Benoist": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Hector Berlioz": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "József Bloch": {
+  "of": [
+   "Hungary"
+  ],
+  "g": [
+   "Hungary"
+  ]
+ },
+ "Léon Boëllmann": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Norbert Burgmüller": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Antoine Busnois": {
+  "of": [
+   "Kingdom of France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Johann Heinrich Buttstett": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "William Byrd": {
+  "of": [
+   "Kingdom of England"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Giulio Caccini": {
+  "of": [
+   "Grand Duchy of Tuscany"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Antonio Caldara": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Francesco Cangiullo": {
+  "of": [
+   "Italy",
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Henry Carey": {
+  "of": [
+   "Kingdom of Great Britain"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Giacomo Carissimi": {
+  "of": [
+   "Papal States"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Teresa Carreño": {
+  "of": [
+   "Venezuela"
+  ],
+  "g": [
+   "Venezuela"
+  ]
+ },
+ "Nicolas Chédeville": {
+  "of": [
+   "Kingdom of France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Carlo Clausetti": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "George L. Cobb": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Johann Baptist Cramer": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Thomas Crecquillon": {
+  "of": [
+   "Habsburg Netherlands"
+  ],
+  "g": [
+   "Netherlands"
+  ]
+ },
+ "Vincenzo De Crescenzo": {
+  "of": [
+   "Italy",
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Giambattista De Curtis": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Carl Czerny": {
+  "of": [
+   "Austrian Empire"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Luigi Denza": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Henri Desmarets": {
+  "of": [
+   "Kingdom of France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "John Dowland": {
+  "of": [
+   "Kingdom of England"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Guillaume Dufay": {
+  "of": [
+   "Kingdom of France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Johann Ernst Eberlin": {
+  "of": [
+   "Holy Roman Empire",
+   "Further Austria",
+   "Prince-Archbishopric of Salzburg"
+  ],
+  "g": [
+   "Holy Roman Empire",
+   "Austria"
+  ]
+ },
+ "Joseph-Hector Fiocco": {
+  "of": [
+   "Austrian Netherlands"
+  ],
+  "g": [
+   "Belgium"
+  ]
+ },
+ "Girolamo Frescobaldi": {
+  "of": [
+   "Papal States",
+   "Duchy of Ferrara"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Federico Guzmán Frías": {
+  "of": [
+   "Chile"
+  ],
+  "g": [
+   "Chile"
+  ]
+ },
+ "Giovanni Gabrieli": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Vincenzo Galilei": {
+  "of": [
+   "Grand Duchy of Tuscany",
+   "Duchy of Florence"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Nicola De Giosa": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Mauro Giuliani": {
+  "of": [
+   "Kingdom of Naples"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Charles William Glover": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "François Joseph Gossec": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Louis Théodore Gouvy": {
+  "of": [
+   "France",
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "France",
+   "German lands"
+  ]
+ },
+ "Alexandre Guilmant": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Joseph Gungl": {
+  "of": [
+   "Austria–Hungary"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Andreas Hammerschmidt": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Anton Hegner": {
+  "of": [
+   "Kingdom of Denmark"
+  ],
+  "g": [
+   "Denmark"
+  ]
+ },
+ "Luis Venegas de Henestrosa": {
+  "of": [
+   "Spain"
+  ],
+  "g": [
+   "Spain"
+  ]
+ },
+ "John Hill Hewitt": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Ferdinand Hiller": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Engelbert Humperdinck": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Heinrich Isaac": {
+  "of": [
+   "County of Flanders"
+  ],
+  "g": [
+   "Belgium"
+  ]
+ },
+ "Vasily Kalinnikov": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Emmerich Kálmán": {
+  "of": [
+   "Hungary",
+   "United States",
+   "Austria"
+  ],
+  "g": [
+   "Hungary",
+   "United States",
+   "Austria"
+  ]
+ },
+ "Friedrich Kiel": {
+  "of": [
+   "Kingdom of Prussia"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Karol Kurpiński": {
+  "of": [
+   "Duchy of Warsaw",
+   "Polish–Lithuanian Commonwealth",
+   "Congress Poland"
+  ],
+  "g": [
+   "Poland"
+  ]
+ },
+ "Louis Lacombe": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Orlande de Lassus": {
+  "of": [
+   "Habsburg Netherlands"
+  ],
+  "g": [
+   "Netherlands"
+  ]
+ },
+ "Henry Lawes": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Theodor Leschetizky": {
+  "of": [
+   "Poland",
+   "Russian Empire"
+  ],
+  "g": [
+   "Poland",
+   "Russia"
+  ]
+ },
+ "Harry J. Lincoln": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Anatoly Lyadov": {
+  "of": [
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Marin Marais": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Friedrich Wilhelm Marpurg": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Jules Massenet": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Johann Mattheson": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Saverio Mercadante": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Ignaz Moscheles": {
+  "of": [
+   "Holy Roman Empire",
+   "Austrian Empire",
+   "Habsburg monarchy"
+  ],
+  "g": [
+   "Holy Roman Empire",
+   "Austria"
+  ]
+ },
+ "William Mundy": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Hans Georg Nägeli": {
+  "of": [
+   "Switzerland"
+  ],
+  "g": [
+   "Switzerland"
+  ]
+ },
+ "Diego Ortiz": {
+  "of": [
+   "Spain"
+  ],
+  "g": [
+   "Spain"
+  ]
+ },
+ "Giovanni Battista Pergolesi": {
+  "of": [
+   "Papal States"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Giovanni Battista Pescetti": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Martino Pesenti": {
+  "of": [
+   "Republic of Venice"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Johann Christoph Pezel": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "David Popper": {
+  "of": [
+   "Hungary",
+   "Austrian Empire",
+   "Cisleithania"
+  ],
+  "g": [
+   "Hungary",
+   "Austria"
+  ]
+ },
+ "Émile Prudent": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Joachim Raff": {
+  "of": [
+   "Switzerland"
+  ],
+  "g": [
+   "Switzerland"
+  ]
+ },
+ "Thomas Ravenscroft": {
+  "of": [
+   "Kingdom of England"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Anton Reicha": {
+  "of": [
+   "France",
+   "Kingdom of Bohemia"
+  ],
+  "g": [
+   "France",
+   "Czech lands"
+  ]
+ },
+ "Balthasar Resinarius": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Federico Ricci": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Johann Rosenmüller": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Michele Ruta": {
+  "of": [
+   "Kingdom of Italy"
+  ],
+  "g": [
+   "Italian states"
+  ]
+ },
+ "Pablo de Sarasate": {
+  "of": [
+   "Spain"
+  ],
+  "g": [
+   "Spain"
+  ]
+ },
+ "Camille Schubert": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Johann Abraham Peter Schulz": {
+  "of": [
+   "Germany",
+   "Kingdom of Denmark"
+  ],
+  "g": [
+   "German lands",
+   "Denmark"
+  ]
+ },
+ "Heinrich Schütz": {
+  "of": [
+   "Germany",
+   "Electorate of Saxony"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Ludwig Senfl": {
+  "of": [
+   "Prince-Bishopric of Basel"
+  ],
+  "g": [
+   "Switzerland"
+  ]
+ },
+ "Adrien-François Servais": {
+  "of": [
+   "Belgium"
+  ],
+  "g": [
+   "Belgium"
+  ]
+ },
+ "Sydney Smith": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "John Stafford Smith": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Fernando Sor": {
+  "of": [
+   "Spain"
+  ],
+  "g": [
+   "Spain"
+  ]
+ },
+ "Louis Spohr": {
+  "of": [
+   "Duchy of Brunswick"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Delphin Strungk": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Thomas Tallis": {
+  "of": [
+   "Kingdom of England"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Francisco Tárrega": {
+  "of": [
+   "Spain"
+  ],
+  "g": [
+   "Spain"
+  ]
+ },
+ "Adrian Willaert": {
+  "of": [
+   "County of Flanders"
+  ],
+  "g": [
+   "Belgium"
+  ]
+ },
+ "Friedrich Wilhelm Zachow": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Adolphe Adam": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Johann André": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Béla Bartók": {
+  "of": [
+   "Hungary",
+   "United States"
+  ],
+  "g": [
+   "Hungary",
+   "United States"
+  ]
+ },
+ "Franz Behr": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Jacques Blumenthal": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Anton Bruckner": {
+  "of": [
+   "Austrian Empire",
+   "Cisleithania"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Paul Dukas": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "John Field": {
+  "of": [
+   "Ireland",
+   "Russian Empire",
+   "Kingdom of Ireland"
+  ],
+  "g": [
+   "British Isles",
+   "Russia"
+  ]
+ },
+ "Alexander Glazunov": {
+  "of": [
+   "Soviet Union",
+   "Russian Empire"
+  ],
+  "g": [
+   "Russia"
+  ]
+ },
+ "Nicolas de Grigny": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Charles Hunter": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Conradin Kreutzer": {
+  "of": [
+   "Grand Duchy of Baden"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Ludwig Minkus": {
+  "of": [
+   "Austria–Hungary",
+   "Austrian Empire"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Georg Muffat": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Dora Pejačević": {
+  "of": [
+   "Austria–Hungary"
+  ],
+  "g": [
+   "Austria"
+  ]
+ },
+ "Ignaz Pleyel": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Christian Ritter": {
+  "of": [
+   "Sweden",
+   "Germany"
+  ],
+  "g": [
+   "Sweden",
+   "German lands"
+  ]
+ },
+ "Johann Baptist Vanhal": {
+  "of": [
+   "Kingdom of Bohemia",
+   "Archduchy of Austria"
+  ],
+  "g": [
+   "Czech lands",
+   "Austria"
+  ]
+ },
+ "Charles-Marie Widor": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Feliks Janiewicz": {
+  "of": [
+   "Russian Empire",
+   "Polish–Lithuanian Commonwealth"
+  ],
+  "g": [
+   "Russia",
+   "Poland"
+  ]
+ },
+ "Ethel Barns": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Alfred Cellier": {
+  "of": [
+   "Sweden",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "Sweden",
+   "British Isles"
+  ]
+ },
+ "Louise Farrenc": {
+  "of": [
+   "France"
+  ],
+  "g": [
+   "France"
+  ]
+ },
+ "Elisabetta de Gambarini": {
+  "of": [
+   "Kingdom of Great Britain"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Faustina Hasse Hodges": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ },
+ "Helen Hopekirk": {
+  "of": [
+   "United States",
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "United States",
+   "British Isles"
+  ]
+ },
+ "Louise Reichardt": {
+  "of": [
+   "Germany"
+  ],
+  "g": [
+   "German lands"
+  ]
+ },
+ "Cyril Rootham": {
+  "of": [
+   "United Kingdom",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "William Shield": {
+  "of": [
+   "Kingdom of Great Britain",
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Ethel Smyth": {
+  "of": [
+   "United Kingdom"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Charles Wood": {
+  "of": [
+   "United Kingdom of Great Britain and Ireland"
+  ],
+  "g": [
+   "British Isles"
+  ]
+ },
+ "Lowell Mason": {
+  "of": [
+   "United States"
+  ],
+  "g": [
+   "United States"
+  ]
+ }
+}

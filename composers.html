@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All 433 Composers, A to Z — Dates, Countries, Piece Counts | DoReDog</title>
+<meta name="description" content="Every composer in the DoReDog library in one index: sourced dates, nationality and how many of their pieces are here in letter notes. Filter by letter or country, sort by name, output or birth year.">
+<link rel="canonical" href="https://doredog.com/composers">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="All 433 composers, A to Z">
+<meta property="og:description" content="Sourced dates, nationality and piece counts for every composer in the library.">
+<meta property="og:url" content="https://doredog.com/composers">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=129">
+<link rel="stylesheet" href="css/player.css?v=129">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="composers">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero" style="padding-bottom:0">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">The whole shelf</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Every <span class="text-grad">composer</span></h1>
+      <p class="lead" data-reveal data-delay="2">All 433 of them, with the dates and nationality we could source and how much of each one the library holds. Filter by letter or country, or sort by output to see who the collection is really built on.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:860px">
+      <div class="cx-tools">
+        <input class="cx-search" id="cx-search" type="search" autocomplete="off" placeholder="Search composers…" aria-label="Search composers">
+        <select class="cx-select" id="cx-country" aria-label="Filter by country"></select>
+        <select class="cx-select" id="cx-sort" aria-label="Sort">
+          <option value="name">A–Z by surname</option>
+          <option value="pieces">Most pieces first</option>
+          <option value="born">Earliest born first</option>
+        </select>
+      </div>
+
+      <div class="cx-letters" id="cx-letters"></div>
+      <p class="cx-count" id="cx-count"></p>
+
+      <div class="cx-head"><span>Composer</span><span>Lived</span><span>From</span><span>Pieces</span></div>
+      <div class="cx-list" id="cx-list"></div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>Where the dates and countries come from</h2>
+      <p>Dates come from two places, both cited. For the 177 composers with a written biography on this site, the birth and death years are read straight back out of that biography. For another 152 they come from Wikidata, accepted only where exactly one person with a composing occupation carries that name and both dates — the item id is kept so any entry can be checked. That leaves 104 composers, mostly with one or two pieces each, whose dates we could not source. They are listed here without them rather than with a guess.</p>
+      <p>Nationality is Wikidata's citizenship field, and for this repertoire that means a great many states that no longer exist: the Kingdom of Prussia, the Republic of Venice, Austria–Hungary, the United Kingdom of Great Britain and Ireland. Those are the facts, and a composer's page shows them as they are. The country column here is a coarser grouping made for browsing — "German lands", "Italian states", "British Isles" — because filtering by forty vanished polities helps nobody. Where a state genuinely spans several modern nations, it keeps its own name: the Holy Roman Empire stays the Holy Roman Empire.</p>
+
+      <h2>What the numbers show</h2>
+      <p>Sort by output and the shape of the library is immediate: Bach alone accounts for 373 pieces, more than the next four composers together, and the top twenty names carry over half the catalogue. The long tail is longer still — most composers here have one or two pieces, and those are usually the songs and salon pieces that survived in printed collections rather than in the concert repertoire.</p>
+      <p>If you would rather see all of this as a picture than a list, the <a href="atlas.html">Atlas</a> plots the same composers as lifespans on one map.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=129"></script>
+<script src="js/composer-dates.js?v=129"></script>
+<script src="js/site.js?v=129"></script>
+<script src="js/composers-index.js?v=129"></script>
+</body>
+</html>

@@ -285,8 +285,12 @@ export default {
               ids.sort((a, b) => (DIFF_ORDER[SEO[a][5]] ?? 3) - (DIFF_ORDER[SEO[b][5]] ?? 3));
               const easy = ids.filter((id) => SEO[id][5] === 'easy');
               const tally = genreTally(ids);
+              // "…was a citizen of the Kingdom of Prussia" is a sourced fact and a better
+              // sentence than the browse group, so the page gets the real polity.
+              const cit = d && d.co && d.co.length
+                ? ' They held citizenship of ' + attr(d.co.slice(0, 2).join(' and ')) + '.' : '';
               const life = d ? attr(name) + ' lived from ' + d.b + ' to ' + d.d
-                + (d.era ? ', in the ' + attr(d.era) + ' period' : '') + ', which places this music in the ' + d.century + '. ' : '';
+                + (d.era ? ', in the ' + attr(d.era) + ' period' : '') + ', which places this music in the ' + d.century + '.' + cit + ' ' : '';
               const body = '<div class="drd-index">'
                 + '<p>' + life + 'DoReDog holds ' + ids.length + (ids.length === 1 ? ' piece' : ' pieces')
                 + ' by ' + attr(name) + ' in letter notes'

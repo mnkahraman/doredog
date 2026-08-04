@@ -814,6 +814,41 @@ body{ animation:pageIn .5s var(--ez) both; }
 .otd-src{font-size:.72rem;color:var(--text-mute,#8a8a99)!important;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.25)}
 
 
+/* --- Composer index --- */
+.cx-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.cx-search{flex:1;min-width:200px;font:inherit;font-size:.92rem;padding:11px 14px;border-radius:12px;
+  background:rgba(0,0,0,.26);border:1px solid var(--border);color:var(--text,#fff)}
+.cx-search:focus{outline:none;border-color:var(--gold,#f6b73f)}
+.cx-select{font:inherit;font-size:.86rem;padding:11px 13px;border-radius:12px;
+  background:var(--surface-2,#14141f);border:1px solid var(--border);color:var(--text,#fff)}
+.cx-letters{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.cx-key{display:inline-flex;align-items:baseline;gap:5px;padding:6px 11px;border-radius:9px;
+  border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--text-dim,#b9b9c6);
+  font-family:var(--font-mono,monospace);font-size:.76rem;cursor:pointer;transition:.15s}
+.cx-key span{font-size:.62rem;color:var(--text-mute,#8a8a99)}
+.cx-key:hover{color:var(--text,#fff);border-color:var(--border-2,rgba(255,255,255,.2))}
+.cx-key.on{border-color:var(--gold,#f6b73f);background:rgba(246,183,63,.12);color:var(--text,#fff)}
+.cx-count{font-family:var(--font-mono,monospace);font-size:.74rem;letter-spacing:.06em;
+  color:var(--text-mute,#8a8a99);margin:0 0 10px}
+.cx-head,.cx-row{display:grid;grid-template-columns:1fr 92px 128px 54px;gap:12px;align-items:baseline;
+  padding:9px 8px}
+.cx-head{font-family:var(--font-mono,monospace);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-mute,#8a8a99);border-bottom:1px solid rgba(255,255,255,.12)}
+.cx-head span:last-child,.cx-row .cx-n{text-align:right}
+.cx-list{display:flex;flex-direction:column}
+.cx-row{text-decoration:none;color:var(--text,#fff);border-bottom:1px solid rgba(255,255,255,.055)}
+.cx-row:hover{background:rgba(255,255,255,.035)}
+.cx-name{font-size:.95rem;font-weight:500}
+.cx-life,.cx-country{font-family:var(--font-mono,monospace);font-size:.76rem;color:var(--text-mute,#8a8a99)}
+.cx-life i{font-style:normal;opacity:.6}
+.cx-n{font-family:var(--font-mono,monospace);font-size:.82rem;color:var(--gold,#f6b73f)}
+@media (max-width:640px){
+  .cx-head,.cx-row{grid-template-columns:1fr 80px 44px}
+  .cx-country{display:none}
+  .cx-head span:nth-child(3){display:none}
+}
+
+
 /* --- The Atlas --- */
 .atlas-bar-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:14px}
 .atlas-find-wrap{position:relative;flex:1;min-width:220px;max-width:340px}

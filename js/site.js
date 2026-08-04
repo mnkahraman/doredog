@@ -51,6 +51,7 @@
   ];
   // Everything else lives under "More" — the bar stops growing, and the tools stop hiding in the footer.
   var MORE = [
+    ['composers.html', 'All composers'],
     ['progress.html', 'Your progress'],
     ['timeline.html', 'Timeline'],
     ['midi-to-letter-notes.html', 'MIDI → letter notes'],
