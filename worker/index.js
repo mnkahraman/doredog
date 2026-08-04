@@ -285,10 +285,14 @@ export default {
               ids.sort((a, b) => (DIFF_ORDER[SEO[a][5]] ?? 3) - (DIFF_ORDER[SEO[b][5]] ?? 3));
               const easy = ids.filter((id) => SEO[id][5] === 'easy');
               const tally = genreTally(ids);
-              // "…was a citizen of the Kingdom of Prussia" is a sourced fact and a better
-              // sentence than the browse group, so the page gets the real polity.
+              // "…of the Kingdom of Prussia" is a sourced fact and a better sentence than the
+              // browse group, so the page gets the real polity — with the article these names
+              // need, since "citizenship of Russian Empire" reads like a telegram.
+              const article = (c) => (/^(United|Holy|Papal|Habsburg|Dutch|Ottoman|Soviet)\b/.test(c)
+                || /\b(Kingdom|Republic|Empire|Duchy|Electorate|Principality|Confederation|Commonwealth|Reich|States)\b/.test(c)
+                ? 'the ' : '') + c;
               const cit = d && d.co && d.co.length
-                ? ' They held citizenship of ' + attr(d.co.slice(0, 2).join(' and ')) + '.' : '';
+                ? ' They held citizenship of ' + attr(d.co.slice(0, 2).map(article).join(' and ')) + '.' : '';
               const life = d ? attr(name) + ' lived from ' + d.b + ' to ' + d.d
                 + (d.era ? ', in the ' + attr(d.era) + ' period' : '') + ', which places this music in the ' + d.century + '.' + cit + ' ' : '';
               const body = '<div class="drd-index">'
