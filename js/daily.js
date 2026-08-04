@@ -47,22 +47,44 @@
     live = []; clearTimeout(timer); timer = null; playing = false;
     var b = el('daily-play'); if (b) b.textContent = '▶ Play';
   }
+  // A one-second clip is only a puzzle if there is something in it. Fourteen of the
+  // 92 pool pieces open with a single note or less in their first second, and one
+  // (O Tannenbaum) opens with silence — press Play on those days and you hear
+  // nothing, which reads as a broken game. So: skip any leading silence, and keep
+  // the window open past its nominal length until at least MIN_ONSETS notes have
+  // actually sounded. Fast pieces are unaffected; sparse ones stop being unplayable.
+  var MIN_ONSETS = 2;
+  function firstSounding(cols) {
+    for (var i = 0; i < cols.length; i++) if (cols[i].events.length) return i;
+    return 0;
+  }
+  // how many columns this step should cover, counted from the first sounding one
+  function windowCols(cols, cps, seconds) {
+    var from = firstSounding(cols), colDur = 1 / (cps || 6);
+    var want = Math.max(1, Math.ceil(seconds / colDur));
+    var onsets = 0, i;
+    for (i = from; i < cols.length; i++) {
+      if (cols[i].events.length) onsets++;
+      if (i - from + 1 >= want && onsets >= MIN_ONSETS) break;
+    }
+    return { from: from, to: Math.min(cols.length - 1, i), colDur: colDur };
+  }
   function playClip(cols, cps, seconds) {
-    if (!DRD.Synth || !cols) return;
+    if (!DRD.Synth || !cols || !cols.length) return;
     stopAudio();
     DRD.Synth.ensure();
+    var win = windowCols(cols, cps, seconds);
     var start = function () {
-      var t0 = DRD.Synth.ctx.currentTime + 0.08, colDur = 1 / (cps || 6);
-      for (var i = 0; i < cols.length; i++) {
-        var when = t0 + i * colDur;
-        if (when - t0 > seconds) break;
+      var t0 = DRD.Synth.ctx.currentTime + 0.08;
+      for (var i = win.from; i <= win.to; i++) {
+        var when = t0 + (i - win.from) * win.colDur;
         var evs = cols[i].events, top = -1, k;
         for (k = 0; k < evs.length; k++) if (evs[k].midi > top) top = evs[k].midi;
         for (k = 0; k < evs.length; k++) live.push(DRD.Synth.note(DRD.midiToFreq(evs[k].midi), when, evs[k].midi === top ? 1 : 0.6));
       }
       playing = true;
       var b = el('daily-play'); if (b) b.textContent = '■ Stop';
-      timer = setTimeout(stopAudio, seconds * 1000 + 400);
+      timer = setTimeout(stopAudio, (win.to - win.from + 1) * win.colDur * 1000 + 900);
     };
     if (DRD.Synth.ctx && DRD.Synth.ctx.state === 'running') return start();
     var tries = 0, launched = false;
@@ -118,10 +140,24 @@
       if (!nota) { el('daily-play').disabled = true; el('daily-play').textContent = 'Unavailable today'; return; }
       cols = DRD.buildTimeline(DRD.parseNotation(nota)).cols;
       el('daily-play').disabled = false;
+      render();                    // the heard-so-far label needs the timeline to be honest
     };
     document.head.appendChild(sc);
 
     function unlocked() { return STEPS[Math.min(state.guesses.length, STEPS.length - 1)]; }
+
+    // The clip can run past its nominal length when a piece opens too sparsely to
+    // be a puzzle (see playClip). Report what you will actually hear, not the
+    // number on the chip — under-promising is fine, lying about it is not.
+    function heardLabel() {
+      var s = unlocked();
+      if (cols && cols.length) {
+        var w = windowCols(cols, cps, s);
+        var real = (w.to - w.from + 1) * w.colDur;
+        if (real > s + 0.35) s = Math.round(real * 10) / 10;
+      }
+      return s + ' second' + (s === 1 ? '' : 's');
+    }
 
     function render() {
       var tries = state.guesses.length;
@@ -131,7 +167,7 @@
         var cur = (!state.done && i === tries) ? ' now' : '';
         return '<span class="daily-step' + cls + cur + '">' + s + 's</span>';
       }).join('');
-      el('daily-heard').textContent = state.done ? 'Full piece' : unlocked() + ' second' + (unlocked() === 1 ? '' : 's');
+      el('daily-heard').textContent = state.done ? 'Full piece' : heardLabel();
       el('daily-guessed').innerHTML = state.guesses.map(function (g, i) {
         if (g === 'skip') return '<li class="skip">Skipped</li>';
         if (g === true) return '<li class="hit">✓ ' + esc(state.names[i] || song.title) + '</li>';
