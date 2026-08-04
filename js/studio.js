@@ -10,7 +10,7 @@
 (function (global) {
   'use strict';
   var DRD = global.DRD || {};
-  var NOTA_V = 89;
+  var NOTA_V = 90;
   var QKEY = 'drd-queue-v1';
   var MAXQ = 300;
   // Foreground look-ahead is short so a seek feels instant. When the tab is hidden or the window

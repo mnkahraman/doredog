@@ -7,10 +7,10 @@ window.DRD = window.DRD || {};
 
 window.DRD.SONGS = [
   {
-    id: "twinkle-twinkle",
-    title: "Twinkle, Twinkle, Little Star",
-    composer: "Traditional · France",
-    difficulty: "easy",
+    id: "mozart-twinkle-variations",
+    title: "Twelve Variations on “Ah! vous dirai-je, maman”, K. 265",
+    composer: "W. A. Mozart",
+    difficulty: "hard",
     genre: "Classical",
     year: 1785,
     circa: true,
@@ -21,7 +21,7 @@ window.DRD.SONGS = [
     fp: "GK@J<<GEDN=Q?LJJGGIIQ=98DF??",
     mood: 8,
     cover: {"from":"#3a1c71","mid":"#8b6bff","to":"#0f0c1e","glyph":"☾","image":"assets/covers/twinkle-variations.webp"},
-    blurb: "The full Twinkle, Twinkle, Little Star by W. A. Mozart, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "Mozart's twelve variations on the French nursery melody the English-speaking world sings as Twinkle, Twinkle, Little Star — nine minutes of increasingly elaborate figuration."
   },
 
   {
@@ -43473,6 +43473,23 @@ window.DRD.SONGS = [
     sourced: true,
     cover: {"from":"#13290f","mid":"#6fc46b","to":"#081406","glyph":"❋"},
     blurb: "The Holly and the Ivy — a traditional melody in colour-coded letter notes, transcribed from a published score. One of the easiest pieces in the library to start with."
+  },
+
+  {
+    id: "twinkle-twinkle",
+    title: "Twinkle, Twinkle, Little Star",
+    composer: "Traditional · France",
+    difficulty: "easy",
+    genre: "Folk",
+    featured: false,
+    tags: ["france","folk","piano","beginner"],
+    cps: 6.67,
+    dur: 29,
+    fp: "0079754420754477542077975422",
+    mood: 1,
+    authored: true,
+    cover: {"from":"#101a33","mid":"#7fc4ff","to":"#080d1a","glyph":"✦"},
+    blurb: "Twinkle, Twinkle, Little Star — a traditional melody written out in colour-coded letter notes, one of the easiest pieces in the library to start with."
   }
 ];
 

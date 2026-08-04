@@ -12,7 +12,7 @@
     if (DRD.NOTATIONS[id]) return cb(DRD.NOTATIONS[id]);
     var sc = document.createElement('script');
     // cache-bust: bump on every content regeneration so browsers never serve a stale/404-cached notation.
-    sc.src = 'songs/' + id + '.js?v=89' + (_retry ? '&r=' + Date.now() : '');
+    sc.src = 'songs/' + id + '.js?v=90' + (_retry ? '&r=' + Date.now() : '');
     sc.onload = function () {
       var n = (DRD.NOTATIONS || {})[id] || null;
       if (n == null && !_retry) return loadNotation(id, cb, true);   // stale/empty cached response → retry uncached once
@@ -76,7 +76,7 @@
     // cinematic art marquee — each scene links to a mood-matched piece
     var track = document.getElementById('art-track');
     if (track) {
-      var picks = ['clair-de-lune', 'moonlight-sonata', 'ode-to-joy', 'fur-elise', 'twinkle-twinkle', 'silent-night', 'the-entertainer'];
+      var picks = ['clair-de-lune', 'moonlight-sonata', 'ode-to-joy', 'fur-elise', 'mozart-twinkle-variations', 'silent-night', 'the-entertainer'];
       var item = function (id) {
         var s = DRD.getSong(id); if (!s || !s.cover || !s.cover.image) return '';
         var comp = s.composer || '';

@@ -17,6 +17,21 @@ const SUB = 4;                                    // grid columns per beat (16th
 
 const MELODIES = [
   {
+    id: 'twinkle-twinkle', title: 'Twinkle, Twinkle, Little Star', composer: 'Traditional · France',
+    genre: 'Folk', tsNum: 4, bpm: 100,
+    cover: { from: '#101a33', mid: '#7fc4ff', to: '#080d1a', glyph: '✦' },
+    // "Ah! vous dirai-je, maman" — the melody Jane Taylor's 1806 poem is sung to.
+    // Two phrases, then the middle strain, then the two phrases again: the whole tune
+    // sits inside one five-finger position plus a step, which is why it is the first
+    // melody most people ever play.
+    notes: [['c4',1],['c4',1],['g4',1],['g4',1],['a4',1],['a4',1],['g4',2],
+            ['f4',1],['f4',1],['e4',1],['e4',1],['d4',1],['d4',1],['c4',2],
+            ['g4',1],['g4',1],['f4',1],['f4',1],['e4',1],['e4',1],['d4',2],
+            ['g4',1],['g4',1],['f4',1],['f4',1],['e4',1],['e4',1],['d4',2],
+            ['c4',1],['c4',1],['g4',1],['g4',1],['a4',1],['a4',1],['g4',2],
+            ['f4',1],['f4',1],['e4',1],['e4',1],['d4',1],['d4',1],['c4',2]]
+  },
+  {
     id: 'happy-birthday', title: 'Happy Birthday to You', composer: 'Traditional',
     genre: 'Folk', tsNum: 3, bpm: 116,
     cover: { from: '#3d1a2e', mid: '#ff54b2', to: '#140a10', glyph: '✿' },
