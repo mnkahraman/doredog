@@ -1401,3 +1401,4 @@ body{ animation:pageIn .5s var(--ez) both; }
 .ear-semis{color:var(--text-mute,#8a8a99);font-size:.82rem;margin-left:6px}
 .ear-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin-top:26px;
   border-top:1px solid var(--border);padding-top:20px}
+.cof-slash{color:var(--text-mute,#8a8a99);font-size:.85rem;margin-left:.7rem}

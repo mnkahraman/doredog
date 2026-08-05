@@ -79,9 +79,14 @@
     { id: 'amen', name: 'The plagal cadence', sub: 'IV – I', beat: 1.3,
       note: 'The "Amen" at the end of a hymn. Two chords, and one of the oldest endings in Western music.',
       steps: [[5, MAJ], [0, MAJ]] },
-    { id: 'lament', name: 'The lament bass', sub: 'i – ♭VII – ♭VI – V', beat: 1.15,
-      note: 'The same descent as the Andalusian, taken slowly — the figure behind centuries of laments and ground basses.',
-      steps: [[0, MIN], [10, MAJ], [8, MAJ], [7, MAJ]], minorHome: true }
+    /* The chromatic version, which is the one that carries the association. A step is
+       [degree, quality] or [degree, quality, bassOffset] — the third value is the bass
+       in semitones from the tonic and may be negative, so this descends 0 −1 −2 −3 −4 −5:
+       a perfect fourth from tonic to dominant with every semitone filled in. Without it
+       this was note-for-note the Andalusian cadence, only slower. */
+    { id: 'lament', name: 'The lament bass', sub: 'i – V/3 – ♭III/5 – IV/3 – ♭VI – V', beat: 1.15,
+      note: 'A bass that walks down a perfect fourth one semitone at a time, harmonised the whole way. Purcell built Dido\'s Lament on it and Bach the Crucifixus. Watch the lowest key on the keyboard rather than the ring — the descent is the point.',
+      steps: [[0, MIN, 0], [7, MAJ, -1], [3, MAJ, -2], [5, MAJ, -3], [8, MAJ, -4], [7, MAJ, -5]], minorHome: true }
   ];
 
   var OCT_HEX = { 3: '#35e08c', 4: '#ff5f64', 5: '#f6b73f' };
@@ -165,20 +170,21 @@
 
   // a two-octave strip showing which physical keys belong to the scale;
   // during a progression the sounding chord is highlighted on top of it
-  function paintKeys(pcs, chord) {
+  function paintKeys(pcs, chord, bass) {
     var wrap = el('cof-keys'); if (!wrap) return;
     var set = {}; pcs.forEach(function (p) { set[p] = 1; });
     var hot = {}; (chord || []).forEach(function (p) { hot[p % 12] = 1; });
+    var low = bass == null ? -1 : ((bass % 12) + 12) % 12;
     var WHITE = [0, 2, 4, 5, 7, 9, 11], BLACK = { 1: 0, 3: 1, 6: 3, 8: 4, 10: 5 };
     var html = '';
     for (var o = 0; o < 2; o++) {
       html += '<span class="cof-oct">';
       WHITE.forEach(function (pc) {
-        html += '<span class="cof-k' + (set[pc] ? ' in' : '') + (hot[pc] ? ' hot' : '') + '">' + LET[pc] + '</span>';
+        html += '<span class="cof-k' + (set[pc] ? ' in' : '') + (hot[pc] ? ' hot' : '') + (pc === low ? ' bass' : '') + '">' + LET[pc] + '</span>';
       });
       Object.keys(BLACK).forEach(function (pcStr) {
         var pc = +pcStr;
-        html += '<span class="cof-k cof-kb' + (set[pc] ? ' in' : '') + (hot[pc] ? ' hot' : '') +
+        html += '<span class="cof-k cof-kb' + (set[pc] ? ' in' : '') + (hot[pc] ? ' hot' : '') + (pc === low ? ' bass' : '') +
           '" style="left:' + ((BLACK[pc] + 1) * 34 - 11) + 'px">' + LET[pc] + '</span>';
       });
       html += '</span>';
@@ -240,12 +246,17 @@
     var st = p.steps[n];
     var root = (homePC() + st[0]) % 12;
     var pcs = QUAL[st[1]].map(function (iv) { return (root + iv) % 12; });
+    // st[2], when present, is the bass in semitones from the tonic and may be negative —
+    // it lets a progression put a chord over a bass note that is not its own root, which
+    // is the whole substance of the lament bass. Default: the chord's own root.
+    var bassMidi = 48 + homePC() + (st.length > 2 ? st[2] : st[0]);
+    var bassPC = ((bassMidi % 12) + 12) % 12;
 
-    // sound it — root position around middle C, bass an octave down
+    // sound it — chord around middle C, bass an octave down
     if (DRD.Synth) {
       DRD.Synth.ensure();
       var t = DRD.Synth.ctx.currentTime + 0.04;
-      prog.live.push(DRD.Synth.note(DRD.midiToFreq(48 + root), t, 0.75));
+      prog.live.push(DRD.Synth.note(DRD.midiToFreq(bassMidi), t, 0.75));
       QUAL[st[1]].forEach(function (iv) {
         prog.live.push(DRD.Synth.note(DRD.midiToFreq(60 + root + iv), t, 0.85));
       });
@@ -258,13 +269,14 @@
         (+g.getAttribute('data-minor') === (st[1] === MAJ ? 0 : 1));
       g.classList.toggle('sound', hit);
     });
-    // light the keyboard
-    paintKeys(scalePCs(homePC(), state.minor), pcs);
+    // light the keyboard — chord notes plus the bass, so a walking bass is visible
+    paintKeys(scalePCs(homePC(), state.minor), pcs.concat([bassPC]), bassPC);
 
     // name it
+    var slash = bassPC !== root ? '<span class="cof-slash">/ ' + LET[bassPC] + ' bass</span>' : '';
     var out = el('cof-prog-now');
     if (out) out.innerHTML = '<b>' + roman(st[0], st[1]) + '</b> ' +
-      '<span>' + pcs.map(function (pc) { return LET[pc]; }).join(' ') + '</span>';
+      '<span>' + pcs.map(function (pc) { return LET[pc]; }).join(' ') + '</span>' + slash;
     Array.prototype.forEach.call(document.querySelectorAll('.cof-step'), function (s, i) {
       s.classList.toggle('on', i === n);
     });
