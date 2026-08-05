@@ -13803,20 +13803,20 @@ window.DRD.SONGS = [
   {
     id: "m-bach-anna-magdalena-03",
     title: "Menuet (BWV Anh. 113)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 20,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 24,
     dur: 49,
     fp: "QSSLQQOUSQQ;UU;U:UJGVQXVZZZZ",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Menuet (BWV Anh. 113) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Menuet (BWV Anh. 113) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -13859,20 +13859,20 @@ window.DRD.SONGS = [
   {
     id: "m-bach-anna-magdalena-07",
     title: "Menuet (BWV Anh. 116)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 18,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 12.5,
     dur: 61,
     fp: "L@XUQ;8NUN;LWPPTXPI;S?LWSL;;",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Menuet (BWV Anh. 116) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Menuet (BWV Anh. 116) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -13897,20 +13897,20 @@ window.DRD.SONGS = [
   {
     id: "m-bach-anna-magdalena-22",
     title: "Musette (BWV Anh. 126)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "medium",
     ds: 33,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 8,
     dur: 23,
     fp: "ZUXLNZWXLIRRUZSIIRUSZRUSNBBB",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Musette (BWV Anh. 126) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Musette (BWV Anh. 126) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -15183,96 +15183,96 @@ window.DRD.SONGS = [
   {
     id: "m-bach-bwv-117a",
     title: "Polonaise in F major (BWV Anh. 117a)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "medium",
     ds: 34,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 12,
     dur: 49,
     fp: "V[ZQCQ9SQNUL6ZXVZSQNQO4QO>>>",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Polonaise in F major (BWV Anh. 117a) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Polonaise in F major (BWV Anh. 117a) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-117b",
     title: "Polonaise in F major (BWV Anh. 117b)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 16,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 12,
     dur: 49,
     fp: "V[Z@=Q9SQNUL9ZXV=SQ4QO=QO>>>",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Polonaise in F major (BWV Anh. 117b) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Polonaise in F major (BWV Anh. 117b) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-119",
     title: "Polonaise in G minor (BWV Anh. 119)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 13,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 4,
     dur: 52,
     fp: "LQOOXN;SSJOSTQO<SLLSLKNSO@@@",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Polonaise in G minor (BWV Anh. 119) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Polonaise in G minor (BWV Anh. 119) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-120",
     title: "Minuet in A minor (BWV Anh. 120)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 5,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 10.67,
     dur: 66,
     fp: "IPUPBU@@QLS1SQXJJU@UUXYVUUUU",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Minuet in A minor (BWV Anh. 120) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Minuet in A minor (BWV Anh. 120) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-bwv-121",
     title: "Minuet in C minor (BWV Anh. 121)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 15,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 10.8,
     dur: 42,
     fp: "QTXYXVSQ@LMILJMCL<NQSUTWVQQQ",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Minuet in C minor (BWV Anh. 121) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Minuet in C minor (BWV Anh. 121) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -15297,20 +15297,20 @@ window.DRD.SONGS = [
   {
     id: "m-bach-bwv-128",
     title: "Polonaise in D minor (BWV Anh. 128)",
-    composer: "J. S. Bach",
+    composer: "Anonymous",
     difficulty: "easy",
     ds: 10,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["anonymous","baroque","piano"],
     cps: 14.4,
     dur: 46,
     fp: "SUNUXVXX[XVJJZZQVLLON==UZZZZ",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Polonaise in D minor (BWV Anh. 128) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Polonaise in D minor (BWV Anh. 128) by Anonymous, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
