@@ -17,8 +17,8 @@
 <meta property="og:site_name" content="DoReDog">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://doredog.com/#website","url":"https://doredog.com/","name":"DoReDog","description":"A free library of piano letter notes with a built-in live in-browser player.","publisher":{"@id":"https://doredog.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://doredog.com/library?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://doredog.com/#org","name":"DoReDog","url":"https://doredog.com/","logo":"https://doredog.com/assets/og.webp"}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/main.css?v=152">
-<link rel="stylesheet" href="css/player.css?v=152">
+<link rel="stylesheet" href="css/main.css?v=153">
+<link rel="stylesheet" href="css/player.css?v=153">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
 </head>
@@ -131,6 +131,37 @@
 
       <div class="song-grid" id="daily-grid" style="margin-bottom:26px"></div>
       <div class="song-grid" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- PLAY & EXPLORE — every feature that used to hide under "More", plus the arcade -->
+  <section class="section" id="explore">
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+        <span class="eyebrow" data-reveal>Play &amp; explore</span>
+        <h2 class="title" data-reveal data-delay="1">Everything on DoReDog, one tap away</h2>
+        <p class="lead" data-reveal data-delay="2" style="max-width:60ch;margin:1rem auto 0">Games, tools and rabbit holes — free, no sign-up, and every melody in them comes from the real library.</p>
+      </div>
+      <div class="arc-grid-cards" data-reveal data-delay="2">
+        <a class="arc-card-link" href="games.html"><span class="arc-card-ico">🕹️</span><span class="arc-card-tag" style="color:var(--gold);border-color:var(--gold)">New</span><b>Music games</b><p>Twenty arcade games built on real melodies — Melody Tiles, a five-note Wordle, a drum machine and more.</p></a>
+        <a class="arc-card-link" href="melody-detective.html"><span class="arc-card-ico">🕵️</span><b>Melody detective</b><p>A few notes play. Find them on the keyboard — then find out what you were playing.</p></a>
+        <a class="arc-card-link" href="ear-training.html"><span class="arc-card-ico">👂</span><b>Ear training</b><p>Two notes, how far apart? The skill that turns letter notes into music, in five-minute sessions.</p></a>
+        <a class="arc-card-link" href="circle-of-fifths.html"><span class="arc-card-ico">🎡</span><b>Circle of fifths</b><p>The map of every key, in letter notes — with nine real chord progressions moving across it.</p></a>
+        <a class="arc-card-link" href="chord-finder.html"><span class="arc-card-ico">🎹</span><b>Chord finder</b><p>Every chord on a piano: hear it, see the keys, read it in letters. Twelve roots, fifteen types.</p></a>
+        <a class="arc-card-link" href="quiz.html"><span class="arc-card-ico">❓</span><b>Music quizzes</b><p>Audio quizzes built on the player — name the piece, the composer, the interval. Endless mode included.</p></a>
+        <a class="arc-card-link" href="facts.html"><span class="arc-card-ico">💡</span><b>Music facts</b><p>Curiosities from the catalogue — sourced, checked, and stranger than you'd expect.</p></a>
+        <a class="arc-card-link" href="on-this-day.html"><span class="arc-card-ico">📅</span><b>On this day</b><p>What happened in music history on today's date — premieres, births, scandals.</p></a>
+        <a class="arc-card-link" href="timeline.html"><span class="arc-card-ico">🗺️</span><b>Timeline</b><p>Six centuries of music history, walked era by era with pieces you can play from each.</p></a>
+        <a class="arc-card-link" href="midi-to-letter-notes.html"><span class="arc-card-ico">🎼</span><b>MIDI → letter notes</b><p>Drop in any MIDI file and get letter notes back. Your files never leave the browser.</p></a>
+        <a class="arc-card-link" href="composers.html"><span class="arc-card-ico">🎩</span><b>All composers</b><p>Every one of the 435 — from Bach's 359 pieces to the 242 composers we hold a single piece by.</p></a>
+        <a class="arc-card-link" href="progress.html"><span class="arc-card-ico">📈</span><b>Your progress</b><p>Pieces you've played, streaks and scores — kept in your browser, nothing uploaded.</p></a>
+      </div>
+      <p style="text-align:center;margin-top:22px;font-size:.9rem" class="text-mute" data-reveal>
+        Also: <a href="guide.html" style="color:var(--gold)">how to read letter notes</a> ·
+        <a href="articles.html" style="color:var(--gold)">all 48 guides</a> ·
+        <a href="about.html" style="color:var(--gold)">about</a> ·
+        <a href="contact.html" style="color:var(--gold)">contact</a>
+      </p>
     </div>
   </section>
 
@@ -275,11 +306,11 @@
 
 <footer id="site-footer"></footer>
 
-<script src="js/data.js?v=152"></script>
-<script src="js/daily-pool.js?v=152"></script>
-<script src="js/on-this-day.js?v=152" defer></script>
-<script src="js/player.js?v=152"></script>
-<script src="js/site.js?v=152"></script>
-<script src="js/pages.js?v=152"></script>
+<script src="js/data.js?v=153"></script>
+<script src="js/daily-pool.js?v=153"></script>
+<script src="js/on-this-day.js?v=153" defer></script>
+<script src="js/player.js?v=153"></script>
+<script src="js/site.js?v=153"></script>
+<script src="js/pages.js?v=153"></script>
 </body>
 </html>

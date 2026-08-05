@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Games — 20 Free Games You Can Play in the Browser | DoReDog</title>
+<meta name="description" content="Twenty free music games: Piano-Tiles-style action on real melodies, ear training as arcade rounds, a melody Wordle, rhythm games and two sound toys. No sign-up, works on phones.">
+<link rel="canonical" href="https://doredog.com/games">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Music Games — 20 Free Games You Can Play in the Browser">
+<meta property="og:description" content="Action games on real melodies, ear-training rounds, a melody Wordle, rhythm games and sound toys. Free, instant, no sign-up.">
+<meta property="og:url" content="https://doredog.com/games">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=153">
+<link rel="stylesheet" href="css/player.css?v=153">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="games">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Free · no sign-up · works on phones</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Music <span class="text-grad">games</span></h1>
+      <p class="lead" data-reveal data-delay="2">Twenty ways to waste time musically. The melodies are real pieces from the library — so every game can end with you learning the tune it was playing.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="arc-filter" id="arc-filter" data-reveal></div>
+      <div class="arc-grid-cards" id="arc-cards"></div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>What makes these different</h2>
+      <p>Most browser music games run on canned loops. These run on the same <a href="library.html">2,433 public-domain transcriptions</a> as the rest of this site — so when Melody Tiles ends, it tells you that you were just playing Für Elise, and one click later you are learning it properly in letter notes. The games are the front door; the library is the house.</p>
+      <p>Nothing here needs an account, uploads anything, or takes more than two clicks to start. Your best scores live in your own browser.</p>
+
+      <h2>The twenty games</h2>
+      <p><strong>Action</strong> — Letter Rain (type the falling letters and you are literally sight-reading), Melody Tiles (tap the tiles, the piece plays itself), Note Catch (basket, falling notes, decoys), Bumblebee Dash (alternate two keys as fast as Rimsky-Korsakov demands), Interval Invaders (zap the interval you heard).</p>
+      <p><strong>Ear</strong> — Pitch Sniper, Higher or Lower, Chord Crush, Happy or Sad, and Odd One Out: sixty-second rounds that are secretly the same drills our <a href="ear-training.html">ear-training tool</a> teaches, wearing an arcade costume.</p>
+      <p><strong>Rhythm &amp; memory</strong> — Echo Chamber (a Simon that always sounds musical), Clap Back (repeat the rhythm), Tempo Keeper (the metronome stops, you don't), and Melody Mix-up (reassemble a shuffled tune).</p>
+      <p><strong>Knowledge</strong> — Era Detective (name the century from eight seconds), Name That Tune (fewer notes, more points), Notle (Wordle where the word is five notes), Composer Clues (guess who from four hints).</p>
+      <p><strong>Toys</strong> — Tone Grid and Beat Lab: no score, no rules, everything sounds good, and your patterns are shareable as links.</p>
+
+      <p style="margin-top:1.6rem">When a game hooks you on a melody, the serious versions live in <a href="learn.html">Learn</a>, <a href="daily.html">the melody of the day</a>, and <a href="melody-detective.html">Melody Detective</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=153"></script>
+<script src="js/site.js?v=153"></script>
+<script src="js/arcade.js?v=153"></script>
+<script src="js/arcade-games-a.js?v=153"></script>
+<script src="js/arcade-games-b.js?v=153"></script>
+<script>
+(function () {
+  var A = DRD.arcade;
+  var cards = document.getElementById('arc-cards');
+  var filterEl = document.getElementById('arc-filter');
+  var tags = ['All'];
+  A.games.forEach(function (g) { if (tags.indexOf(g.tag) < 0) tags.push(g.tag); });
+  var current = 'All';
+  function paint() {
+    cards.innerHTML = '';
+    A.games.forEach(function (g) {
+      if (current !== 'All' && g.tag !== current) return;
+      var best = A.best(g.id);
+      var a = document.createElement('a');
+      a.className = 'arc-card-link';
+      a.href = 'game?g=' + g.id;
+      a.innerHTML = '<span class="arc-card-ico">' + g.icon + '</span>' +
+        '<span class="arc-card-tag">' + g.tag + '</span>' +
+        '<b>' + g.title + '</b>' +
+        '<p>' + g.desc + '</p>' +
+        (g.toy ? '<span class="arc-card-best">Toy — no score</span>'
+               : '<span class="arc-card-best">' + (best ? 'Your best: ' + best : 'Not played yet') + '</span>');
+      cards.appendChild(a);
+    });
+  }
+  tags.forEach(function (t) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip' + (t === current ? ' active' : '');
+    b.textContent = t;
+    b.addEventListener('click', function () {
+      current = t;
+      filterEl.querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('active', c.textContent === t); });
+      paint();
+    });
+    filterEl.appendChild(b);
+  });
+  paint();
+})();
+</script>
+</body>
+</html>

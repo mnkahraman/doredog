@@ -412,7 +412,14 @@ ${ADSENSE}
 `;
 fs.writeFileSync(ROOT + '/articles.html', hub);
 
-patchSitemap(ARTS.map((a) => a[1]));
+// The arcade's URLs ride in the same tool-owned sitemap block. Read the game ids
+// from the registry source itself so a new game cannot be forgotten here.
+const GAME_IDS = [];
+for (const f of ['js/arcade-games-a.js', 'js/arcade-games-b.js']) {
+  const src = fs.readFileSync(ROOT + '/' + f, 'utf8');
+  for (const m of src.matchAll(/id: '([a-z0-9-]+)', title/g)) GAME_IDS.push(m[1]);
+}
+patchSitemap(ARTS.map((a) => a[1]).concat(['games'], GAME_IDS.map((g) => 'game?g=' + g)));
 
 console.log('built', ARTS.length, 'article pages + articles.html hub');
 console.log('slugs:', ARTS.map(a => a[1]).join(', '));

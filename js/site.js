@@ -41,6 +41,7 @@
 
   var NAV = [
     ['daily.html', 'Daily'],
+    ['games.html', 'Games'],
     ['library.html', 'Library'],
     ['piano.html', 'Piano'],
     ['instruments.html', 'Instruments'],
