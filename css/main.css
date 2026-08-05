@@ -1586,8 +1586,13 @@ body{ animation:pageFade .5s var(--ez) both; }
 .arc-clap{ background:radial-gradient(circle at 50% 32%, rgba(255,255,255,.12), rgba(255,255,255,.03) 70%); }
 
 /* Doré reacts */
+/* Doré sat permanently over the bottom-right of the play field and hid the
+   Note Catch basket whenever it travelled right. He now rests nearly invisible
+   and only surfaces for the moment he is reacting. */
 .arc-dore{ position:absolute; right:12px; bottom:12px; z-index:6; display:flex; align-items:flex-end; gap:8px;
-  pointer-events:none; filter:drop-shadow(0 6px 14px rgba(0,0,0,.6)); }
+  pointer-events:none; filter:drop-shadow(0 6px 14px rgba(0,0,0,.6));
+  opacity:.14; transition:opacity .45s var(--ez); }
+.arc-dore.cheer, .arc-dore.wow, .arc-dore.ouch{ opacity:1; }
 .arc-dore img{ width:72px; height:72px; object-fit:contain; transition:transform .25s var(--ez); }
 .arc-dore.cheer img{ animation:doreBob .5s var(--ez); }
 .arc-dore.wow img{ animation:doreJump .7s var(--ez); }
@@ -1788,3 +1793,8 @@ kbd{ font-family:var(--font-mono); font-size:.75em; padding:2px 7px; border-radi
 
 /* a live ad container stops being a dashed placeholder box */
 .ad-slot.ad-live{ border:none; background:none; min-height:0; display:block; }
+
+/* letter-rain: sharps row sits above the naturals, black-key styling */
+.arc-pads-keys{ gap:8px; }
+.arc-pad-sharp{ background:linear-gradient(180deg,#2a2833,#12111a); color:#e8e8f2; min-width:56px; }
+.arc-pad-sharp:hover{ border-color:var(--gold); }

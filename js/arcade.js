@@ -201,15 +201,15 @@
     var stage = root.querySelector('#arc-stage');
     var over = root.querySelector('#arc-over');
     var hud = root.querySelector('#arc-hud');
-    var listeners = [], intervals = [], rafs = [], timeouts = [], running = false;
+    var listeners = [], intervals = [], timeouts = [], rafId = 0, running = false;
 
     function cleanup() {
       running = false;
       listeners.forEach(function (l) { l[0].removeEventListener(l[1], l[2]); });
       intervals.forEach(clearInterval);
       timeouts.forEach(clearTimeout);
-      rafs.forEach(cancelAnimationFrame);
-      listeners = []; intervals = []; rafs = []; timeouts = [];
+      if (rafId) cancelAnimationFrame(rafId);
+      listeners = []; intervals = []; timeouts = []; rafId = 0;
       if (ctx._onStop) { try { ctx._onStop(); } catch (e) {} ctx._onStop = null; }
       stage.innerHTML = '';
     }
@@ -223,10 +223,14 @@
     var doreImg = dore.querySelector('img'), doreSay = dore.querySelector('.arc-dore-say'), doreT = null;
     var CHEER = ['Nice!', 'Keep going!', 'You got this!', 'Woof!', 'On fire!'];
     var OUCH = ['Ouch…', 'So close!', 'Shake it off!', 'Next one!'];
+    var doreFade = null;
     function doreMood(mood, text) {
       dore.classList.remove('cheer', 'ouch', 'wow');
       void dore.offsetWidth;
       dore.classList.add(mood);
+      // drop back out of the way once the reaction has played
+      clearTimeout(doreFade);
+      doreFade = setTimeout(function () { dore.classList.remove('cheer', 'ouch', 'wow'); }, 1800);
       doreImg.src = 'assets/mascot/' + (mood === 'ouch' ? 'dore-404' : mood === 'wow' ? 'dore-hero' : 'dore-play') + '.webp';
       if (text) {
         doreSay.textContent = text; doreSay.hidden = false;
@@ -285,7 +289,11 @@
         } catch (e) {}
         doreMood(isBest ? 'wow' : score > 0 ? 'cheer' : 'ouch', isBest ? 'NEW BEST! 🎉' : null);
         if (isBest) {
-          var over = root.querySelector('#arc-over');
+          /* NB: no `var over` here. A var declaration inside this block is
+             hoisted to the top of end() and shadows the outer `over`, so on
+             every run that was NOT a new best the variable was undefined and
+             `over.classList.remove('out')` below threw — the end screen never
+             appeared from the second play onwards. */
           for (var ci = 0; ci < 26; ci++) {
             var sp = h('span', 'arc-confetti', ['🎵', '🎶', '✦', '♪', '★'][ci % 5]);
             sp.style.left = Math.random() * 100 + '%';
@@ -311,13 +319,23 @@
         window.addEventListener('keyup', l); listeners.push([window, 'keyup', l]);
       },
       every: function (ms, fn) { var t = setInterval(function () { if (running) fn(); }, ms); intervals.push(t); return t; },
-      after: function (ms, fn) { var t = setTimeout(function () { if (running) fn(); }, ms); timeouts.push(t); return t; },
+      after: function (ms, fn) {
+        var t = setTimeout(function () {
+          var at = timeouts.indexOf(t); if (at >= 0) timeouts.splice(at, 1);
+          if (running) fn();
+        }, ms);
+        timeouts.push(t); return t;
+      },
+      /* One frame handle, not one per frame. This used to push a new id into
+         `rafs` on every tick — 60 a second, none ever removed — so a two-minute
+         run left 7,200 dead ids for cleanup to walk. Only the pending frame can
+         ever need cancelling. */
       raf: function (fn) {
         var last = performance.now();
         (function loop(now) {
           if (!running) return;
           fn(Math.min(0.05, (now - last) / 1000), now); last = now;
-          rafs.push(requestAnimationFrame(loop));
+          rafId = requestAnimationFrame(loop);
         })(last);
       },
       // countdown convenience: shows Time in HUD, calls onDone at zero

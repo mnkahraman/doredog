@@ -11,19 +11,31 @@
   A.register({
     id: 'letter-rain', title: 'Letter Rain', icon: '🌧', tag: 'Action',
     desc: 'The letters of a real melody fall from the sky. Type them before they land — and you are playing the piece.',
-    help: 'Type the lowest falling letter on your keyboard (c d e f g a b — hold Shift for a sharp). On a phone, tap the letter buttons. Three misses and the rain stops.',
+    help: 'Type the lowest falling letter (c d e f g a b — hold Shift for a sharp), or tap the buttons: the top row is the sharps, the bottom the naturals. Three misses and the rain stops.',
     start: function (ctx) {
       ctx.melody({ min: 24, max: 200, keepRepeats: true }, function (mel, song) {
         if (!mel) return ctx.end(0, 'Could not load a melody — try again.');
         var cv = A.canvas(ctx.stage, 380);
-        var pads = ctx.el('div', 'arc-pads');
-        'c d e f g a b'.split(' ').forEach(function (l) {
-          var b = ctx.el('button', 'arc-pad', l);
+        /* The pad row held only the seven naturals, but melodies from the pool
+           are full of sharps — and a sharp needs Shift, which a phone has not
+           got. A sharp at the bottom of the screen was simply uncatchable on
+           touch, and letting it land costs a life. Both rows are here now. */
+        var pads = ctx.el('div', 'arc-pads arc-pads-keys');
+        'C D F G A'.split(' ').forEach(function (l) {
+          var b = ctx.el('button', 'arc-pad arc-pad-sharp', l);
           b.type = 'button';
           b.addEventListener('click', function () { hit(l); });
           pads.appendChild(b);
         });
+        var padsNat = ctx.el('div', 'arc-pads arc-pads-keys');
+        'c d e f g a b'.split(' ').forEach(function (l) {
+          var b = ctx.el('button', 'arc-pad', l);
+          b.type = 'button';
+          b.addEventListener('click', function () { hit(l); });
+          padsNat.appendChild(b);
+        });
         ctx.stage.appendChild(pads);
+        ctx.stage.appendChild(padsNat);
 
         var drops = [], next = 0, score = 0, miss = 0, speed = 42, spawnGap = 1.5, sinceSpawn = 9;
         ctx.lives(3 - miss);
@@ -88,7 +100,7 @@
   A.register({
     id: 'melody-tiles', title: 'Melody Tiles', icon: '🎹', tag: 'Action',
     desc: 'Tap the black tiles as they fall and a real piece plays itself under your fingers. Miss one and it ends.',
-    help: 'Four lanes: D F J K on your keyboard, or tap. Hit the tile while it crosses the bright strike line. Every hit plays the next note of the melody.',
+    help: 'Four lanes: D F J K on your keyboard, or tap. Hit each tile as it crosses the bright strike line — every hit plays the next note of the melody. A missed tile or a press on an empty lane costs a life; you have three.',
     start: function (ctx) {
       ctx.melody({ min: 24, max: 400, keepRepeats: true }, function (mel, song) {
         if (!mel) return ctx.end(0, 'Could not load a melody — try again.');
@@ -97,7 +109,14 @@
         var laneW = cv.w / 4, tileH = 64, strikeY = cv.h - 78;
         var LANE_COLORS = ['#ff54b2', '#35e08c', '#f6b73f', '#4fa3ff'];
         var tiles = [], next = 0, score = 0, speed = 150, t = 0, sinceSpawn = 9, gap = 0.62;
-        var flash = [0, 0, 0, 0];
+        var flash = [0, 0, 0, 0], lives = 3;
+        ctx.lives(lives);
+        function costLife(why) {
+          lives--; ctx.lives(lives); ctx.drum('kick');
+          if (lives <= 0) ctx.end(score, why + ' That was <b>' + song.title +
+            '</b> — <a href="song?id=' + song.id + '">learn it for real</a>.');
+          return lives <= 0;
+        }
 
         var padRow = ctx.el('div', 'arc-lanes');
         KEYSET.forEach(function (k, i) {
@@ -130,8 +149,10 @@
             score++; ctx.score(score);
             if (score % 16 === 0) { speed += 16; gap = Math.max(0.32, gap - 0.04); }
           } else {
-            ctx.drum('kick');
-            ctx.end(score, 'Wrong lane. That was <b>' + song.title + '</b> — <a href="song?id=' + song.id + '">learn it for real</a>.');
+            // A stray press used to end the run outright. It costs a life now —
+            // punishing enough that mashing all four keys still loses, but one
+            // twitchy finger no longer wipes out a good round.
+            costLife('Out of lives.');
           }
         }
         ctx.key(function (e) {
@@ -170,8 +191,8 @@
             g.fillStyle = LANE_COLORS[tl.lane];
             g.fillRect(tl.lane * laneW + 5, tl.y + tileH - 5, laneW - 10, 5);
             if (tl.y > cv.h) {
-              ctx.end(score, 'A tile got away. That was <b>' + song.title + '</b> — <a href="song?id=' + song.id + '">learn it for real</a>.');
-              return;
+              tiles.splice(i, 1);
+              if (costLife('A tile got away.')) return;
             }
           }
           cv.fx(dt);
@@ -184,28 +205,56 @@
   A.register({
     id: 'note-catch', title: 'Note Catch', icon: '🧺', tag: 'Action',
     desc: 'Golden notes fall — catch them and the melody assembles itself. Grey notes are wrong; let them pass.',
-    help: 'Move with ← → (or tap left/right half of the board). Catch the gold notes: each one is the next note of a real piece. Grey notes are decoys — catching one costs a life.',
+    help: 'Drag anywhere on the board to move the basket, or use ← →. Catch the gold notes — each is the next note of a real piece. Grey notes are decoys: catching one costs a life, and so does letting a gold one fall.',
     start: function (ctx) {
       ctx.melody({ min: 16, max: 120 }, function (mel, song) {
         if (!mel) return ctx.end(0, 'Could not load a melody — try again.');
         var cv = A.canvas(ctx.stage, 400);
         var bx = cv.w / 2, bw = 84, drops = [], next = 0, score = 0, lives = 3;
         var speed = 90, gap = 1.25, since = 9, left = false, right = false;
+        var target = null;                       // pointer target, when dragging
         ctx.lives(lives);
 
-        cv.el.addEventListener('pointerdown', function (e) {
+        /* The basket has to be able to REACH the far edge before a note lands,
+           or the game stops being a game. At 300px/s fixed it could not: on an
+           860px board a far-edge note became uncatchable at 40 points, and a
+           missed gold note costs a life — so the run ended on geometry, not on
+           skill. Key speed is now derived from the fall speed and the board,
+           with a margin, so the worst case is always reachable. */
+        function keySpeed() {
+          var fallTime = (cv.h - 32) / speed;    // spawn (-14) to the catch band
+          return Math.max(340, ((cv.w - bw) / fallTime) * 1.35);
+        }
+
+        // Dragging is instant and always fair, so it is the primary control.
+        function aim(e) {
           var r = cv.el.getBoundingClientRect();
-          if (e.clientX - r.left < r.width / 2) { left = true; } else { right = true; }
+          target = (e.clientX - r.left) * (cv.w / r.width);
+        }
+        cv.el.style.touchAction = 'none';
+        cv.el.addEventListener('pointerdown', function (e) {
+          aim(e);                                // aim first: capture is a bonus,
+          // and setPointerCapture throws for any pointer the browser does not
+          // consider active — which would otherwise swallow the aim entirely
+          try { cv.el.setPointerCapture(e.pointerId); } catch (err) {}
         });
-        cv.el.addEventListener('pointerup', function () { left = right = false; });
+        cv.el.addEventListener('pointermove', function (e) { if (target !== null) aim(e); });
+        // release on every exit path — without pointercancel/leave the basket
+        // kept sliding after the finger left the canvas
+        ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+          cv.el.addEventListener(ev, function () { target = null; });
+        });
+
         ctx.key(function (e) {
-          if (e.key === 'ArrowLeft') { left = true; e.preventDefault(); }
-          if (e.key === 'ArrowRight') { right = true; e.preventDefault(); }
+          if (e.key === 'ArrowLeft') { left = true; target = null; e.preventDefault(); }
+          if (e.key === 'ArrowRight') { right = true; target = null; e.preventDefault(); }
         });
         ctx.keyup(function (e) {
           if (e.key === 'ArrowLeft') left = false;
           if (e.key === 'ArrowRight') right = false;
         });
+        // a key held when the tab loses focus never fires keyup
+        ctx.onStop(function () { left = right = false; target = null; });
 
         function spawn() {
           var real = Math.random() < 0.62;
@@ -215,8 +264,13 @@
         ctx.raf(function (dt) {
           since += dt;
           if (since > gap) { since = 0; spawn(); }
-          if (left) bx -= 300 * dt;
-          if (right) bx += 300 * dt;
+          if (target !== null) {
+            var d2 = target - bx, step = keySpeed() * 1.8 * dt;
+            bx += Math.abs(d2) <= step ? d2 : (d2 > 0 ? step : -step);
+          } else {
+            if (left) bx -= keySpeed() * dt;
+            if (right) bx += keySpeed() * dt;
+          }
           bx = Math.max(bw / 2, Math.min(cv.w - bw / 2, bx));
           var g = cv.g;
           g.clearRect(0, 0, cv.w, cv.h);
@@ -243,7 +297,8 @@
               if (d.real) {
                 cv.burst(d.x, cv.h - 40, '#f6b73f', 18);
                 ctx.note(d.midi, null, 0.9); next++; score++; ctx.score(score);
-                if (score % 10 === 0) { speed += 14; gap = Math.max(0.5, gap - 0.08); }
+                // capped: past ~260px/s a 400px board gives under 1.5s to react
+                if (score % 10 === 0) { speed = Math.min(240, speed + 14); gap = Math.max(0.5, gap - 0.08); }
               } else {
                 ctx.drum('kick'); lives--; ctx.lives(lives);
                 if (lives <= 0) return ctx.end(score, 'Too many sour notes. The melody was <b>' + song.title + '</b> — <a href="song?id=' + song.id + '">hear the whole thing</a>.');
@@ -352,6 +407,7 @@
       }
       function nextWave() {
         wave++;
+        var myWave = wave;                       // stamps this wave's timer
         board.innerHTML = '';
         var right = ctx.pick(IV);
         var opts = ctx.shuffle(IV.filter(function (x) { return x !== right; })).slice(0, 3).concat([right]);
@@ -374,7 +430,11 @@
           board.appendChild(b);
         });
         ctx.after(120, play);
-        ctx.after(fallDur, function () { if (cur && cur.iv === right) { lose(); } });
+        /* This used to test `cur.iv === right`. An old wave's timer fires during
+           a later wave, and roughly one time in twelve the new wave draws the
+           same interval — so the timer killed a player who had already answered.
+           Compare wave numbers instead; identity, not coincidence. */
+        ctx.after(fallDur, function () { if (wave === myWave) lose(); });
       }
       function lose() {
         lives--; ctx.lives(lives);
