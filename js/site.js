@@ -52,6 +52,8 @@
   ];
   // Everything else lives under "More" — the bar stops growing, and the tools stop hiding in the footer.
   var MORE = [
+    ['pad.html', 'Music Pad'],
+    ['flow.html', 'Flow Piano'],
     ['composers.html', 'All composers'],
     ['progress.html', 'Your progress'],
     ['timeline.html', 'Timeline'],

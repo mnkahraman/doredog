@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Pad — A Groovebox That Reads the Score | DoReDog</title>
+<meta name="description" content="Load any of 2,433 real pieces. The pad detects its pulse, key and bass line from the notation, and remixes it live with drums, bass and synth layers that follow the music. Tempo and swing are sliders. Free, in the browser.">
+<link rel="canonical" href="https://doredog.com/pad">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Music Pad — A Groovebox That Reads the Score">
+<meta property="og:description" content="Real repertoire, live-remixed: drums, bass and textures that follow the piece's own harmony. Nothing can land out of time.">
+<meta property="og:url" content="https://doredog.com/pad">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=156">
+<link rel="stylesheet" href="css/player.css?v=156">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="pad">
+<header id="site-header"></header>
+
+<main>
+  <section style="padding-top:98px">
+    <div class="container" style="max-width:980px">
+      <div id="pad-root"></div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy" style="max-width:980px">
+      <h2>A groovebox that reads music</h2>
+      <p>Every pad instrument on the web plays canned loops — a fixed key, a fixed tempo, someone else's music. This one is different because it can <em>read</em>. Load any piece from the library and the pad analyses the actual notation: the pulse comes from the piece's own grid, the key from a pitch-class profile of its notes, and the bass figures are pitched, bar by bar, from the piece's own bass line. Launch a layer and it follows the harmony wherever the music goes.</p>
+      <p>Everything you press is quantized to the next bar — the groovebox promise: you cannot be early, you cannot be late, you can only make it groove. The tempo slider reschedules the notes rather than stretching audio, so 50% and 200% are both artifact-free. Swing pushes every off-beat late, like a human would.</p>
+      <h2>The rows</h2>
+      <p><strong>Drums</strong> — four grooves on the synth kit, from four-on-the-floor to half-time. <strong>Bass</strong> — root pulse, octave pump, fifth walk and a bass arp, all pitched from the bar you are actually in. <strong>Texture</strong> — sustained chords and arpeggios built from each bar's own harmony, a shimmer that echoes the melody an octave up, and a drone on the detected key. <strong>Perform</strong> — momentary tricks: stutter, tape-stop, a riser that peaks exactly on the next bar line, and a break that mutes the piece for one bar and drops it back.</p>
+      <p>The key readout says what the analysis heard — it can be wrong on chromatic music, and it says so honestly rather than hiding. When you find a combination you love, learn the piece for real: every melody here lives in the <a href="library.html">letter-notes library</a>, and the <a href="flow.html">Flow Piano</a> will let you play it with zero wrong notes today.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="in-article">Ad space — responsive in-article · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=156"></script>
+<script src="js/player.js?v=156"></script>
+<script src="js/site.js?v=156"></script>
+<script src="js/pad.js?v=156"></script>
+</body>
+</html>

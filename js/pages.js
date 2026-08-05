@@ -333,6 +333,8 @@
 
     var flowLink = document.getElementById('flow-link');
     if (flowLink) flowLink.href = 'flow?id=' + encodeURIComponent(song.id);
+    var padLink = document.getElementById('pad-link');
+    if (padLink) padLink.href = 'pad?id=' + encodeURIComponent(song.id);
     if (DRD.recent) DRD.recent.push(song.id);        // remember for the homepage strip
     var chipRow = diffChip ? diffChip.parentNode : null;
     if (chipRow) {
