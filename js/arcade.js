@@ -176,14 +176,24 @@
           '<span class="arc-stat" id="arc-lives-wrap" hidden>Lives <b id="arc-lives"></b></span>' +
           '<span class="arc-stat" id="arc-time-wrap" hidden>Time <b id="arc-time"></b></span>' +
           '<span class="arc-stat">Best <b id="arc-hud-best">' + A.best(def.id) + '</b></span>' +
+          '<span class="arc-stat arc-stat-hint"><kbd>R</kbd> restart</span>' +
         '</div>' +
         '<div class="arc-stage" id="arc-stage"></div>' +
+        '<div class="arc-loading" id="arc-loading" hidden><span class="arc-spin"></span>Finding a melody…</div>' +
         '<div class="arc-over" id="arc-over">' +
           '<div class="arc-over-inner">' +
             '<h2 id="arc-over-h">' + def.icon + ' ' + def.title + '</h2>' +
+            '<div class="arc-score-card" id="arc-score-card" hidden>' +
+              '<b id="arc-final">0</b><span id="arc-final-sub"></span>' +
+            '</div>' +
+            '<p class="arc-endnote" id="arc-endnote" hidden></p>' +
             '<p class="arc-help" id="arc-over-p">' + def.help + '</p>' +
-            (def.toy ? '' : '<p class="arc-best">Your best: <b id="arc-best">' + A.best(def.id) + '</b></p>') +
-            '<button class="btn btn-primary btn-lg" id="arc-go" type="button">▶ Play</button>' +
+            (def.toy ? '' : '<p class="arc-best">Your best: <b id="arc-best">' + A.best(def.id) + '</b> · played <b id="arc-plays">' + A.plays(def.id) + '</b>×</p>') +
+            '<div class="arc-over-btns">' +
+              '<button class="btn btn-primary btn-lg" id="arc-go" type="button">▶ Play</button>' +
+              '<a class="btn btn-ghost" href="games.html">All games</a>' +
+            '</div>' +
+            (def.toy ? '' : '<p class="arc-kbd-hint">Press <kbd>R</kbd> or <kbd>Enter</kbd> to play again any time</p>') +
           '</div>' +
         '</div>' +
       '</div>';
@@ -254,10 +264,25 @@
         cleanup();
         var prevBest = A.best(def.id);
         var best = A.record(def.id, score);
-        var isBest = score > 0 && score >= best && score > prevBest;
-        root.querySelector('#arc-over-h').textContent = 'Score: ' + score;
-        root.querySelector('#arc-over-p').innerHTML = (label || '') +
-          (score >= best && score > 0 ? ' <b class="arc-newbest">New best!</b>' : '');
+        var isBest = score > 0 && score > prevBest;
+        var card = root.querySelector('#arc-score-card');
+        card.hidden = false;
+        root.querySelector('#arc-final').textContent = score;
+        root.querySelector('#arc-final-sub').innerHTML = isBest
+          ? '<b class="arc-newbest">New best!</b> (was ' + prevBest + ')'
+          : 'best ' + best;
+        var noteEl = root.querySelector('#arc-endnote');
+        noteEl.hidden = !label;
+        if (label) noteEl.innerHTML = label;
+        var plays = root.querySelector('#arc-plays');
+        if (plays) plays.textContent = A.plays(def.id);
+        // a two-second sound says how it went, before any reading happens
+        try {
+          var t0 = A.now() + 0.05;
+          if (isBest) [60, 64, 67, 72, 76].forEach(function (m, i) { A.note(m, t0 + i * 0.09, 0.7); });
+          else if (score > 0) [60, 64, 67].forEach(function (m, i) { A.note(m, t0 + i * 0.1, 0.55); });
+          else A.note(48, t0, 0.5);
+        } catch (e) {}
         doreMood(isBest ? 'wow' : score > 0 ? 'cheer' : 'ouch', isBest ? 'NEW BEST! 🎉' : null);
         if (isBest) {
           var over = root.querySelector('#arc-over');
@@ -315,15 +340,34 @@
       el: h
     };
 
-    root.querySelector('#arc-go').addEventListener('click', function () {
+    var loadingEl = root.querySelector('#arc-loading');
+    ctx.loading = function (on) { loadingEl.hidden = !on; };
+    // melody fetches can take a second on a cold cache — say so instead of showing a void
+    var rawMelody = ctx.melody;
+    ctx.melody = function (opts, cb) {
+      ctx.loading(true);
+      rawMelody(opts, function (mel, song) { ctx.loading(false); cb(mel, song); });
+    };
+
+    function begin() {
       A.ensure();                        // user gesture: unlock audio here
       cleanup();
       lastScore = 0; lastLives = null; doreMood('cheer');
+      root.querySelector('#arc-score-card').hidden = true;
+      root.querySelector('#arc-endnote').hidden = true;
       over.classList.add('out');
       hud.hidden = !!def.toy;
       root.querySelector('#arc-score').textContent = '0';
       running = true;
       def.start(ctx);
+    }
+    root.querySelector('#arc-go').addEventListener('click', begin);
+    // R (or Enter on the end screen) is instant restart, osu-style. Toys opt out.
+    if (!def.toy) window.addEventListener('keydown', function (e) {
+      if (e.target.tagName === 'INPUT' || e.metaKey || e.ctrlKey || e.altKey) return;
+      var overVisible = !over.classList.contains('out');
+      if (e.key === 'r' || e.key === 'R') { e.preventDefault(); begin(); }
+      else if (e.key === 'Enter' && overVisible) { e.preventDefault(); begin(); }
     });
 
     document.title = def.title + ' — Music Games | DoReDog';
