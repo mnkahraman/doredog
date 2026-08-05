@@ -5,7 +5,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
 
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = path.dirname(__dirname);  // repo root, so this also works from a git worktree
 const SRC = ROOT + '/notes_csv';
 const WRITE = process.argv.includes('--write');
 

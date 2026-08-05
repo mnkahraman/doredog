@@ -15,6 +15,9 @@
    Run:  node tools/match-wikidata-years.mjs <scratch-dir>
    ========================================================================== */
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const SP = process.argv[2];
 
 const catalogue = JSON.parse(fs.readFileSync(SP + '/catalogue.json', 'utf8'));
@@ -23,7 +26,7 @@ const qids = JSON.parse(fs.readFileSync(SP + '/composer-qids.json', 'utf8'));
 
 // sourced lifespans — the sanity gate that stops an arranger's or a film's date
 // being attached to the composer (Bach did not write anything in 1871)
-const datesSrc = fs.readFileSync('/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG/js/composer-dates.js', 'utf8');
+const datesSrc = fs.readFileSync(ROOT + '/js/composer-dates.js', 'utf8');
 const LIFE = JSON.parse(datesSrc.split('DRD.COMPOSER_DATES = ')[1].replace(/;\s*$/, ''));
 const BAD_LABEL = /\b(arrangement|transcription|version|medley|remix|cover|soundtrack|film)\b/i;
 

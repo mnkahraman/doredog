@@ -11,7 +11,9 @@
    Run:  node tools/build-composer-dates.mjs
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 
 const raw = fs.readFileSync(ROOT + '/worker/composer-bios.js', 'utf8');
 const BIOS = JSON.parse(raw.slice(raw.indexOf('{'), raw.lastIndexOf('}') + 1));

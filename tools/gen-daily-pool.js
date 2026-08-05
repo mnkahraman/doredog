@@ -10,7 +10,7 @@
    Run:  node tools/gen-daily-pool.js
    ========================================================================== */
 const fs = require('fs');
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = require('path').dirname(__dirname);  // repo root, so this also works from a git worktree
 
 global.window = {};
 require(ROOT + '/js/data.js');

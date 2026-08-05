@@ -2,7 +2,7 @@
    calendar can be rendered server-side instead of living only in the browser.
    Run:  node tools/gen-worker-otd.js   (after regenerating the calendar) */
 const fs = require('fs');
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = require('path').dirname(__dirname);  // repo root, so this also works from a git worktree
 const src = fs.readFileSync(ROOT + '/js/on-this-day.js', 'utf8');
 const body = src.split(/DRD\.ONTHISDAY\s*=\s*/)[1];
 if (!body) throw new Error('DRD.ONTHISDAY assignment not found');

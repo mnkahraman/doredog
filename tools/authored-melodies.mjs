@@ -8,7 +8,9 @@
          node tools/authored-melodies.mjs --write    (writes songs/*.js + data.js)
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 
 // ---- melody DSL -------------------------------------------------------------
 // note: "<letter><octave>" — lowercase letter = white key, UPPERCASE = sharp.

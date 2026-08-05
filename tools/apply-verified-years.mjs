@@ -13,7 +13,9 @@
    Run:  node tools/apply-verified-years.mjs <scratch-dir> [--dry]
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const SP = process.argv[2];
 const DRY = process.argv.includes('--dry');
 

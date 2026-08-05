@@ -16,8 +16,10 @@
    ========================================================================== */
 import fs from 'fs';
 import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const require = createRequire(import.meta.url);
 
 global.window = {};

@@ -7,7 +7,9 @@
    Run:  node tools/build-instrument-encyclopedia.mjs
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import { dirname } from 'path';   // not `import path` — `path` is a local name further down
+import { fileURLToPath } from 'url';
+const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const W = (a) => 'https://en.wikipedia.org/wiki/' + a;
 
 const ENTRIES = [
@@ -124,7 +126,8 @@ ${blocks}
 
 const path = ROOT + '/instruments.html';
 let html = fs.readFileSync(path, 'utf8');
-html = html.replace(/\n *<section class="inst-encyclopedia"[\s\S]*?<\/section>\n/, '\n');   // replace if already present
+// strip a previous injection *exactly* — SECTION plus the '\n' added below — so re-runs don't leak blank lines
+html = html.replace(/\n *<section class="inst-encyclopedia"[\s\S]*?<\/section>\n\n/, '');
 if (!html.includes('class="inst-about"')) throw new Error('anchor not found in instruments.html');
 html = html.replace(/( *)<div class="inst-about"/, SECTION + '\n$1<div class="inst-about"');
 fs.writeFileSync(path, html);
