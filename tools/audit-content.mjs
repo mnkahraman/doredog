@@ -124,6 +124,43 @@ md.split(/^## /m).slice(1).forEach((s) => {
   if (!/\*Source:/.test(s)) P('unsourced', 'song note "' + s.split('\n')[0].trim() + '" carries no Source line');
 });
 
+/* ---- 6b. every date the site shows must trace to a source --------------- */
+// Three chains carry dates to a reader, and each must stay closed:
+//   piece years   — published only when yv is set, so an unverified year never appears
+//   composer dates— either a Wikidata id, or a bio that carries a Source line
+//   on this day   — every event links out to Wikipedia, or into a page of ours that does
+const bios = JSON.parse(fs.readFileSync(ROOT + '/worker/composer-bios.js', 'utf8')
+  .match(/export const BIOS = ([\s\S]*);/)[1]);
+const YEAR = /\b1[2-9]\d\d\b|\b20[0-4]\d\b/;
+
+for (const [name, d] of Object.entries(DATES)) {
+  if (d.wd) continue;                                  // Wikidata-sourced
+  const bio = bios[name];
+  if (!bio) P('unsourced-date', 'composer "' + name + '" has dates (' + d.b + '-' + d.d + ') with no Wikidata id and no bio');
+  else if (!/Source:/.test(bio)) P('unsourced-date', 'composer "' + name + '" has dates from a bio that carries no Source line');
+}
+for (const [name, bio] of Object.entries(bios)) {
+  if (YEAR.test(bio) && !/Source:/.test(bio)) P('unsourced-date', 'bio for "' + name + '" states a year with no Source line');
+}
+const otd = fs.readFileSync(ROOT + '/worker/on-this-day-data.js', 'utf8');
+const events = otd.match(/\{[^{}]*"y":\d+[^{}]*\}/g) || [];
+const bare = events.filter((e) => !/"w":|"c":|"s":/.test(e));
+if (bare.length) P('unsourced-date', bare.length + ' On This Day events carry no source field (w/c/s): ' + bare.slice(0, 2).join(' '));
+
+// the yv gate must still be applied everywhere a year reaches a reader
+const gates = [
+  ['js/site.js', /song\.yv/],
+  ['js/pages.js', /song\.yv/],
+  ['tools/gen-seo-data.js', /s\.yv \? s\.year/]
+];
+for (const [f, re] of gates) {
+  if (!re.test(fs.readFileSync(ROOT + '/' + f, 'utf8')))
+    P('unsourced-date', f + ' no longer gates the piece year on yv — unverified years would be published');
+}
+const shown = SONGS.filter((s) => s.yv).length;
+W('dates', shown + ' piece years are source-verified and published; ' +
+  SONGS.filter((s) => s.year && !s.yv).length + ' are estimates held back from display');
+
 /* ---- 7. piece titles named in the guides must still exist --------------- */
 // the Mutopia audit renamed 66 titles; a guide that quotes an old one is now wrong
 for (const f of fs.readdirSync(ROOT + '/marketing/content-drafts').filter((f) => /^[2-4]\d-/.test(f))) {
