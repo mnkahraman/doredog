@@ -161,6 +161,23 @@ const shown = SONGS.filter((s) => s.yv).length;
 W('dates', shown + ' piece years are source-verified and published; ' +
   SONGS.filter((s) => s.year && !s.yv).length + ' are estimates held back from display');
 
+/* ---- 6c. the daily calendar must not move under people ------------------ */
+// gen-daily-pool.js is append-only, but nothing stopped a future edit from
+// reshuffling: the pool had already drifted from 92 entries to 139 with day 1
+// changing from the Minute Waltz to a Chopin nocturne. Pin the opening so a
+// reorder fails here instead of quietly rewriting everybody's streak.
+const poolSrc = fs.readFileSync(ROOT + '/js/daily-pool.js', 'utf8');
+const pool = JSON.parse(poolSrc.match(/DRD\.DAILY_POOL = (\[[\s\S]*?\]);/)[1]);
+const OPENING = ['minute-waltz', 'h-mozart-die-zauberflote-k-620', 'twinkle-twinkle', 'mozart-twinkle-variations'];
+OPENING.forEach((id, i) => {
+  if (pool[i] !== id) P('daily-drift', 'daily pool day ' + (i + 1) + ' is "' + pool[i] +
+    '", was published as "' + id + '" — the calendar moved under anyone mid-streak');
+});
+const dupPool = pool.filter((id, i) => pool.indexOf(id) !== i);
+if (dupPool.length) P('daily-drift', 'daily pool repeats ' + dupPool.length + ' id(s): ' + dupPool.slice(0, 3).join(', '));
+pool.forEach((id) => { if (!ids.has(id)) P('daily-drift', 'daily pool holds "' + id + '", not in the catalogue'); });
+W('daily', pool.length + ' pieces in the daily pool (' + Math.round(pool.length / 30.4) + ' months before it repeats)');
+
 /* ---- 7. piece titles named in the guides must still exist --------------- */
 // the Mutopia audit renamed 66 titles; a guide that quotes an old one is now wrong
 for (const f of fs.readdirSync(ROOT + '/marketing/content-drafts').filter((f) => /^[2-4]\d-/.test(f))) {

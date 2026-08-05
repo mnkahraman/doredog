@@ -58,6 +58,7 @@
     ['circle-of-fifths.html', 'Circle of fifths'],
     ['chord-finder.html', 'Chord finder'],
     ['ear-training.html', 'Ear training'],
+    ['melody-detective.html', 'Melody detective'],
     ['quiz.html', 'Quizzes'],
     ['facts.html', 'Music facts'],
     ['on-this-day.html', 'On this day'],

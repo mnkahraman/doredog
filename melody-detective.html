@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melody Detective — Hear It, Then Find It | DoReDog</title>
+<meta name="description" content="A short melody plays. Repeat it on the keyboard, then find out what it was. Three, five or eight notes, drawn from real pieces you can go and learn. Free, no sign-up.">
+<link rel="canonical" href="https://doredog.com/melody-detective">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Melody Detective — Hear It, Then Find It">
+<meta property="og:description" content="The gap between hearing a tune and finding it under your hands is the whole skill. This closes it, three notes at a time.">
+<meta property="og:url" content="https://doredog.com/melody-detective">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=146">
+<link rel="stylesheet" href="css/player.css?v=146">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="detective">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Free tool</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Melody <span class="text-grad">detective</span></h1>
+      <p class="lead" data-reveal data-delay="2">A few notes play. Find them on the keyboard — then find out what you were playing.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:860px">
+      <div class="ear-card" data-reveal>
+        <div class="ear-set-group">
+          <span class="ch-label">How many notes</span>
+          <div class="ear-picks" id="det-lens"></div>
+        </div>
+
+        <div class="ear-play" style="gap:10px">
+          <button class="btn btn-primary btn-lg" id="det-play" type="button">▶ Hear it</button>
+          <button class="btn btn-ghost" id="det-skip" type="button">Give up</button>
+        </div>
+
+        <div class="det-slots" id="det-slots"></div>
+        <p class="cof-hint">Play the notes back in order. Octave does not matter — the shape does.</p>
+
+        <div class="det-stage" id="det-stage">
+          <div class="piano-scroll" id="det-keys"></div>
+        </div>
+
+        <div id="det-result" hidden>
+          <p class="ear-verdict" id="det-verdict"></p>
+          <p class="det-answer" id="det-answer"></p>
+        </div>
+        <button class="btn btn-primary" id="det-next" type="button" hidden>Next melody →</button>
+
+        <div class="ear-stats">
+          <div class="pg-stat"><b id="det-streak">0</b><span>Streak</span></div>
+          <div class="pg-stat"><b id="det-best">0</b><span>Best streak</span></div>
+          <div class="pg-stat"><b id="det-pct">—</b><span>Perfect</span></div>
+          <div class="pg-stat"><b id="det-asked">0</b><span>Played</span></div>
+        </div>
+        <button class="btn btn-ghost" id="det-reset" type="button" style="margin-top:14px">Reset score</button>
+      </div>
+      <p class="text-mute" style="font-size:.84rem;margin-top:16px">Melodies are drawn from the 92 pieces in the daily pool, so whatever comes up, you can go and learn it. Score is kept in this browser.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>The gap this closes</h2>
+      <p>Most people who want to play the piano can already hear music perfectly well. What they cannot do is find it. A tune is completely clear in your head and your hands have no idea where it lives — and that gap, not talent and not theory, is what stops people playing by ear.</p>
+      <p>It closes with practice, and the practice is exactly this: hear a few notes, hunt for them, get it wrong, adjust. Three notes at a time is enough. The hunting is the exercise.</p>
+
+      <h2>Why octave does not count against you</h2>
+      <p>If the melody goes up a step and you play it up a step an octave lower, you have heard it correctly. That is the skill being trained — the <em>shape</em> of a melody, the pattern of ups and downs and how far. Where it sits on the keyboard is a separate and much easier problem.</p>
+      <p>Timing is not scored either. A beginner searching for the next key should not be penalised for taking three seconds over it. Play as slowly as you like.</p>
+
+      <h2>How to be better at it</h2>
+      <p><strong>Sing it back before you touch a key.</strong> If you can hum the melody accurately, your ear has it and only your hands are missing. If you cannot hum it, press play again — there is no limit.</p>
+      <p><strong>Find the first note by trial, then work in steps.</strong> Once note one is right, ask a smaller question about note two: higher or lower? By a step or a jump? That is two decisions instead of twelve guesses.</p>
+      <p><strong>Start at three notes and stay there.</strong> Eight notes is not eight times harder, it is much worse than that, because one early mistake makes the rest meaningless. Get three reliable first.</p>
+
+      <h2>What you are hearing</h2>
+      <p>Every melody comes from a real piece in the library — the same 92-piece pool the <a href="daily.html">melody of the day</a> draws from, so they are pieces worth recognising. When you finish, the answer links straight to the full piece in letter notes, and you can go and learn the thing you have just spent a minute hunting for.</p>
+      <p>That is the point of putting this here rather than making it an abstract exercise. The tune you just worked out is a tune you can play.</p>
+
+      <p style="margin-top:1.6rem">More free tools: <a href="ear-training.html">interval ear training</a>, <a href="chord-finder.html">the chord finder</a>, <a href="circle-of-fifths.html">the circle of fifths</a>, and <a href="how-to-learn-piano-by-ear.html">how to learn a piece by ear</a>.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=146"></script>
+<script src="js/daily-pool.js?v=146"></script>
+<script src="js/player.js?v=146"></script>
+<script src="js/site.js?v=146"></script>
+<script src="js/detective.js?v=146"></script>
+</body>
+</html>

@@ -1402,3 +1402,14 @@ body{ animation:pageIn .5s var(--ez) both; }
 .ear-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin-top:26px;
   border-top:1px solid var(--border);padding-top:20px}
 .cof-slash{color:var(--text-mute,#8a8a99);font-size:.85rem;margin-left:.7rem}
+
+/* ---------- Melody detective (melody-detective.html) ---------- */
+.det-slots{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:6px 0 4px}
+.det-slot{width:52px;height:52px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono,monospace);font-size:1.2rem;border-radius:11px;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-mute,#8a8a99)}
+.det-slot.ok{background:rgba(53,224,140,.22);border-color:#35e08c;color:#8ef0bd}
+.det-slot.no{background:rgba(255,95,100,.18);border-color:#ff5f64;color:#ffa8ab}
+.det-stage{position:relative;margin:18px 0 6px}
+.det-answer{color:var(--text-dim,#b9b9c6);font-size:.95rem;margin:.5rem 0 0}
+.det-answer a{color:var(--gold,#f6b73f);text-decoration:none;border-bottom:1px solid rgba(246,183,63,.4)}
