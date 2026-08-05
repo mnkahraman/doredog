@@ -6264,13 +6264,12 @@ window.DRD.SONGS = [
 
   {
     id: "h-dufay-lamentio-sanctae-matris-ecclesiae-constantinop",
-    title: "Lamentio Sanctae matris ecclesiae Constantinopolitanae",
+    title: "Lamentatio sanctae matris ecclesiae Constantinopolitanae",
     composer: "Guillaume Dufay",
     difficulty: "medium",
     ds: 47,
     genre: "Renaissance",
-    year: 1560,
-    circa: true,
+    year: 1454, yv: 1,
     featured: false,
     tags: ["dufay","baroque","piano"],
     cps: 20,
@@ -6278,7 +6277,7 @@ window.DRD.SONGS = [
     fp: "YYY^YXXXXXXXXXXXXYYYYYCCCCXX",
     mood: 1,
     cover: {"from":"#2a0f3a","mid":"#c77dff","to":"#0d0616","glyph":"♪"},
-    blurb: "The full Lamentio Sanctae matris ecclesiae Constantinopolitanae by Guillaume Dufay, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Lamentatio sanctae matris ecclesiae Constantinopolitanae by Guillaume Dufay, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {

@@ -82,6 +82,28 @@ for (const [k, v] of Object.entries(LISTS)) {
   if (gone.length) P('broken', 'list "' + k + '" holds ' + gone.length + ' id(s) not in the catalogue: ' + gone.slice(0, 3).join(', '));
 }
 
+/* ---- 4b. a piece cannot be written outside its composer's lifetime ------- */
+// Dufay died in 1474; his lament for the fall of Constantinople was dated 1560.
+// These years are auto-estimated (none is marked yv), but they still drive the
+// timeline bands and the year sort, so an impossible one puts a piece in the
+// wrong century.
+global.DRD = global.window.DRD;
+require2(ROOT + '/js/composer-dates.js');
+const DATES = global.DRD.COMPOSER_DATES;
+let impossible = 0, worst = null;
+for (const s of SONGS) {
+  const d = DATES[s.composer];
+  if (!d || !d.b || !d.d || !s.year) continue;
+  if (s.year >= d.b && s.year <= d.d) continue;
+  impossible++;
+  const off = s.year < d.b ? d.b - s.year : s.year - d.d;
+  if (!worst || off > worst.off) worst = { off, s };
+  if (s.yv) P('impossible-year', s.id + ' is marked verified but dated ' + s.year +
+    ', outside ' + s.composer + "'s lifetime (" + d.b + '-' + d.d + ')');
+}
+if (impossible) W('impossible-year', impossible + ' pieces are dated outside their composer\'s lifetime (none verified; worst is ' +
+  worst.s.composer + ' by ' + worst.off + ' years)');
+
 /* ---- 5. internal links must resolve ------------------------------------- */
 const have = new Set(html);
 for (const f of html) {
