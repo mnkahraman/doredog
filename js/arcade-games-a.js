@@ -40,6 +40,7 @@
           if (low.letter.toLowerCase() === letter.toLowerCase() &&
               (low.letter === low.letter.toLowerCase()) === (letter === letter.toLowerCase())) {
             drops.splice(li, 1);
+            cv.burst(low.x, low.y, A.octColor(low.midi));
             ctx.note(low.midi, null, 0.9);
             score++; ctx.score(score);
             if (score % 12 === 0) { speed += 7; spawnGap = Math.max(0.55, spawnGap - 0.1); }
@@ -60,19 +61,24 @@
           if (sinceSpawn > spawnGap) { sinceSpawn = 0; spawn(); }
           var g = cv.g;
           g.clearRect(0, 0, cv.w, cv.h);
+          cv.bg();
           g.font = '600 26px "IBM Plex Mono", monospace';
           g.textAlign = 'center';
           for (var i = drops.length - 1; i >= 0; i--) {
             var d = drops[i]; d.y += speed * dt;
+            g.shadowColor = A.octColor(d.midi); g.shadowBlur = 14;
             g.fillStyle = A.octColor(d.midi);
             g.fillText(d.letter, d.x, d.y);
+            g.shadowBlur = 0;
             if (d.y > cv.h - 8) {
               drops.splice(i, 1); miss++; ctx.lives(3 - miss); ctx.drum('kick');
               if (miss >= 3) ctx.end(score, 'That was <b>' + song.title + '</b> — <a href="song?id=' + song.id + '">go learn the whole piece</a>.');
             }
           }
-          g.fillStyle = 'rgba(255,255,255,.12)';
-          g.fillRect(0, cv.h - 3, cv.w, 3);
+          var fl = g.createLinearGradient(0, 0, cv.w, 0);
+          fl.addColorStop(0, 'rgba(139,107,255,.0)'); fl.addColorStop(0.5, 'rgba(139,107,255,.5)'); fl.addColorStop(1, 'rgba(139,107,255,.0)');
+          g.fillStyle = fl; g.fillRect(0, cv.h - 3, cv.w, 3);
+          cv.fx(dt);
         });
       });
     }
@@ -89,7 +95,9 @@
         var cv = A.canvas(ctx.stage, 430);
         var KEYSET = ['d', 'f', 'j', 'k'];
         var laneW = cv.w / 4, tileH = 64, strikeY = cv.h - 78;
+        var LANE_COLORS = ['#ff54b2', '#35e08c', '#f6b73f', '#4fa3ff'];
         var tiles = [], next = 0, score = 0, speed = 150, t = 0, sinceSpawn = 9, gap = 0.62;
+        var flash = [0, 0, 0, 0];
 
         var padRow = ctx.el('div', 'arc-lanes');
         KEYSET.forEach(function (k, i) {
@@ -116,6 +124,8 @@
           }
           if (best) {
             best.hit = true;
+            flash[lane] = 0.18;
+            cv.burst(lane * laneW + laneW / 2, strikeY, LANE_COLORS[lane], 16);
             ctx.note(best.midi, null, 0.9);
             score++; ctx.score(score);
             if (score % 16 === 0) { speed += 16; gap = Math.max(0.32, gap - 0.04); }
@@ -134,18 +144,37 @@
           if (sinceSpawn > gap) { sinceSpawn = 0; spawn(); }
           var g = cv.g;
           g.clearRect(0, 0, cv.w, cv.h);
-          for (var l = 1; l < 4; l++) { g.fillStyle = 'rgba(255,255,255,.07)'; g.fillRect(l * laneW, 0, 1, cv.h); }
-          g.fillStyle = 'rgba(246,183,63,.65)'; g.fillRect(0, strikeY, cv.w, 2);
+          cv.bg();
+          for (var l = 0; l < 4; l++) {
+            if (flash[l] > 0) {
+              flash[l] -= dt;
+              g.globalAlpha = Math.max(0, flash[l] / 0.18) * 0.5;
+              g.fillStyle = LANE_COLORS[l];
+              g.fillRect(l * laneW, 0, laneW, cv.h);
+              g.globalAlpha = 1;
+            }
+            if (l) { g.fillStyle = 'rgba(255,255,255,.07)'; g.fillRect(l * laneW, 0, 1, cv.h); }
+          }
+          g.shadowColor = 'rgba(246,183,63,.9)'; g.shadowBlur = 10;
+          g.fillStyle = 'rgba(246,183,63,.75)'; g.fillRect(0, strikeY, cv.w, 2);
+          g.shadowBlur = 0;
           for (var i = tiles.length - 1; i >= 0; i--) {
             var tl = tiles[i]; tl.y += speed * dt;
             if (tl.hit) { tiles.splice(i, 1); continue; }
-            g.fillStyle = '#e8e8f2';
-            g.fillRect(tl.lane * laneW + 5, tl.y, laneW - 10, tileH);
+            var tg = g.createLinearGradient(0, tl.y, 0, tl.y + tileH);
+            tg.addColorStop(0, '#f4f2fa'); tg.addColorStop(1, '#c9c5d8');
+            g.fillStyle = tg;
+            g.beginPath();
+            g.roundRect(tl.lane * laneW + 5, tl.y, laneW - 10, tileH, 8);
+            g.fill();
+            g.fillStyle = LANE_COLORS[tl.lane];
+            g.fillRect(tl.lane * laneW + 5, tl.y + tileH - 5, laneW - 10, 5);
             if (tl.y > cv.h) {
               ctx.end(score, 'A tile got away. That was <b>' + song.title + '</b> — <a href="song?id=' + song.id + '">learn it for real</a>.');
               return;
             }
           }
+          cv.fx(dt);
         });
       });
     }
@@ -191,17 +220,28 @@
           bx = Math.max(bw / 2, Math.min(cv.w - bw / 2, bx));
           var g = cv.g;
           g.clearRect(0, 0, cv.w, cv.h);
+          cv.bg();
           g.font = '600 22px "IBM Plex Mono", monospace'; g.textAlign = 'center';
           for (var i = drops.length - 1; i >= 0; i--) {
             var d = drops[i]; d.y += speed * dt;
-            g.fillStyle = d.real ? '#f6b73f' : 'rgba(255,255,255,.3)';
+            if (d.real) {
+              var gg = g.createRadialGradient(d.x - 4, d.y - 4, 2, d.x, d.y, 14);
+              gg.addColorStop(0, '#ffe3a3'); gg.addColorStop(1, '#e09b12');
+              g.shadowColor = 'rgba(246,183,63,.8)'; g.shadowBlur = 12;
+              g.fillStyle = gg;
+            } else {
+              g.shadowBlur = 0;
+              g.fillStyle = 'rgba(255,255,255,.25)';
+            }
             g.beginPath(); g.arc(d.x, d.y, 13, 0, 7); g.fill();
+            g.shadowBlur = 0;
             g.fillStyle = '#0c0c16';
             g.fillText(A.letterOf(d.midi), d.x, d.y + 8);
             var caught = d.y > cv.h - 46 && d.y < cv.h - 22 && Math.abs(d.x - bx) < bw / 2;
             if (caught) {
               drops.splice(i, 1);
               if (d.real) {
+                cv.burst(d.x, cv.h - 40, '#f6b73f', 18);
                 ctx.note(d.midi, null, 0.9); next++; score++; ctx.score(score);
                 if (score % 10 === 0) { speed += 14; gap = Math.max(0.5, gap - 0.08); }
               } else {
@@ -216,10 +256,13 @@
               }
             }
           }
+          g.shadowColor = 'rgba(139,107,255,.7)'; g.shadowBlur = 14;
           g.fillStyle = '#8b6bff';
-          g.fillRect(bx - bw / 2, cv.h - 26, bw, 12);
+          g.beginPath(); g.roundRect(bx - bw / 2, cv.h - 26, bw, 12, 5); g.fill();
+          g.shadowBlur = 0;
           g.fillRect(bx - bw / 2, cv.h - 34, 4, 8);
           g.fillRect(bx + bw / 2 - 4, cv.h - 34, 4, 8);
+          cv.fx(dt);
         });
       });
     }
@@ -450,11 +493,12 @@
       var wrap = ctx.el('div', 'arc-center');
       var streakEl = ctx.el('div', 'arc-streak', '');
       var row = ctx.el('div', 'arc-pads arc-pads-grid');
+      var padEls = [];
       Q.forEach(function (q, i) {
         var b = ctx.el('button', 'arc-pad', (i + 1) + '<span>' + q[0] + '</span>');
         b.type = 'button';
-        b.addEventListener('click', function () { answer(i); });
-        row.appendChild(b);
+        b.addEventListener('click', function () { answer(i, b); });
+        row.appendChild(b); padEls.push(b);
       });
       var rp = ctx.el('button', 'btn btn-ghost arc-replay', '↻ Hear it again (Space)');
       rp.type = 'button'; rp.addEventListener('click', play);
@@ -471,8 +515,13 @@
         cur = { qi: qi, midis: Q[qi][1].map(function (s) { return root + s; }) };
         play();
       }
-      function answer(qi) {
+      function answer(qi, btn) {
         if (!cur) return;
+        var target = btn || padEls[qi];
+        if (target) {
+          target.classList.remove('good-flash', 'bad-flash'); void target.offsetWidth;
+          target.classList.add(qi === cur.qi ? 'good-flash' : 'bad-flash');
+        }
         if (qi === cur.qi) {
           streak++;
           score += streak >= 5 ? 2 : 1;

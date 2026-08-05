@@ -17,8 +17,8 @@
 <meta property="og:site_name" content="DoReDog">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://doredog.com/#website","url":"https://doredog.com/","name":"DoReDog","description":"A free library of piano letter notes with a built-in live in-browser player.","publisher":{"@id":"https://doredog.com/#org"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://doredog.com/library?q={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https://doredog.com/#org","name":"DoReDog","url":"https://doredog.com/","logo":"https://doredog.com/assets/og.webp"}]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="css/main.css?v=154">
-<link rel="stylesheet" href="css/player.css?v=154">
+<link rel="stylesheet" href="css/main.css?v=155">
+<link rel="stylesheet" href="css/player.css?v=155">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
 </head>
@@ -134,6 +134,23 @@
     </div>
   </section>
 
+  <!-- GAMES SHOWCASE — real gameplay screenshots, straight into the arcade -->
+  <section class="section-sm" id="games-strip">
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow" data-reveal>The arcade</span>
+        <h2 class="title" data-reveal data-delay="1">Twenty music games, real melodies</h2></div>
+        <a class="btn btn-ghost" href="games.html" data-reveal data-delay="1">All 20 games</a>
+      </div>
+      <div class="arc-grid-cards" data-reveal data-delay="2">
+        <a class="arc-card-link" href="game?g=melody-tiles"><span class="arc-card-shot"><img src="assets/games/melody-tiles.jpg" alt="Melody Tiles gameplay" loading="lazy" width="640" height="452"><span class="arc-card-tag">Action</span></span><b>🎹 Melody Tiles</b><p>Tap the falling tiles and a real piece plays itself under your fingers.</p></a>
+        <a class="arc-card-link" href="game?g=notle"><span class="arc-card-shot"><img src="assets/games/notle.jpg" alt="Notle gameplay" loading="lazy" width="640" height="452"><span class="arc-card-tag">Puzzle</span></span><b>🟩 Notle</b><p>Wordle, but the secret word is five notes of a famous melody.</p></a>
+        <a class="arc-card-link" href="game?g=letter-rain"><span class="arc-card-shot"><img src="assets/games/letter-rain.jpg" alt="Letter Rain gameplay" loading="lazy" width="640" height="452"><span class="arc-card-tag">Action</span></span><b>🌧 Letter Rain</b><p>Type the falling letters — and you are literally sight-reading music.</p></a>
+        <a class="arc-card-link" href="game?g=beat-lab"><span class="arc-card-shot"><img src="assets/games/beat-lab.jpg" alt="Beat Lab gameplay" loading="lazy" width="640" height="452"><span class="arc-card-tag">Toy</span></span><b>🥁 Beat Lab</b><p>A pocket drum machine — build a groove, swing it, share it as a link.</p></a>
+      </div>
+    </div>
+  </section>
+
   <!-- PLAY & EXPLORE — every feature that used to hide under "More", plus the arcade -->
   <section class="section" id="explore">
     <div class="container">
@@ -143,7 +160,8 @@
         <p class="lead" data-reveal data-delay="2" style="max-width:60ch;margin:1rem auto 0">Games, tools and rabbit holes — free, no sign-up, and every melody in them comes from the real library.</p>
       </div>
       <div class="arc-grid-cards" data-reveal data-delay="2">
-        <a class="arc-card-link" href="games.html"><span class="arc-card-ico">🕹️</span><span class="arc-card-tag" style="color:var(--gold);border-color:var(--gold)">New</span><b>Music games</b><p>Twenty arcade games built on real melodies — Melody Tiles, a five-note Wordle, a drum machine and more.</p></a>
+        <a class="arc-card-link" href="flow.html"><span class="arc-card-ico">🌊</span><span class="arc-card-tag" style="color:var(--gold);border-color:var(--gold)">New</span><b>Flow Piano</b><p>The piano where wrong notes are impossible — any key plays the right note, the feeling is all yours.</p></a>
+        <a class="arc-card-link" href="games.html"><span class="arc-card-ico">🕹️</span><b>Music games</b><p>Twenty arcade games built on real melodies — Melody Tiles, a five-note Wordle, a drum machine and more.</p></a>
         <a class="arc-card-link" href="melody-detective.html"><span class="arc-card-ico">🕵️</span><b>Melody detective</b><p>A few notes play. Find them on the keyboard — then find out what you were playing.</p></a>
         <a class="arc-card-link" href="ear-training.html"><span class="arc-card-ico">👂</span><b>Ear training</b><p>Two notes, how far apart? The skill that turns letter notes into music, in five-minute sessions.</p></a>
         <a class="arc-card-link" href="circle-of-fifths.html"><span class="arc-card-ico">🎡</span><b>Circle of fifths</b><p>The map of every key, in letter notes — with nine real chord progressions moving across it.</p></a>
@@ -306,11 +324,11 @@
 
 <footer id="site-footer"></footer>
 
-<script src="js/data.js?v=154"></script>
-<script src="js/daily-pool.js?v=154"></script>
-<script src="js/on-this-day.js?v=154" defer></script>
-<script src="js/player.js?v=154"></script>
-<script src="js/site.js?v=154"></script>
-<script src="js/pages.js?v=154"></script>
+<script src="js/data.js?v=155"></script>
+<script src="js/daily-pool.js?v=155"></script>
+<script src="js/on-this-day.js?v=155" defer></script>
+<script src="js/player.js?v=155"></script>
+<script src="js/site.js?v=155"></script>
+<script src="js/pages.js?v=155"></script>
 </body>
 </html>

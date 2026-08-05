@@ -24,7 +24,13 @@
       ERAS.forEach(function (era) {
         var b = ctx.el('button', 'arc-pad', era);
         b.type = 'button';
-        b.addEventListener('click', function () { answer(era); });
+        b.addEventListener('click', function () {
+          if (cur) {
+            b.classList.remove('good-flash', 'bad-flash'); void b.offsetWidth;
+            b.classList.add(era === cur.song.genre ? 'good-flash' : 'bad-flash');
+          }
+          answer(era);
+        });
         row.appendChild(b);
       });
       var rp = ctx.el('button', 'btn btn-ghost arc-replay', '↻ Hear it again (Space)');

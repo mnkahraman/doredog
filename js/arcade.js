@@ -204,14 +204,45 @@
       stage.innerHTML = '';
     }
 
+    /* Doré sits in the corner and reacts — cheers streaks, winces at misses,
+       celebrates a new best. Poses reuse the existing mascot art. */
+    var dore = h('div', 'arc-dore');
+    dore.innerHTML = '<span class="arc-dore-say" hidden></span>' +
+      '<img src="assets/mascot/dore-play.webp" alt="" width="72" height="72" decoding="async">';
+    root.querySelector('.arc-card').appendChild(dore);
+    var doreImg = dore.querySelector('img'), doreSay = dore.querySelector('.arc-dore-say'), doreT = null;
+    var CHEER = ['Nice!', 'Keep going!', 'You got this!', 'Woof!', 'On fire!'];
+    var OUCH = ['Ouch…', 'So close!', 'Shake it off!', 'Next one!'];
+    function doreMood(mood, text) {
+      dore.classList.remove('cheer', 'ouch', 'wow');
+      void dore.offsetWidth;
+      dore.classList.add(mood);
+      doreImg.src = 'assets/mascot/' + (mood === 'ouch' ? 'dore-404' : mood === 'wow' ? 'dore-hero' : 'dore-play') + '.webp';
+      if (text) {
+        doreSay.textContent = text; doreSay.hidden = false;
+        clearTimeout(doreT);
+        doreT = setTimeout(function () { doreSay.hidden = true; }, 1600);
+      }
+    }
+
+    var lastScore = 0, lastLives = null;
     var ctx = {
       stage: stage,
       running: function () { return running; },
       // HUD --------------------------------------------------------------
-      score: function (v) { root.querySelector('#arc-score').textContent = v; },
+      score: function (v) {
+        var el = root.querySelector('#arc-score');
+        el.textContent = v;
+        el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
+        if (v > lastScore && v > 0 && v % 10 === 0) doreMood('cheer', CHEER[v / 10 % CHEER.length | 0]);
+        lastScore = v;
+      },
+      dore: doreMood,
       lives: function (n) {
         var w = root.querySelector('#arc-lives-wrap'); w.hidden = false;
         root.querySelector('#arc-lives').textContent = n > 0 ? new Array(n + 1).join('♥') : '—';
+        if (lastLives != null && n < lastLives) doreMood('ouch', OUCH[Math.floor(Math.random() * OUCH.length)]);
+        lastLives = n;
       },
       time: function (s) {
         var w = root.querySelector('#arc-time-wrap'); w.hidden = false;
@@ -221,10 +252,24 @@
       end: function (score, label) {
         if (!running) return;
         cleanup();
+        var prevBest = A.best(def.id);
         var best = A.record(def.id, score);
+        var isBest = score > 0 && score >= best && score > prevBest;
         root.querySelector('#arc-over-h').textContent = 'Score: ' + score;
         root.querySelector('#arc-over-p').innerHTML = (label || '') +
           (score >= best && score > 0 ? ' <b class="arc-newbest">New best!</b>' : '');
+        doreMood(isBest ? 'wow' : score > 0 ? 'cheer' : 'ouch', isBest ? 'NEW BEST! 🎉' : null);
+        if (isBest) {
+          var over = root.querySelector('#arc-over');
+          for (var ci = 0; ci < 26; ci++) {
+            var sp = h('span', 'arc-confetti', ['🎵', '🎶', '✦', '♪', '★'][ci % 5]);
+            sp.style.left = Math.random() * 100 + '%';
+            sp.style.animationDelay = (Math.random() * 0.7) + 's';
+            sp.style.fontSize = (12 + Math.random() * 14) + 'px';
+            over.appendChild(sp);
+            (function (el) { setTimeout(function () { el.remove(); }, 3200); })(sp);
+          }
+        }
         var b = root.querySelector('#arc-best'); if (b) b.textContent = best;
         root.querySelector('#arc-hud-best').textContent = best;
         root.querySelector('#arc-go').textContent = '↻ Play again';
@@ -273,6 +318,7 @@
     root.querySelector('#arc-go').addEventListener('click', function () {
       A.ensure();                        // user gesture: unlock audio here
       cleanup();
+      lastScore = 0; lastLives = null; doreMood('cheer');
       over.classList.add('out');
       hud.hidden = !!def.toy;
       root.querySelector('#arc-score').textContent = '0';
@@ -294,7 +340,36 @@
     c.style.width = '100%'; c.style.height = hgt + 'px';
     stage.appendChild(c);
     var g = c.getContext('2d'); g.scale(dpr, dpr);
-    return { el: c, g: g, w: w, h: hgt };
+    var cv = { el: c, g: g, w: w, h: hgt, parts: [] };
+    // shared particle layer: games call cv.burst() on any hit and cv.fx(dt)
+    // at the end of their raf, after their own drawing
+    cv.burst = function (x, y, color, n) {
+      for (var i = 0; i < (n || 14); i++) {
+        var a = Math.random() * 6.283, sp = 40 + Math.random() * 160;
+        cv.parts.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 40,
+          life: 0.5 + Math.random() * 0.35, t: 0, color: color, r: 1.5 + Math.random() * 2.5 });
+      }
+    };
+    cv.fx = function (dt) {
+      for (var i = cv.parts.length - 1; i >= 0; i--) {
+        var p = cv.parts[i]; p.t += dt;
+        if (p.t > p.life) { cv.parts.splice(i, 1); continue; }
+        p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 220 * dt;
+        var k = 1 - p.t / p.life;
+        g.globalAlpha = k;
+        g.fillStyle = p.color;
+        g.beginPath(); g.arc(p.x, p.y, p.r * k, 0, 7); g.fill();
+      }
+      g.globalAlpha = 1;
+    };
+    // ambient backdrop: vignette so the play area reads as a stage, not a void
+    cv.bg = function () {
+      var grad = g.createRadialGradient(w / 2, hgt * 0.35, 60, w / 2, hgt * 0.5, Math.max(w, hgt) * 0.75);
+      grad.addColorStop(0, 'rgba(139,107,255,.07)');
+      grad.addColorStop(1, 'rgba(0,0,0,.28)');
+      g.fillStyle = grad; g.fillRect(0, 0, w, hgt);
+    };
+    return cv;
   };
 
   var L = ['c', 'C', 'd', 'D', 'e', 'f', 'F', 'g', 'G', 'a', 'A', 'b'];
