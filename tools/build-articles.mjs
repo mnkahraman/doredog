@@ -52,7 +52,15 @@ const ARTS = [
   ['38-easiest-ragtime.md', 'the-easiest-ragtime-pieces', 'The Easiest Ragtime Pieces — and Why Ragtime Is Not Beginner Music', 'We measured all 20 rags: not one scores under 40. Why the syncopation is the problem, where to start, and what to play until you are ready.'],
   ['39-easiest-schubert.md', 'the-easiest-schubert-pieces', 'The Easiest Schubert Pieces, Measured', 'All 103 Schubert pieces easiest first. His floor is 20 — higher than any other major composer here — and his gentlest music is his songs.'],
   ['40-easiest-classical.md', 'the-easiest-classical-era-pieces', 'The Easiest Classical-Era Pieces, Measured', 'All 254 pieces from 1730–1820 ranked easiest first. The highest proportion of approachable music in the library — and its single hardest movement.'],
-];
+  // Comparisons — every figure quoted comes from tools/gen-comparison-data.mjs,
+  // the same parser the measured guides use, so the numbers cannot drift apart.
+  ['41-fur-elise-vs-moonlight.md', 'fur-elise-vs-moonlight-sonata', 'Für Elise vs the Moonlight Sonata: Which Should You Learn First?', 'Measured head to head: the Moonlight scores lower (40 vs 43), runs at half the speed and fits a 49-key keyboard. Für Elise needs 76.'],
+  ['42-gymnopedie-vs-clair-de-lune.md', 'gymnopedie-vs-clair-de-lune', 'Gymnopédie No. 1 vs Clair de Lune: The Two Calm Pieces, Compared', 'Four points apart on our score, years apart in practice: 282 notes against 1,468, and 19% black keys against 74%. Why the score misleads here.'],
+  ['43-bach-or-mozart.md', 'bach-or-mozart-for-beginners', 'Bach or Mozart: Which Is Better for a Beginner?', 'Bach gives you more easy pieces (54 under 30); Mozart gives you a higher share (32%). Why the answer is still Bach, and where Mozart wins.'],
+  ['44-chopin-or-liszt.md', 'chopin-or-liszt-which-is-easier', 'Chopin or Liszt: Which Is Easier to Start With?', 'Between them, 60 pieces — and exactly two score under 30. An honest look at two composers who never wrote for beginners, and the two ways in.'],
+  ['45-baroque-or-romantic.md', 'baroque-or-romantic-which-era-is-easier', 'Baroque or Romantic: Which Era Should a Beginner Start With?', 'Measured across 2,433 pieces: 22% of Baroque music scores under 30, against 4% of Romantic. Why smaller instruments and student books made the difference.'],
+  ['46-61-vs-76-vs-88-keys.md', '61-vs-76-vs-88-keys', '61, 76 or 88 Keys: How Many Do You Actually Need?', '80% of the library fits on 61 keys, 98% on 76, 100% on 88. Going 61 to 76 buys 425 pieces; going 76 to 88 buys 55. Where the curve flattens.'],
+  ['47-faq.md', 'faq', 'Piano Letter Notes: Frequently Asked Questions', 'Twenty-six questions about letter notes, keyboards, difficulty and learning piano without reading music — answered with measurements, not estimates.', { faq: true }],];
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = s => esc(s).replace(/"/g, '&quot;');
@@ -124,9 +132,36 @@ function mdToHtml(md) {
 const ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E";
 const ADSENSE = '<!-- Google AdSense -->\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>';
 
-function page(slug, title, desc, bodyHtml) {
+/* Google renders a FAQ page as an expandable result only if the questions and
+   answers are declared in FAQPage JSON-LD. Pull them straight out of the draft —
+   every "## " heading that ends in a question mark, with the prose under it —
+   so the schema cannot drift away from what the page actually says. */
+function faqPairs(md) {
+  const out = [];
+  const secs = md.split(/^## /m).slice(1);
+  for (const sec of secs) {
+    const nl = sec.indexOf('\n');
+    const q = sec.slice(0, nl).trim();
+    if (!q.endsWith('?')) continue;
+    const body = sec.slice(nl + 1).trim()
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')          // links -> their text
+      .replace(/[*`#>]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (body) out.push({ '@type': 'Question', name: q,
+      acceptedAnswer: { '@type': 'Answer', text: body } });
+  }
+  return out;
+}
+
+function page(slug, title, desc, bodyHtml, opts, rawMd) {
   const canon = 'https://doredog.com/' + slug;
-  const ld = JSON.stringify({
+  const pairs = opts && opts.faq && rawMd ? faqPairs(rawMd) : [];
+  const ld = JSON.stringify(pairs.length ? {
+    '@context': 'https://schema.org', '@type': 'FAQPage', name: title, description: desc,
+    url: canon, inLanguage: 'en', mainEntity: pairs,
+    publisher: { '@type': 'Organization', name: 'DoReDog', url: 'https://doredog.com/' },
+  } : {
     '@context': 'https://schema.org', '@type': 'Article', headline: title, description: desc,
     url: canon, mainEntityOfPage: canon,
     author: { '@type': 'Organization', name: 'DoReDog' },
@@ -183,11 +218,32 @@ ${ADSENSE}
 `;
 }
 
+/* The article URLs used to live in sitemap.xml as hand-added lines, which meant
+   `node tools/convert.js --write` silently deleted all of them — it rebuilds the
+   sitemap from the catalogue and knows nothing about articles. Own the block
+   here instead, between markers, so building the articles always restores it. */
+function patchSitemap(slugs) {
+  const f = ROOT + '/sitemap.xml';
+  if (!fs.existsSync(f)) return;
+  const block = '  <!-- articles:start (owned by tools/build-articles.mjs) -->\n' +
+    slugs.map((s) => '  <url><loc>https://doredog.com/' + s +
+      '</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>').join('\n') +
+    '\n  <!-- articles:end -->\n';
+  let sm = fs.readFileSync(f, 'utf8');
+  // drop any previous block, plus the loose hand-added lines it replaces
+  sm = sm.replace(/[ \t]*<!-- articles:start[\s\S]*?<!-- articles:end -->\n/, '');
+  for (const s of slugs) sm = sm.replace(new RegExp('[ \\t]*<url><loc>https://doredog\\.com/' +
+    s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '</loc>[^\\n]*\\n', 'g'), '');
+  sm = sm.replace('</urlset>', block + '</urlset>');
+  fs.writeFileSync(f, sm);
+  console.log('sitemap: ' + slugs.length + ' article URLs written between markers');
+}
+
 // build the 10 article pages
 const hubCards = [];
-for (const [file, slug, title, desc] of ARTS) {
+for (const [file, slug, title, desc, opts] of ARTS) {
   const md = fs.readFileSync(DRAFTS + '/' + file, 'utf8');
-  const html = page(slug, title, desc, mdToHtml(md));
+  const html = page(slug, title, desc, mdToHtml(md), opts, md);
   fs.writeFileSync(ROOT + '/' + slug + '.html', html);
   hubCards.push(`<a class="card" href="${slug}.html" data-reveal style="display:block;padding:24px 26px;text-decoration:none">
         <h3 style="font-family:var(--font-body);font-weight:600;font-size:1.12rem;margin:0 0 .4rem">${esc(title)}</h3>
@@ -244,6 +300,8 @@ ${ADSENSE}
 </html>
 `;
 fs.writeFileSync(ROOT + '/articles.html', hub);
+
+patchSitemap(ARTS.map((a) => a[1]));
 
 console.log('built', ARTS.length, 'article pages + articles.html hub');
 console.log('slugs:', ARTS.map(a => a[1]).join(', '));

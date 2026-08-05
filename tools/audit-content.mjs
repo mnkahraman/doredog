@@ -191,6 +191,53 @@ for (const f of fs.readdirSync(ROOT + '/marketing/content-drafts').filter((f) =>
   }
 }
 
+/* ---- 8. figures quoted in prose must match what we actually measured ----
+   The comparison pages state hard numbers — "80% on 61 keys", "score 43", "1,468
+   notes". Those were true the day they were written; the catalogue grows. Check
+   each one against js/comparison-data.js, which is regenerated from the
+   transcriptions themselves, so prose cannot quietly go stale. */
+const CMP = JSON.parse(fs.readFileSync(ROOT + '/js/comparison-data.js', 'utf8')
+  .match(/DRD\.COMPARE=(\{[\s\S]*\});/)[1]);
+
+function draft(f) { return fs.readFileSync(ROOT + '/marketing/content-drafts/' + f, 'utf8'); }
+
+// keyboard tiers, cited in 27-small-keyboard.md and 46-61-vs-76-vs-88-keys.md.
+// Compare on a normalised copy: the drafts bold their table cells and group
+// thousands with commas, and neither is a difference in the number.
+const flat = (t) => t.replace(/[*_,]/g, '');
+const tierText = flat(draft('46-61-vs-76-vs-88-keys.md') + draft('27-small-keyboard.md'));
+for (const [k, n] of Object.entries(CMP.fits)) {
+  if (!new RegExp('\\|\\s*' + k + ' keys\\s*\\|\\s*' + n + '\\b').test(tierText))
+    P('figure', k + '-key tier is ' + n.toLocaleString('en-US') +
+      ' pieces, which no keyboard table states — regenerate the pages or fix the prose');
+}
+
+// per-piece scores cited as "score 43" / "scores 43" / a difficulty-score table row
+for (const [id, m] of Object.entries(CMP.pieces)) {
+  for (const f of ['41-fur-elise-vs-moonlight.md', '42-gymnopedie-vs-clair-de-lune.md',
+    '46-61-vs-76-vs-88-keys.md', '47-faq.md']) {
+    const t = draft(f);
+    if (!t.includes('/song?id=' + id)) continue;
+    // any number the draft attaches to this piece's span, in "(NN)" right after its link
+    const spanCite = t.match(new RegExp('/song\\?id=' + id + '\\)\\s*\\((\\d+)\\)'));
+    if (spanCite && +spanCite[1] !== m.span)
+      P('figure', f + ' gives ' + id + ' a span of ' + spanCite[1] + '; measured is ' + m.span);
+  }
+}
+
+// era shares quoted in 45-baroque-or-romantic.md
+const eraText = flat(draft('45-baroque-or-romantic.md'));
+for (const g of ['Baroque', 'Romantic', 'Classical']) {
+  const e = CMP.eraStats[g];
+  if (!e) continue;
+  const share = Math.round((e.under30 / e.n) * 100);
+  if (!new RegExp('\\b' + share + '%').test(eraText))
+    P('figure', g + ' is ' + share + '% under-30 (' + e.under30 + '/' + e.n +
+      '), which 45-baroque-or-romantic.md does not state');
+  if (!new RegExp('\\b' + e.median + '\\b').test(eraText))
+    P('figure', g + ' median difficulty is ' + e.median + ', not stated in 45-baroque-or-romantic.md');
+}
+
 console.log('checked ' + SONGS.length + ' pieces, ' + keys.length + ' lists, ' + html.length + ' pages, ' + noteKeys.length + ' song notes');
 if (warn.length) { console.log('\nwarnings (' + warn.length + '):'); warn.forEach((w) => console.log('  ' + w)); }
 if (problems.length) {

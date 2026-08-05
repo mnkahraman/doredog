@@ -4330,6 +4330,14 @@ if (WRITE) {
   const composers = [...new Set(songs.map((s) => s.meta.composer))];
   for (const name of composers) sm += `  <url><loc>https://doredog.com/composer?name=${encodeURIComponent(name)}</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>\n`;
   for (const slug of collectionSlugs) sm += `  <url><loc>https://doredog.com/collection.html?c=${slug}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`;
+  // Article URLs are owned by tools/build-articles.mjs and live between markers.
+  // Carry the existing block forward — rebuilding the catalogue must not delete
+  // 47 indexed article pages just because this tool does not know about them.
+  try {
+    const prev = fs.readFileSync(ROOT + '/sitemap.xml', 'utf8');
+    const keep = prev.match(/[ \t]*<!-- articles:start[\s\S]*?<!-- articles:end -->\n/);
+    if (keep) sm += keep[0];
+  } catch (e) {}
   sm += '</urlset>\n';
   fs.writeFileSync(ROOT + '/sitemap.xml', sm);
 
