@@ -17,7 +17,9 @@
    Run:  node tools/apply-difficulty.mjs <scored.json> [--write]
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const scored = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 const WRITE = process.argv.includes('--write');
 

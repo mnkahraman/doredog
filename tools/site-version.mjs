@@ -8,8 +8,10 @@
    behind the site again.
    ========================================================================== */
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 
 export function siteVersion() {
   const html = fs.readFileSync(ROOT + '/index.html', 'utf8');

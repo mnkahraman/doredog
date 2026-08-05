@@ -2,7 +2,9 @@
 // Output: <slug>.html at repo root (Cloudflare serves clean /<slug>), plus articles.html hub.
 import fs from 'fs';
 import { siteVersion } from './site-version.mjs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const DRAFTS = ROOT + '/marketing/content-drafts';
 const V = siteVersion();
 

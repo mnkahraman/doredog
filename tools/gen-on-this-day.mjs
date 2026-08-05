@@ -11,7 +11,9 @@
    Run:  node tools/gen-on-this-day.mjs
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 
 const MON = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7,
               august: 8, september: 9, october: 10, november: 11, december: 12 };

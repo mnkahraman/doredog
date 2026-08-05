@@ -2,7 +2,9 @@
 //   marketing/content-drafts/composer-bios.md -> worker/composer-bios.js  (BIOS[name] = html)
 //   marketing/content-drafts/song-notes.md    -> worker/song-notes.js     (NOTES[id]   = html)
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const DRAFTS = ROOT + '/marketing/content-drafts';
 
 function inline(s) {

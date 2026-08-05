@@ -21,7 +21,9 @@
    ========================================================================== */
 import fs from 'fs';
 import vm from 'vm';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 
 const NOTE = { c: 0, d: 2, e: 4, f: 5, g: 7, a: 9, b: 11, C: 1, D: 3, F: 6, G: 8, A: 10 };
 const isNote = (ch) => ch != null && NOTE[ch] != null;

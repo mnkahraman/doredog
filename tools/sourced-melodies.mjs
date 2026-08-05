@@ -11,8 +11,10 @@
    ========================================================================== */
 import fs from 'fs';
 import { parseLily } from './lilypond-to-melody.mjs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));  // repo root, so this also works from a git worktree
 const SRC = ROOT + '/tools/melody-sources';
 const SUB = 4;                                       // grid columns per quarter-note beat
 
