@@ -4319,10 +4319,17 @@ if (WRITE) {
     ['about.html', '0.5', 'monthly'], ['contact.html', '0.4', 'yearly'],
     ['privacy.html', '0.3', 'yearly'], ['terms.html', '0.3', 'yearly']
   ];
-  // curated collection landing pages (slugs mirror DRD.COLLECTIONS in js/site.js)
-  const collectionSlugs = ['first-steps', 'calm-evening', 'women-composers', 'baroque-counterpoint',
-    'virtuoso-fireworks', 'impressionist-colours', 'ragtime-parlour', 'wedding-ceremony',
-    'christmas-carols', 'etudes-studies'];
+  // Curated collection landing pages. This was a hand-typed list of ten while
+  // js/site.js defined eighteen, so eight collections were never in the sitemap.
+  // Read the generated membership file instead — it is emitted from the real
+  // definitions by tools/gen-collection-members.js and cannot fall behind.
+  let collectionSlugs = [];
+  try {
+    const gen = fs.readFileSync(ROOT + '/worker/collection-members.js', 'utf8');
+    collectionSlugs = Object.keys(JSON.parse(gen.match(/export const MEMBERS = (\{[\s\S]*?\});/)[1]));
+  } catch (e) {
+    console.warn('sitemap: could not read worker/collection-members.js — no collection URLs emitted');
+  }
   let sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   for (const [u, p, cf] of staticUrls) sm += `  <url><loc>https://doredog.com/${u}</loc><changefreq>${cf}</changefreq><priority>${p}</priority></url>\n`;
   for (const s of songs) sm += `  <url><loc>https://doredog.com/song?id=${s.meta.id}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;

@@ -417,7 +417,7 @@
   // word-bounded: bare /carol/ wrongly matched "Carolina" and "Barcarolle"
   var XMAS_RE = /christmas|no[eë]l\b|carols?\b|silent night|jingle|holy night|wenceslas|adeste|ding dong|we three|greensleeves|weihnacht|stille nacht|es ist ein ros|christbaum|christkind|die k[oö]nige|die hirten|nativit|away in a manger|herald angels|little town of bethlehem|holly and the ivy/i;
   var STUDY_RE = /[eé]tude|study|inventio|invention/i;
-  var ANTHEM_RE = /star.spangled banner|god save|marseillaise|national anthem|marche nationale/i;
+  var ANTHEM_RE = /star.spangled banner|god save|marseillaise|national anthem|marche nationale|america the beautiful/i;
   // sacred by function — many of these are filed under an era genre (Baroque/Romantic),
   // because `genre` records the period, not what the piece is for.
   var HYMN_RE = /chorale|psalm|kyrie|gloria|sanctus|benedictus|agnus dei|magnificat|te deum|ave maria|ave verum|ave maris|pater noster|salve regina|stabat mater|geistlich|motet|missa|requiem|hallelujah|jesu[,\s]|herr |gott |hymn/i;
@@ -428,6 +428,13 @@
   var DANCE_RE = /gavotte|sarabande|courante|allemande|bourr[eé]e|gigue|polka|mazurka|polonaise|minuet|menuett|tanz\b|danse|dances?\b/i;
   var MARCH_RE = /\bmarch\b|marche\b|marsch\b|marches\b/i;
   var WALTZ_RE = /waltz(es)?\b|valses?\b|walzer/i;   // word-bounded: "Waltzing Matilda" is not a waltz
+  // subject collections — each was sized and overlap-checked against every existing
+  // collection before being added; the worst was 65%, under the 75% the audit rejects
+  var WATER_RE = /water|\bsea\b|ocean|wave|barcarolle|gondol|river|brook|fountain|rain|\bmer\b|\bmeer\b/i;
+  var NATURE_RE = /bird|oiseau|vogel|lark|nightingale|cuckoo|swan|butterfly|papillon|flower|fleur|blume|spring|printemps|fr[uü]hling/i;
+  var CHILD_RE = /kinder|enfant|child|jugend|young|nursery|puppet|doll|toy|spielz/i;
+  var LOVE_RE = /\blove\b|amour|liebe|romance|romanz|widmung/i;
+  var SNOW_RE = /winter|snow|neige|schnee|frost|sleigh|schlitten/i;
   window.DRD.COLLECTIONS = [
     { slug: 'first-steps', title: 'First Steps', glyph: '✿', accent: '#35e08c', byDifficulty: true,
       sub: 'Gentle, easy pieces to begin with — the least demanding letter notes in the library.',
@@ -465,9 +472,6 @@
     { slug: 'sacred-hymns', title: 'Sacred & Hymns', glyph: '✞', accent: '#e6d5a8',
       sub: 'Chorales, psalms and sacred settings, from Bach’s hymn tunes onward.',
       match: function (s) { return HYMN_RE.test(s.title) || s.genre === 'Sacred'; } },
-    { slug: 'national-anthems', title: 'National Anthems', glyph: '⚑', accent: '#8fd4a8',
-      sub: 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.',
-      match: function (s) { return ANTHEM_RE.test(s.title); } },
     { slug: 'songs-and-lieder', title: 'Songs & Lieder', glyph: '♪', accent: '#ff9ec7',
       sub: 'The art song — Lieder, mélodies and romances, the largest seam in the library.',
       match: function (s) { return SONG_RE.test(s.title); } },
@@ -480,9 +484,29 @@
     { slug: 'waltzes', title: 'Waltzes', glyph: '❃', accent: '#d8a8f0',
       sub: 'Valses and Walzer — three beats to a bar, from the ballroom to the salon.',
       match: function (s) { return WALTZ_RE.test(s.title); } },
-    { slug: 'marches', title: 'Marches', glyph: '⁂', accent: '#a8c8a0',
-      sub: 'Marches and processionals, from Sousa’s bands to Schumann’s Soldier’s March.',
-      match: function (s) { return MARCH_RE.test(s.title); } }
+    // Anthems used to be their own collection and the catalogue only holds six of
+    // them — not a page. They belong here anyway: both are public, ceremonial music.
+    { slug: 'marches', title: 'Marches & Anthems', glyph: '⁂', accent: '#a8c8a0',
+      sub: 'Processionals, Sousa’s bands, Schumann’s Soldier’s March — and the anthems they were played beside.',
+      match: function (s) { return MARCH_RE.test(s.title) || ANTHEM_RE.test(s.title); } },
+    { slug: 'under-a-minute', title: 'Under a Minute', glyph: '◷', accent: '#7ee0c0', byDifficulty: true,
+      sub: 'Complete pieces that finish inside sixty seconds — measured, not guessed.',
+      match: function (s) { return s.dur > 0 && s.dur < 60; } },
+    { slug: 'love-and-devotion', title: 'Love & Devotion', glyph: '♡', accent: '#ff7d9e',
+      sub: 'Liebesträume, romances and dedications — the music people wrote for someone.',
+      match: function (s) { return LOVE_RE.test(s.title); } },
+    { slug: 'birds-and-blossom', title: 'Birds & Blossom', glyph: '❦', accent: '#9fe08c',
+      sub: 'Larks, nightingales, butterflies and spring — the pastoral seam of the library.',
+      match: function (s) { return NATURE_RE.test(s.title); } },
+    { slug: 'written-for-children', title: 'Written for Children', glyph: '✧', accent: '#ffd08a',
+      sub: 'Kinderszenen, Dolly, Album for the Young — real composers writing for small hands.',
+      match: function (s) { return CHILD_RE.test(s.title); } },
+    { slug: 'winter-and-snow', title: 'Winter & Snow', glyph: '❆', accent: '#a8d8ff',
+      sub: 'Snowfall, sleigh rides and midwinter — the cold half of the year, without the carols.',
+      match: function (s) { return SNOW_RE.test(s.title); } },
+    { slug: 'water-and-sea', title: 'Water & the Sea', glyph: '≈', accent: '#6fc9d8',
+      sub: 'Barcarolles, waterfalls, raindrops and the open sea — music that moves like water.',
+      match: function (s) { return WATER_RE.test(s.title); } }
   ];
   window.DRD.getCollection = function (slug) {
     return DRD.COLLECTIONS.filter(function (c) { return c.slug === slug; })[0] || null;

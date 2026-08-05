@@ -6,7 +6,7 @@ import { SEO, COMPOSERS } from './seo-data.js';
 import { BIOS } from './composer-bios.js';
 import { NOTES } from './song-notes.js';
 import { DATES } from './composer-dates.js';
-import { MEMBERS } from './collection-members.js';
+import { MEMBERS, COLLECTIONS } from './collection-members.js';
 import { OTD } from './on-this-day-data.js';
 
 const ORIGIN = 'https://doredog.com';
@@ -64,27 +64,8 @@ function composerMeta(name, count) {
   return { kind: 'composer', pageTitle, desc, canon, ogType: 'website', ogImg: DEFAULT_OG, ld: ld(j) + breadcrumb(name) };
 }
 
-// curated collections — keep in sync with DRD.COLLECTIONS in js/site.js
-const COLLECTIONS = {
-  'first-steps': ['First Steps', 'Gentle, easy pieces to begin with — the least demanding letter notes in the library.'],
-  'calm-evening': ['Calm Evening', 'Nocturnes, reveries and lullabies to wind the night down.'],
-  'women-composers': ['Women Composers', 'Clara Schumann, Chaminade, Boulanger and more — voices long overlooked.'],
-  'baroque-counterpoint': ['Baroque Counterpoint', 'Bach, Handel and Scarlatti — the age of the fugue and the dance suite.'],
-  'virtuoso-fireworks': ['Virtuoso Fireworks', 'Storming showpieces for when you want a real challenge.'],
-  'impressionist-colours': ['Impressionist Colours', 'Debussy, Satie and Fauré — music made of light and haze.'],
-  'ragtime-parlour': ['Ragtime Parlour', 'Syncopated rags and struts from the ragtime age.'],
-  'wedding-ceremony': ['Wedding & Ceremony', 'Canon in D, Ave Maria, Bridal Chorus — music for the aisle and the altar.'],
-  'christmas-carols': ['Christmas & Carols', 'Carols and Christmas favourites, ready to play in letter notes.'],
-  'etudes-studies': ['Études & Studies', 'Inventions and studies that quietly build real technique.'],
-  'lullabies': ['Lullabies & Cradle Songs', 'Wiegenlieder, berceuses and cradle songs — the gentlest music in the library.'],
-  'sacred-hymns': ['Sacred & Hymns', 'Chorales, psalms and sacred settings, from Bach’s hymn tunes onward.'],
-  'national-anthems': ['National Anthems', 'The Star-Spangled Banner, La Marseillaise, God Save the King and more.'],
-  'songs-and-lieder': ['Songs & Lieder', 'The art song — Lieder, mélodies and romances, the largest seam in the library.'],
-  'preludes': ['Preludes', 'Short, self-contained openings — from Bach’s Little Preludes to Chopin’s Op. 28.'],
-  'dances-and-minuets': ['Dances & Minuets', 'Minuets, gavottes, mazurkas and polonaises — music written to be danced.'],
-  'waltzes': ['Waltzes', 'Valses and Walzer — three beats to a bar, from the ballroom to the salon.'],
-  'marches': ['Marches', 'Marches and processionals, from Sousa’s bands to Schumann’s Soldier’s March.']
-};
+// curated collections: titles and blurbs are generated from DRD.COLLECTIONS
+// (js/site.js) by tools/gen-collection-members.js, alongside MEMBERS above.
 
 /* Built once per isolate. The catalogue only ever reaches the browser as JavaScript, so
    without these indexes a crawler sees an empty grid on every composer and collection page. */

@@ -24,6 +24,7 @@ global.window = {};
 require2(ROOT + '/js/data.js');
 const SONGS = global.window.DRD.SONGS;
 const ids = new Set(SONGS.map((s) => s.id));
+const ids2 = ids;
 const titles = new Set(SONGS.map((s) => s.title));
 
 const html = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html'));
@@ -65,6 +66,29 @@ for (let i = 0; i < keys.length; i++) {
     if (jac > 0.75) P('duplicate', 'lists "' + keys[i] + '" and "' + keys[j] + '" overlap ' + Math.round(jac * 100) + '% — one page, not two');
     else if (jac > 0.5) W('overlap', '"' + keys[i] + '" and "' + keys[j] + '" overlap ' + Math.round(jac * 100) + '%');
   }
+}
+
+/* ---- 2b. a collection that is really an existing one under a new name ----
+   Jaccard is the wrong instrument here: collections differ wildly in size, and a
+   22-piece set sitting entirely inside a 689-piece one scores low on Jaccard while
+   being exactly the failure worth catching. Measure containment of the smaller. */
+const MEMBERS = JSON.parse(fs.readFileSync(ROOT + '/worker/collection-members.js', 'utf8')
+  .match(/export const MEMBERS = (\{[\s\S]*?\});/)[1]);
+const cslugs = Object.keys(MEMBERS);
+for (let i = 0; i < cslugs.length; i++) {
+  for (let j = i + 1; j < cslugs.length; j++) {
+    const A = new Set(MEMBERS[cslugs[i]]), B = new Set(MEMBERS[cslugs[j]]);
+    if (!A.size || !B.size) continue;
+    const [small, big, sn, bn] = A.size <= B.size ? [A, B, cslugs[i], cslugs[j]] : [B, A, cslugs[j], cslugs[i]];
+    let inside = 0; small.forEach((x) => { if (big.has(x)) inside++; });
+    const pct = Math.round((inside / small.size) * 100);
+    if (pct > 90) P('duplicate', 'collection "' + sn + '" is ' + pct + '% inside "' + bn + '" — one collection, not two');
+    else if (pct > 75) W('overlap', 'collection "' + sn + '" is ' + pct + '% inside "' + bn + '"');
+  }
+}
+for (const [slug, ids] of Object.entries(MEMBERS)) {
+  if (ids.length < 8) P('thin', 'collection "' + slug + '" has only ' + ids.length + ' pieces — too thin for its own page');
+  ids.forEach((id) => { if (!ids2.has(id)) P('collection', '"' + slug + '" holds "' + id + '", not in the catalogue'); });
 }
 
 /* ---- 3. lists nothing uses, and pages using lists that do not exist ------ */
