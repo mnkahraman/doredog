@@ -332,8 +332,10 @@ function relatedHtml(picked) {
   if (!picked.length) return '';
   return '<section class="section-sm"><div class="container page-copy">' +
     '<h2 class="drd-related-h">Related guides</h2><ul class="drd-related">' +
-    picked.map((b) => '<li><a href="/' + b.slug + '">' + esc(b.title) + '</a>' +
-      '<span>' + esc(b.desc) + '</span></li>').join('') +
+    // the blurb belongs inside the anchor: outside it, it rendered below the
+    // bordered card instead of in it, and was not part of the click target
+    picked.map((b) => '<li><a href="/' + b.slug + '"><strong>' + esc(b.title) + '</strong>' +
+      '<span>' + esc(b.desc) + '</span></a></li>').join('') +
     '</ul></div></section>';
 }
 
