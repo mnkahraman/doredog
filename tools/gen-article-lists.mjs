@@ -103,8 +103,10 @@ const hardest = measured.slice().sort((a, b) => b.ds - a.ds);
 
 // 6. Easiest-first, per composer. `ds` exists for all 2,433 pieces, so "the
 //    easiest Mozart" is a measurement rather than an opinion.
+// No Joplin entry: his 19 pieces are 18 of the 20 in the ragtime era list, so a
+// separate page would be the same page twice. tools/audit-content.mjs enforces this.
 const EASIEST_FOR = ['W. A. Mozart', 'Franz Schubert', 'Johannes Brahms', 'G. F. Handel',
-  'Robert Schumann', 'Erik Satie', 'Friedrich Burgmüller', 'Scott Joplin'];
+  'Robert Schumann', 'Erik Satie', 'Friedrich Burgmüller'];
 
 // 7. Easiest-first inside an era. `genre` records the period, so these are the
 //    era pages: the same measurement, sliced the other way.

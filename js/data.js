@@ -13822,39 +13822,39 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-anna-magdalena-04",
-    title: "Menuet in G",
-    composer: "J. S. Bach",
+    title: "Menuet in G major, BWV Anh. 114",
+    composer: "Christian Petzold",
     difficulty: "easy",
     ds: 22,
     genre: "Baroque",
     year: 1725,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["baroque","piano"],
     cps: 18.67,
     dur: 43,
     fp: "SLSLNK;NLXSPL\\ZURWW;KLNIPP44",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Menuet in G by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Menuet in G major, BWV Anh. 114 by Christian Petzold, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
     id: "m-bach-anna-magdalena-05",
-    title: "Menuet (BWV Anh. 115)",
-    composer: "J. S. Bach",
+    title: "Menuet in G minor, BWV Anh. 115",
+    composer: "Christian Petzold",
     difficulty: "medium",
     ds: 27,
     genre: "Baroque",
     year: 1725,
     circa: true,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["baroque","piano"],
     cps: 9.33,
     dur: 45,
     fp: "[SNCSQGXSSXTQSVXZSVGQTOGOKKK",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Menuet (BWV Anh. 115) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Menuet in G minor, BWV Anh. 115 by Christian Petzold, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -18050,20 +18050,20 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-minuet-xpose",
-    title: "Menuet in G major, BWV Anh. 114",
-    composer: "J. S. Bach",
+    title: "Menuet in G major, BWV Anh. 114 (second setting)",
+    composer: "Christian Petzold",
     difficulty: "easy",
     ds: 12,
     genre: "Baroque",
     year: 1725,
     featured: false,
-    tags: ["bach","baroque","piano"],
+    tags: ["baroque","piano"],
     cps: 4.4,
     dur: 51,
     fp: "SLSLNSNNLXSQL\\ZURUWGLKSGPLLL",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Menuet in G major, BWV Anh. 114 by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Menuet in G major, BWV Anh. 114 (second setting) by Christian Petzold, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
