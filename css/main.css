@@ -1374,3 +1374,30 @@ body{ animation:pageIn .5s var(--ez) both; }
 .ch-note{color:var(--text-dim,#b9b9c6);font-size:.9rem;line-height:1.65;margin:1.1rem 0 0}
 .cof-k.bass{box-shadow:inset 0 -4px 0 var(--gold,#f6b73f)}
 .cof-kb.bass{box-shadow:inset 0 -4px 0 var(--gold,#f6b73f)}
+
+/* ---------- Ear training (ear-training.html) ---------- */
+.ear-card{background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:var(--radius-lg,16px);padding:26px 28px}
+.ear-setup{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.ear-picks{display:flex;gap:7px;flex-wrap:wrap}
+.ear-pick{cursor:pointer;font:inherit;font-size:.82rem;color:var(--text-dim,#b9b9c6);
+  background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:9px;padding:.45rem .8rem}
+.ear-pick:hover{background:rgba(255,255,255,.1)}
+.ear-pick.on{background:var(--gold,#f6b73f);border-color:var(--gold,#f6b73f);color:#0c0c16;font-weight:700}
+.ear-tier-note{color:var(--text-mute,#8a8a99);font-size:.85rem;line-height:1.6;margin:14px 0 0}
+.ear-play{display:flex;justify-content:center;margin:24px 0 22px}
+.ear-options{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:9px}
+.ear-opt{cursor:pointer;font:inherit;font-size:.88rem;color:var(--text,#fff);background:rgba(255,255,255,.05);
+  border:1px solid var(--border);border-radius:10px;padding:.7rem .6rem;transition:background .15s,border-color .15s}
+.ear-opt:hover:not(:disabled){background:rgba(255,255,255,.1);border-color:rgba(246,183,63,.45)}
+.ear-opt:disabled{cursor:default;opacity:.75}
+.ear-opt.right{background:rgba(53,224,140,.22);border-color:#35e08c;color:#8ef0bd;opacity:1;font-weight:600}
+.ear-opt.wrong{background:rgba(255,95,100,.18);border-color:#ff5f64;color:#ffa8ab;opacity:1}
+.ear-verdict{font-size:1rem;font-weight:600;margin:20px 0 0;min-height:1.4em}
+.ear-verdict.ok{color:#35e08c}
+.ear-verdict.no{color:#ff5f64}
+.ear-reveal{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 18px;min-height:2.4em}
+.ear-arrow{font-family:var(--font-mono,monospace);color:var(--gold,#f6b73f);font-size:1.1rem}
+.ear-semis{color:var(--text-mute,#8a8a99);font-size:.82rem;margin-left:6px}
+.ear-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin-top:26px;
+  border-top:1px solid var(--border);padding-top:20px}

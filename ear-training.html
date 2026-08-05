@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interval Ear Training — Free, in Your Browser | DoReDog</title>
+<meta name="description" content="Hear two notes and name the interval. Three difficulty tiers, up, down or together, and every answer revealed in letter notes. Free, no sign-up, nothing uploaded.">
+<link rel="canonical" href="https://doredog.com/ear-training">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Interval Ear Training — Free, in Your Browser">
+<meta property="og:description" content="The skill that turns letter notes from instructions into music: hearing how far apart two notes are.">
+<meta property="og:url" content="https://doredog.com/ear-training">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=142">
+<link rel="stylesheet" href="css/player.css?v=142">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="ear">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Free tool</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Ear <span class="text-grad">training</span></h1>
+      <p class="lead" data-reveal data-delay="2">Two notes play. How far apart are they? Every answer is revealed in letter notes.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:820px">
+      <div class="ear-card" data-reveal>
+        <div class="ear-setup">
+          <div class="ear-set-group">
+            <span class="ch-label">Difficulty</span>
+            <div class="ear-picks" id="ear-tiers"></div>
+          </div>
+          <div class="ear-set-group">
+            <span class="ch-label">Direction</span>
+            <div class="ear-picks" id="ear-dirs"></div>
+          </div>
+        </div>
+        <p class="ear-tier-note" id="ear-tier-note"></p>
+
+        <div class="ear-play">
+          <button class="btn btn-primary btn-lg" id="ear-replay" type="button">↻ Hear it again</button>
+        </div>
+
+        <div class="ear-options" id="ear-options"></div>
+
+        <p class="ear-verdict" id="ear-verdict"></p>
+        <div class="ear-reveal" id="ear-reveal"></div>
+        <button class="btn btn-primary" id="ear-next" type="button" hidden>Next interval →</button>
+
+        <div class="ear-stats">
+          <div class="pg-stat"><b id="ear-streak">0</b><span>Streak</span></div>
+          <div class="pg-stat"><b id="ear-best">0</b><span>Best streak</span></div>
+          <div class="pg-stat"><b id="ear-pct">—</b><span>Correct</span></div>
+          <div class="pg-stat"><b id="ear-asked">0</b><span>Answered</span></div>
+        </div>
+        <button class="btn btn-ghost" id="ear-reset" type="button" style="margin-top:14px">Reset score</button>
+      </div>
+      <p class="text-mute" style="font-size:.84rem;margin-top:16px">Your score is kept in this browser. There is no account and nothing is uploaded.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>Why intervals are the thing to train</h2>
+      <p>Letter notes tell you which key to press. They do not tell you whether what you played was right — and that gap is where most self-taught players get stuck. Ear training closes it.</p>
+      <p>An interval is simply the distance between two notes, and it is the unit melodies are actually built from. Once you can hear that a jump is a fifth rather than a fourth, three things become possible: you can catch your own wrong notes without a teacher, you can work a tune out from a recording, and you can eventually play something you have never seen written down.</p>
+      <p>Ten minutes of this does more for that than an hour of scales.</p>
+
+      <h2>How to practise it properly</h2>
+      <p><strong>Start at "Starting out" and stay there longer than you want to.</strong> Three intervals — the major third, the perfect fifth and the octave — are the skeleton of every chord in Western music. Getting those three reliable is worth more than getting all thirteen unreliably.</p>
+      <p><strong>Sing the interval before you answer.</strong> Out loud if you can, in your head if you cannot. Recognising an interval is a physical memory as much as an aural one, and singing it recruits both.</p>
+      <p><strong>Do short sessions, often.</strong> Five minutes a day beats an hour a week by a wide margin. This is a skill that consolidates while you are not practising.</p>
+      <p><strong>Move to "Together" last.</strong> Two notes played at the same moment are genuinely harder than one after another, because your ear has to separate them before it can measure them. It is also the version that matters most for hearing chords.</p>
+
+      <h2>The two that catch everyone out</h2>
+      <p>The <strong>tritone</strong> — six semitones, exactly half an octave — is the interval that sounds unresolved and slightly wrong. Medieval theorists gave it an ominous nickname; modern film composers use it for the same reason. Once you have heard it named a few times it becomes the easiest interval on the list, because nothing else sounds like it.</p>
+      <p>The <strong>major sixth and minor seventh</strong> are the pair most people confuse, because both are wide and both sound open. The trick is that the minor seventh has a slight lean to it, a feeling of wanting to fall inwards, which the sixth does not.</p>
+
+      <h2>Where this connects to the library</h2>
+      <p>Every piece on this site is written in letters, so an interval you learn here is directly readable there. When you see <code>c</code> followed by <code>g</code>, that is a perfect fifth — the interval you have been practising — and after a while you will start hearing those shapes as you read them rather than after you play them.</p>
+      <p>That is the whole point of the format, and this page is the fastest way to get there.</p>
+
+      <p style="margin-top:1.6rem">More free tools: <a href="chord-finder.html">the chord finder</a>, <a href="circle-of-fifths.html">the circle of fifths</a>, <a href="quiz.html">the music quizzes</a>, and <a href="how-to-learn-piano-by-ear.html">how to learn a piece by ear</a>.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=142"></script>
+<script src="js/player.js?v=142"></script>
+<script src="js/site.js?v=142"></script>
+<script src="js/ear.js?v=142"></script>
+</body>
+</html>
