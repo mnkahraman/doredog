@@ -8,7 +8,9 @@
    Run:  node tools/gen-collection-members.js     (after any catalogue change)
    ========================================================================== */
 const fs = require('fs');
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location — see the note in the .mjs tools:
+// an absolute path meant a tool run from a worktree wrote to the main checkout instead.
+const ROOT = require('path').resolve(__dirname, '..');
 
 // site.js expects a browser: give it just enough of one to define DRD.COLLECTIONS
 global.window = { addEventListener() {}, matchMedia: () => ({ matches: false, addEventListener() {} }), location: { pathname: '/', search: '' } };

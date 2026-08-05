@@ -10,7 +10,9 @@
    Run:  node tools/gen-daily-pool.js
    ========================================================================== */
 const fs = require('fs');
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location — see the note in the .mjs tools:
+// an absolute path meant a tool run from a worktree wrote to the main checkout instead.
+const ROOT = require('path').resolve(__dirname, '..');
 
 global.window = {};
 require(ROOT + '/js/data.js');

@@ -13,7 +13,9 @@
    ========================================================================== */
 import fs from 'fs';
 import { siteVersion } from './site-version.mjs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 const V = siteVersion();
 const W = (a) => 'https://en.wikipedia.org/wiki/' + a;
 

@@ -16,7 +16,9 @@
    Run:  node tools/harvest-on-this-day.mjs
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 const DAYS = '/tmp/days';
 
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];

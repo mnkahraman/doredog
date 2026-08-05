@@ -4,7 +4,9 @@
 // Non-verified pieces keep their (approximate) year for internal sort/era/timeline, but it is
 // NOT shown/published (front-end gates on yv; seo-data omits year unless yv).
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 const P = ROOT + '/js/data.js';
 let t = fs.readFileSync(P, 'utf8');
 

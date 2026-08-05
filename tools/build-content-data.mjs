@@ -2,7 +2,9 @@
 //   marketing/content-drafts/composer-bios.md -> worker/composer-bios.js  (BIOS[name] = html)
 //   marketing/content-drafts/song-notes.md    -> worker/song-notes.js     (NOTES[id]   = html)
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 const DRAFTS = ROOT + '/marketing/content-drafts';
 
 function inline(s) {

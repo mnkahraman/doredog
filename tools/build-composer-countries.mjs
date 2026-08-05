@@ -15,7 +15,9 @@
    Run:  node tools/build-composer-countries.mjs <countries.json>
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 const src = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
 
 const GROUP = {

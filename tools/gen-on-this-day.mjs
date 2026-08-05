@@ -11,7 +11,9 @@
    Run:  node tools/gen-on-this-day.mjs
    ========================================================================== */
 import fs from 'fs';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 
 const MON = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7,
               august: 8, september: 9, october: 10, november: 11, december: 12 };

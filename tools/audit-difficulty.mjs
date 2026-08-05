@@ -21,7 +21,9 @@
    ========================================================================== */
 import fs from 'fs';
 import vm from 'vm';
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location. It used to be an absolute path,
+// so running a tool from a git worktree silently read and rewrote the MAIN checkout.
+const ROOT = decodeURIComponent(new URL('..', import.meta.url).pathname).replace(/\/$/, '');
 
 const NOTE = { c: 0, d: 2, e: 4, f: 5, g: 7, a: 9, b: 11, C: 1, D: 3, F: 6, G: 8, A: 10 };
 const isNote = (ch) => ch != null && NOTE[ch] != null;

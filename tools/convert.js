@@ -5,7 +5,9 @@ const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
 
-const ROOT = '/Users/nurettinkahraman/Documents/PYTHON/4_DOREDOG';
+// Derive the repo root from this file's own location — see the note in the .mjs tools:
+// an absolute path meant a tool run from a worktree wrote to the main checkout instead.
+const ROOT = require('path').resolve(__dirname, '..');
 const SRC = ROOT + '/notes_csv';
 const WRITE = process.argv.includes('--write');
 
