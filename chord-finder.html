@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano Chord Finder — in Letter Notes | DoReDog</title>
+<meta name="description" content="Pick any root and chord type and see the exact keys to press, written as letters. Hear it, block or arpeggiated, and try every inversion. 15 chord types, free, no sign-up.">
+<link rel="canonical" href="https://doredog.com/chord-finder">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DoReDog">
+<meta property="og:title" content="Piano Chord Finder — in Letter Notes">
+<meta property="og:description" content="Every chord as the keys you press rather than dots on a staff — with inversions, because the shape under your hand is the part a chart never shows.">
+<meta property="og:url" content="https://doredog.com/chord-finder">
+<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06060b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css?v=141">
+<link rel="stylesheet" href="css/player.css?v=141">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>
+</head>
+<body data-page="chords">
+<header id="site-header"></header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal style="justify-content:center;display:flex">Free tool</span>
+      <h1 class="display" data-reveal data-delay="1" style="margin:1rem 0">Chord <span class="text-grad">finder</span></h1>
+      <p class="lead" data-reveal data-delay="2">Pick a root and a type. See the keys to press, hear the chord, and try every inversion.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container" style="max-width:900px">
+      <div class="ch-wrap" data-reveal>
+        <div class="ch-pickers">
+          <div class="ch-group">
+            <span class="ch-label">Root</span>
+            <div class="ch-roots" id="ch-roots"></div>
+          </div>
+          <div class="ch-group">
+            <span class="ch-label">Type</span>
+            <div class="ch-types" id="ch-types"></div>
+          </div>
+        </div>
+
+        <div class="ch-result">
+          <div class="ch-head">
+            <div>
+              <h2 class="ch-name" id="ch-name">C</h2>
+              <p class="ch-sub" id="ch-type"></p>
+            </div>
+            <div class="ch-actions">
+              <button class="btn btn-primary" id="ch-play" type="button">▶ Play</button>
+              <button class="btn btn-ghost" id="ch-arp" type="button">↗ Roll it</button>
+            </div>
+          </div>
+
+          <div class="cof-letters" id="ch-letters"></div>
+          <p class="cof-hint">The keys to press, bottom note first. Pink is a black key.</p>
+
+          <div class="cof-keys" id="ch-keys"></div>
+
+          <div class="ch-inv-row">
+            <span class="ch-label">Inversion</span>
+            <div class="ch-inv" id="ch-inv"></div>
+          </div>
+
+          <p class="ch-note" id="ch-note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container page-copy">
+      <h2>Why inversions are the part that matters</h2>
+      <p>Every chord chart in the world draws a chord as a neat stack: root at the bottom, then a third, then a fifth. That is how chords are <em>named</em>, and it is almost never how they are <em>played</em>.</p>
+      <p>The same three notes can sit under your hand in three different arrangements, and they sound like the same chord in each. What changes is the shape your hand makes and how far it has to travel from the chord before. Press the inversion buttons above and watch the keyboard: the notes stay the same, the hand position does not.</p>
+      <p>This is the single most useful thing a beginner can learn about chords, and it is invisible on a staff diagram. If you are moving from a C chord to an F chord and your hand is leaping across the keyboard, you have almost certainly chosen the wrong inversion — there is a version of F sitting right next to where your fingers already are.</p>
+
+      <h2>Major and minor differ by one key</h2>
+      <p>Pick a root, press <strong>Major</strong>, then press <strong>Minor</strong>, and watch the middle note. It moves down by one key. That is the entire difference between the two sounds that Western music has built its emotional vocabulary on for four hundred years.</p>
+      <p>It is worth sitting with how small that is. One finger, one semitone, and the chord goes from bright to sad. Nothing else in music gives you that much change for that little effort.</p>
+
+      <h2>What the four-note chords add</h2>
+      <p>Three-note chords — triads — are stable and finished. Add a fourth note and you introduce a small tension that wants to go somewhere.</p>
+      <p>A <strong>dominant seventh</strong> is the strongest of these: it pulls toward the chord a fifth below it so insistently that most Western music uses it as the standard way of arriving home. A <strong>major seventh</strong> takes that same top note up a semitone and the tension turns soft and hazy instead — the same two chords, one key apart, and a century of musical style between them.</p>
+      <p>The <strong>diminished seventh</strong> is the strangest thing on this page. Its four notes are spaced perfectly evenly, three semitones apart all the way up, which means it has no root in any meaningful sense and can lead almost anywhere. Romantic composers used it constantly as a hinge to swing between distant keys.</p>
+
+      <h2>Letter notes and chords</h2>
+      <p>A chord in letter notes is just its notes written together — no chord symbol to decode, no key signature to apply. When a piece in the library sounds several letters at once, that is a chord, and you can find its name here by matching the letters.</p>
+      <p>The reverse is more useful: learn four or five shapes here, and a great deal of the accompaniment in the library stops looking like a wall of letters and starts looking like chords you already know.</p>
+
+      <p style="margin-top:1.6rem">More free tools: <a href="circle-of-fifths.html">the circle of fifths</a>, <a href="midi-to-letter-notes.html">MIDI → letter notes</a>, <a href="piano.html">the online piano</a>, and <a href="guide.html">how letter notes work</a>.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-slot ad-leaderboard" data-ad="leaderboard">Ad space — 970×250 · paste your AdSense unit here</div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="js/data.js?v=141"></script>
+<script src="js/player.js?v=141"></script>
+<script src="js/site.js?v=141"></script>
+<script src="js/chords.js?v=141"></script>
+</body>
+</html>
