@@ -1302,3 +1302,43 @@ body{ animation:pageIn .5s var(--ez) both; }
 .cof-kb{position:absolute;top:0;width:22px;height:60px;background:#14141f;border-color:#2a2a3a;
   border-radius:0 0 5px 5px;z-index:2;font-size:.68rem}
 .cof-kb.in{background:rgba(255,84,178,.4);border-color:rgba(255,84,178,.6);color:#fff}
+.atlas-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.atlas-zbtn{min-width:38px;padding:.5rem .7rem;font-size:1.05rem;line-height:1}
+.atlas-all{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;color:var(--text-dim,#b9b9c6);
+  cursor:pointer;user-select:none;white-space:nowrap}
+.atlas-all input{accent-color:var(--gold,#f6b73f);width:15px;height:15px;cursor:pointer}
+@media (max-width:640px){ .atlas-tools{width:100%;justify-content:space-between} }
+
+/* chord-progression library on the circle page */
+.cof-lib-wrap{margin-top:44px;border-top:1px solid var(--border);padding-top:30px}
+.cof-lib-h{font-family:var(--font-body);font-weight:600;font-size:1.32rem;margin:0 0 .5rem}
+.cof-lib-lead{color:var(--text-dim,#b9b9c6);font-size:.95rem;line-height:1.7;margin:0 0 20px;max-width:64ch}
+.cof-lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px}
+.cof-chip{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:13px 15px;
+  color:var(--text,#fff);font:inherit;transition:border-color .18s,background .18s,transform .18s}
+.cof-chip:hover{background:rgba(255,255,255,.08);border-color:rgba(246,183,63,.45);transform:translateY(-2px)}
+.cof-chip b{font-weight:600;font-size:.96rem}
+.cof-chip i{font-style:normal;font-family:var(--font-mono,monospace);font-size:.76rem;color:var(--text-mute,#8a8a99)}
+.cof-chip.playing{background:rgba(246,183,63,.16);border-color:var(--gold,#f6b73f)}
+.cof-chip.playing i{color:var(--gold,#f6b73f)}
+.cof-prog-panel{margin-top:20px;background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:var(--radius-lg,16px);padding:20px 22px}
+.cof-prog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.cof-prog-name{font-family:var(--font-body);font-weight:600;font-size:1.1rem;margin:0}
+.cof-prog-sub{font-family:var(--font-mono,monospace);font-size:.82rem;color:var(--text-mute,#8a8a99);margin:.2rem 0 0}
+.cof-prog-steps{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 12px}
+.cof-step{font-family:var(--font-mono,monospace);font-size:.85rem;padding:.36rem .7rem;border-radius:8px;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-mute,#8a8a99);transition:all .15s}
+.cof-step.on{background:var(--gold,#f6b73f);border-color:var(--gold,#f6b73f);color:#0c0c16;font-weight:700}
+.cof-prog-now{font-family:var(--font-mono,monospace);font-size:1rem;color:var(--text,#fff);min-height:1.5em}
+.cof-prog-now b{color:var(--gold,#f6b73f);margin-right:.6rem}
+.cof-prog-now span{color:var(--text-dim,#b9b9c6)}
+.cof-prog-note{color:var(--text-dim,#b9b9c6);font-size:.9rem;line-height:1.65;margin:.9rem 0 0}
+/* the sounding chord, on the ring and on the keys */
+.cof-seg.sound .cof-maj{fill:#ff54b2;stroke:#fff;stroke-width:2.5}
+.cof-seg.sound .cof-min{fill:#ff54b2;stroke:#fff;stroke-width:2.5}
+.cof-seg.sound .cof-lab{fill:#fff}
+.cof-seg.sound{opacity:1}
+.cof-k.hot{background:rgba(255,84,178,.55);border-color:#ff54b2;color:#fff}
+.cof-kb.hot{background:#ff54b2;border-color:#fff;color:#0c0c16}

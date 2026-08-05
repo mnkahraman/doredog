@@ -46,7 +46,14 @@
      were alive at once, and non-overlapping rows need at least that many lanes. So the
      map shows the weightiest composers when zoomed out and reveals the rest as you zoom
      in — the same bargain Musicmap makes with its super-genres. */
+  /* The gate hides the lighter composers when zoomed out. It kept the map short, but it
+     also meant 250 of the 327 were unreachable without knowing to scroll-zoom and then
+     hunt across five centuries — panning does not reveal them, because the gate depends
+     on the zoom level and not on where you are. `showAll` turns it off: the map gets tall
+     and the container scrolls, which is a fair trade for being able to see everyone. */
+  var showAll = false;
   function minPieces(span) {
+    if (showAll) return 0;
     return span > 420 ? 6 : span > 260 ? 4 : span > 150 ? 3 : span > 80 ? 2 : 1;
   }
 
@@ -109,8 +116,8 @@
 
     var note = el('atlas-zoomnote');
     if (note) note.textContent = hidden
-      ? 'Showing ' + (rows.length - hidden) + ' of ' + rows.length + ' composers — zoom in for the rest'
-      : 'All ' + rows.length + ' composers shown';
+      ? 'Showing ' + (rows.length - hidden) + ' of ' + rows.length + ' composers — zoom in, or tick “Show every composer”'
+      : 'All ' + rows.length + ' composers shown' + (showAll ? ' — scroll the map to see them all' : '');
   }
 
   function panel(name) {
@@ -232,16 +239,39 @@
       if (r) {
         var mid = (r.b + r.d) / 2, span = Math.max(90, (r.d - r.b) * 3);
         view.x0 = mid - span / 2; view.x1 = mid + span / 2;
+        // A composer with one or two pieces is below the gate even at this zoom, so the
+        // search would jump to an empty patch of map. Lift the gate when that would happen.
+        if (r.c < minPieces(span)) {
+          showAll = true;
+          var box = el('atlas-showall'); if (box) box.checked = true;
+        }
         clampView(); draw();
       }
       panel(name);
       this.innerHTML = ''; el('atlas-find').value = '';
     });
 
+    // zoom buttons — scroll-to-zoom is undiscoverable, and on a trackpad it fights the page
+    var zin = el('atlas-in'), zout = el('atlas-out');
+    function zoomCentre(f) {
+      var rect = host.getBoundingClientRect();
+      zoomAt(rect.left + rect.width / 2, f);
+    }
+    if (zin) zin.addEventListener('click', function () { zoomCentre(0.7); });
+    if (zout) zout.addEventListener('click', function () { zoomCentre(1.43); });
+
+    var all = el('atlas-showall');
+    if (all) all.addEventListener('change', function () {
+      showAll = this.checked;
+      draw();
+      if (showAll && host) host.scrollTop = 0;
+    });
+
     var reset = el('atlas-reset');
     if (reset) reset.addEventListener('click', function () {
       view.x0 = DRD.ATLAS.span.from - 10; view.x1 = DRD.ATLAS.span.to + 10;
       filter = null;
+      if (all) { all.checked = false; showAll = false; }
       [].forEach.call(el('atlas-legend').querySelectorAll('.atlas-key'), function (k) { k.classList.remove('on'); });
       draw();
     });
