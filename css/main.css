@@ -1416,3 +1416,15 @@ body{ animation:pageIn .5s var(--ez) both; }
 .det-slot.miss{background:rgba(255,95,100,.3);border-color:#ff5f64;color:#ffa8ab;
   animation:detShake .34s ease}
 @keyframes detShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* ---------- Related guides (generated at the foot of every article) ---------- */
+.drd-related-h{ font-size:1.28rem; margin:0 0 1rem; }
+.drd-related{ list-style:none; display:grid; gap:12px; padding:0; margin:0;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.drd-related li{ margin:0; }
+.drd-related a{ display:block; padding:16px 18px; border-radius:var(--radius-lg);
+  background:var(--surface); border:1px solid var(--border);
+  font-weight:600; line-height:1.4; transition:border-color .25s var(--ez), transform .25s var(--ez); }
+.drd-related a:hover{ border-color:var(--gold); transform:translateY(-2px); }
+.drd-related span{ display:block; margin-top:.4rem; font-weight:400; font-size:.88rem;
+  line-height:1.5; color:var(--text-dim); }

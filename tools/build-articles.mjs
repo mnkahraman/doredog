@@ -60,8 +60,9 @@ const ARTS = [
   ['44-chopin-or-liszt.md', 'chopin-or-liszt-which-is-easier', 'Chopin or Liszt: Which Is Easier to Start With?', 'Between them, 60 pieces — and exactly two score under 30. An honest look at two composers who never wrote for beginners, and the two ways in.'],
   ['45-baroque-or-romantic.md', 'baroque-or-romantic-which-era-is-easier', 'Baroque or Romantic: Which Era Should a Beginner Start With?', 'Measured across 2,433 pieces: 22% of Baroque music scores under 30, against 4% of Romantic. Why smaller instruments and student books made the difference.'],
   ['46-61-vs-76-vs-88-keys.md', '61-vs-76-vs-88-keys', '61, 76 or 88 Keys: How Many Do You Actually Need?', '80% of the library fits on 61 keys, 98% on 76, 100% on 88. Going 61 to 76 buys 425 pieces; going 76 to 88 buys 55. Where the curve flattens.'],
-  ['47-faq.md', 'faq', 'Piano Letter Notes: Frequently Asked Questions', 'Twenty-six questions about letter notes, keyboards, difficulty and learning piano without reading music — answered with measurements, not estimates.', { faq: true }],];
-
+  ['47-faq.md', 'faq', 'Piano Letter Notes: Frequently Asked Questions', 'Twenty-six questions about letter notes, keyboards, difficulty and learning piano without reading music — answered with measurements, not estimates.', { faq: true }],
+  ['48-one-piece-composers.md', 'one-piece-composers', 'The 242 Composers We Have Exactly One Piece By', 'More than half the names in the library appear once — Paganini, Dvořák, Rimsky-Korsakov, Tallis, Byrd and Dowland among them. All 242, easiest first.'],
+];
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = s => esc(s).replace(/"/g, '&quot;');
 function inline(s) {
@@ -239,11 +240,119 @@ function patchSitemap(slugs) {
   console.log('sitemap: ' + slugs.length + ' article URLs written between markers');
 }
 
+/* ---- related guides -------------------------------------------------------
+   Measured before writing this: 31 of the 48 article pages linked to no other
+   article at all, and 15 had nothing linking to them. The set had grown into a
+   pile of dead ends, and hand-editing "read next" lines into 31 drafts would rot
+   the moment a page was added.
+
+   Relatedness is computed from what the drafts actually share: the pieces they
+   link to, the generated lists they embed, and the composers they name in bold.
+   Two guides that send you to the same music are related; two that do not are
+   not. Ties break on file order so the output is deterministic. */
+function signals(md) {
+  const songs = new Set([...md.matchAll(/\/song\?id=([a-z0-9-]+)/g)].map((m) => m[1]));
+  const lists = new Set([...md.matchAll(/\{\{list:([a-z0-9-]+)/g)].map((m) => m[1]));
+  const names = new Set([...md.matchAll(/\*\*([A-ZÀ-Þ][^*]{3,40})\*\*/g)]
+    .map((m) => m[1].replace(/[.,;:]$/, '').trim())
+    .filter((n) => /^[A-ZÀ-Þ][a-zà-ÿ.'-]+(?: [A-ZÀ-Þ][a-zà-ÿ.'-]+)+$/.test(n)));
+  return { songs, lists, names };
+}
+
+function relatedFor(all, i) {
+  const a = all[i];
+  const share = (x, y) => { let n = 0; x.forEach((v) => { if (y.has(v)) n++; }); return n; };
+  const scored = all.map((b, j) => {
+    if (j === i) return { j, score: -1 };
+    // a shared list is the strongest signal, a shared composer the weakest
+    const score = share(a.sig.songs, b.sig.songs) * 3 +
+      share(a.sig.lists, b.sig.lists) * 6 +
+      share(a.sig.names, b.sig.names) * 2 +
+      (a.family === b.family ? 1 : 0);
+    return { j, score };
+  }).filter((x) => x.score > 0).sort((x, y) => y.score - x.score || x.j - y.j);
+
+  const picked = scored.slice(0, 4).map((x) => all[x.j]);
+  // Never emit an empty block: fall back to the nearest pages in the same family,
+  // then to neighbours in file order, so every page has somewhere to go.
+  if (picked.length < 3) {
+    for (const b of all) {
+      if (picked.length >= 3) break;
+      if (b === a || picked.includes(b)) continue;
+      if (b.family === a.family) picked.push(b);
+    }
+  }
+  for (let k = 1; picked.length < 3 && k < all.length; k++) {
+    const b = all[(i + k) % all.length];
+    if (b !== a && !picked.includes(b)) picked.push(b);
+  }
+  return picked;
+}
+
+/* Scoring alone leaves the graph lopsided: hub pages get chosen over and over
+   and 16 niche pages were still linked from nowhere. Build every block first,
+   then give each unlinked page a slot in its best-scoring partner's block by
+   displacing that partner's weakest pick. Every page ends up reachable. */
+function relatedGraph(all) {
+  const blocks = all.map((_, i) => relatedFor(all, i));
+  const inbound = new Map(all.map((a) => [a.slug, 0]));
+  blocks.forEach((b) => b.forEach((t) => inbound.set(t.slug, inbound.get(t.slug) + 1)));
+
+  for (let i = 0; i < all.length; i++) {
+    const a = all[i];
+    if (inbound.get(a.slug) > 0) continue;
+    // the page that scores this one highest, excluding itself and anyone already holding it
+    let best = -1, bestScore = -1;
+    for (let j = 0; j < all.length; j++) {
+      if (j === i || blocks[j].includes(a)) continue;
+      const sc = relatedScore(all[j], a);
+      if (sc > bestScore) { bestScore = sc; best = j; }
+    }
+    if (best < 0) continue;
+    // displace the weakest entry that is not itself the only inbound link somewhere
+    const victimIdx = blocks[best].findIndex((t) => inbound.get(t.slug) > 1);
+    if (victimIdx >= 0) {
+      inbound.set(blocks[best][victimIdx].slug, inbound.get(blocks[best][victimIdx].slug) - 1);
+      blocks[best][victimIdx] = a;
+    } else {
+      blocks[best].push(a);
+    }
+    inbound.set(a.slug, 1);
+  }
+  return blocks;
+}
+
+function relatedScore(a, b) {
+  const share = (x, y) => { let n = 0; x.forEach((v) => { if (y.has(v)) n++; }); return n; };
+  return share(a.sig.songs, b.sig.songs) * 3 + share(a.sig.lists, b.sig.lists) * 6 +
+    share(a.sig.names, b.sig.names) * 2 + (a.family === b.family ? 1 : 0);
+}
+
+function relatedHtml(picked) {
+  if (!picked.length) return '';
+  return '<section class="section-sm"><div class="container page-copy">' +
+    '<h2 class="drd-related-h">Related guides</h2><ul class="drd-related">' +
+    picked.map((b) => '<li><a href="/' + b.slug + '">' + esc(b.title) + '</a>' +
+      '<span>' + esc(b.desc) + '</span></li>').join('') +
+    '</ul></div></section>';
+}
+
 // build the 10 article pages
 const hubCards = [];
-for (const [file, slug, title, desc, opts] of ARTS) {
+// family: 01-24 are written guides, 25-40 measured lists, 41+ comparisons and reference
+const famOf = (f) => (parseInt(f, 10) <= 24 ? 'guide' : parseInt(f, 10) <= 40 ? 'measured' : 'compare');
+const INDEX = ARTS.map(([file, slug, title, desc]) => {
   const md = fs.readFileSync(DRAFTS + '/' + file, 'utf8');
-  const html = page(slug, title, desc, mdToHtml(md), opts, md);
+  return { file, slug, title, desc, family: famOf(file), sig: signals(md) };
+});
+
+const RELATED = relatedGraph(INDEX);
+
+for (let ai = 0; ai < ARTS.length; ai++) {
+  const [file, slug, title, desc, opts] = ARTS[ai];
+  const md = fs.readFileSync(DRAFTS + '/' + file, 'utf8');
+  const html = page(slug, title, desc, mdToHtml(md) + '\n      ' +
+    relatedHtml(RELATED[ai]), opts, md);
   fs.writeFileSync(ROOT + '/' + slug + '.html', html);
   hubCards.push(`<a class="card" href="${slug}.html" data-reveal style="display:block;padding:24px 26px;text-decoration:none">
         <h3 style="font-family:var(--font-body);font-weight:600;font-size:1.12rem;margin:0 0 .4rem">${esc(title)}</h3>

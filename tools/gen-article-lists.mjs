@@ -117,8 +117,21 @@ for (const s of SONGS) composerOf[s.id] = s.composer;
 const slug = (n) => n.normalize('NFD').replace(/[̀-ͯ]/g, '')
   .toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
 
+/* 8. The composers we hold exactly one piece by. 242 of 435 names in the library
+      are represented by a single piece, which is most of the catalogue's breadth
+      and none of its visibility — those composers are unreachable by browsing.
+      Listing their one piece, easiest first, is the whole collection made
+      findable. Keyed by piece, not by composer, so the existing card renderer
+      shows it with no new machinery. */
+const pieceCount = {};
+for (const s of SONGS) pieceCount[s.composer] = (pieceCount[s.composer] || 0) + 1;
+const onePiece = measured
+  .filter((m) => pieceCount[composerOf[m.id]] === 1)
+  .sort(by('ds'));
+
 const LISTS = {
   'no-black-keys': idsOf(noBlackKeys),
+  'one-piece-composers': idsOf(onePiece),
   'one-sitting': idsOf(oneSitting),
   'keys-25': idsOf(keys25),
   'keys-37': idsOf(keys37),
