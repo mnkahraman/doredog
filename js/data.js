@@ -13784,11 +13784,11 @@ window.DRD.SONGS = [
   {
     id: "m-bach-air",
     title: "Air (BWV Anh. 131)",
-    composer: "J. S. Bach",
+    composer: "Johann Christian Bach",
     difficulty: "easy",
     ds: 8,
     genre: "Baroque",
-    year: 1725,
+    year: 1745,
     circa: true,
     featured: false,
     tags: ["bach","baroque","piano"],
@@ -13797,7 +13797,7 @@ window.DRD.SONGS = [
     fp: "Q>VO6QSPXUQ4J-OQLN-SUUONL>>>",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Air (BWV Anh. 131) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Air (BWV Anh. 131) by Johann Christian Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -15278,7 +15278,7 @@ window.DRD.SONGS = [
   {
     id: "m-bach-bwv-127",
     title: "March in E-flat major (BWV Anh. 127)",
-    composer: "J. S. Bach",
+    composer: "C. P. E. Bach",
     difficulty: "medium",
     ds: 26,
     genre: "Baroque",
@@ -15291,7 +15291,7 @@ window.DRD.SONGS = [
     fp: "HXQLTQVTV+TXS@LH4TRTSMLOMO00",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full March in E-flat major (BWV Anh. 127) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full March in E-flat major (BWV Anh. 127) by C. P. E. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
@@ -15501,7 +15501,7 @@ window.DRD.SONGS = [
 
   {
     id: "m-bach-bwv-691",
-    title: "Chorale prelude “Wer nur den lieben Gott läßt walten” (BWV Anh. 691)",
+    title: "Chorale prelude “Wer nur den lieben Gott läßt walten” (BWV 691)",
     composer: "J. S. Bach",
     difficulty: "easy",
     ds: 20,
@@ -15515,7 +15515,7 @@ window.DRD.SONGS = [
     fp: "IPNPNNNJIBPNN=QSVQQXPQQSNBBB",
     mood: 1,
     cover: {"from":"#0f5f4e","mid":"#35e08c","to":"#08140f","glyph":"❧"},
-    blurb: "The full Chorale prelude “Wer nur den lieben Gott läßt walten” (BWV Anh. 691) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
+    blurb: "The full Chorale prelude “Wer nur den lieben Gott läßt walten” (BWV 691) by J. S. Bach, in colour-coded letter notes with separate right- and left-hand lines."
   },
 
   {
