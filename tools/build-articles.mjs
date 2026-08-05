@@ -131,7 +131,7 @@ function mdToHtml(md) {
 }
 
 const ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230c0c16'/%3E%3Cline x1='11' y1='27' x2='11' y2='16' stroke='%23ff54b2' stroke-width='3'/%3E%3Cline x1='17' y1='27' x2='17' y2='12' stroke='%2335e08c' stroke-width='3'/%3E%3Cline x1='23' y1='27' x2='23' y2='18' stroke='%23f6b73f' stroke-width='3'/%3E%3Cline x1='29' y1='27' x2='29' y2='14' stroke='%234fa3ff' stroke-width='3'/%3E%3C/svg%3E";
-const ADSENSE = '<!-- Google AdSense -->\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>';
+const ADSENSE = '<script src="js/consent.js?v=' + V + '"></script>\n<!-- Google AdSense -->\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9610317354666717" crossorigin="anonymous"></script>';
 
 /* Google renders a FAQ page as an expandable result only if the questions and
    answers are declared in FAQPage JSON-LD. Pull them straight out of the draft —
@@ -205,7 +205,7 @@ ${ADSENSE}
       ${bodyHtml}
       </article>
       <div class="ad-label" style="margin-top:40px">Advertisement</div>
-      <div class="ad-slot ad-leaderboard" data-ad="in-article">Ad space — responsive in-article · paste your AdSense unit here</div>
+      <div class="ad-slot ad-leaderboard" data-ad="in-article"></div>
     </div>
   </section>
 </main>
@@ -214,6 +214,7 @@ ${ADSENSE}
 <script src="js/site.js?v=${V}"></script>${bodyHtml.includes('class="drd-pieces"') ? `
 <script src="js/article-lists.js?v=${V}"></script>
 <script src="js/lists.js?v=${V}"></script>` : ''}
+<script src="js/ads.js?v=${V}"></script>
 </body>
 </html>
 `;
@@ -407,6 +408,7 @@ ${ADSENSE}
 <footer id="site-footer"></footer>
 <script src="js/data.js?v=${V}"></script>
 <script src="js/site.js?v=${V}"></script>
+<script src="js/ads.js?v=${V}"></script>
 </body>
 </html>
 `;

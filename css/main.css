@@ -649,8 +649,19 @@ select.lib-composer option{ background:#0f0f1c; color:var(--text); }
 #song-cover.has-img span{ display:none; }
 
 /* gentle page-load entrance */
-@keyframes pageIn{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
-body{ animation:pageIn .5s var(--ez) both; }
+@keyframes pageFade{ from{ opacity:0; } to{ opacity:1; } }
+/* The page-in animation must never put a transform on <body>. Any transform —
+   even an identity one left behind by a filled animation — makes body the
+   containing block for every position:fixed descendant, which anchored
+   .bg-aurora and .bg-rays to the document box instead of the viewport (their
+   inset:-20% resolving against a 12,000px page) and dropped the cookie bar at
+   the foot of the document. `backwards` was not a fix either: in a tab that
+   never paints, the animation does not run and the `from` transform sticks
+   forever. Moving the rise to <main> just moved the bug — .poster-back and
+   .player.fs-fallback are position:fixed and live inside main. So the 8px
+   rise is gone and the page fades only. Half a second of vertical drift is
+   not worth breaking the poster and fullscreen overlays. */
+body{ animation:pageFade .5s var(--ez) both; }
 @media (prefers-reduced-motion:reduce){ body{ animation:none; } }
 
 /* Doré-at-piano beside the "Try it live" heading (its own column — never over text) */
@@ -1760,3 +1771,20 @@ kbd{ font-family:var(--font-mono); font-size:.75em; padding:2px 7px; border-radi
   .pad-mx-lab{ width:40px; }
   .pad-scenes{ order:5; }
 }
+
+/* ---------- Cookie consent ---------- */
+.drd-consent{ position:fixed; left:0; right:0; bottom:0; z-index:9000;
+  background:var(--surface); border-top:1px solid var(--border);
+  box-shadow:0 -18px 50px -20px rgba(0,0,0,.8);
+  transform:translateY(100%); transition:transform .3s var(--ez); }
+.drd-consent.in{ transform:translateY(0); }
+.drd-consent-inner{ max-width:1100px; margin:0 auto; padding:16px 22px;
+  display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+.drd-consent p{ flex:1; min-width:260px; margin:0; font-size:.86rem; line-height:1.55; color:var(--text-dim); }
+.drd-consent a{ color:var(--gold); }
+.drd-consent-btns{ display:flex; gap:10px; flex-wrap:wrap; }
+.drd-consent-btns .btn{ font-size:.85rem; padding:9px 18px; }
+@media (prefers-reduced-motion: reduce){ .drd-consent{ transition:none; } }
+
+/* a live ad container stops being a dashed placeholder box */
+.ad-slot.ad-live{ border:none; background:none; min-height:0; display:block; }
