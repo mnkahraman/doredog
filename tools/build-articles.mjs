@@ -184,6 +184,8 @@ function page(slug, title, desc, bodyHtml, opts, rawMd) {
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:url" content="${canon}">
 <meta property="og:image" content="https://doredog.com/assets/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${ICON}">
 <link rel="stylesheet" href="css/main.css?v=${V}">

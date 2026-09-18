@@ -49,7 +49,12 @@ function songMeta(id, m) {
   const pageTitle = title + (composer ? ' — ' + composer : '') + ' · Piano Letter Notes | DoReDog';
   const desc = 'Play ' + title + by + ' in colour-coded piano letter notes — free in your browser. Slow it down, loop any section and learn by ear.';
   const canon = ORIGIN + '/song?id=' + encodeURIComponent(id);
-  const ogImg = img ? ORIGIN + '/' + img : DEFAULT_OG;
+  // Share with the 1200×630 og/ version of a bespoke cover: the originals are
+  // up to 2000px and 800 KB — too heavy to fetch per page, and over the ~300 KB
+  // WhatsApp accepts for a preview. Every cover has a matching covers/og/ file.
+  const ogCover = img && /^assets\/covers\/[^/]+\.webp$/.test(img)
+    ? img.replace(/^assets\/covers\/(.+)\.webp$/, 'assets/covers/og/$1.jpg') : img;
+  const ogImg = ogCover ? ORIGIN + '/' + ogCover : DEFAULT_OG;
   const j = { '@context': 'https://schema.org', '@type': 'MusicComposition', name: title, url: canon };
   if (composer) j.composer = { '@type': 'Person', name: composer };
   if (genre) j.genre = genre;
@@ -215,6 +220,10 @@ export default {
             '<meta property="og:description" content="' + attr(meta.desc) + '">' +
             '<meta property="og:url" content="' + attr(meta.canon) + '">' +
             '<meta property="og:image" content="' + attr(meta.ogImg) + '">' +
+            // every share image is now exactly 1200×630; saying so lets
+            // platforms lay out the preview before the image arrives
+            '<meta property="og:image:width" content="1200">' +
+            '<meta property="og:image:height" content="630">' +
             '<meta name="twitter:card" content="summary_large_image">' +
             meta.ld;
           const rw = new HTMLRewriter()
