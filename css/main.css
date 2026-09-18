@@ -110,7 +110,7 @@ ul{ list-style:none; }
 .spotlight{
   position:fixed; width:640px; height:640px; z-index:0; pointer-events:none; border-radius:50%;
   background:radial-gradient(circle, rgba(139,107,255,.10), transparent 60%);
-  transform:translate(-50%,-50%); left:-999px; top:-999px;
+  left:0; top:0; transform:translate3d(-9999px,-9999px,0); will-change:transform;
   transition:opacity .4s; opacity:0;
 }
 

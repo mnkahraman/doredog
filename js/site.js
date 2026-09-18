@@ -216,14 +216,24 @@
     }
   }
 
+  /* Moved with transform, never left/top. Changing left/top on a 640px layer
+     is a layout shift on every mouse move, and pointermove does not count as
+     "recent input" the way a click does — so Cloudflare Web Analytics measured
+     CLS 0.855 on /song with html>body>div.spotlight as the only culprit. A
+     transform is composited and never counts. One write per frame, too. */
   function wireSpotlight() {
     var spot = document.querySelector('.spotlight');
     if (!spot || matchMedia('(pointer:coarse)').matches) return;
+    var x = 0, y = 0, queued = false, half = (spot.offsetWidth || 640) / 2;
+    function paint() {
+      queued = false;
+      spot.style.transform = 'translate3d(' + (x - half) + 'px,' + (y - half) + 'px,0)';
+    }
     window.addEventListener('pointermove', function (e) {
-      spot.style.opacity = '1';
-      spot.style.left = e.clientX + 'px';
-      spot.style.top = e.clientY + 'px';
-    });
+      x = e.clientX; y = e.clientY;
+      if (spot.style.opacity !== '1') spot.style.opacity = '1';
+      if (!queued) { queued = true; requestAnimationFrame(paint); }
+    }, { passive: true });
   }
 
   // A [data-reveal] element starts at opacity 0 and fades in when it comes into
