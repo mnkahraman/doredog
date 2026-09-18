@@ -29,18 +29,15 @@ const POSES = {
   'bumblebee-dash':    async (p) => {
     for (let i = 0; i < 14; i++) { await p.keyboard.press(i % 2 ? 'x' : 'z'); await sleep(70); }
   },
-  'interval-invaders': async (p) => { await sleep(2600); },
+  'interval-invaders': async (p) => { await sleep(2400); },
   'pitch-sniper':      async (p) => { await sleep(1400); },
   'higher-lower':      async (p) => {
     for (let i = 0; i < 3; i++) { await p.keyboard.press('ArrowUp'); await sleep(400); }
   },
-  'chord-crush':       async (p) => {
-    await sleep(900); await p.click('.arc-pads .arc-pad'); await sleep(900);
-    await p.click('.arc-pads .arc-pad'); await sleep(400);
-  },
+  'chord-crush':       async (p) => { await sleep(1200); await p.click('.arc-oddpad'); await sleep(500); },
   'happy-sad':         async (p) => { await sleep(1600); },
   'odd-one-out':       async (p) => { await sleep(2000); },
-  'era-detective':     async (p) => { await sleep(2600); },
+  'era-detective':     async (p) => { await sleep(3200); await p.click('.arc-oddpad'); await sleep(600); },
   'echo-chamber':      async (p) => { await sleep(1150); },          // mid-playback, a pad lit
   'clap-back':         async (p) => { await sleep(2200); },
   'tempo-keeper':      async (p) => { await sleep(2200); },
@@ -52,7 +49,7 @@ const POSES = {
     for (let i = 0; i < 5 && i < keys.length; i++) { await keys[i * 2 % keys.length].click(); await sleep(160); }
     await sleep(700);                                                 // marks land
   },
-  'composer-clues':    async (p) => { await sleep(1600); },
+  'composer-clues':    async (p) => { await sleep(3400); await p.click('.arc-oddpad'); await sleep(600); },
   'tone-grid':         async (p) => {
     await p.evaluate(() => {                                          // click Surprise me
       [...document.querySelectorAll('button')].find((b) => b.textContent === 'Surprise me').click();
@@ -75,6 +72,11 @@ const ids = Object.keys(POSES);
 for (const id of ids) {
   const page = await browser.newPage();
   await page.setViewport({ width: 860, height: 780, deviceScaleFactor: 1.5 });
+  // A fresh browser has never answered the cookie bar, and it is fixed to the
+  // bottom of the viewport — it would sit across every cover. Pre-answer it.
+  await page.evaluateOnNewDocument(() => {
+    try { localStorage.setItem('drd-consent', 'essential'); } catch (e) {}
+  });
   try {
     await page.goto(BASE + '/game.html?g=' + id, { waitUntil: 'networkidle2', timeout: 30000 });
     await page.waitForSelector('#arc-go', { timeout: 10000 });

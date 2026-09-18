@@ -6,74 +6,125 @@
   'use strict';
   var A = DRD.arcade;
 
-  /* 11. ERA DETECTIVE — hear eight seconds, name the century --------------- */
-  A.register({
-    id: 'era-detective', title: 'Era Detective', icon: '🕰', tag: 'Listening',
-    desc: 'Eight seconds of a real piece. Baroque, Classical, Romantic or Ragtime? Ten rounds.',
-    help: 'Listen (Space replays), then pick the era. Streaks earn bonus points. Every answer reveals the piece so you can go hear the rest of it.',
-    start: function (ctx) {
-      var ERAS = ['Baroque', 'Classical', 'Romantic', 'Ragtime'];
-      var pool = (DRD.DAILY_POOL || []).map(function (id) {
-        return (DRD.SONGS || []).filter(function (s) { return s.id === id; })[0];
-      }).filter(function (s) { return s && ERAS.indexOf(s.genre) >= 0; });
-      var score = 0, streak = 0, round = 0, cur = null, handle = null;
-
-      var wrap = ctx.el('div', 'arc-center');
-      var status = ctx.el('div', 'arc-streak', 'Round 1 of 10');
-      var row = ctx.el('div', 'arc-pads arc-pads-grid');
-      ERAS.forEach(function (era) {
-        var b = ctx.el('button', 'arc-pad', era);
-        b.type = 'button';
-        b.addEventListener('click', function () {
-          if (cur) {
-            b.classList.remove('good-flash', 'bad-flash'); void b.offsetWidth;
-            b.classList.add(era === cur.song.genre ? 'good-flash' : 'bad-flash');
-          }
-          answer(era);
-        });
-        row.appendChild(b);
+  /* ---- shared by the two listening games below ---------------------------- */
+  // pieces long enough to give a real six-second excerpt, and not the wildest
+  function clipPool() {
+    var by = {};
+    (DRD.SONGS || []).forEach(function (s) {
+      if (s.dur >= 20 && s.ds < 85) (by[s.composer] = by[s.composer] || []).push(s);
+    });
+    return by;
+  }
+  // "Partita III — V" and "Partita III — VI" are the same work; a "sibling"
+  // from the same work would be matching a sound, not a composer
+  function workStem(t) { return String(t).split(/ — | – | - |,|\(|:/)[0].trim().toLowerCase(); }
+  function songLink(s) {
+    return '<a href="song?id=' + encodeURIComponent(s.id) + '" target="_blank" rel="noopener">' + A.esc(s.title) + '</a>';
+  }
+  /* Load every clip of a round in parallel. A file that fails redraws the
+     round; three failures in a row end the run with a plain message rather
+     than spinning forever. */
+  function loadRound(ctx, songs, onReady, onFail) {
+    ctx.loading(true);
+    var got = 0, notas = [];
+    songs.forEach(function (s, k) {
+      ctx.loadNotation(s.id, function (n) {
+        notas[k] = n;
+        if (++got < songs.length) return;
+        ctx.loading(false);
+        if (!ctx.running()) return;
+        if (notas.some(function (x) { return !x; })) onFail(); else onReady(notas);
       });
-      var rp = ctx.el('button', 'btn btn-ghost arc-replay', '↻ Hear it again (Space)');
-      rp.type = 'button'; rp.addEventListener('click', play);
-      var reveal = ctx.el('p', 'arc-reveal', '');
-      wrap.appendChild(status); wrap.appendChild(row); wrap.appendChild(rp); wrap.appendChild(reveal);
-      ctx.stage.appendChild(wrap);
+    });
+  }
 
-      function play() {
-        if (!cur) return;
-        if (handle) handle.stop();
-        handle = ctx.playOpening(cur.song, cur.nota, 8, 0.9);
-      }
-      function ask() {
+  /* 11. ODD ERA OUT — two belong together, one is a time traveller -----------
+     Used to ask you to NAME the era from one clip — a history quiz. Now three
+     excerpts play and you pick the one that does not belong: pure comparison,
+     by ear. Eras come from a hand-checked composer list rather than the
+     catalogue's genre field, which has Bach filed as "Classical" in places —
+     an answer key has to be right every time. Beethoven and Schubert straddle
+     two eras and are left out on purpose. */
+  A.register({
+    id: 'era-detective', title: 'Odd Era Out', icon: '🕰', tag: 'Listening', scoreKey: 'era-detective@2',
+    desc: 'Three short excerpts. Two were written in the same era — one comes from another century. Which one is the time traveller? The eras are revealed after.',
+    help: 'Listen to A, B and C (keys 1–3) as often as you like, then pick the one that does not belong. First pick scores 3, second 1. Early rounds are centuries apart; later rounds are neighbours. Eight rounds.',
+    start: function (ctx) {
+      var ERA = {
+        Baroque: ['J. S. Bach', 'G. F. Handel', 'Domenico Scarlatti', 'Henry Purcell', 'Jean-Philippe Rameau', 'Johann Pachelbel', 'François Couperin'],
+        Classical: ['W. A. Mozart', 'Joseph Haydn', 'Muzio Clementi', 'Friedrich Kuhlau'],
+        Romantic: ['Frédéric Chopin', 'Robert Schumann', 'Johannes Brahms', 'Franz Liszt', 'P. I. Tchaikovsky', 'Edvard Grieg', 'Felix Mendelssohn', 'Friedrich Burgmüller'],
+        Ragtime: ['Scott Joplin']
+      };
+      // [the era two clips share, the odd era]. Ragtime has one composer, so it
+      // can only ever be the odd one — the pair must be two different composers.
+      var FAR = [['Baroque', 'Romantic'], ['Romantic', 'Baroque'], ['Baroque', 'Ragtime'], ['Classical', 'Ragtime'], ['Romantic', 'Ragtime']];
+      var NEAR = [['Baroque', 'Classical'], ['Classical', 'Baroque'], ['Classical', 'Romantic'], ['Romantic', 'Classical']];
+      var by = clipPool();
+      function comps(era) { return ERA[era].filter(function (c) { return by[c] && by[c].length; }); }
+      var round = 0, score = 0, ui = null, cur = null, handle = null, fails = 0, waiting = false;
+      function stop() { if (handle) { handle.stop(); handle = null; } }
+      function clip(i) { stop(); handle = ctx.playOpening(cur.clips[i].song, cur.clips[i].nota, 6, 0.85); }
+      function next() {
+        waiting = false;
+        stop();
         round++;
-        if (round > 10) return ctx.end(score, 'The <a href="timeline.html">timeline</a> walks through every era with examples.');
-        status.textContent = 'Round ' + round + ' of 10';
-        reveal.textContent = '';
-        var era = ERAS[ctx.rand(ERAS.length)];
-        var cands = pool.filter(function (s) { return s.genre === era; });
-        var song = cands[ctx.rand(cands.length)];
-        if (!song) return ask();
-        ctx.loadNotation(song.id, function (nota) {
-          if (!nota) { pool = pool.filter(function (s) { return s.id !== song.id; }); return ask(); }
-          cur = { song: song, nota: nota };
-          play();
+        if (round > 8) return ctx.end(score, 'The <a href="timeline.html">timeline</a> walks through every era with pieces you can play from each.');
+        ctx.stage.innerHTML = '';
+        var pair = ctx.pick(round <= 4 ? FAR : (Math.random() < 0.6 ? NEAR : FAR));
+        var two = ctx.shuffle(comps(pair[0])).slice(0, 2);
+        var odd = ctx.pick(comps(pair[1]));
+        var picks = ctx.shuffle([
+          { song: ctx.pick(by[two[0]]), era: pair[0] },
+          { song: ctx.pick(by[two[1]]), era: pair[0] },
+          { song: ctx.pick(by[odd]), era: pair[1], odd: true }
+        ]);
+        loadRound(ctx, picks.map(function (p) { return p.song; }), function (notas) {
+          fails = 0;
+          picks.forEach(function (p, k) { p.nota = notas[k]; });
+          cur = { clips: picks };
+          ui = A.choices(ctx, {
+            count: 3, pickLabel: 'The odd one', maxWrong: 1,
+            status: 'Round ' + round + ' of 8 — which one is from another era?',
+            onPlay: clip,
+            onPick: function (i, wrongSoFar) {
+              if (!cur.clips[i].odd) { ctx.drum('clave'); return false; }
+              var pts = wrongSoFar ? 1 : 3;
+              score += pts; ctx.score(score);
+              reveal(pts);
+              return true;
+            },
+            onGiveUp: function () { reveal(0); }
+          });
+          ctx.stage.appendChild(ui.el);
+          ctx.after(250, function () { clip(0); });
+        }, function () {
+          if (++fails >= 3) return ctx.end(score, 'Could not load the excerpts — check your connection and press R to try again.');
+          round--; next();
         });
       }
-      function answer(era) {
-        if (!cur) return;
-        if (handle) handle.stop();
-        if (era === cur.song.genre) {
-          streak++; score += streak >= 3 ? 2 : 1; ctx.score(score);
-          reveal.innerHTML = '✓ <b>' + cur.song.title + '</b> — ' + cur.song.composer;
-        } else {
-          streak = 0; ctx.drum('clave');
-          reveal.innerHTML = '✗ ' + cur.song.genre + ': <b>' + cur.song.title + '</b> — ' + cur.song.composer;
-        }
-        cur = null;
-        ctx.after(1400, ask);
+      function reveal(pts) {
+        stop();
+        var oddAt = 0;
+        cur.clips.forEach(function (c, k) {
+          if (c.odd) oddAt = k;
+          ui.caption(k, '<b>' + c.era + '</b><br>' + songLink(c.song) + '<br>' + A.esc(c.song.composer));
+        });
+        ui.markRight(oddAt);
+        ui.status.innerHTML = (pts ? '✓ +' + pts + ' — ' : 'Not this time — ') +
+          'two ' + cur.clips[(oddAt + 1) % 3].era + ' pieces and one ' + cur.clips[oddAt].era + '.';
+        var nx = ctx.el('button', 'btn btn-primary arc-next', 'Next round → <kbd>Enter</kbd>');
+        nx.type = 'button';
+        nx.addEventListener('click', next);
+        ui.el.appendChild(nx);
+        waiting = true;
       }
-      ctx.key(function (e) { if (e.key === ' ') { e.preventDefault(); play(); } });
-      ask();
+      ctx.key(function (e) {
+        if (waiting && e.key === 'Enter') { e.preventDefault(); next(); return; }
+        if (ui) ui.key(e);
+      });
+      ctx.onStop(stop);
+      next();
     }
   });
 
@@ -435,79 +486,109 @@
     }
   });
 
-  /* 18. COMPOSER CLUES — who am I? ----------------------------------------- */
+  /* 18. SOUND-ALIKE — find the other piece by the same composer --------------
+     Used to be Composer Clues: four written hints and four names — trivia.
+     Now a mystery excerpt plays and one of three others shares its composer.
+     You find it by hearing texture, rhythm and the way the harmony moves; the
+     names arrive only when the round is over. */
   A.register({
-    id: 'composer-clues', title: 'Composer Clues', icon: '🎩', tag: 'Knowledge',
-    desc: 'Four clues, four names. Guess the composer early and score big. Five rounds.',
-    help: 'Read the clue and pick a name, or ask for the next clue. Clue one is worth 8 points, then 6, 4, 2.',
+    id: 'composer-clues', title: 'Sound-alike', icon: '👯', tag: 'Listening', scoreKey: 'composer-clues@2',
+    desc: 'A mystery excerpt plays. Three more follow — exactly one was written by the same composer. Find it by ear. Names are revealed after.',
+    help: 'Hear the mystery (Space), then listen to A, B and C (keys 1–3) as often as you like and pick the one by the same composer. First pick scores 3, second 1. Early rounds set three very different composers side by side; later ones put neighbours together. Eight rounds.',
     start: function (ctx) {
-      var DATES = (DRD.COMPOSER_DATES || {});
-      var count = {}, byName = {};
-      (DRD.SONGS || []).forEach(function (s) {
-        count[s.composer] = (count[s.composer] || 0) + 1;
-        (byName[s.composer] = byName[s.composer] || []).push(s);
-      });
-      var cands = Object.keys(count).filter(function (n) { return count[n] >= 3 && DATES[n] && DATES[n].b; });
-      var round = 0, score = 0, cur = null;
+      var GROUPS = {
+        baroque: ['J. S. Bach', 'G. F. Handel', 'Domenico Scarlatti'],
+        classical: ['W. A. Mozart', 'Joseph Haydn'],
+        romantic: ['Frédéric Chopin', 'Robert Schumann', 'Johannes Brahms', 'Franz Schubert', 'Friedrich Burgmüller'],
+        ragtime: ['Scott Joplin'],
+        modern: ['Erik Satie', 'Claude Debussy']
+      };
+      var groupOf = {};
+      Object.keys(GROUPS).forEach(function (g) { GROUPS[g].forEach(function (c) { groupOf[c] = g; }); });
+      var all = clipPool(), by = {};
+      Object.keys(groupOf).forEach(function (c) { if (all[c] && all[c].length >= 2) by[c] = all[c]; });
+      var names = Object.keys(by);
+      var round = 0, score = 0, ui = null, cur = null, handle = null, fails = 0, waiting = false;
+      function stop() { if (handle) { handle.stop(); handle = null; } }
+      function clip(i) { stop(); handle = ctx.playOpening(cur.clips[i].song, cur.clips[i].nota, 6, 0.85); }
 
-      var wrap = ctx.el('div', 'arc-center');
-      var status = ctx.el('div', 'arc-streak', '');
-      var clueEl = ctx.el('p', 'arc-clue', '');
-      var opts = ctx.el('div', 'arc-pads arc-pads-grid');
-      var next = ctx.el('button', 'btn btn-ghost arc-replay', 'Next clue →');
-      next.type = 'button'; next.addEventListener('click', function () { moreClue(); });
-      wrap.appendChild(status); wrap.appendChild(clueEl); wrap.appendChild(opts); wrap.appendChild(next);
-      ctx.stage.appendChild(wrap);
-
-      function cluesFor(name) {
-        var d = DATES[name], pieces = byName[name];
-        var genres = {};
-        pieces.forEach(function (s) { genres[s.genre] = (genres[s.genre] || 0) + 1; });
-        var mainGenre = Object.keys(genres).sort(function (a, b) { return genres[b] - genres[a]; })[0];
-        var famous = pieces.slice().sort(function (a, b) { return (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || a.ds - b.ds; })[0];
-        var other = pieces.filter(function (s) { return s !== famous; })[ctx.rand(pieces.length - 1)] || famous;
-        return [
-          'Most of this composer’s music here is <b>' + mainGenre + '</b>.',
-          'They lived <b>' + d.b + '–' + d.d + '</b>.',
-          'This library holds <b>' + pieces.length + '</b> of their pieces — one is “' + other.title + '”.',
-          'Their best-known piece here is “<b>' + famous.title + '</b>”.'
-        ];
+      function draw() {
+        var a = ctx.pick(names), d1, d2;
+        if (round <= 4) {                           // three different worlds
+          var far = names.filter(function (c) { return groupOf[c] !== groupOf[a]; });
+          d1 = ctx.pick(far);
+          var far2 = far.filter(function (c) { return groupOf[c] !== groupOf[d1]; });
+          d2 = ctx.pick(far2.length ? far2 : far.filter(function (c) { return c !== d1; }));
+        } else {                                     // a neighbour sneaks in
+          var near = names.filter(function (c) { return c !== a && groupOf[c] === groupOf[a]; });
+          d1 = near.length ? ctx.pick(near) : ctx.pick(names.filter(function (c) { return c !== a; }));
+          d2 = ctx.pick(names.filter(function (c) { return c !== a && c !== d1; }));
+        }
+        var mine = ctx.shuffle(by[a]), mystery = mine[0];
+        var sibling = mine.filter(function (s) { return workStem(s.title) !== workStem(mystery.title); })[0] || mine[1];
+        return {
+          mystery: mystery,
+          opts: ctx.shuffle([{ song: sibling, same: true }, { song: ctx.pick(by[d1]) }, { song: ctx.pick(by[d2]) }])
+        };
       }
-      function ask() {
+      function next() {
+        waiting = false;
+        stop();
         round++;
-        if (round > 5) return ctx.end(score, 'Meet all 435 of them in the <a href="atlas.html">composer atlas</a>.');
-        var name = cands[ctx.rand(cands.length)];
-        var decoys = ctx.shuffle(cands.filter(function (n) { return n !== name; })).slice(0, 3);
-        cur = { name: name, clues: cluesFor(name), ci: 0, worth: [8, 6, 4, 2] };
-        status.textContent = 'Round ' + round + ' of 5';
-        clueEl.innerHTML = '1/4 · ' + cur.clues[0];
-        opts.innerHTML = '';
-        ctx.shuffle(decoys.concat([name])).forEach(function (n) {
-          var b = ctx.el('button', 'arc-pad arc-pad-wide', n);
-          b.type = 'button';
-          b.addEventListener('click', function () {
-            if (!cur) return;
-            if (n === cur.name) {
-              var pts = cur.worth[cur.ci]; score += pts; ctx.score(score);
-              clueEl.innerHTML = '✓ +' + pts + ' — it was <b>' + cur.name + '</b>';
-              var t0 = ctx.now() + 0.05;
-              [0, 4, 7, 12].forEach(function (s, i) { ctx.note(60 + s, t0 + i * 0.1, 0.8); });
-            } else {
-              clueEl.innerHTML = '✗ It was <b>' + cur.name + '</b>';
-              ctx.drum('clave');
-            }
-            cur = null;
-            ctx.after(1500, ask);
+        if (round > 8) return ctx.end(score, 'Meet all 435 composers — and hear them side by side — in the <a href="atlas.html">composer atlas</a>.');
+        ctx.stage.innerHTML = '';
+        var r = draw();
+        var songs = [r.mystery].concat(r.opts.map(function (o) { return o.song; }));
+        loadRound(ctx, songs, function (notas) {
+          fails = 0;
+          cur = {
+            clips: songs.map(function (s, k) { return { song: s, nota: notas[k] }; }),   // [0] = mystery
+            opts: r.opts
+          };
+          ui = A.choices(ctx, {
+            count: 3, pickLabel: 'Same composer', maxWrong: 1,
+            status: 'Round ' + round + ' of 8 — which one shares the mystery’s composer?',
+            mysteryLabel: 'Hear the mystery',
+            onMystery: function () { clip(0); },
+            onPlay: function (i) { clip(i + 1); },
+            onPick: function (i, wrongSoFar) {
+              if (!cur.opts[i].same) { ctx.drum('clave'); return false; }
+              var pts = wrongSoFar ? 1 : 3;
+              score += pts; ctx.score(score);
+              reveal(pts);
+              return true;
+            },
+            onGiveUp: function () { reveal(0); }
           });
-          opts.appendChild(b);
+          ctx.stage.appendChild(ui.el);
+          ctx.after(250, function () { clip(0); });
+        }, function () {
+          if (++fails >= 3) return ctx.end(score, 'Could not load the excerpts — check your connection and press R to try again.');
+          round--; next();
         });
       }
-      function moreClue() {
-        if (!cur || cur.ci >= 3) return;
-        cur.ci++;
-        clueEl.innerHTML = (cur.ci + 1) + '/4 · ' + cur.clues[cur.ci];
+      function reveal(pts) {
+        stop();
+        var at = 0;
+        cur.opts.forEach(function (o, k) {
+          if (o.same) at = k;
+          ui.caption(k, '<b>' + A.esc(o.song.composer) + '</b><br>' + songLink(o.song));
+        });
+        ui.markRight(at);
+        ui.status.innerHTML = (pts ? '✓ +' + pts + ' — ' : 'Not this time — ') +
+          'the mystery was ' + songLink(cur.clips[0].song) + ' by <b>' + A.esc(cur.clips[0].song.composer) + '</b>.';
+        var nx = ctx.el('button', 'btn btn-primary arc-next', 'Next round → <kbd>Enter</kbd>');
+        nx.type = 'button';
+        nx.addEventListener('click', next);
+        ui.el.appendChild(nx);
+        waiting = true;
       }
-      ask();
+      ctx.key(function (e) {
+        if (waiting && e.key === 'Enter') { e.preventDefault(); next(); return; }
+        if (ui) ui.key(e);
+      });
+      ctx.onStop(stop);
+      next();
     }
   });
 

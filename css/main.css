@@ -1798,3 +1798,31 @@ kbd{ font-family:var(--font-mono); font-size:.75em; padding:2px 7px; border-radi
 .arc-pads-keys{ gap:8px; }
 .arc-pad-sharp{ background:linear-gradient(180deg,#2a2833,#12111a); color:#e8e8f2; min-width:56px; }
 .arc-pad-sharp:hover{ border-color:var(--gold); }
+
+/* ---------- Listening games: listen / choose columns ---------- */
+.arc-choice{ gap:14px; }
+.arc-choice-row{ gap:14px; align-items:flex-start; }
+.arc-choice .arc-oddcol{ width:min(190px, 28vw); transition:opacity .2s var(--ez); }
+.arc-choice .arc-oddpad{ width:100%; }
+.arc-oddcol.listening .arc-oddpad{ border-color:var(--gold); box-shadow:0 0 0 1px var(--gold), 0 0 18px rgba(246,183,63,.28); }
+.arc-oddcol.wrong{ opacity:.42; }
+.arc-oddcol.wrong .arc-oddpad{ border-color:#ff5f64; }
+.arc-oddcol.right .arc-oddpad{ border-color:#35e08c; box-shadow:0 0 0 1px #35e08c, 0 0 22px rgba(53,224,140,.38); }
+.arc-oddcol.right .arc-oddpick{ border-color:#35e08c; color:#35e08c; }
+.arc-oddpick:disabled{ cursor:not-allowed; }
+.arc-choice-cap{ font-size:.78rem; line-height:1.45; color:var(--text-dim); min-height:2.9em; text-align:center; }
+.arc-choice-cap b{ color:var(--text); }
+.arc-choice-cap a, .arc-streak a{ color:var(--gold); }
+.arc-mystery{ font-size:.92rem; }
+.arc-mystery kbd, .arc-next kbd{ margin-left:6px; background:rgba(0,0,0,.18); border-color:rgba(0,0,0,.25); color:inherit; }
+
+/* ---------- Interval Invaders v2: one invader, a keyboard to answer on ---------- */
+.arc-invade-solo{ flex:none; min-height:200px; border-radius:var(--radius); background:rgba(0,0,0,.2); overflow:hidden; }
+.arc-invader-solo{ width:auto; min-width:0; padding:4px 8px; font-size:2.2rem; border:none; background:none; box-shadow:none; }
+/* pause, don't stop, the fall — `animation:none` would snap it back to the top */
+.arc-invader.boom{ animation-play-state:paused; transform:scale(1.9); opacity:0; transition:transform .35s var(--ez), opacity .35s; }
+.arc-invade-cap{ min-height:1.6em; }
+.key.arc-root{ box-shadow:inset 0 -9px 0 var(--gold), 0 0 16px rgba(246,183,63,.55) !important; }
+.key.arc-right{ background:#35e08c !important; }
+.key.arc-wrong{ background:#ff5f64 !important; }
+@media (max-width:560px){ .arc-choice .arc-oddcol{ width:30vw; } .arc-choice-cap{ font-size:.72rem; } }

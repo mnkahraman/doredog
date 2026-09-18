@@ -379,71 +379,105 @@
     }
   });
 
-  /* 5. INTERVAL INVADERS — shoot the right interval before it lands -------- */
+  /* 5. INTERVAL INVADERS — hear two notes, find the second on the keys -------
+     Used to ask for the interval's NAME from four labels — a vocabulary quiz.
+     Now the answer is a key: the first note is lit, you find the second. The
+     name only appears afterwards, as a caption, for anyone who wants it. */
   A.register({
-    id: 'interval-invaders', title: 'Interval Invaders', icon: '👾', tag: 'Ear',
-    desc: 'An interval sounds. Four invaders descend, each wearing a name — zap the right one before they land.',
-    help: 'Listen (replay with Space), then click or tap the invader with the right interval name. A wrong zap or a landing costs a life.',
+    id: 'interval-invaders', title: 'Interval Invaders', icon: '👾', tag: 'Ear', scoreKey: 'interval-invaders@2',
+    desc: 'Two notes play and an invader starts to fall. The first note glows on the keyboard — find the second before it lands. No theory, no names: your ear and your hand.',
+    help: 'Listen (Space replays), then press the key of the SECOND note — the first one is glowing gold, and you can press it freely to hear it again. Click the keys or type A W S E D F T G Y H U J K O L P ; \' from middle C, Shift for an octave up. First try scores 3, a later try 1. A landed invader costs a life; you have three.',
     start: function (ctx) {
-      var IV = [
-        [1, 'Minor 2nd'], [2, 'Major 2nd'], [3, 'Minor 3rd'], [4, 'Major 3rd'],
-        [5, 'Perfect 4th'], [6, 'Tritone'], [7, 'Perfect 5th'], [8, 'Minor 6th'],
-        [9, 'Major 6th'], [10, 'Minor 7th'], [11, 'Major 7th'], [12, 'Octave']
-      ];
-      var score = 0, lives = 3, wave = 0, cur = null, fallDur = 14000;
+      var NAMES = A.INTERVAL_NAMES;
+      var score = 0, lives = 3, wave = 0, cur = null, fallMs = 11000;
       ctx.lives(lives);
-      var board = ctx.el('div', 'arc-invade');
-      ctx.stage.appendChild(board);
-      var replay = ctx.el('button', 'btn btn-ghost arc-replay', '↻ Hear it again (Space)');
-      replay.type = 'button';
-      replay.addEventListener('click', function () { play(); });
-      ctx.stage.appendChild(replay);
+      var board = ctx.el('div', 'arc-invade arc-invade-solo');
+      var cap = ctx.el('div', 'arc-streak arc-invade-cap', '');
+      var keysWrap = ctx.el('div', 'arc-keys-wrap');
+      var rp = ctx.el('button', 'btn btn-ghost arc-replay', '↻ Hear it again <kbd>Space</kbd>');
+      rp.type = 'button';
+      rp.addEventListener('click', function () { play(); });
+      ctx.stage.appendChild(board); ctx.stage.appendChild(cap);
+      ctx.stage.appendChild(keysWrap); ctx.stage.appendChild(rp);
+      var keys = DRD.buildPiano(keysWrap, [4, 5], function (freq, k, oct, midi) { press(midi); }).keys;
 
+      // widen the ear gradually: the three skeleton intervals first
+      function tier() {
+        if (score < 9) return { ivs: [4, 7, 12], down: false };
+        if (score < 21) return { ivs: [2, 4, 5, 7, 9, 12], down: false };
+        if (score < 36) return { ivs: [2, 3, 4, 5, 7, 8, 9, 10, 12], down: true };
+        return { ivs: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], down: true };
+      }
+      function article(iv) { return /^[aeiou]/.test(NAMES[iv]) ? 'an ' : 'a '; }
+      function name(m) { return '<b>' + A.letterOf(m) + '</b>'; }
+      function flashKey(m, cls) {
+        var k = keys[m]; if (!k) return;
+        k.classList.remove('arc-right', 'arc-wrong'); void k.offsetWidth; k.classList.add(cls);
+        ctx.after(650, function () { k.classList.remove(cls); });
+      }
       function play() {
         if (!cur) return;
         var t0 = ctx.now() + 0.05;
         ctx.note(cur.root, t0, 0.85);
-        ctx.note(cur.root + cur.iv[0], t0 + 0.55, 0.85);
+        ctx.note(cur.target, t0 + 0.6, 0.85);
       }
       function nextWave() {
         wave++;
-        var myWave = wave;                       // stamps this wave's timer
+        var mine = wave;
+        if (cur && keys[cur.root]) keys[cur.root].classList.remove('arc-root');
+        var t = tier(), iv = ctx.pick(t.ivs), down = t.down && Math.random() < 0.4;
+        // the root is chosen so the answer is always on the keyboard (60..83)
+        var root = down ? 72 + ctx.rand(12) : 60 + ctx.rand(12);
+        cur = { root: root, target: down ? root - iv : root + iv, iv: iv, down: down, wrong: 0, wave: mine, done: false };
+        if (keys[root]) keys[root].classList.add('arc-root');
         board.innerHTML = '';
-        var right = ctx.pick(IV);
-        var opts = ctx.shuffle(IV.filter(function (x) { return x !== right; })).slice(0, 3).concat([right]);
-        cur = { iv: right, root: 50 + ctx.rand(18) };
-        ctx.shuffle(opts).forEach(function (iv, i) {
-          var b = ctx.el('button', 'arc-invader', '👾<span>' + iv[1] + '</span>');
-          b.type = 'button';
-          b.style.left = (6 + i * 24) + '%';
-          b.style.animationDuration = fallDur + 'ms';
-          b.addEventListener('click', function () {
-            if (iv === right) {
-              score++; ctx.score(score);
-              ctx.chord([cur.root, cur.root + right[0]], null, 1);
-              fallDur = Math.max(5200, fallDur - 480);
-              nextWave();
-            } else {
-              ctx.drum('kick'); lose();
-            }
-          });
-          board.appendChild(b);
-        });
-        ctx.after(120, play);
-        /* This used to test `cur.iv === right`. An old wave's timer fires during
-           a later wave, and roughly one time in twelve the new wave draws the
-           same interval — so the timer killed a player who had already answered.
-           Compare wave numbers instead; identity, not coincidence. */
-        ctx.after(fallDur, function () { if (wave === myWave) lose(); });
+        var inv = ctx.el('div', 'arc-invader arc-invader-solo', '👾');
+        inv.style.left = (8 + Math.random() * 74) + '%';
+        inv.style.animationDuration = fallMs + 'ms';
+        board.appendChild(inv);
+        cur.inv = inv;
+        cap.innerHTML = '&nbsp;';
+        ctx.after(150, play);
+        ctx.after(fallMs, function () { if (cur.wave === mine && !cur.done) landed(); });
       }
-      function lose() {
-        lives--; ctx.lives(lives);
+      function landed() {
+        cur.done = true;
+        lives--; ctx.lives(lives); ctx.drum('kick');
+        flashKey(cur.target, 'arc-right');
+        ctx.note(cur.target, null, 0.8);
+        cap.innerHTML = 'It was ' + name(cur.root) + ' → ' + name(cur.target) + ' — ' + article(cur.iv) + NAMES[cur.iv] + (cur.down ? ' down' : ' up') + '.';
         if (lives <= 0) {
-          var was = cur ? cur.iv[1] : '';
-          ctx.end(score, 'The one that got you was a <b>' + was + '</b>. Train it in <a href="ear-training.html">ear training</a>.');
-        } else nextWave();
+          return ctx.after(1100, function () {
+            ctx.end(score, 'Train the same skill slowly in <a href="ear-training.html">ear training</a>, or hunt whole melodies in <a href="melody-detective.html">Melody Detective</a>.');
+          });
+        }
+        ctx.after(1500, nextWave);
       }
-      ctx.key(function (e) { if (e.key === ' ') { e.preventDefault(); play(); } });
+      function press(midi) {
+        ctx.note(midi, null, 0.72);                 // you always hear what you pressed
+        if (!cur || cur.done || midi === cur.root) return;
+        if (midi !== cur.target) { cur.wrong++; flashKey(midi, 'arc-wrong'); return; }
+        cur.done = true;
+        var pts = cur.wrong ? 1 : 3;
+        score += pts; ctx.score(score);
+        flashKey(midi, 'arc-right');
+        cur.inv.classList.add('boom');
+        cap.innerHTML = '✓ ' + name(cur.root) + ' → ' + name(cur.target) + ': ' + article(cur.iv) + NAMES[cur.iv] + ' · +' + pts;
+        fallMs = Math.max(5000, fallMs - 260);
+        ctx.after(850, nextWave);
+      }
+      var MAP = { KeyA: 60, KeyW: 61, KeyS: 62, KeyE: 63, KeyD: 64, KeyF: 65, KeyT: 66, KeyG: 67, KeyY: 68, KeyH: 69,
+        KeyU: 70, KeyJ: 71, KeyK: 72, KeyO: 73, KeyL: 74, KeyP: 75, Semicolon: 76, Quote: 77 };
+      ctx.key(function (e) {
+        if (e.key === ' ') { e.preventDefault(); play(); return; }
+        if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+        var m = MAP[e.code];
+        if (m == null) return;
+        e.preventDefault();
+        if (e.shiftKey) m += 12;
+        if (m <= 83) press(m);
+      });
+      ctx.onStop(function () { if (cur && keys[cur.root]) keys[cur.root].classList.remove('arc-root'); });
       nextWave();
     }
   });
@@ -459,6 +493,7 @@
       var score = 0, target = null, tries = 0, played = [];
       // buildPiano hands its callback (freq, keyEl, oct, midi) — midi is FOURTH
       DRD.buildPiano(wrap, [4, 5], function (freq, k, oct, midi) {
+        ctx.note(midi, null, 0.7);                 // hear your guess — the miss is the lesson
         if (target == null) return;
         if (midi === target) {
           score += (tries === 0 ? 3 : 1); ctx.score(score);
@@ -542,66 +577,66 @@
     }
   });
 
-  /* 8. CHORD CRUSH — major, minor, diminished, augmented, quick-fire ------- */
+  /* 8. CHORD MATCH — the same colour in a different key ----------------------
+     Used to ask "Major / Minor / Diminished / Augmented?" — words. Now you
+     hear a chord, then four in another key, and pick the one that FEELS the
+     same. Transposing the options is what makes it an ear skill rather than
+     spotting an identical sound. The name is revealed afterwards. */
   A.register({
-    id: 'chord-crush', title: 'Chord Crush', icon: '🧊', tag: 'Ear',
-    desc: 'A chord sounds. Major, minor, diminished or augmented? Sixty seconds, streak multiplier.',
-    help: 'Tap the quality you hear (keys 1–4, Space replays). A streak of five doubles your points; a wrong answer resets it.',
+    id: 'chord-crush', title: 'Chord Match', icon: '🎨', tag: 'Ear', scoreKey: 'chord-crush@2',
+    desc: 'A chord rings out. Four more follow in a different key — one of them has the same colour. Match it by ear. No chord names needed.',
+    help: 'Hear the mystery chord (Space), then play the four options (keys 1–4, as often as you like) and pick the one with the same colour: bright, dark, tense, dreamy… The options are in another key, so listen for the feeling, not the notes. First pick scores 3, second 1. Ten rounds.',
     start: function (ctx) {
-      var Q = [['Major', [0, 4, 7]], ['Minor', [0, 3, 7]], ['Diminished', [0, 3, 6]], ['Augmented', [0, 4, 8]]];
-      var score = 0, streak = 0, cur = null, played = [];
-      var wrap = ctx.el('div', 'arc-center');
-      var streakEl = ctx.el('div', 'arc-streak', '');
-      var row = ctx.el('div', 'arc-pads arc-pads-grid');
-      var padEls = [];
-      Q.forEach(function (q, i) {
-        var b = ctx.el('button', 'arc-pad', (i + 1) + '<span>' + q[0] + '</span>');
-        b.type = 'button';
-        b.addEventListener('click', function () { answer(i, b); });
-        row.appendChild(b); padEls.push(b);
-      });
-      var rp = ctx.el('button', 'btn btn-ghost arc-replay', '↻ Hear it again (Space)');
-      rp.type = 'button'; rp.addEventListener('click', play);
-      wrap.appendChild(streakEl); wrap.appendChild(row); wrap.appendChild(rp);
-      ctx.stage.appendChild(wrap);
-
-      function play() {
-        if (!cur) return;
+      var Q = [
+        { name: 'major', feel: 'the bright one', iv: [0, 4, 7] },
+        { name: 'minor', feel: 'the dark one', iv: [0, 3, 7] },
+        { name: 'diminished', feel: 'the tense one', iv: [0, 3, 6] },
+        { name: 'augmented', feel: 'the dreamy, unsettled one', iv: [0, 4, 8] },
+        { name: 'suspended', feel: 'the open, unresolved one', iv: [0, 5, 7] },
+        { name: 'dominant seventh', feel: 'the one that wants to move on', iv: [0, 4, 7, 10] }
+      ];
+      var round = 0, score = 0, ui = null, cur = null, played = [];
+      function playChord(root, q) {
         ctx.hush(played);
-        played.push.apply(played, ctx.chord(cur.midis, null, 1));
+        var t0 = ctx.now() + 0.04, v = Math.min(0.8, 1.7 / q.iv.length);
+        q.iv.forEach(function (s, i) { played.push(ctx.note(root + s, t0 + i * 0.045, v)); });   // a light roll
       }
-      function ask() {
-        var qi = ctx.rand(4), root = 48 + ctx.rand(20);
-        cur = { qi: qi, midis: Q[qi][1].map(function (s) { return root + s; }) };
-        play();
+      function next() {
+        round++;
+        if (round > 10) return ctx.end(score, 'Every one of these colours lives in the <a href="chord-finder.html">chord finder</a>, with its name and its keys.');
+        ctx.stage.innerHTML = '';
+        var avail = round <= 3 ? [0, 1, 2, 3] : round <= 6 ? [0, 1, 2, 3, 4] : [0, 1, 2, 3, 4, 5];
+        var qi = ctx.pick(round <= 3 ? [0, 1] : avail);
+        var opts = ctx.shuffle(ctx.shuffle(avail.filter(function (x) { return x !== qi; })).slice(0, 3).concat([qi]));
+        var r1 = 50 + ctx.rand(9);
+        cur = { qi: qi, opts: opts, r1: r1, r2: r1 + ctx.pick([-5, -4, -3, 3, 4, 5]) };
+        ui = A.choices(ctx, {
+          count: 4, pickLabel: 'Same colour', maxWrong: 1,
+          status: 'Round ' + round + ' of 10 — which one has the same colour?',
+          mysteryLabel: 'Hear the mystery chord',
+          onMystery: function () { playChord(cur.r1, Q[cur.qi]); },
+          onPlay: function (i) { playChord(cur.r2, Q[cur.opts[i]]); },
+          onPick: function (i, wrongSoFar) {
+            if (cur.opts[i] !== cur.qi) { ctx.drum('clave'); return false; }
+            var pts = wrongSoFar ? 1 : 3;
+            score += pts; ctx.score(score);
+            reveal(pts);
+            return true;
+          },
+          onGiveUp: function () { reveal(0); }
+        });
+        ctx.stage.appendChild(ui.el);
+        ctx.after(200, function () { playChord(cur.r1, Q[cur.qi]); });
       }
-      function answer(qi, btn) {
-        if (!cur) return;
-        var target = btn || padEls[qi];
-        if (target) {
-          target.classList.remove('good-flash', 'bad-flash'); void target.offsetWidth;
-          target.classList.add(qi === cur.qi ? 'good-flash' : 'bad-flash');
-        }
-        if (qi === cur.qi) {
-          streak++;
-          score += streak >= 5 ? 2 : 1;
-          ctx.score(score);
-          streakEl.textContent = streak >= 5 ? '🔥 streak ×2 (' + streak + ')' : 'streak ' + streak;
-        } else {
-          streak = 0; streakEl.textContent = 'It was ' + Q[cur.qi][0];
-          ctx.drum('clave');
-        }
-        ask();
+      function reveal(pts) {
+        ui.markRight(cur.opts.indexOf(cur.qi));
+        cur.opts.forEach(function (q, k) { ui.caption(k, Q[q].name); });
+        ui.status.innerHTML = (pts ? '✓ +' + pts + ' — ' : 'Not this time — ') +
+          'that colour is called <b>' + Q[cur.qi].name + '</b>, ' + Q[cur.qi].feel + '.';
+        ctx.after(2400, next);
       }
-      ctx.key(function (e) {
-        var n = parseInt(e.key, 10);
-        if (n >= 1 && n <= 4) { e.preventDefault(); answer(n - 1); }
-        if (e.key === ' ') { e.preventDefault(); play(); }
-      });
-      ctx.countdown(60, function () {
-        ctx.end(score, 'The <a href="chord-finder.html">chord finder</a> lets you hear all of these side by side.');
-      });
-      ask();
+      ctx.key(function (e) { if (ui) ui.key(e); });
+      next();
     }
   });
 

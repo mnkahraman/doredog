@@ -183,7 +183,7 @@ function page(slug, title, desc, bodyHtml, opts, rawMd) {
 <meta property="og:title" content="${attr(title)}">
 <meta property="og:description" content="${attr(desc)}">
 <meta property="og:url" content="${canon}">
-<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta property="og:image" content="https://doredog.com/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${ICON}">
 <link rel="stylesheet" href="css/main.css?v=${V}">
@@ -379,7 +379,7 @@ const hub = `<!DOCTYPE html>
 <meta property="og:title" content="Learn Piano — Guides &amp; Articles | DoReDog">
 <meta property="og:description" content="${attr(hubDesc)}">
 <meta property="og:url" content="https://doredog.com/articles">
-<meta property="og:image" content="https://doredog.com/assets/covers/_mood-atlas.webp">
+<meta property="og:image" content="https://doredog.com/assets/og-default.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${ICON}">
 <link rel="stylesheet" href="css/main.css?v=${V}">

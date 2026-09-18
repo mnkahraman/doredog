@@ -143,15 +143,98 @@
   A.playOpening = function (song, nota, seconds, vel) {
     var cols = DRD.buildTimeline(DRD.parseNotation(nota)).cols;
     var step = 1 / Math.max(2, Math.min(10, song.cps || 5));
-    var t0 = A.now() + 0.08, live = [];
-    for (var i = 0; i < cols.length; i++) {
-      var at = i * step;
+    // Start at the first sounding column: a piece that opens on a rest would
+    // otherwise spend part of a six-second clip playing nothing at all.
+    var first = 0;
+    while (first < cols.length && !cols[first].events.length) first++;
+    var t0 = A.now() + 0.08, live = [], n = 0;
+    for (var i = first; i < cols.length && n < 360; i++) {
+      var at = (i - first) * step;
       if (at > seconds) break;
-      for (var k = 0; k < cols[i].events.length; k++) {
+      for (var k = 0; k < cols[i].events.length; k++, n++) {
         live.push(A.note(cols[i].events[k].midi, t0 + at, 0.75 * (vel == null ? 1 : vel)));
       }
     }
     return { stop: function () { A.hush(live); } };
+  };
+
+  A.esc = function (t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  };
+
+  // Offered AFTER an answer, never asked for: the name is a reward, not a gate.
+  A.INTERVAL_NAMES = [null, 'minor second', 'major second', 'minor third', 'major third',
+    'perfect fourth', 'tritone', 'perfect fifth', 'minor sixth', 'major sixth',
+    'minor seventh', 'major seventh', 'octave'];
+
+  /* ---- listen / choose: the shared answer row of the listening games -----
+     These games used to ask for vocabulary — "Diminished", "Perfect 4th",
+     "Baroque" — which made them quizzes about words. Now every answer is a
+     sound: each option is a ▶ button (free, as often as you like) and a pick
+     button that commits. A wrong pick greys that option out and costs points;
+     it never ends the round. Keyboard: 1–N listen, Enter picks the one heard
+     last, Space replays the mystery. A game makes ONE ctx.key handler that
+     forwards to the current row's key(), so rows never stack listeners. */
+  A.choices = function (ctx, cfg) {
+    var wrap = ctx.el('div', 'arc-center arc-choice');
+    var status = ctx.el('div', 'arc-streak', cfg.status || '');
+    wrap.appendChild(status);
+    if (cfg.onMystery) {
+      var m = ctx.el('button', 'btn btn-primary arc-mystery',
+        '▶ ' + (cfg.mysteryLabel || 'Hear the mystery') + ' <kbd>Space</kbd>');
+      m.type = 'button';
+      m.addEventListener('click', function () { cfg.onMystery(); });
+      wrap.appendChild(m);
+    }
+    var row = ctx.el('div', 'arc-pads arc-choice-row');
+    var cols = [], last = -1, locked = false, wrong = 0, LET = 'ABCDEF';
+    function listen(i) {
+      last = i;
+      cols.forEach(function (c, k) { c.col.classList.toggle('listening', k === i); });
+      cfg.onPlay(i);
+    }
+    function choose(i) {
+      if (locked || cols[i].dead) return;
+      if (cfg.onPick(i, wrong)) {
+        locked = true;
+        cols[i].col.classList.add('right');
+        return;
+      }
+      wrong++;
+      cols[i].dead = true;
+      cols[i].col.classList.add('wrong');
+      cols[i].pick.disabled = true;
+      if (cfg.maxWrong != null && wrong > cfg.maxWrong) {
+        locked = true;
+        if (cfg.onGiveUp) cfg.onGiveUp();
+      }
+    }
+    for (var i = 0; i < cfg.count; i++) (function (i) {
+      var col = ctx.el('div', 'arc-oddcol');
+      var play = ctx.el('button', 'arc-pad arc-oddpad', '▶<span>' + LET[i] + ' · key ' + (i + 1) + '</span>');
+      play.type = 'button';
+      play.addEventListener('click', function () { listen(i); });
+      var pick = ctx.el('button', 'btn btn-ghost arc-oddpick', cfg.pickLabel || 'This one');
+      pick.type = 'button';
+      pick.addEventListener('click', function () { choose(i); });
+      var cap = ctx.el('div', 'arc-choice-cap', '');
+      col.appendChild(play); col.appendChild(pick); col.appendChild(cap);
+      row.appendChild(col);
+      cols.push({ col: col, pick: pick, cap: cap, dead: false });
+    })(i);
+    wrap.appendChild(row);
+    return {
+      el: wrap, status: status,
+      caption: function (i, html) { cols[i].cap.innerHTML = html; },
+      markRight: function (i) { cols[i].col.classList.add('right'); },
+      locked: function () { return locked; },
+      key: function (e) {
+        var n = parseInt(e.key, 10);
+        if (n >= 1 && n <= cfg.count) { e.preventDefault(); listen(n - 1); return; }
+        if (e.key === 'Enter' && last >= 0) { e.preventDefault(); choose(last); return; }
+        if (e.key === ' ' && cfg.onMystery) { e.preventDefault(); cfg.onMystery(); }
+      }
+    };
   };
 
   /* ---- the shell -------------------------------------------------------- */
@@ -164,6 +247,9 @@
   A.el = h;
 
   A.mount = function (root, def) {
+    // A game that is redesigned gets a new scoreKey: a best from the old rules
+    // is not a best at the new ones, and should not sit above them unbeatable.
+    var SK = def.scoreKey || def.id;
     root.innerHTML =
       '<div class="arc-head">' +
         '<a class="arc-back" href="games.html">← All games</a>' +
@@ -175,7 +261,7 @@
           '<span class="arc-stat">Score <b id="arc-score">0</b></span>' +
           '<span class="arc-stat" id="arc-lives-wrap" hidden>Lives <b id="arc-lives"></b></span>' +
           '<span class="arc-stat" id="arc-time-wrap" hidden>Time <b id="arc-time"></b></span>' +
-          '<span class="arc-stat">Best <b id="arc-hud-best">' + A.best(def.id) + '</b></span>' +
+          '<span class="arc-stat">Best <b id="arc-hud-best">' + A.best(SK) + '</b></span>' +
           '<span class="arc-stat arc-stat-hint"><kbd>R</kbd> restart</span>' +
         '</div>' +
         '<div class="arc-stage" id="arc-stage"></div>' +
@@ -188,7 +274,7 @@
             '</div>' +
             '<p class="arc-endnote" id="arc-endnote" hidden></p>' +
             '<p class="arc-help" id="arc-over-p">' + def.help + '</p>' +
-            (def.toy ? '' : '<p class="arc-best">Your best: <b id="arc-best">' + A.best(def.id) + '</b> · played <b id="arc-plays">' + A.plays(def.id) + '</b>×</p>') +
+            (def.toy ? '' : '<p class="arc-best">Your best: <b id="arc-best">' + A.best(SK) + '</b> · played <b id="arc-plays">' + A.plays(SK) + '</b>×</p>') +
             '<div class="arc-over-btns">' +
               '<button class="btn btn-primary btn-lg" id="arc-go" type="button">▶ Play</button>' +
               '<a class="btn btn-ghost" href="games.html">All games</a>' +
@@ -266,8 +352,8 @@
       end: function (score, label) {
         if (!running) return;
         cleanup();
-        var prevBest = A.best(def.id);
-        var best = A.record(def.id, score);
+        var prevBest = A.best(SK);
+        var best = A.record(SK, score);
         var isBest = score > 0 && score > prevBest;
         var card = root.querySelector('#arc-score-card');
         card.hidden = false;
@@ -279,7 +365,7 @@
         noteEl.hidden = !label;
         if (label) noteEl.innerHTML = label;
         var plays = root.querySelector('#arc-plays');
-        if (plays) plays.textContent = A.plays(def.id);
+        if (plays) plays.textContent = A.plays(SK);
         // a two-second sound says how it went, before any reading happens
         try {
           var t0 = A.now() + 0.05;

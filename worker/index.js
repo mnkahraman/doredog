@@ -10,7 +10,13 @@ import { MEMBERS, COLLECTIONS } from './collection-members.js';
 import { OTD } from './on-this-day-data.js';
 
 const ORIGIN = 'https://doredog.com';
-const DEFAULT_OG = ORIGIN + '/assets/covers/_mood-atlas.webp';
+/* 1200×630, ~100 KB. This used to be assets/covers/_mood-atlas.webp — 5120×2400
+   and 2.9 MB — as the share image for ~2,900 worker-rendered pages. Every
+   link-preview and search crawler fetched it once per page, which is where
+   most of September's 19 GB of bandwidth went, and WhatsApp refuses preview
+   images over ~300 KB, so shares showed no picture at all. JPEG, not WebP,
+   because some preview renderers still reject WebP. */
+const DEFAULT_OG = ORIGIN + '/assets/og-default.jpg';
 
 function attr(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function ld(obj) { return '<script type="application/ld+json">' + JSON.stringify(obj).replace(/</g, '\\u003c') + '</script>'; }
